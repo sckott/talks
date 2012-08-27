@@ -1,0 +1,70 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1138\cocoasubrtf470
+{\fonttbl\f0\fnil\fcharset0 Consolas;\f1\fnil\fcharset0 Consolas-Bold;\f2\fswiss\fcharset0 ArialMT;
+\f3\fnil\fcharset0 Georgia;\f4\fnil\fcharset0 Verdana;}
+{\colortbl;\red255\green255\blue255;\red26\green24\blue24;\red29\green36\blue39;\red89\green141\blue166;
+\red38\green38\blue38;\red35\green35\blue35;\red255\green255\blue255;}
+\deftab720
+\pard\pardeftab720\sl360\slmult1\pardirnatural
+
+\f0\fs26 \cf2 What is open science\
+	Data are re-used in ways not intended originally.  \
+Ropensci\
+	- Dryad, Mendeley, total-impact.\
+DataONE\
+	- Workflows, R package, provenance.\
+Writing with R\
+	Knitcitations.\
+\
+\
+(Use the webfont from symbolset too).\
+\
+\
+
+\f1\b Team\
+
+\f0\b0 The team consists of Carl Boettiger, Scott Chamberlain and me. We are all ecology postdocs. We also have a diverse advisory team with two R experts (Duncan temple lang and Hadley Wickham), Bertram Ludascher, an expert on scientfic workflow systems and provenance, and Matt Jones, who is the director of eco informatics at the national center for ecological analysis and synthesis. \
+\
+\
+
+\f1\b Provenance
+\f0\b0 \
+\pard\pardeftab720\sl480
+\cf2 An important feature of scientific workflow systems is their ability to record and subsequently query and visualize provenance information. Provenance includes the processing history and lineage of data, and can be used, e.g., to validate/invalidate outputs, debug workflows, document authorship and attribution chains, etc. and thus facilitate \'93reproducible science\'94. \
+\
+Trace files implemented as XML The results of each run of the Challenge workflow (including input data, intermediate and final data products, as well as provenance) were recorded in a trace file by the CollectionWriter actor and may be downloaded here: trace1.xml, trace2.xml. Trace files are implemented in XML using the same schema used for workflow input files read by CollectionReader.\
+\
+What is provenance?\
+metadata needed to understand process that  created some result.\
+information that makes computation/data more "transparent", "trustworthy"\
+	Why is provenance \
+important?\
+\'95 long-term record keeping\
+\'95 debugging, data cleaning, error diagnosis\
+\'95 scienti\uc0\u64257 c repeatability\
+\'95 data & provenance required by some journals\
+\'95 trust, accountability, transparency\
+\'95 i.e., climategate-prevention\
+\
+Git\'92s hyperdistributed peer-to-peer data sharing model is good for code, but bad for big scientific data. This is because Git works by placing a complete version of the entire code repository, including all versioning and branching, onto the laptop of every developer who forks (copies) the code base for their own personal use, and then allows them to pull (merge in) other people\'92s development as it proceeds.  This has turned out to be a very powerful way to develop because it gives enormous flexibility to developers to experiment, and then select the experiments that work.  This works because code is small and usually evolves though small and mostly orthogonal diffs (changes) in text files that are efficient to merge.   The rapidly increasing availability of sequencing technologies like RNAseq, full exome, and even full genome promises to increase the rate of data generation data faster than improvements in storage, and especially network bandwidth.  Furthermore, if you re-run an analysis, you\'92re probably going to change *all* the output results, and the analysis itself might require a warehouse full of computers to process in a reasonable time.  Giving everyone a copy of the data on their local machine just won\'92t work.  Giving analyst teams distributed access to shared and centralized data and compute resources is necessary, and becoming more technically straightforward given the rise of commercial cloud computing platforms.\
+\
+R is great because it helps ideas spread faster.\
+\pard\pardeftab720\sl400
+
+\f2\fs28 \cf3 : to slow down the competition by keeping the results of hard work to yourself. {\field{\*\fldinst{HYPERLINK "http://lemire.me/en/"}}{\fldrslt \cf4 Daniel Lemire}}, a computer scientist and professor, {\field{\*\fldinst{HYPERLINK "http://lemire.me/blog/archives/2010/02/10/open-sourcing-your-software-hurts-your-competitiveness-as-a-researcher/"}}{\fldrslt \cf4 responded to this argument}} elsewhere by pointing out that open sourcing his code not only makes his work repeatable, but spreads the ideas faster and makes the code better in the long run, since other users can help debug it.
+\f0\fs26 \cf2 \
+\pard\pardeftab720\sl480
+\cf2 \
+\pard\pardeftab720\sl480
+
+\f3\fs32 \cf5 Markdown is becoming an increasingly popular platform for lightweight and online publishing.\
+\
+\pard\pardeftab720\sl380
+
+\f4\fs26 \cf6 \cb7 Datacite works increase acceptance of research data as legitimate, citable contributions to the scholarly record
+\f3\fs32 \cf5 \cb1 \
+\pard\pardeftab720\sl480
+\cf5 \
+Benefits of open science\
+\
+Data gets cited more. \
+New ideas are discovered from data that\'92s already been paid for.}

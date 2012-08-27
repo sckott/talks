@@ -1,0 +1,15 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1138\cocoasubrtf470
+{\fonttbl\f0\fnil\fcharset0 Baskerville;}
+{\colortbl;\red255\green255\blue255;\red26\green24\blue24;}
+\deftab720
+\pard\pardeftab720\sl360\slmult1\pardirnatural
+
+\f0\fs26 \cf2 DataONE is a large consortium grant aimed at building the infrastructure needed to maintain and share environmental data. Any organziation can apply to become a member node. So as data are generated, they can be pushed into a member node, get a DOI, and then become available to anyone with rights to such data. By default, the user is the only one who can access it. But over time time, this can be extended to the lab group, the organization, and everyone.\
+\
+R fits into DataONE in two ways.\
+\
+A) There is now an R Package in the works, called d1_R that allows users to first authenticate, and then query and obtain data directly into R. This means that one could share an R script with anyone and therefore be able to submit those in as well.\
+\
+B) As part of a working group called the Provenance working group, I have recently begun implementing a formal way to capture workflows in R. Just like with knitr, as long as a user is able to identify processing steps (which would be functions), data, and parameters, then R quietly generates a workflow trace for every run and can also keep those in. So results from various runs could potentially be compared, perhaps visually, to see differences among runs and what factors (inputs, or function parameters) generated such differences. Rprov is a new project and if anyone else is interested in the possibilty of contributing or collaborating, please do get in touch.\
+\
+}

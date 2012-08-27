@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<head>
+<style type="text/css">.knitr.inline {
+  background-color: #f7f7f7;
+  border:solid 1px #B0B0B0;
+}
+.error {
+	font-weight: bold;
+	color: #FF0000;
+}, 
+.warning {
+	font-weight: bold;
+} 
+.message {
+	font-style: italic;
+} 
+.source, .output, .warning, .error, .message {
+	padding: 0em 1em;
+  border:solid 1px #F7F7F7;
+}
+.source {
+  background-color: #f7f7f7;
+}
+.rimage.left {
+  text-align: left;
+}
+.rimage.right {
+  text-align: right;
+}
+.rimage.center {
+  text-align: center;
+}
+
+.background {
+  color: #F7F7F7;
+}
+
+.number {
+  color: #000000;
+}
+
+.functioncall {
+  color: #800054;
+  font-weight: bolder;
+}
+
+.string {
+  color: #9999FF;
+}
+
+.keyword {
+  font-weight: bolder;
+  color: black;
+}
+
+.argument {
+  color: #B04005;
+}
+
+.comment {
+  color: #2E9957;
+}
+
+.roxygencomment {
+  color: #707AB3;
+}
+
+.formalargs {
+  color: #B04005;
+}
+
+.eqformalargs {
+  color: #B04005;
+}
+
+.assignement {
+  font-weight: bolder;
+  color: #000000;
+}
+
+.package {
+  color: #96B525;
+}
+
+.slot {
+  font-style: italic;
+}
+
+.symbol {
+  color: #000000;
+}
+
+.prompt {
+  color: #333333;
+}
+</style>
+  <title>A minimal knitr example in HTML</title>
+</head>
+<body>
+<div class="chunk"><div class="rcode"><div class="source"><pre class="knitr"><span class="symbol">opts_chunk</span><span class="keyword">$</span><span class="functioncall">set</span><span class="keyword">(</span><span class="argument">fig.width</span> <span class="argument">=</span> <span class="number">5</span><span class="keyword">,</span> <span class="argument">fig.height</span> <span class="argument">=</span> <span class="number">5</span><span class="keyword">,</span> <span class="argument">fig.path</span> <span class="argument">=</span> <span class="string">"ex-out-"</span><span class="keyword">)</span>
+</pre></div></div></div>
+
+
+  <p>This is a minimal example which shows <strong>knitr</strong>
+  working with HTML
+  pages. See <a href="https://github.com/downloads/yihui/knitr/knitr-minimal.html">here</a>
+  for the output and
+  <a href="https://github.com/yihui/knitr/blob/master/inst/examples/knitr-minimal.Rhtml">here</a>
+  for the source.</p>
+
+  <p>Boring stuff as usual:</p>
+  
+<div class="chunk"><div class="rcode"><div class="source"><pre class="knitr"><span class="functioncall">figshare</span><span class="keyword">(</span><span class="symbol">data</span><span class="keyword">)</span>
+<span class="comment"># code doesn't work yet but once it does should return a persistent identifier</span>
+</pre></div></div></div>
+
+
+<p> stuff goes here</p>
+<br><br>
+
+<div class="chunk"><div class="rcode"><div class="source"><pre class="knitr"><span class="functioncall">library</span><span class="keyword">(</span><span class="symbol">rplos</span><span class="keyword">)</span>
+<span class="functioncall">plot_throughtime</span><span class="keyword">(</span><span class="functioncall">list</span><span class="keyword">(</span><span class="string">"reproducible science"</span><span class="keyword">)</span><span class="keyword">,</span> <span class="number">500</span><span class="keyword">)</span>
+</pre></div></div></div>
+
+
+  <p>Errors, messages and warnings can be put into <code>div</code>'s
+  with different <code>class</code>es:</p>
+</body>
+</html>
