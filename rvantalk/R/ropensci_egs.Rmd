@@ -1,0 +1,79 @@
+`ro warning=FALSE, message=FALSE, comment=NA, cache=FALSE or`
+
+*********
+
+## Example rOpenSci code
+
+*********
+
+### Getting data - ropensnp (wraps the OpenSNP.org API)
+```{r ropensnp}
+# install_github("ropensnp", "ropensci")
+
+library(ropensnp)
+dat <- phenotypes(userid = "1,6,8", df = TRUE)
+dat
+
+```
+
+*********
+
+### Literature  - metadata - rdatacite (wraps the DataCite API)
+```{r rdatacite}
+# install_github('rdatacite', 'ropensci')
+
+library(rdatacite); library(OAIHarvester)
+out <- getrecord("56225", T) # get the metadata record with id '56225'
+out$metadata # get $identifier, $datestamp, $setSpec, or $metadata
+oaih_transform(out$metadata) # transform only metadata to a list
+```
+
+*********
+
+### Literature - full text - rplos (wraps the Public Library of Science API)
+```{r rplos}
+# install_github("rplos", "ropensci")
+
+library(rplos)
+
+# Visualize with the ggplot2 package, only up to two terms for now
+plot_throughtime(list('drosophila','monkey'), 100)
+
+# Search results on a keyword over all fields in PLoS Journals.
+plosword('Helianthus')
+out <- plosword(list('monkey','replication','design','sunflower','whale'), vis = 'TRUE')
+out[[1]] # results in a data frame 
+out[[2]] # results in a bar plot
+```
+
+*********
+
+### Altmetrics - raltmet (wraps many APIs)
+```{r raltmet}
+# install_github("raltmet", "ropensci")
+
+library(raltmet)
+
+# Get github stats on repos
+github(userorg = 'hadley', repo = 'ggplot2', 'allstats')
+
+# Get Bit.ly clicks for a given URL.
+bitly_clicks(bitlyurl = 'http://bit.ly/xaTrO7')
+```
+
+*********
+
+### NCBI data - rentrez (wraps the entrez NCBI API)
+```{r rentrez}
+# install_github("rentrez", "ropensci")
+
+library(rentrez)
+
+# Get summaries of objects in NCBI datasets from a unique ID
+pubmed_search <- entrez_search(db="pubmed", term="Dwarf Elephant", retmax=1)
+entrez_summary(db="pubmed", ids=pubmed_search$ids)
+```
+
+*********
+
+### Get the .Rmd file used to create this post. You can run the code just as you would in R. You can also compile to pdf, html, etc. using [knitr](http://yihui.name/knitr/). For example, to compile to pdf, run `knit2pdf("/path/to/theRmdfile.Rmd")`.
