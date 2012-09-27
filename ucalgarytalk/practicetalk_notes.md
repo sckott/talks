@@ -1,12 +1,9 @@
 # ucalgary talk notes
-+ on slide #intoutcome: transition, "so clearly interaction outcomes are important for mean outcomes"
-+ new slide before #meanandvariation: biological e.g. of variation in single species interaction (maybe Thompson)
-+ change slide #noterrorvariation_eg : use picture from africa acacia system, and species int variation instead of site variation
-+ #methods2: make multiple slides, Don't use herbivory example, use other 
-+ #ecosystem: remember what to say here? 
+## To do
+### Not done
++ ALL DONE
 
-
-
+### Done
 + move questions slide after quotes slide
 + give collaborator slide at start
 + fix order of P, C, M 
@@ -22,3 +19,10 @@
 + #justify_context_x_type: use more of slide
 + #predictions slide: leave it, but bigger font, and have some diagrams
 + fonts too small, use space by making fonts bigger
++ #methods2: make multiple slides, Don't use herbivory example, use other
++ change slide #noterrorvariation_eg : use picture from africa acacia system, and species int variation instead of site variation
++ #ecosystem: remember what to say here?
++ new slide before #meanandvariation: biological e.g. of variation in single species interaction (maybe Thompson)
+
+## Notes
++ on slide #intoutcome: transition, "so clearly mean interaction outcomes are important in ecology, but what about variation in outcomes"
