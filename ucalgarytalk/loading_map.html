@@ -1,25 +1,20 @@
 <!--slide delimiter-->
 
-	<section class="slide" id="studiesmap_load">
+	<section class="slide" id="studiesmap2">
 		<h2>Final dataset - 353 papers</h2>
-		<script>
-			loadIframe();
-			</script>
+		<iframe id='cartomap_iframe' width='900' height='600'></iframe>
 	</section>	
 
 
-
-
-
-<!-- Script to load image of CartoDB map in case the map doesn't load -->
+	<!-- Script to load image of CartoDB map in case the map doesn't load -->
 <script type="text/javascript" src="jquery-1.7.min.js"></script>
 <script id="iframe_loader">
 function loadIframe() {
-  var iframe_element = document.getElementById('iframe_id');
-  if (navigator.onLine(connected)) {
-    iframe_element.attr('src','https://recology.cartodb.com/tables/condma_1_cleaned/embed_map');
+  var iframe_element = document.getElementById('cartomap_iframe');
+  if (navigator.onLine) {
+    iframe_element.src = 'https://recology.cartodb.com/tables/condma_1_cleaned/embed_map';
   } else {
-    iframe_element.attr('src','images/cartodbmap.png');
+    iframe_element.src = 'images/cartodbmap.png';
   }
 }
 </script>
