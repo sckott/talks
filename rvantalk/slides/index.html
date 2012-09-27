@@ -54,7 +54,7 @@
 <section class="slide" id="link_to_slides">
 	<div>
 	<hgroup>
-	<h1><i class="ss-link"> </i>&nbsp; http://bit.ly/RwiJBV</h1>
+	<h1><i class="ss-link"> </i>&nbsp; http://bit.ly/rvantalk</h1>
 	
 </hgroup>
 </div>
@@ -88,6 +88,15 @@
 
 <!--    ##############    slide delimiter  ##############    -->
 
+<section class="slide" id="whatdoweneed">
+	<br>
+	<div>
+	<h1>What do we need?</h1>
+	</div>	
+</section>
+
+<!--    ##############    slide delimiter  ##############    -->
+
 
 <section class="slide" id="open_science">
 <br><br>
@@ -117,7 +126,7 @@
 	<img src="images/sharing.png">
 	</div>	
 <br><br><br><br>
-	<p>Source: <a href="http://limitedreleasepodcast.ca/2012/01/pipa-sopa-do-the-imperial-march/">Here</a></p>
+	<p>Source: <a href="http://bit.ly/Tprrx8">http://bit.ly/Tprrx8</a></p>
 </section>
 
  <!--    ##############    slide delimiter  ##############    -->
@@ -145,7 +154,7 @@
 <br><br>
 	<div>
 	<h2>Open Science needs open source tools</h2>
-	<img src="images/exponential_r_growth.png" height="367" width="378">
+	<img src="images/exponential_r_growth.png" height="567" width="578">
 	<br><br>
 	<p>Source: <i class="ss-icon ss-link"> <a href="http://blog.revolutionanalytics.com/2010/01/r-package-growth.html">Revolution Analytics, 2010</a>, 
 	<a href="http://www.nature.com/nature/journal/v482/n7386/abs/nature10836.html">Nature editorial, 2012</a></i></p>
@@ -162,9 +171,29 @@
 <!--    ##############    slide delimiter  ##############    -->
 
 <section class="slide" id="R_is_better">
-	<h2>The R way...</h2>
-	<br><br>
-	<pre class="knitr"><div class="source"><span class="functioncall">glm</span><span class="keyword">(</span><span class="symbol">y</span> <span class="keyword">~</span> <span class="keyword">-</span><span class="number">1</span> <span class="keyword">+</span> <span class="symbol">a</span> <span class="keyword">+</span> <span class="symbol">c</span> <span class="keyword">+</span> <span class="symbol">z</span> <span class="keyword">+</span> <span class="symbol">a</span><span class="keyword">:</span><span class="symbol">z</span><span class="keyword">,</span> <span class="argument">data</span> <span class="argument">=</span> <span class="symbol">mydata</span><span class="keyword">,</span> <span class="argument">maxit</span> <span class="argument">=</span> <span class="number">30</span><span class="keyword">)</span></div></pre>
+	<h2>The R way, e.g.,...</h2>
+<h3>Make an API call</h3> 
+<font size="2"><div class="chunk"><div class="rcode"><div class="source"><pre class="knitr R"><span class="functioncall">library</span>(RCurl); <span class="functioncall">library</span>(RJSONIO)
+dat &lt;- <span class="functioncall">fromJSON</span>(<span class="functioncall">getURL</span>(<span class="string">"https://api.github.com/users/hadley/repos"</span>))
+</pre></div></div></div></font>
+
+<h3>Manipulate the data</h3> 
+<font size="2"><div class="chunk"><div class="rcode"><div class="source"><pre class="knitr R"><span class="functioncall">library</span>(plyr); <span class="functioncall">library</span>(reshape2)
+dat_df &lt;- <span class="functioncall">ldply</span>(dat, <span class="functioncall"><span class="keyword">function</span></span>(x) <span class="functioncall">as.data.frame</span>(x[<span class="functioncall">names</span>(x) %<span class="keyword">in</span>% <span class="functioncall">c</span>(<span class="string">"name"</span>, <span class="string">"watchers_count"</span>, 
+    <span class="string">"forks"</span>, <span class="string">"open_issues"</span>)]))
+dat_melt &lt;- <span class="functioncall">melt</span>(dat_df)
+</pre></div></div></div></font>
+
+    
+<h3>Run some statistical model</h3> 
+<font size="2"><div class="chunk"><div class="rcode"><div class="source"><pre class="knitr R"><span class="functioncall">lm</span>(value ~ variable, data = dat_melt)
+</pre></div></div></div></font>
+
+    
+<h3>Visualize results</h3> 
+<font size="2"><div class="chunk"><div class="rcode"><div class="source"><pre class="knitr R"><span class="functioncall">library</span>(ggplot2)
+<span class="functioncall">ggplot</span>(dat_melt, <span class="functioncall">aes</span>(name, value, colour = variable)) + <span class="functioncall">geom_point</span>() + <span class="functioncall">coord_flip</span>()
+</pre></div></div></div></font>
 	<br><br>
 	<h3>This is <u>reproducible</u>, <u>repeatable</u> and can serve as a analytic workflow.</h3>
 </section>
@@ -175,15 +204,16 @@
 	<h2>Why R...</h2>
 	<div>
 		<ul>
-			<li><h3>Most obvious is -> many people in science already use R.</h3></li>
-				<p>Bring it to where the people are</p>
-			<li><h3>Massive number of libraries (~4,000) allow much of science workflow to take place in R, for:</h3></li>
+			<li><h3>Most obvious reason --> many people in science already use R.</h3></li>
+				<h4>"Bring it to where the people are"</h4>
+				<br>
+			<li><h3>Massive number of libraries (~4,000) allow much of science workflow to take place in R, including:</h3></li>
 				<ul>
-					<li><h3>getting data ~ social, financial, climate data, etc. </h3></li>
+					<li><h3>getting data ~ social, financial, environmental, etc. </h3></li>
 					<li><h3>manipulating data ~ <a href="http://plyr.had.co.nz/">plyr</a>, <a href="http://cran.r-project.org/web/packages/data.table/index.html">data.table</a>, etc.</h3></li>
 					<li><h3>visualizing data ~ <a href="http://had.co.nz/ggplot2/">ggplot2</a></h3></li>
 					<li><h3>analyzing data ~ base stats, lme4, etc.</h3></li>
-					<li><h3>writing up results ~ latex, markdown, <a href="http://yihui.name/knitr/">knitr</a></h3></li>
+					<li><h3>writing up results ~ <a href="http://www.statistik.lmu.de/~leisch/Sweave/">LaTeX/Sweave</a>, <a href="http://cran.r-project.org/web/packages/markdown/index.html">markdown</a>, <a href="http://yihui.name/knitr/">knitr</a></h3></li>
 				</ul>
 		</ul>
 	</div>	
@@ -381,7 +411,7 @@
 	<div>
 		<h2>Some stats on rOpenSci packages</h2>
 		<h3>Data via GitHub API, run in R function via <a href="https://public.opencpu.org/pages/">OpenCPU.org</a></h3>
-		<img src="http://beta.opencpu.org/R/call/opencpu.demo/gitstats/png?type='org'&id='ropensci'" width="600" height="500" />
+		<img src="http://beta.opencpu.org/R/call/opencpu.demo/gitstats/png?type='org'&id='ropensci'" width="600" height="600" />
 	</div>	
 </section>
 
@@ -444,6 +474,16 @@
 				<td><a href="http://www.pensoft.net/index.php"><img src="images/pensoft.png" width="100" height="100"></a></td>
 			</tr> 
 		</table>
+		<br><br>
+		<h3>Coming when APIs ready/we get around to it...</h3>
+		<table width="800"> 
+			<tr> 
+				<td><a href="http://www.elifesciences.org/"><img src="images/elife.png" width="100" height="100">eLife</a></td>
+				<td><a href="http://www.ncbi.nlm.nih.gov/pmc/"><img src="images/pmc.png" width="200" height="100"></a></td>
+				<td><a href="http://f1000research.com/"><img src="images/f1000.png" width="200" height="100"></a></td>
+				<td><a href="https://peerj.com/"><img src="images/peerj.png" width="100" height="100"></a></td>
+			</tr> 
+		</table>
 	</div>	
 </section>
 
@@ -452,7 +492,7 @@
 <section class="slide" id="umbrella_pkgs">
 	<br><br>
 	<h2>Umbrella packages</h2>
-	<h3>abstract away the detail of each package to search across data sources on:</h3>
+	<h3>Abstract away the detail of each package to search across data sources on:</h3>
 	<div>
 		<ul>
 			<li><h3>taxonomic data</h3></li>
@@ -472,8 +512,8 @@
 			<li><h3>Web scraping html, xml, etc.</h3></li>
 			<li><h3>Reading json, csv, txt, etc.</h3></li>
 			<li><h3>Hitting an Application Programming Interface (API)</h3></li>
-				<ul><li><p>This is the preferred, and most common method we use</p></li>
-				<li><p>Some require an API key, some do not</p></li></ul>
+				<ul><li><h4>This is the preferred, and most common method we use</h4></li>
+				<li><h4>Some require an API key, some do not</h4></li></ul>
 		</ul>
 	</div>	
 </section>
@@ -484,8 +524,9 @@
 	<br><br>
 	<h2>Authentication: R and APIs - API keys</i></h2>
 	<div>
-	<p>API keys can be stored in a users<code>.rprofile</code></p>
-
+	<p>API keys can be stored in a users<code>.Rprofile</code> file</p> 
+	<a href="https://github.com/ropensci/rOpenSci/wiki/Installation-and-use-of-API-keys">Click here for help on <code>.Rprofile</code> files</a>
+<br><br>
 	<pre class="knitr"> 
 <span class="functioncall">options</span><span class="keyword">(</span><span class="argument">MendeleyKey</span> <span class="argument">=</span> <span class="string">"uf5daib7wyil7ag5buc"</span><span class="keyword">)</span>
 <span class="functioncall">options</span><span class="keyword">(</span><span class="argument">MendeleyPrivateKey</span> <span class="argument">=</span> <span class="string">"faj2os5dyd7jop2fok6"</span><span class="keyword">)</span>
@@ -496,18 +537,6 @@
 	<br><br><br><br><br><small>Note: These keys aren't real.</small>
 	</div>	
 </section>
-
-<!--    ##############    slide delimiter  ##############    -->
-
-<section class="slide" id="r_oauth">
-	<br><br>
-	<h2>Authentication: R and APIs - OAuth</h2>
-	<div>
-	<p>XXXX</p>
-
-	</div>	
-</section>
-
 
 <!--    ##############    slide delimiter  ##############    -->
 
@@ -592,9 +621,13 @@ $full_name
 	url = <span class="string">"http://data.gbif.org/ws/rest/occurrence/count"</span>, 
     	curl = <span class="functioncall">getCurlHandle</span>()) 
 {
+<br>
+# The compact fxn is a great way to gather parameters - removes all NULL
+<br>
     querystr &lt;- <span class="functioncall">compact</span>(<span class="functioncall">list</span>(
     	scientificname = scientificname, coordinatestatus = coordinatestatus
-    ))
+    )) 
+<br>
     temp &lt;- <span class="functioncall">GET</span>(url, query = querystr)
     out &lt;- <span class="functioncall">content</span>(temp)$doc$children$gbifResponse
     <span class="functioncall">as.numeric</span>(<span class="functioncall">xmlGetAttr</span>(<span class="functioncall">getNodeSet</span>(out, <span class="string">"//gbif:summary"</span>)[[1]], <span class="string">"totalMatched"</span>))
@@ -648,9 +681,16 @@ $full_name
 
 <!--    ##############    slide delimiter  ##############    -->
 
+<section class="slide" id="ourpkgs">
+	<h1>Examples from some of our packages</h1>
+</section>
+
+<!--    ##############    slide delimiter  ##############    -->
+
 <section class="slide" id="rplos">
 	<h2>Public Library of Science full text - <code>rplos</code></h2>
-	<br>
+	<br><h3><a href="http://www.plos.org/">Public Library of Science </a> </h3><br>
+
 	<section class="slide deck-previous" id="rplos_code"><div>
 		<pre class="knitr"><span class="functioncall">library</span><span class="keyword">(</span><span class="symbol">rplos</span><span class="keyword">)</span>
 <span class="functioncall">plot_throughtime</span><span class="keyword">(</span><span class="functioncall">list</span><span class="keyword">(</span><span class="string">"reproducible science"</span><span class="keyword">)</span><span class="keyword">,</span> <span class="number">500</span><span class="keyword">)</span></pre>
@@ -663,7 +703,6 @@ $full_name
 	</div>	
 	</section>
 </section>
-
 
 <!--    ##############    slide delimiter  ##############    -->
 
@@ -687,6 +726,7 @@ $full_name
 <section class="slide" id="rmendeley">
 	<br><br>
 	<h2>Managing bibliography - <code>RMendeley</code></h2>
+		<br><h3><a href="http://www.mendeley.com/">Mendeley</a> </h3><br>
 	<div>
 	<h3>Manage libraries and measure impact of research</h3>
 	<section class="slide deck-previous" id="rmendeley_code">
@@ -715,6 +755,8 @@ $authors[[1]]
 <section class="slide" id="rdryad">
 	<br><br>
 	<h2>Accessing data behind papers - <code>rdryad</code></h2>
+	<br><h3><a href="http://datadryad.org/">Dryad</a> </h3><br>
+
 	<div>
 <font size="2"><div class="chunk"><div class="rcode"><div class="source"><pre class="knitr R">
 <span class="comment"># Get URL <span class="keyword">for</span> a specific dataset</span>
@@ -753,6 +795,8 @@ file &lt;- <span class="functioncall">dryad_getfile</span>(dryaddat)
 
 <pre class="knitr"><span class="functioncall">stackexchange</span><span class="keyword">(</span><span class="argument">ids</span> <span class="argument">=</span> <span class="number">16632</span><span class="keyword">)</span>
 </pre>
+<br>
+<h3>Definitely check out <a href="http://total-impact.org/">Total-Impact.org</a> and <a href="http://altmetrics.org/manifesto/">here</a> to learn more about #altmetrics</h3>
 	</div>	
 </section>
 
@@ -760,6 +804,8 @@ file &lt;- <span class="functioncall">dryad_getfile</span>(dryaddat)
 
 <section class="slide" id="rgbif">
 <h2>Mapping biodiversity data - <code>rgbif</code></h2>
+<br><h3><a href="http://www.gbif.org/">Global Biodiversity Information Facility</a> </h3><br>
+
 <section  class="slide deck-previous" id="getting_distribution_data">
 	<pre class="knitr">
 <span class="symbol">distribution</span> <span class="assignement">&lt;-</span> <span class="functioncall">occurrencelist</span><span class="keyword">(</span><span class="argument">sciname</span> <span class="argument">=</span> <span class="string">"Danaus plexippus"</span><span class="keyword">,</span> <span class="argument">coordinatestatus</span> <span class="argument">=</span> <span class="number">TRUE</span><span class="keyword">,</span> <span class="argument">maxresults</span> <span class="argument">=</span> <span class="number">1000</span><span class="keyword">,</span> <span class="argument">latlongdf</span> <span class="argument">=</span> <span class="number">TRUE</span><span class="keyword">)</span>
@@ -919,7 +965,7 @@ file &lt;- <span class="functioncall">dryad_getfile</span>(dryaddat)
 </section>
 
 <!--    ##############    tutorials  ##############    -->
-<section class="slide" id="tutorials">
+<section class="slide" id="tutorials1">
 	<div>
 	<h1>rOpenSci tutorials</h1>
 	</div>
@@ -927,11 +973,18 @@ file &lt;- <span class="functioncall">dryad_getfile</span>(dryaddat)
 
 
 <!--    ##############    tutorials  ##############    -->
-<section class="slide" id="tutorials">
+<section class="slide" id="tutorials2">
 	<div>
 	<h2>rOpenSci tutorials</h2>
 		<h3><a href="http://ropensci.org/tutorials/">http://ropensci.org/tutorials/</a></h3>
 		<img src="images/ropensci_tutorials.png">
+	</div>
+</section>
+
+<!--    ##############    E.g. code  ##############    -->
+<section class="slide" id="examples">
+	<div>
+	<h1>If you like, play with examples at: <a href="http://bit.ly/OoCUg3">http://bit.ly/OoCUg3</a></h1>
 	</div>
 </section>
 
@@ -1019,19 +1072,6 @@ file &lt;- <span class="functioncall">dryad_getfile</span>(dryaddat)
 $(function() {
 	$.deck('.slide');
 });
-</script>
-<script type="text/javascript">
-  var _gauges = _gauges || [];
-  (function() {
-    var t   = document.createElement('script');
-    t.type  = 'text/javascript';
-    t.async = true;
-    t.id    = 'gauges-tracker';
-    t.setAttribute('data-site-id', '500ebbcdf5a1f53be6000014');
-    t.src = '//secure.gaug.es/track.js';
-    var s = document.getElementsByTagName('script')[0];
-    s.parentNode.insertBefore(t, s);
-  })();
 </script>
 </body>
 </html>
