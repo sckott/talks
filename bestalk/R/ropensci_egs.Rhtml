@@ -1,0 +1,39 @@
+<!--begin.rcode taxize-resolve, eval=FALSE
+library(taxize)
+
+# Using plantminer
+plants <- c("Myrcia lingua", "Myrcia bella", "Coffea arabica", "Bleh")
+out <- plantminer(plants)
+out[,!names(out) %in% c("author","source","source.id")]
+
+# Using theplantlist.org
+splist <- c("Poa annua", "Platanus occidentalis", "Carex abrupta", "Arctostaphylos canescens", "Ocimum basilicum", "Vicia faba", "Quercus kelloggii", "Lactuca serriola")
+out2 <- tpl_search(taxon = splist)
+out2[,names(out2) %in% c("Genus","Species","New.Genus","New.Species")]
+
+# Using ITIS
+tsn <- get_tsn("Compositae")
+data.frame(getacceptednamesfromtsn(tsn))
+end.rcode-->
+
+<!--begin.rcode taxize-attach-names, eval=FALSE
+### Getting taxonomic data from many sources
+library(taxize)
+species <- c("Poa annua", "Abies procera", "Helianthus annuus", "Coffea arabica")
+famnames <- sapply(species, itis_name, get = "family", USE.NAMES = F)
+data.frame(species = species, family = famnames)
+end.rcode-->
+
+<!--begin.rcode rgbif, fig.height=5, fig.width=9
+### Getting data from GBIF
+library(rgbif)
+splist <- c('Accipiter erythronemius', 'Junco hyemalis', 'Aix sponsa')
+out <- lapply(splist, function(x) occurrencelist(x, coordinatestatus = T, maxresults = 50))
+gbifmap(out)
+end.rcode-->
+
+<!--begin.rcode rvertnet, fig.height=5, fig.width=7
+library(rvertnet)
+out <- vertoccurrence(t='Oncorhynchus mykiss', grp="fish", num=300)
+vertmap(input = out)
+end.rcode-->
