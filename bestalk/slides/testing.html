@@ -486,18 +486,17 @@ famnames &lt;- <span class="functioncall">sapply</span>(species, itis_name, get 
 <!--    ##############    slide delimiter  ##############    -->
 <section class="slide" id="rgbif">
 <h2>Mapping biodiversity data - <code>rgbif</code></h2>
-<br>
-<section  class="slide deck-previous" id="getting_distribution_data">
-	<font size="2"><div class="source"><pre class="knitr r"><span class="comment">### Getting data from GBIF</span>
-	<span class="functioncall">library</span>(rgbif)
-	splist &lt;- <span class="functioncall">c</span>(<span class="string">"Accipiter erythronemius"</span>, <span class="string">"Junco hyemalis"</span>, <span class="string">"Aix sponsa"</span>)
-	out &lt;- <span class="functioncall">lapply</span>(splist, <span class="functioncall"><span class="keyword">function</span></span>(x) <span class="functioncall">occurrencelist</span>(x, coordinatestatus = T, maxresults = 50))
-	<span class="functioncall">gbifmap</span>(out)
-	</pre></div></font>
+<br><h3><a href="http://www.gbif.org/" target="_blank">Global Biodiversity Information Facility</a> </h3><br>
 
-	<div class="rimage default"><img src="images/rgbif.png" title="plot of chunk rgbif" alt="plot of chunk rgbif" class="plot" /></div>
+<font size="2"><div class="source"><pre class="knitr r"><span class="comment">### Getting data from GBIF</span>
+<span class="functioncall">library</span>(rgbif)
+splist &lt;- <span class="functioncall">c</span>(<span class="string">"Accipiter erythronemius"</span>, <span class="string">"Junco hyemalis"</span>, <span class="string">"Aix sponsa"</span>)
+out &lt;- <span class="functioncall">lapply</span>(splist, <span class="functioncall"><span class="keyword">function</span></span>(x) <span class="functioncall">occurrencelist</span>(x, coordinatestatus = T, maxresults = 50))
+<span class="functioncall">gbifmap</span>(out)
+</pre></div></font>
+
+<img src="images/rgbif.png">
 	
-</section>
 </section>
 
 <!--    ##############    slide delimiter  ##############    -->
@@ -508,67 +507,7 @@ famnames &lt;- <span class="functioncall">sapply</span>(species, itis_name, get 
 </h1>
 </section>
 
-<!--    ##############    slide delimiter  ##############    -->
-<section class="slide" id="rvertnet">
-<h2>Vertebrate specimen records - <code>rvertnet</code></h2>
-	<br>
-	<font size="2"><div class="source"><pre class="knitr r"><span class="functioncall">library</span>(rvertnet)
-out &lt;- <span class="functioncall">vertoccurrence</span>(t = <span class="string">"Oncorhynchus mykiss"</span>, grp = <span class="string">"fish"</span>, num = 300)
-<span class="functioncall">vertmap</span>(input = out)
-	</pre></div></font>
 
-	<div class="rimage default"><img src="images/rvertnet.png" title="plot of chunk rvertnet" alt="plot of chunk rvertnet" class="plot" />
-</section>
-
-<!--    ##############    slide delimiter  ##############    -->
-<section class="slide" id="rfigshare">
-	<br><br>
-	<h2>Sharing and using data - <code>(rfigshare)</code></h2>
-	<div>
-	<h3 class="figshare">Using Figshare's new <a href="http://api.figshare.com/docs/">API</a>, it is now possible to share figures, data, and any other object generated in <code>R</code> directly to one's figshare account. After authenticating: </h3><br>
-	
-	<font size="2"><div class="source"><pre class="knitr r"><span class="functioncall">library</span>(rfigshare)
-
-<span class="comment"># Try creating your own content:</span>
-id &lt;- <span class="functioncall">fs_new_article</span>(title = <span class="string">"A Test of rfigshare"</span>, description = <span class="string">"testing"</span>, 
-    type = <span class="string">"figure"</span>, authors = <span class="string">"Scott Chamberlain"</span>, tags = <span class="functioncall">c</span>(<span class="string">"ecology"</span>, <span class="string">"openscience"</span>), 
-    categories = <span class="string">"Ecology"</span>, links = <span class="string">"http://ropensci.org"</span>, files = <span class="string">"figure/rvertnet.png"</span>)</div></font>
-	</div>
-</section>
-
-<!--    ##############    slide delimiter  ##############    -->
-<section class="slide" id="rfigshare-walla">
-<h2>Sharing and using data - <code>(rfigshare)</code></h2>
-	<img src="images/figshare_test.png"></a>
-</section>
-
-
-<!--    ##############    slide delimiter  ##############    -->
-<section class="slide" id="rfigshare-video">
-<h2>Sharing and using data - <code>(rfigshare)</code></h2>
-<h2><a href="http://figshare.com/articles/automatic_analysis_and_publishing_of_data/100998" target="_blank">Video of using rfigshare in practice</a></h2>
-</section>
-
-
-<!--    ##############    tutorials  ##############    -->
-<section class="slide" id="tutorials2">
-	<div>
-	<h2>rOpenSci tutorials</h2>
-		<h3><a href="http://ropensci.org/tutorials/" target="_blank">http://ropensci.org/tutorials/</a></h3>
-		<img src="images/ropensci_tutorials.png">
-	</div>
-</section>
-
-<!--    ##############    closing slide  ##############    -->
-<section class="slide" id="outro">
-	<div>
-	<h1><a href="http://ropensci.org/" target="_blank">ropensci.org</a></h1>
-	<br>
-		<h3>Please contact us if you have feedback or ideas for collaborations!</h3> <br><br>
-		<h3>Code open-source on <a href="http://github.com/ropensci" target="_blank">GitHub</a>.</h3> 
-		<h3>Elsewhere <a href="http://twitter.com/ropensci" target="_blank">@ropensci</a> and <a href="http://gplus.to/ropensci" target="_blank">G+</a></h3>
-	</div>
-</section>
 
 <!-- ============================================================================= -->
 <!-- ====      END PRESENTATION  ==== -->
