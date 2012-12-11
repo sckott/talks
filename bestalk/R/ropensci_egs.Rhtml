@@ -24,7 +24,7 @@ famnames <- sapply(species, itis_name, get = "family", USE.NAMES = F)
 data.frame(species = species, family = famnames)
 end.rcode-->
 
-<!--begin.rcode rgbif, fig.height=5, fig.width=9
+<!--begin.rcode rgbif, fig.height=5, fig.width=9, eval=FALSE
 ### Getting data from GBIF
 library(rgbif)
 splist <- c('Accipiter erythronemius', 'Junco hyemalis', 'Aix sponsa')
@@ -32,8 +32,17 @@ out <- lapply(splist, function(x) occurrencelist(x, coordinatestatus = T, maxres
 gbifmap(out)
 end.rcode-->
 
-<!--begin.rcode rvertnet, fig.height=5, fig.width=7
+<!--begin.rcode rvertnet, fig.height=5, fig.width=7, eval=FALSE
 library(rvertnet)
 out <- vertoccurrence(t='Oncorhynchus mykiss', grp="fish", num=300)
 vertmap(input = out)
+end.rcode-->
+
+<!--begin.rcode rfigshare, fig.height=5, fig.width=7
+library(rfigshare)
+# Try creating your own content:
+id <- fs_new_article(title = "A Test of rfigshare", description = "testing", 
+    type = "figure", authors = "Scott Chamberlain", tags = c("ecology", 
+        "openscience"), categories = "Ecology", links = "http://ropensci.org", 
+    files = "figure/rvertnet.png")
 end.rcode-->
