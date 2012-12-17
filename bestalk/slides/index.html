@@ -7,7 +7,7 @@
 	<link href='http://fonts.googleapis.com/css?family=Nunito' rel='stylesheet' type='text/css'>
 	<!--<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">-->
 
-	<title>Getting ecology and evolution data within R</title>
+	<title>Getting ecology data within R</title>
 
 	<meta name="description" content="Slides from BES ropensci talk">
 	<meta name="author" content="Scott Chamberlain">
@@ -35,7 +35,10 @@
 	<section class="slide" id="intro">
 		<div>
 			<hgroup>
-				<h1>Big ecology / evolution data from R</h1>
+				<h1>Big</h1>
+				<h1>(& reproducible!)</h1>
+				<h1>ecology data with R</h1>
+				<br><br><br>
 				<h3>Scott Chamberlain</h3>
 				<h4><span style="color:#ae0000;">@recology_ & @ropensci</span></h4>
 			</hgroup>
@@ -55,13 +58,22 @@
 	</div>
 </section>
 
+<!--    ##############    link to talk  ##############    -->
+<section class="slide" id="usedtobe">
+<br>
+	<div>
+	<h2>It used to be like this...</h2>
+		<h3>IMAGE OF OLDEN TIMES COLLECTING JUST BITS OF DATA</h3>
+	</div>
+</section>
+
 <!--    ##############    slide delimiter  ##############    -->
 
 <section class="slide" id="lotsofdata">
-<br><br>
+<br>
 	<div>
 		<table width="1000" border="1" cellspacing="100"> 
-			<h2>Lots of data is on the interwebs</h2>
+			<h2>...but now lots of data on the interwebs</h2>
 			<tr>
 				<td><a href="https://bitly.com/"  target="_blank"><img src="images/bitly.png" width="100" height="100"></a></td>
 				<td><a href="https://github.com/" target="_blank"><img src="images/github_logo.png" width="100" height="100"></a></td>
@@ -105,11 +117,11 @@
 	<div>
 		<h2>But how do (rather, should) we get the data?</h2>
 		<ul>
-			<li><h2>Ideally programatically</h2></li>
-			<li><h2>Within a working environment biologists already use</h2></li>
-			<li><h2>Get data where you manipulate it, visualize it, analyze it</h2></li>
+			<li><h2>Programatically</h2></li>
+			<li><h2>Within a familiar environment to biologists</h2></li>
+			<li><h2>Within one environment to: manipulate, visualize, analyze</h2></li>
 		</ul>
-	</div>	
+	</div>
 </section>
 
 <!--    ##############    slide delimiter  ##############    -->
@@ -158,16 +170,16 @@ dat_melt &lt;- <span class="functioncall">melt</span>(<span class="functioncall"
 
 <!--    ##############    slide delimiter  ##############    -->
 <section class="slide" id="workflow">
-	<h1>This is <u>reproducible</u>, <u>repeatable</u> and can serve as an analytic workflow.</h1>
+	<h1><em>Reproducible</em>,<br><br> <em>repeatable</em>,<br><br> <em>analytic workflow</em></h1>
 </section>
 
 <!--    ##############    slide delimiter  ##############    -->
 <section class="slide" id="ropensci">
 	<div>
-	<br><br><br>
+	<br><br><br><br><br><br>
 	<hgroup>
 	<img src="images/ropensci.png">
-	<center><h3>Wrapping all science APIs <i class="ss-globe"></i></h3><br><br>
+	<center>
 
 	<h2>
 	<ul class="bubbles desktop only">
@@ -212,40 +224,40 @@ dat_melt &lt;- <span class="functioncall">melt</span>(<span class="functioncall"
  			<li><a href="http://www.carlboettiger.info/" target="_blank"><img src="images/Home.png" width="20" height="20"></a> </li>
  			<!--<li><a href="http://www.carlboettiger.info/"  src="images/home.png"</a></li>-->
 		</ul></center><br>
- 		<img src="images/photo_spacer.png">	
+ 		<img src="images/photo_spacer2.png">	
  		</td>
 
  		<!-- Karthik -->
- 		<td><img src="images/photo_spacer.png">	</td>	
+ 		<td><img src="images/photo_spacer2.png">	</td>	
  		<td><img src="images/karthik84x84.png"><center>Karthik Ram<br>
  		<ul class="bubbles desktop only">
  			<!--<li class="ss-social-circle ss-icon"><a href="https://twitter.com/_inundata" style="color:#c9e9d3;">&#xF611;</a></li>
  			<li><a href="http://inundata.org/"  style="color:#c9e9d3;" class="ss-icon">&#x1F517;</a></li>-->
  			<li><a href="https://twitter.com/_inundata" target="_blank"><img src="images/Twitter.png" width="20" height="20"></a> </li>
  			<li><a href="http://inundata.org/" target="_blank"><img src="images/Home.png" width="20" height="20"></a> </li>
-		</ul></center><br><img src="images/photo_spacer.png">
+		</ul></center><br><img src="images/photo_spacer2.png">
 		</td>
 
 		<!-- Scott -->
- 		<td><img src="images/photo_spacer.png">	</td>	
+ 		<td><img src="images/photo_spacer2.png">	</td>	
  		<td><img src="images/scott84x84.png"><center>Scott Chamberlain<br>
  				<ul class="bubbles desktop only">
  			<!--<li class="ss-social-circle ss-icon"><a href="https://twitter.com/recology_" style="color:#c9e9d3;">&#xF611;</a></li>
  			<li><a href="http://schamberlain.GitHub.com/"  style="color:#c9e9d3;" class="ss-icon">&#x1F517;</a></li>-->
  			<li><a href="https://twitter.com/recology_" target="_blank"><img src="images/Twitter.png" width="20" height="20"></a> </li>
  			<li><a href="http://schamberlain.github.com/scott" target="_blank"><img src="images/Home.png" width="20" height="20"></a> </li>
-		</ul></center><br><img src="images/photo_spacer.png">
+		</ul></center><br><img src="images/photo_spacer2.png">
 		</td> 		
 
 		<!-- Ted -->
- 		<td><img src="images/photo_spacer.png">	</td>	
+ 		<td><img src="images/photo_spacer2.png">	</td>	
  		<td><img src="images/ted84x84.png"><center>Edmund Hart<br>
  				<ul class="bubbles desktop only">
  			<!--<li class="ss-social-circle ss-icon"><a href="https://twitter.com/recology_" style="color:#c9e9d3;">&#xF611;</a></li>
  			<li><a href="http://schamberlain.GitHub.com/"  style="color:#c9e9d3;" class="ss-icon">&#x1F517;</a></li>-->
  			<li><a href="https://twitter.com/distribecology" target="_blank"><img src="images/Twitter.png" width="20" height="20"></a> </li>
  			<li><a href="http://emhart.github.com/" target="_blank"><img src="images/Home.png" width="20" height="20"></a> </li>
-		</ul></center><br><img src="images/photo_spacer.png">
+		</ul></center><br><img src="images/photo_spacer2.png">
 		</td> 		
 
  		</tr>
@@ -317,20 +329,7 @@ dat_melt &lt;- <span class="functioncall">melt</span>(<span class="functioncall"
 </section>
 
 <!--    ##############    slide delimiter  ##############    -->
-<section class="slide" id="ropensci_overview1">
-	<br><br>
-	<div>
-		<h2>rOpenSci packages</h2>
-		<h3>Data packages</h3>
-		<br>
-		<h3>Literature packages</h3>
-		<br>
-		<h3>Hybrid packages</h3>
-	</div>	
-</section>
-
-<!--    ##############    slide delimiter  ##############    -->
-<section class="slide" id="ropensci_packages1">
+<section class="slide" id="pks_site">
 	<br><br>
 	<div>
 		<h2>rOpenSci packages</h2>
@@ -340,12 +339,28 @@ dat_melt &lt;- <span class="functioncall">melt</span>(<span class="functioncall"
 </section>
 
 <!--    ##############    slide delimiter  ##############    -->
-<section class="slide" id="ropensci_packages2">
+<section class="slide" id="pks_github">
 	<br><br>
 	<div>
 		<h2>rOpenSci packages</h2>
 		<h3><a href="https://github.com/ropensci">https://github.com/ropensci</a></h3>
 		<a href="https://github.com/ropensci" target="_blank"><img src="images/ropensci_pkgs_github.png" width="800" height="700"></a>
+	</div>	
+</section>
+
+<!--    ##############    slide delimiter  ##############    -->
+<section class="slide" id="otherstoo">
+	<br><br>
+	<div>
+		<table width="1000" border="1" cellspacing="100"> 
+			<h2>Others have R pkgs to get data</h2>
+			<tr>
+				<td><a href="http://www.ncbi.nlm.nih.gov/" target="_blank"><img src="images/ncbi.png" width="100" height="100"></a></td>
+				<td><a href="http://www.theplantlist.org/" target="_blank"><img src="images/theplantlist.png" width="100" height="100"></a></td>
+				<td><a href="http://www.theplantlist.org/" target="_blank"><img src="images/theplantlist.png" width="100" height="100"></a></td>
+				<td><a href="http://www.theplantlist.org/" target="_blank"><img src="images/theplantlist.png" width="100" height="100"></a></td>
+			</tr>
+		</table>
 	</div>	
 </section>
 
@@ -385,22 +400,27 @@ dat_melt &lt;- <span class="functioncall">melt</span>(<span class="functioncall"
 
 <!--    ##############    slide delimiter  ##############    -->
 <section class="slide" id="doingit">
-	<h2>A workflow for macroecology</h2>
+	<h2>A workflow</h2>
 	<ul>
 		<h2>Taxonomic Correction:</h2>
 		<ul>
 			<h3>Are our species names correct? Need higher taxonomy (e.g., family names)?</h3>
 		</ul>
-		<h2>Getting primary data:</h2>
+		<h2>Getting data:</h2>
 		<ul>
 			<h3>Occurrence record, Specimen records from museums, Citizen science data</h3>
 		</ul>
-		<h2>Getting/sharing secondary data:</h2>
+		<h2>Sharing secondary data:</h2>
 		<ul>
 			<h3>Sharing data increases impact of your research</h3>
 			<h3>And allows others to reuse (possibly you)</h3>
 		</ul>
 	</ul>
+</section>
+
+<!--    ##############    slide delimiter  ##############    -->
+<section class="slide" id="letstax">
+	<h1>Taxonomic correction</h1>
 </section>
 
 <!--    ##############    slide delimiter  ##############    -->
@@ -461,6 +481,7 @@ Retrieving data for species ' Compositae '
 <!--    ##############    slide delimiter  ##############    -->
 <section class="slide" id="taxize-attach-names">
 <h2>Get higher taxonomy names - <code>taxize</code></h2>
+<h3>REPLACE WITH NEW FXN tax_name!!!!!!!</h3>
 <br>
 <font size="2"><div class="source"><pre class="knitr r"><span class="comment">### Getting taxonomic data from many sources</span>
 <span class="functioncall">library</span>(taxize)
@@ -476,10 +497,18 @@ famnames &lt;- <span class="functioncall">sapply</span>(species, itis_name, get 
 </section>
 
 <!--    ##############    slide delimiter  ##############    -->
+<section class="slide" id="letsdata">
+	<h1>Getting data</h1>
+</section>
+
+<!--    ##############    slide delimiter  ##############    -->
 <section class="slide" id="rgbif_shiny">
-<h1>Shiny - <code>rgbif</code><br>
-	From <a href="http://www.gbif.org/">VertNet.org</a><br>
+<h1><code>rgbif</code><br>
+	From <a href="http://www.gbif.org/">GBIF.org</a>
+	<br>
 	<a href="http://glimmer.rstudio.com/ropensci/rgbif2/" target="_blank">Live Demo</a>
+	<br>
+	<a href="http://glimmer.rstudio.com/ropensci/rgbif2/" target="_blank">code(put in link to gist)</a>
 </h1>
 </section>
 
@@ -502,9 +531,12 @@ famnames &lt;- <span class="functioncall">sapply</span>(species, itis_name, get 
 
 <!--    ##############    slide delimiter  ##############    -->
 <section class="slide" id="rvertnet_shiny">
-<h1>Shiny - <code>rvertnet</code><br>
-	From <a href="http://vertnet.org/index.php">VertNet.org</a><br>
+<h1><code>rvertnet</code><br>
+	From <a href="http://vertnet.org/index.php">VertNet.org</a>
+	<br>
 	<a href="http://glimmer.rstudio.com/ropensci/rvertnet/" target="_blank">Live Demo</a>
+	<br>
+	<a href="http://glimmer.rstudio.com/ropensci/rgbif2/" target="_blank">code(put in link to gist)</a>
 </h1>
 </section>
 
@@ -518,6 +550,29 @@ out &lt;- <span class="functioncall">vertoccurrence</span>(t = <span class="stri
 	</pre></div></font>
 
 	<div class="rimage default"><img src="images/rvertnet.png" title="plot of chunk rvertnet" alt="plot of chunk rvertnet" class="plot" />
+</section>
+
+<!--    ##############    slide delimiter  ##############    -->
+<section class="slide" id="rnbn">
+<h2>UK biodiversity data - <code>rnbn</code></h2>
+	<br>
+	<font size="2"></font>
+
+	<div class="rimage default"><img src="images/rnbn.png" title="plot of chunk rnbn" alt="plot of chunk rnbn" class="plot" />
+</section>
+
+<!--    ##############    slide delimiter  ##############    -->
+<section class="slide" id="treebase">
+<h2>Get phylogenies - <code>treebase</code></h2>
+	<br>
+	<font size="2"></font>
+
+	<div class="rimage default"><img src="images/treebase.png" title="plot of chunk treebase" alt="plot of chunk treebase" class="plot" />
+</section>
+
+<!--    ##############    slide delimiter  ##############    -->
+<section class="slide" id="letsshare">
+	<h1>Sharing data</h1>
 </section>
 
 <!--    ##############    slide delimiter  ##############    -->
@@ -547,6 +602,8 @@ id &lt;- <span class="functioncall">fs_new_article</span>(title = <span class="s
 <section class="slide" id="rfigshare-video">
 <h2>Sharing and using data - <code>(rfigshare)</code></h2>
 <h2><a href="http://figshare.com/articles/automatic_analysis_and_publishing_of_data/100998" target="_blank">Video of using rfigshare in practice</a></h2>
+<br><br><br><br>
+<h2>TRY TO EMBED THE FIGSHARE VIDEO HERE</h2>
 </section>
 
 
@@ -565,8 +622,10 @@ id &lt;- <span class="functioncall">fs_new_article</span>(title = <span class="s
 	<h1><a href="http://ropensci.org/" target="_blank">ropensci.org</a></h1>
 	<br>
 		<h3>Please contact us if you have feedback or ideas for collaborations!</h3> <br><br>
-		<h3>Code open-source on <a href="http://github.com/ropensci" target="_blank">GitHub</a>.</h3> 
+		<h3>Code open-sourced on <a href="http://github.com/ropensci" target="_blank">GitHub</a></h3> 
 		<h3>Elsewhere <a href="http://twitter.com/ropensci" target="_blank">@ropensci</a> and <a href="http://gplus.to/ropensci" target="_blank">G+</a></h3>
+		<br>
+		<h3>And I'm <a href="http://twitter.com/recology_" target="_blank">@recology_</a></h3>
 	</div>
 </section>
 
