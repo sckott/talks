@@ -1,0 +1,19 @@
+<!--begin.rcode rfisheries, fig.height=5, fig.width=7
+# install.packages("devtools"); library(devtools)
+# install_github("rfisheries", "ropensci")
+library(rfisheries); library(ggplot2)
+
+countries <- country_codes()
+
+# let's take a small subset, say 5 random countries
+c_list <- countries[sample(nrow(countries), 5),]$iso3c
+
+# and grab landings data for these countries
+results <- ldply(c_list, function(x) {
+	df <- landings(country = x)
+	df$country  <-  x
+	df
+}, .progress = 'text')
+
+ggplot(results, aes(year, catch, group = country, color = country)) + geom_line()
+end.rcode-->

@@ -1,0 +1,28 @@
+<div class="chunk"><div class="rcode"><div class="source"><pre class="knitr r"># <span class="functioncall">install.packages</span>(<span class="string">'rfishbase'</span>)
+<span class="functioncall">library</span>(rfishbase)
+<span class="functioncall">library</span>(ggplot2)
+# <span class="functioncall">loadCache</span>()
+reef &lt;- <span class="functioncall">which_fish</span>(<span class="string">"reef"</span>, <span class="string">"habitat"</span>, fish.data)
+nocturnal &lt;- <span class="functioncall">which_fish</span>(<span class="string">"nocturnal"</span>, <span class="string">"trophic"</span>, fish.data)
+reef_species &lt;- <span class="functioncall">fish_names</span>(fish.data[reef])
+nocturnal_nonreef_orders &lt;- <span class="functioncall">fish_names</span>(fish.data[nocturnal &amp; !reef], <span class="string">"Class"</span>)
+age &lt;- <span class="functioncall">getSize</span>(fish.data, <span class="string">"age"</span>)
+depths &lt;- <span class="functioncall">getDepth</span>(fish.data)
+
+marine &lt;- <span class="functioncall">which_fish</span>(<span class="string">"marine"</span>, <span class="string">"habitat"</span>, fish.data)
+africa &lt;- <span class="functioncall">which_fish</span>(<span class="string">"Africa:"</span>, <span class="string">"distribution"</span>, fish.data)
+length &lt;- <span class="functioncall">getSize</span>(fish.data, <span class="string">"length"</span>)
+order &lt;- <span class="functioncall">fish_names</span>(fish.data, <span class="string">"Order"</span>)
+
+dat &lt;- <span class="functioncall">data.frame</span>(reef, nocturnal, age, marine, africa, length, order)
+
+biggest &lt;- <span class="functioncall">names</span>(<span class="functioncall">head</span>(<span class="functioncall">sort</span>(<span class="functioncall">table</span>(order), decr = T), 8))
+primary_orders &lt;- <span class="functioncall">subset</span>(dat, order %<span class="keyword">in</span>% biggest)
+
+<span class="functioncall">ggplot</span>(primary_orders, <span class="functioncall">aes</span>(order, fill = marine)) + <span class="functioncall">geom_bar</span>() + # a few commands to customize appearance
+<span class="functioncall">geom_bar</span>(colour = <span class="string">"black"</span>, show_guide = <span class="keyword">FALSE</span>) + <span class="functioncall">theme_bw</span>(base_size = 16) + 
+    <span class="functioncall">theme</span>(axis.text.x = <span class="functioncall">element_text</span>(angle = 45, hjust = 1, size = 12), legend.title = <span class="functioncall">element_blank</span>(), 
+        legend.justification = <span class="functioncall">c</span>(1, 0), legend.position = <span class="functioncall">c</span>(0.9, 0.6)) + <span class="functioncall">scale_fill_grey</span>(labels = <span class="functioncall">c</span>(<span class="string">"Marine"</span>, 
+    <span class="string">"Non-marine"</span>)) + <span class="functioncall">xlab</span>(<span class="string">""</span>) + <span class="functioncall">ylab</span>(<span class="string">"Number of species"</span>)
+</pre></div></div><div class="rimage default"><img src="figure/rfishbase.png" title="plot of chunk rfishbase" alt="plot of chunk rfishbase" class="plot" /></div></div>
+

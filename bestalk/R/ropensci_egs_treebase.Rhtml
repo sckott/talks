@@ -1,0 +1,13 @@
+<!--begin.rcode treebase, fig.height=5, fig.width=7
+library(treebase); library(ggplot2); library(reshape2)
+
+data(treebase)
+have <- have_branchlength(treebase)
+branchlengths <- treebase[have]
+dat <- data.frame(tips=sapply(branchlengths, Ntip), nodes=sapply(branchlengths, Nnode))
+dat_m <- melt(dat)
+
+ggplot(dat_m[dat_m$value<1000,], aes(value, fill=variable)) + 
+	theme_bw(base_size=20) +
+	geom_density()
+end.rcode-->
