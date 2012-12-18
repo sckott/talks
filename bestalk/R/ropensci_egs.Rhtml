@@ -10,17 +10,22 @@ out[,!names(out) %in% c("author","source","source.id")]
 splist <- c("Poa annua", "Platanus occidentalis", "Carex abrupta", "Arctostaphylos canescens", "Ocimum basilicum", "Vicia faba", "Quercus kelloggii", "Lactuca serriola")
 out2 <- tpl_search(taxon = splist)
 out2[,names(out2) %in% c("Genus","Species","New.Genus","New.Species")]
+end.rcode-->
 
+<!--begin.rcode taxize-down
 # Using ITIS
 tsn <- get_tsn("Compositae")
 data.frame(getacceptednamesfromtsn(tsn))
+
+# Get names downstream
+itis_downstream(tsns=846509, downto="Genus")
 end.rcode-->
 
 <!--begin.rcode taxize-attach-names, eval=FALSE
 ### Getting taxonomic data from many sources
 library(taxize)
 species <- c("Poa annua", "Abies procera", "Helianthus annuus", "Coffea arabica")
-famnames <- sapply(species, itis_name, get = "family", USE.NAMES = F)
+famnames <- sapply(species, tax_name, get = "family", db = "ncbi", USE.NAMES = F)
 data.frame(species = species, family = famnames)
 end.rcode-->
 
@@ -38,11 +43,41 @@ out <- vertoccurrence(t='Oncorhynchus mykiss', grp="fish", num=300)
 vertmap(input = out)
 end.rcode-->
 
-<!--begin.rcode rfigshare, fig.height=5, fig.width=7
+<!--begin.rcode rfigshare, fig.height=5, fig.width=7, eval=FALSE
 library(rfigshare)
 # Try creating your own content:
 id <- fs_new_article(title = "A Test of rfigshare", description = "testing", 
     type = "figure", authors = "Scott Chamberlain", tags = c("ecology", 
         "openscience"), categories = "Ecology", links = "http://ropensci.org", 
     files = "figure/rvertnet.png")
+end.rcode-->
+
+<!--begin.rcode rfigshare2, fig.height=5, fig.width=7, eval=FALSE
+# install.packages("rfishbase")
+library(rfishbase); library(ggplot2)
+# loadCache()
+reef <- which_fish("reef", "habitat", fish.data)
+nocturnal <- which_fish("nocturnal", "trophic", fish.data)
+reef_species <- fish_names(fish.data[reef])
+nocturnal_nonreef_orders <- fish_names(fish.data[nocturnal & !reef], "Class")
+age <- getSize(fish.data, "age")
+depths <- getDepth(fish.data)
+
+marine <- which_fish("marine", "habitat", fish.data)
+africa <- which_fish("Africa:", "distribution", fish.data)
+length <- getSize(fish.data, "length")
+order <- fish_names(fish.data, "Order")
+
+dat <- data.frame(reef, nocturnal,  age, marine, africa, length, order)
+
+biggest <- names(head(sort(table(order),decr=T), 8))
+primary_orders <- subset(dat, order %in% biggest)
+
+ggplot(primary_orders, aes(order, fill=marine)) + geom_bar() + 
+# a few commands to customize appearance 
+  geom_bar(colour="black",show_guide=FALSE) +  
+  theme(axis.text.x=element_text(angle=90, hjust=1, size=6)) + 
+  theme(legend.title=element_blank(), legend.justification=c(1,0), legend.position=c(.9,.6)) +
+  scale_fill_grey(labels=c("Marine", "Non-marine")) + 
+  xlab("") + ylab("Number of species")
 end.rcode-->

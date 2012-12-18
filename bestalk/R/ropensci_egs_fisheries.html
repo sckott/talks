@@ -1,0 +1,33 @@
+<div class="chunk"><div class="rcode"><div class="source"><pre class="knitr r"># <span class="functioncall">install.packages</span>(<span class="string">'devtools'</span>); <span class="functioncall">library</span>(devtools)
+<span class="functioncall">install_github</span>(<span class="string">"rfisheries"</span>, <span class="string">"ropensci"</span>)
+</pre></div><div class="message"><pre class="knitr r">## Installing github repo(s) rfisheries/master from ropensci
+</pre></div><div class="message"><pre class="knitr r">## Installing rfisheries.zip from
+## https://api.github.com/repos/ropensci/rfisheries/zipball/master
+</pre></div><div class="message"><pre class="knitr r">## Installing rfisheries
+</pre></div><div class="message"><pre class="knitr r">## /Library/Frameworks/R.framework/Resources/bin/R --vanilla CMD build \
+## '/private/var/folders/c6/d88zcms97dg5y_jvf3263f8r0000gn/T/RtmpvX8XiP/ropensci-rfisheries-0860773'
+## \ --no-manual --no-resave-data
+</pre></div><div class="message"><pre class="knitr r">## </pre></div><div class="message"><pre class="knitr r">## /Library/Frameworks/R.framework/Resources/bin/R --vanilla CMD INSTALL \
+## '/var/folders/c6/d88zcms97dg5y_jvf3263f8r0000gn/T//RtmpvX8XiP/rfisheries_0.0.3.tar.gz'
+## \
+## --library='/Library/Frameworks/R.framework/Versions/2.15/Resources/library'
+## \ --with-keep.source
+</pre></div><div class="message"><pre class="knitr r">## </pre></div><div class="message"><pre class="knitr r">## Reloading installed rfisheries
+</pre></div><div class="source"><pre class="knitr r"><span class="functioncall">library</span>(rfisheries)
+<span class="functioncall">library</span>(ggplot2)
+
+countries &lt;- <span class="functioncall">country_codes</span>()
+
+<span class="comment"># let's take a small subset, say 5 random countries</span>
+c_list &lt;- countries[<span class="functioncall">sample</span>(<span class="functioncall">nrow</span>(countries), 5), ]$iso3c
+
+<span class="comment"># and grab landings data <span class="keyword">for</span> these countries</span>
+results &lt;- <span class="functioncall">ldply</span>(c_list, <span class="functioncall"><span class="keyword">function</span></span>(x) {
+    df &lt;- <span class="functioncall">landings</span>(country = x)
+    df$country &lt;- x
+    df
+}, .progress = <span class="string">"text"</span>)
+</pre></div><div class="source"><pre class="knitr r">
+<span class="functioncall">ggplot</span>(results, <span class="functioncall">aes</span>(year, catch, group = country, color = country)) + <span class="functioncall">geom_line</span>()
+</pre></div></div><div class="rimage default"><img src="figure/rfisheries.png" title="plot of chunk rfisheries" alt="plot of chunk rfisheries" class="plot" /></div></div>
+

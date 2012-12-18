@@ -1,0 +1,31 @@
+<!--begin.rcode rfishbase, fig.height=5, fig.width=7
+# install.packages("rfishbase")
+library(rfishbase); library(ggplot2)
+# loadCache()
+reef <- which_fish("reef", "habitat", fish.data)
+nocturnal <- which_fish("nocturnal", "trophic", fish.data)
+reef_species <- fish_names(fish.data[reef])
+nocturnal_nonreef_orders <- fish_names(fish.data[nocturnal & !reef], "Class")
+age <- getSize(fish.data, "age")
+depths <- getDepth(fish.data)
+
+marine <- which_fish("marine", "habitat", fish.data)
+africa <- which_fish("Africa:", "distribution", fish.data)
+length <- getSize(fish.data, "length")
+order <- fish_names(fish.data, "Order")
+
+dat <- data.frame(reef, nocturnal,  age, marine, africa, length, order)
+
+biggest <- names(head(sort(table(order),decr=T), 8))
+primary_orders <- subset(dat, order %in% biggest)
+
+ggplot(primary_orders, aes(order, fill=marine)) + geom_bar() + 
+	# a few commands to customize appearance 
+	geom_bar(colour="black",show_guide=FALSE) +  
+	theme_bw(base_size=16) + 
+	theme(axis.text.x=element_text(angle=45, hjust=1, size=12), 
+				legend.title=element_blank(), legend.justification=c(1,0), 
+				legend.position=c(.9,.6)) +
+	scale_fill_grey(labels=c("Marine", "Non-marine")) + 
+	xlab("") + ylab("Number of species")
+end.rcode-->

@@ -60,8 +60,9 @@
 <section class="slide" id="usedtobe">
 <br>
 	<div>
-	<h2>It used to be like this...</h2>
-		<h3>IMAGE OF OLDEN TIMES COLLECTING JUST BITS OF DATA</h3>
+	<h2>Data used to be like this...</h2>
+		<img src="images/darwin_both.png">
+		<p>Image credits: <a href="http://forums.canadiancontent.net/science-environment/79293-charles-darwins-hms-beagle-sail.html">boat</a> and <a href="http://doubtfulnews.com/2012/11/charles-darwin-has-strong-showing-in-georgia-election/">Darwin</a></p>
 	</div>
 </section>
 
@@ -71,11 +72,9 @@
 <br>
 	<div>
 		<table width="1000" border="1" cellspacing="100"> 
-			<h2>...but now lots of data on the interwebs</h2>
+			<h2>...but now lots of accessible data on the interwebs</h2>
 			<tr>
-				<td><a href="https://bitly.com/"  target="_blank"><img src="images/bitly.png" width="100" height="100"></a></td>
-				<td><a href="https://github.com/" target="_blank"><img src="images/github_logo.png" width="100" height="100"></a></td>
-				<td><a href="http://stackoverflow.com/" target="_blank"><img src="images/so.png" width="100" height="100"></a></td> 
+				<td><a href="http://data.nbn.org.uk/" target="_blank"><img src="images/nbn.png" width="100" height="100"></a></td> 
 			</tr>
 			<tr> 
 				<th><a href="http://www.mendeley.com/" target="_blank"><img src="images/mendeley.png" width="100" height="100"></a></th>
@@ -98,13 +97,6 @@
 				<td><a href="http://www.itis.gov/" target="_blank"><img src="images/itis.png" width="100" height="100"></a></td>
 				<th><a href="http://www.biodiversitylibrary.org/" target="_blank"><img src="images/bhl.png" width="100" height="100"></a></th>
 			</tr>
-			<tr>
-				<td><a href="http://total-impact.org/" target="_blank"><img src="images/totalimpact.png" width="100" height="100"></a></td>
-				<td><a href="http://www.altmetric.com/index.php" target="_blank"><img src="images/altmetric.png" width="100" height="100"></a></td>
-				<td><a href="http://www.citeulike.org/" target="_blank"><img src="images/citeulike.png" width="100" height="100"></a></td>
-				<td><a href="http://digg.com/" target="_blank"><img src="images/digg.png" width="100" height="100"></a></td>
-				<td><a href="http://disqus.com/" target="_blank"><img src="images/disqus.png" width="100" height="100"></a></td>
-			</tr>
 		</table>
 	</div>	
 </section>
@@ -113,7 +105,7 @@
 <section class="slide" id="howgetdata">
 <br><br>
 	<div>
-		<h2>But how do (rather, should) we get the data?</h2>
+		<h2>But how should we get data?</h2>
 		<ul>
 			<li><h2>Programatically</h2></li>
 			<li><h2>Within a familiar environment to biologists</h2></li>
@@ -133,7 +125,7 @@
 <!--    ##############    slide delimiter  ##############    -->
 <section class="slide" id="gui_analysis_is_bad">
 	<h2>The old way...</h2>
-	<img src="images/old-way.png">
+	<img src="images/oldway2.png">
 </section>
 
 <!--    ##############    slide delimiter  ##############    -->
@@ -327,6 +319,14 @@ dat_melt &lt;- <span class="functioncall">melt</span>(<span class="functioncall"
 </section>
 
 <!--    ##############    slide delimiter  ##############    -->
+<section class="slide" id="ropensci_collabs">
+	<div>
+		<h2>But many people contribute:</h2>
+		<img src="images/github_collabs2.png" height="650">
+	</div>	
+</section>
+
+<!--    ##############    slide delimiter  ##############    -->
 <section class="slide" id="pks_site">
 	<br><br>
 	<div>
@@ -353,13 +353,16 @@ dat_melt &lt;- <span class="functioncall">melt</span>(<span class="functioncall"
 		<table width="1000" border="1" cellspacing="100"> 
 			<h2>Others have R pkgs to get data</h2>
 			<tr>
-				<td><a href="http://www.ncbi.nlm.nih.gov/" target="_blank"><img src="images/ncbi.png" width="100" height="100"></a></td>
-				<td><a href="http://www.theplantlist.org/" target="_blank"><img src="images/theplantlist.png" width="100" height="100"></a></td>
-				<td><a href="http://www.theplantlist.org/" target="_blank"><img src="images/theplantlist.png" width="100" height="100"></a></td>
-				<td><a href="http://www.theplantlist.org/" target="_blank"><img src="images/theplantlist.png" width="100" height="100"></a></td>
+				<td><a href="http://cran.r-project.org/web/packages/NCBI2R/index.html" target="_blank"><img src="images/ncbi.png" width="100" height="100"></a></td>
+				<td><a href="http://cran.r-project.org/web/packages/Taxonstand/index.html" target="_blank"><img src="images/theplantlist.png" width="100" height="100"></a></td>
 			</tr>
 		</table>
 	</div>	
+	<br><br><br><br><br><br><br><br>
+
+<section  class="slide deck-previous" id="others_next">
+	<h2><center>But rOpenSci is a focused effort to build bridges to data via R</center></h2>
+</section>	
 </section>
 
 <!--    ##############    slide delimiter  ##############    -->
@@ -423,7 +426,7 @@ dat_melt &lt;- <span class="functioncall">melt</span>(<span class="functioncall"
 
 <!--    ##############    slide delimiter  ##############    -->
 <section class="slide" id="taxize-plantminer">
-<h2>Check species names? - <code>taxize with plantminer</code></h2>
+<h2>Check species names - <code>pkg taxize w/ plantminer</code></h2>
 <br>
 <font size="2"><div class="source"><pre class="knitr r"><span class="functioncall">library</span>(taxize)
 
@@ -441,7 +444,7 @@ out &lt;- <span class="functioncall">plantminer</span>(plants)
 
 <!--    ##############    slide delimiter  ##############    -->
 <section class="slide" id="taxize-theplantlist">
-<h2>Taxonomic problems? - <code>taxize with theplantlist.org</code></h2>
+<h2>Check species names - <code>taxize with theplantlist.org</code></h2>
 <br>
 <font size="2"><div class="source"><pre class="knitr r">
 <span class="comment"># Using theplantlist.org</span>
@@ -465,33 +468,47 @@ out2[, <span class="functioncall">names</span>(out2) %<span class="keyword">in</
 <section class="slide" id="taxize-itis">
 <h2>Taxonomic problems? - <code>taxize with ITIS</code></h2>
 <br>
-<font size="2"><div class="source"><pre class="knitr r">
-<span class="comment"># Using ITIS</span>
+<font size="2">
+	<div class="source"><pre class="knitr r"><span class="comment"># Using ITIS</span>
 tsn &lt;- <span class="functioncall">get_tsn</span>(<span class="string">"Compositae"</span>)
-</pre></div><div class="output"><pre class="knitr r">
-Retrieving data for species ' Compositae '
-</pre></div><div class="source"><pre class="knitr r"><span class="functioncall">data.frame</span>(<span class="functioncall">getacceptednamesfromtsn</span>(tsn))
+<span class="functioncall">data.frame</span>(<span class="functioncall">getacceptednamesfromtsn</span>(tsn))
 </pre></div><div class="output"><pre class="knitr r">  submittedTsn acceptedName acceptedTsn
- 1        35421   Asteraceae       35420
-</pre></div></div></font>
+1        35421   Asteraceae       35420
+</pre></div>
+
+<section  class="slide deck-previous" id="taxize_2">
+<div class="source"><pre class="knitr r">
+<span class="comment"># Get names downstream</span>
+<span class="functioncall">itis_downstream</span>(tsns = 846509, downto = <span class="string">"Genus"</span>)
+</pre></div><div class="output"><pre class="knitr r">    tsn parentName parentTsn   taxonName rankId rankName
+1 11531                11530      Bangia    180    Genus
+2 11540                11530    Porphyra    180    Genus
+3 11577                11530 Porphyrella    180    Genus
+4 11580                11530 Conchocelis    180    Genus
+</pre></div>
+</font>
+</section>
 </section>
 
 <!--    ##############    slide delimiter  ##############    -->
 <section class="slide" id="taxize-attach-names">
 <h2>Get higher taxonomy names - <code>taxize</code></h2>
-<h3>REPLACE WITH NEW FXN tax_name!!!!!!!</h3>
 <br>
-<font size="2"><div class="source"><pre class="knitr r"><span class="comment">### Getting taxonomic data from many sources</span>
+<font size="2"><div class="source"><pre class="knitr r">
 <span class="functioncall">library</span>(taxize)
 species &lt;- <span class="functioncall">c</span>(<span class="string">"Poa annua"</span>, <span class="string">"Abies procera"</span>, <span class="string">"Helianthus annuus"</span>, <span class="string">"Coffea arabica"</span>)
-famnames &lt;- <span class="functioncall">sapply</span>(species, itis_name, get = <span class="string">"family"</span>, USE.NAMES = F)
-</pre></div><div class="source"><pre class="knitr r"><span class="functioncall">data.frame</span>(species = species, family = famnames)
-</pre></div><div class="output"><pre class="knitr r">            species     family
+famnames &lt;- <span class="functioncall">sapply</span>(species, tax_name, get = <span class="string">"family"</span>, db = <span class="string">"ncbi"</span>, USE.NAMES = F)
+<span class="functioncall">data.frame</span>(species = species, family = famnames)
+</pre></div>
+
+<section  class="slide deck-previous" id="taxize_2">
+<div class="output"><pre class="knitr r">            species     family
 1         Poa annua    Poaceae
 2     Abies procera   Pinaceae
 3 Helianthus annuus Asteraceae
 4    Coffea arabica  Rubiaceae
 </pre></div></font>
+</section>
 </section>
 
 <!--    ##############    slide delimiter  ##############    -->
@@ -501,71 +518,117 @@ famnames &lt;- <span class="functioncall">sapply</span>(species, itis_name, get 
 
 <!--    ##############    slide delimiter  ##############    -->
 <section class="slide" id="rgbif_shiny">
-<h1><code>rgbif</code><br>
-	From <a href="http://www.gbif.org/">GBIF.org</a>
-	<br>
-	<a href="http://glimmer.rstudio.com/ropensci/rgbif2/" target="_blank">Live Demo</a>
-	<br>
-	<a href="http://glimmer.rstudio.com/ropensci/rgbif2/" target="_blank">code(put in link to gist)</a>
-</h1>
+<h1><a href="http://glimmer.rstudio.com/ropensci/rgbif2/" target="_blank"><code>rgbif demo</code></a><br></h1>
 </section>
 
 <!--    ##############    slide delimiter  ##############    -->
 <section class="slide" id="rgbif">
-<h2>Mapping biodiversity data - <code>rgbif</code></h2>
+<h2>Mapping biodiversity data - <code>pkg rgbif</code></h2>
 <br>
-<section  class="slide deck-previous" id="getting_distribution_data">
-	<font size="2"><div class="source"><pre class="knitr r"><span class="comment">### Getting data from GBIF</span>
-	<span class="functioncall">library</span>(rgbif)
-	splist &lt;- <span class="functioncall">c</span>(<span class="string">"Accipiter erythronemius"</span>, <span class="string">"Junco hyemalis"</span>, <span class="string">"Aix sponsa"</span>)
-	out &lt;- <span class="functioncall">lapply</span>(splist, <span class="functioncall"><span class="keyword">function</span></span>(x) <span class="functioncall">occurrencelist</span>(x, coordinatestatus = T, maxresults = 50))
-	<span class="functioncall">gbifmap</span>(out)
-	</pre></div></font>
+	<font size="2"><div class="source"><pre class="knitr r">
+<span class="functioncall">library</span>(rgbif)
+splist &lt;- <span class="functioncall">c</span>(<span class="string">"Accipiter erythronemius"</span>, <span class="string">"Junco hyemalis"</span>, <span class="string">"Aix sponsa"</span>)
+out &lt;- <span class="functioncall">lapply</span>(splist, <span class="functioncall"><span class="keyword">function</span></span>(x) <span class="functioncall">occurrencelist</span>(x, coordinatestatus = T, maxresults = 50))
+<span class="functioncall">gbifmap</span>(out)
+</pre></div></font>
 
-	<div class="rimage default"><img src="images/rgbif.png" title="plot of chunk rgbif" alt="plot of chunk rgbif" class="plot" /></div>
-	
+<section  class="slide deck-previous" id="rgbif_2">
+	<div class="rimage default"><img src="images/rgbif.png" title="plot of chunk rgbif" alt="plot of chunk rgbif" class="plot" /></div>	
 </section>
 </section>
 
 <!--    ##############    slide delimiter  ##############    -->
 <section class="slide" id="rvertnet_shiny">
-<h1><code>rvertnet</code><br>
-	From <a href="http://vertnet.org/index.php">VertNet.org</a>
-	<br>
-	<a href="http://glimmer.rstudio.com/ropensci/rvertnet/" target="_blank">Live Demo</a>
-	<br>
-	<a href="http://glimmer.rstudio.com/ropensci/rgbif2/" target="_blank">code(put in link to gist)</a>
-</h1>
+<h1><a href="http://glimmer.rstudio.com/ropensci/rvertnet2/" target="_blank"><code>rvertnet demo</code></a><br></h1>
 </section>
 
 <!--    ##############    slide delimiter  ##############    -->
 <section class="slide" id="rvertnet">
-<h2>Vertebrate specimen records - <code>rvertnet</code></h2>
+<h2>Vertebrate specimens - <a href="http://vertnet.org/">VertNet.org</a> - <code>rvertnet</code></h2>
 	<br>
 	<font size="2"><div class="source"><pre class="knitr r"><span class="functioncall">library</span>(rvertnet)
 out &lt;- <span class="functioncall">vertoccurrence</span>(t = <span class="string">"Oncorhynchus mykiss"</span>, grp = <span class="string">"fish"</span>, num = 300)
 <span class="functioncall">vertmap</span>(input = out)
 	</pre></div></font>
 
+<section  class="slide deck-previous" id="rvertnet_1">
 	<div class="rimage default"><img src="images/rvertnet.png" title="plot of chunk rvertnet" alt="plot of chunk rvertnet" class="plot" />
+		</section>
 </section>
 
 <!--    ##############    slide delimiter  ##############    -->
-<section class="slide" id="rnbn">
-<h2>UK biodiversity data - <code>rnbn</code></h2>
-	<br>
-	<font size="2"></font>
+<section class="slide" id="rfishbase">
+<h2><a href="http://www.fishbase.org/">Fishbase.org</a> - <code>pkg rfishbase</code></h2>
+	<font size="1.5">
+<div class="chunk"><div class="rcode"><div class="source"><pre class="knitr r">
+<span class="functioncall">library</span>(rfishbase)
+<span class="functioncall">library</span>(ggplot2)
+<span class="functioncall">loadCache</span>()
+reef &lt;- <span class="functioncall">which_fish</span>(<span class="string">"reef"</span>, <span class="string">"habitat"</span>, fish.data)
 
-	<div class="rimage default"><img src="images/rnbn.png" title="plot of chunk rnbn" alt="plot of chunk rnbn" class="plot" />
+...code <a href="https://gist.github.com/4327186" target="_blank">here</a>
+
+<span class="functioncall">ggplot</span>(primary_orders, <span class="functioncall">aes</span>(order, fill = marine)) + <span class="functioncall">geom_bar</span>() + # a few commands to customize appearance
+<span class="functioncall">geom_bar</span>(colour = <span class="string">"black"</span>, show_guide = <span class="keyword">FALSE</span>) + <span class="functioncall">theme_bw</span>(base_size = 16) + 
+    <span class="functioncall">theme</span>(axis.text.x = <span class="functioncall">element_text</span>(angle = 45, hjust = 1, size = 12), legend.title = <span class="functioncall">element_blank</span>(), 
+          legend.justification = <span class="functioncall">c</span>(1, 0), legend.position = <span class="functioncall">c</span>(0.9, 0.6)) + 
+    <span class="functioncall">scale_fill_grey</span>(labels = <span class="functioncall">c</span>(<span class="string">"Marine"</span>, 
+    <span class="string">"Non-marine"</span>)) + 
+    <span class="functioncall">labs</span>(x=<span class="string">""</span>,y=<span class="string">"Number of species"</span>)
+</pre></div></div></div>
+	</font>
+
+<section  class="slide deck-previous" id="rfishbase_2">
+	<div class="rimage default"><img src="images/rfishbase.png" title="plot of chunk rfishbase" alt="plot of chunk rfishbase" class="plot" />
 </section>
+</section>
+
+<!--    ##############    slide delimiter  ##############    -->
+<section class="slide" id="rfisheries">
+<h2><a href="http://openfisheries.org/">Openfisheries.org</a> - <code>pkg rfisheries</code></h2>
+	<font size="1.5">
+<div class="source"><pre class="knitr r"><span class="functioncall">library</span>(rfisheries); <span class="functioncall">library</span>(ggplot2)
+countries &lt;- <span class="functioncall">country_codes</span>()
+
+<span class="comment"># let's take a small subset, say 5 random countries</span>
+c_list &lt;- countries[<span class="functioncall">sample</span>(<span class="functioncall">nrow</span>(countries), 5), ]$iso3c
+
+<span class="comment"># and grab landings data <span class="keyword">for</span> these countries</span>
+results &lt;- <span class="functioncall">ldply</span>(c_list, <span class="functioncall"><span class="keyword">function</span></span>(x) {
+    df &lt;- <span class="functioncall">landings</span>(country = x)
+    df$country &lt;- x
+    df
+}, .progress = <span class="string">"text"</span>)
+
+<span class="functioncall">ggplot</span>(results, <span class="functioncall">aes</span>(year, catch, group = country, color = country)) + <span class="functioncall">geom_line</span>()
+</pre></div>
+	</font>
+<section  class="slide deck-previous" id="rgbif_2">
+	<div class="rimage default"><img src="images/rfisheries.png" title="plot of chunk rfisheries" alt="plot of chunk rfisheries" class="plot" />
+</section>
+</section>
+
 
 <!--    ##############    slide delimiter  ##############    -->
 <section class="slide" id="treebase">
-<h2>Get phylogenies - <code>treebase</code></h2>
-	<br>
-	<font size="2"></font>
+<h2>Get phylogenies <a href="http://treebase.org/">Treebase.org</a> - <code>pkg treebase</code></h2>
+	<font size="2">
+		<div class="source"><pre class="knitr r"><span class="functioncall">library</span>(treebase); <span class="functioncall">library</span>(ggplot2); <span class="functioncall">library</span>(reshape2)
 
-	<div class="rimage default"><img src="images/treebase.png" title="plot of chunk treebase" alt="plot of chunk treebase" class="plot" />
+<span class="functioncall">data</span>(treebase)
+have &lt;- <span class="functioncall">have_branchlength</span>(treebase)
+branchlengths &lt;- treebase[have]
+dat &lt;- <span class="functioncall">data.frame</span>(tips = <span class="functioncall">sapply</span>(branchlengths, Ntip), nodes = <span class="functioncall">sapply</span>(branchlengths, Nnode))
+dat_m &lt;- <span class="functioncall">melt</span>(dat)
+</pre></div>
+<div class="source"><pre class="knitr r">
+<span class="functioncall">ggplot</span>(dat_m[dat_m$value &lt; 1000, ], <span class="functioncall">aes</span>(value, fill = variable)) + <span class="functioncall">theme_bw</span>(base_size = 20) + 
+    <span class="functioncall">geom_density</span>()</pre></div>
+    </font>
+
+<section  class="slide deck-previous" id="others_next">
+	<div class="rimage default"><img src="images/treebase3.png" title="plot of chunk treebase" alt="plot of chunk treebase" class="plot" />
+</section>
 </section>
 
 <!--    ##############    slide delimiter  ##############    -->
@@ -576,7 +639,7 @@ out &lt;- <span class="functioncall">vertoccurrence</span>(t = <span class="stri
 <!--    ##############    slide delimiter  ##############    -->
 <section class="slide" id="rfigshare">
 	<br><br>
-	<h2>Sharing and using data - <code>(rfigshare)</code></h2>
+	<h2>Sharing and using data - <code>pkg rfigshare</code></h2>
 	<div>
 	<h3 class="figshare">Using Figshare's new <a href="http://api.figshare.com/docs/">API</a>, it is now possible to share figures, data, and any other object generated in <code>R</code> directly to one's figshare account. After authenticating: </h3><br>
 	
@@ -591,7 +654,7 @@ id &lt;- <span class="functioncall">fs_new_article</span>(title = <span class="s
 
 <!--    ##############    slide delimiter  ##############    -->
 <section class="slide" id="rfigshare-walla">
-<h2>Sharing and using data - <code>(rfigshare)</code></h2>
+<h2>Sharing and using data - <code>pkg rfigshare</code></h2>
 	<img src="images/figshare_test.png"></a>
 </section>
 
@@ -599,9 +662,7 @@ id &lt;- <span class="functioncall">fs_new_article</span>(title = <span class="s
 <!--    ##############    slide delimiter  ##############    -->
 <section class="slide" id="rfigshare-video">
 <h2>Sharing and using data - <code>(rfigshare)</code></h2>
-<h2><a href="http://figshare.com/articles/automatic_analysis_and_publishing_of_data/100998" target="_blank">Video of using rfigshare in practice</a></h2>
-<br><br><br><br>
-<h2>TRY TO EMBED THE FIGSHARE VIDEO HERE</h2>
+<a href="http://figshare.com/articles/automatic_analysis_and_publishing_of_data/100998" target="_blank"><img src="images/figshare_video_shot.png"></a></a>
 </section>
 
 
@@ -609,8 +670,7 @@ id &lt;- <span class="functioncall">fs_new_article</span>(title = <span class="s
 <section class="slide" id="tutorials2">
 	<div>
 	<h2>rOpenSci tutorials</h2>
-		<h3><a href="http://ropensci.org/tutorials/" target="_blank">http://ropensci.org/tutorials/</a></h3>
-		<img src="images/ropensci_tutorials.png">
+		<a href="http://ropensci.org/tutorials/" target="_blank"><img src="images/ropensci_tutorials.png"></a>
 	</div>
 </section>
 

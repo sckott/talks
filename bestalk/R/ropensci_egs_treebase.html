@@ -1,0 +1,16 @@
+<div class="chunk"><div class="rcode"><div class="source"><pre class="knitr r"><span class="functioncall">library</span>(treebase)
+<span class="functioncall">library</span>(ggplot2)
+<span class="functioncall">library</span>(reshape2)
+
+<span class="functioncall">data</span>(treebase)
+have &lt;- <span class="functioncall">have_branchlength</span>(treebase)
+branchlengths &lt;- treebase[have]
+dat &lt;- <span class="functioncall">data.frame</span>(tips = <span class="functioncall">sapply</span>(branchlengths, Ntip), nodes = <span class="functioncall">sapply</span>(branchlengths, 
+    Nnode))
+dat_m &lt;- <span class="functioncall">melt</span>(dat)
+</pre></div><div class="message"><pre class="knitr r">## Using as id variables
+</pre></div><div class="source"><pre class="knitr r">
+<span class="functioncall">ggplot</span>(dat_m[dat_m$value &lt; 1000, ], <span class="functioncall">aes</span>(value, fill = variable)) + <span class="functioncall">theme_bw</span>(base_size = 20) + 
+    <span class="functioncall">geom_density</span>()
+</pre></div></div><div class="rimage default"><img src="figure/treebase.png" title="plot of chunk treebase" alt="plot of chunk treebase" class="plot" /></div></div>
+

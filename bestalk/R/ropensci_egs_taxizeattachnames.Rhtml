@@ -1,0 +1,7 @@
+<!--begin.rcode taxize-attach-names
+### Getting taxonomic data from many sources
+library(taxize)
+species <- c("Poa annua", "Abies procera", "Helianthus annuus", "Coffea arabica")
+famnames <- sapply(species, tax_name, get = "family", db = "ncbi", USE.NAMES = F)
+data.frame(species = species, family = famnames)
+end.rcode-->
