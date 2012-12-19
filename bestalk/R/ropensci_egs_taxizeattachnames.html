@@ -1,4 +1,4 @@
-<div class="chunk"><div class="rcode"><div class="source"><pre class="knitr r"><span class="comment">### Getting taxonomic data from many sources</span>
+<div class="source"><pre class="knitr r"><span class="comment">### Getting taxonomic data from many sources</span>
 <span class="functioncall">library</span>(taxize)
 species &lt;- <span class="functioncall">c</span>(<span class="string">"Poa annua"</span>, <span class="string">"Abies procera"</span>, <span class="string">"Helianthus annuus"</span>, <span class="string">"Coffea arabica"</span>)
 famnames &lt;- <span class="functioncall">sapply</span>(species, tax_name, get = <span class="string">"family"</span>, db = <span class="string">"ncbi"</span>, USE.NAMES = F)
@@ -8,5 +8,4 @@ famnames &lt;- <span class="functioncall">sapply</span>(species, tax_name, get =
 ## 2     Abies procera   Pinaceae
 ## 3 Helianthus annuus Asteraceae
 ## 4    Coffea arabica  Rubiaceae
-</pre></div></div></div>
-
+</pre></div>
