@@ -28,9 +28,9 @@
     <link rel="stylesheet" href="themes/transition/fade.css">
     <link rel="stylesheet" href="themes/style/knitr.css">
     <link rel="stylesheet" href="extensions/codemirror/deck.codemirror.css">
-    <!-- <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet"> -->
-    <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.no-icons.min.css" rel="stylesheet">
-    <link href="//netdna.bootstrapcdn.com/font-awesome/3.1.1/css/font-awesome.min.css" rel="stylesheet">
+    <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet">
+    <!-- <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.no-icons.min.css" rel="stylesheet"> -->
+    <!-- <link href="//netdna.bootstrapcdn.com/font-awesome/3.1.1/css/font-awesome.min.css" rel="stylesheet"> -->
     <!-- <link rel="stylesheet" href="themes/style/font-awesome/css/font-awesome.min.css"> -->
     
     <script src="modernizr.custom.js"></script>
@@ -74,21 +74,17 @@
 <!--slide delimiter-->
 
     <section class="slide" id="ropensci2">
-        <br><br>
-        <div align="center">
-            <a href="http://ropensci.org/"></a><img src="images/ropensci_main.png" width="400" alt="">
-            <h2>rOpenSci is a collaborative effort to develop R-based tools for facilitating Open Science.</h2>
-        </div>
+        <h2>Some things and stuff</h2>
     </section>
 
 <!--slide delimiter-->
 
     <section class="slide" id="collaborators">
         <h2>Who is responsible</h2>
-            <h3>Scott Chamberlain - <a href="http://schamberlain.github.io/scott/">(website)</a></h3> <img src="images/scott.png" height="100" alt="scott">
-            <h3>Carl Boettiger - <a href="http://carlboettiger.info/">(website)</a></h3> <img src="images/carl.png" height="100" alt="carl">
-            <h3>Karthik Ram - <a href="http://inundata.org/">(website)</a></h3> <img src="images/karthik.png" height="100" alt="carl">
-            <h3>Ted Hart - <a href="http://emhart.github.io/">(website)</a></h3> <img src="images/ted.png" height="100" alt="carl">
+            <h3>Scott Chamberlain - <a href="http://schamberlain.github.io/scott/">(website)</a></h3> <img src="images/scott.png" width="100" alt="scott">
+            <h3>Carl Boettiger - <a href="http://carlboettiger.info/">(website)</a></h3> <img src="images/carl.png" width="100" alt="carl">
+            <h3>Karthik Ram - <a href="http://inundata.org/">(website)</a></h3> <img src="images/karthik.png" width="100" alt="carl">
+            <h3>Ted Hart - <a href="http://emhart.github.io/">(website)</a></h3> <img src="images/ted.png" width="100" alt="carl">
     </section>
 
 <!--slide delimiter-->
@@ -127,39 +123,55 @@
             <li>Simple interface, especially since submission</li>
             <li>New interactive map interface</li>
             <li>All content can be downloaded</li>
-            <li>Perhaps most important <i class="icon-circle-arrow-right"></i><strong>Code buttons provide code to reproduce what is done in the app</strong></li>
+            <li>Perhaps most important <i class="icon-circle-arrow-right"></i><strong> Black code buttons provide R code to reproduce locally what is done in the app</strong></li>
         </ul>
     </section>
 
 <!--slide delimiter-->
 
     <section class="slide" id="tech1">
-
+        <h2>Technology</h2>
+        <ul>
+            <li>Interface is <a href="http://www.rstudio.com/shiny/">Shiny</a>, created by <a href="http://www.rstudio.com/">RStudio</a>, a wrapper around R code to add html, javascript, etc.</li>
+            <ul>
+                <li>Note that Shiny apps can be run locally and on a server on the web</li>
+                <li>When run locally or on web, rendered in browser</li>
+            </ul>
+            <li>App hosted on Glimmer, servers hosted by RStudio at no cost</li>
+            <li>Backend - all web API calls, data munging, and plotting - done in R</li>
+            <li>Animations done with javascript (as part of Bootstrap)</li>
+            <li>Styling with <a href="http://twitter.github.io/bootstrap/">Bootstrap</a></li>
+            <li>Icons by <a href="http://fortawesome.github.io/Font-Awesome/">FontAwesome</a></li>
+            <li>Interactive map using <a href="http://ramnathv.github.io/rCharts/">rCharts</a> by Ramnath Vaidyanathan and <a href="http://leafletjs.com/">leaflet.js</a></li>
+        </ul>
     </section>
 
 <!--slide delimiter-->
 
     <section class="slide" id="tech2">
-
-    </section>
-
-<!--slide delimiter-->
-
-    <section class="slide" id="tech3">
-
+        <h2>Code</h2>
+        <h3>All our R code is hosted on GitHub</h3>
+        <ul>
+            <li>things...</li>
+        </ul>
     </section>
 
 <!--slide delimiter-->
 
     <section class="slide" id="moreinfo">
         <h2>More info...</h2>
-        <center><h2>rOpenSci - <a href="http://ropensci.org/">http://ropensci.org/</a></h2></center>
+        <center><h2>the TaxaViewer app - <a href="http://glimmer.rstudio.com/ropensci/usgs_app/"><br>http://glimmer.rstudio.com/ropensci/usgs_app/</a></h2></center>
+        <center><h2>rOpenSci - <a href="http://ropensci.org/"><br>http://ropensci.org/</a></h2></center>
+        <center><h2>rOpenSci code - <a href="https://github.com/ropensci"><br>https://github.com/ropensci</a></h2></center>
     </section>
 
 <!--slide delimiter-->
 
     <section class="slide" id="demo">
-        <h1>Demo</h1>
+        <div>
+            <!-- <h1>Demo<i class="icon-plane"></i></h1> -->
+            <h1><a class="btn btn-primary btn-large" href="http://glimmer.rstudio.com/ropensci/usgs_app/"><i class="icon-play"></i> Demo</a></h1>
+        </div>
     </section>  
 
 <!-- End slides. -->
