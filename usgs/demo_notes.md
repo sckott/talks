@@ -1,5 +1,9 @@
 # USGS demo
 
++ slides
++ old app: [http://glimmer.rstudio.com/ropensci/usgs_app_old/](http://glimmer.rstudio.com/ropensci/usgs_app_old/)
++ new app: [http://glimmer.rstudio.com/ropensci/usgs_app/](http://glimmer.rstudio.com/ropensci/usgs_app/)
+
 + show sidebar
 	+ help buttons bring down modals with information
 + all tabs have a few buttons on right hand side, for CODE, HELP, AND DOWNLOAD - all bring down modals with information and links - and you can easily copy code out of the code modals
