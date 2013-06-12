@@ -227,7 +227,7 @@ html {
   border-bottom: 3px solid #888;
 }
 .slide h3 {
-  font-size: 1.4375em;
+  font-size: 1.8em;
   font-weight: bold;
   margin-bottom: .30435em;
 }
@@ -235,6 +235,7 @@ html {
   font-size: 1.25em;
   font-weight: bold;
   margin-bottom: .25em;
+  color:  #064865
 }
 .slide h5 {
   font-size: 1.125em;

@@ -219,7 +219,15 @@ ul.bubbles li {
   -moz-box-reflect: below -0.556em -moz-linear-gradient(top, transparent 0%, transparent 30%, rgba(255, 255, 255, 0.3) 100%);
 */}
 .deck-container .slide h3 {
+  font-size: 45px;
   color: #000;
+}
+.deck-container .slide h4 {
+ 
+  /*color: #0b7495;*/
+  color:  #000;
+  /*font-size: 55px;*/
+  border-bottom: 0;
 }
 .deck-container .slide pre {
   border-color: #dbe5ee;

@@ -38,7 +38,7 @@
     </head>
 <body class="deck-container">
 
-<!-- Begin slides. Just make elements with a class of slide. -->
+<!-- Begin slides. -->
 
     <section class="slide" id="title-slide">
         <div>
@@ -50,8 +50,7 @@
                 <h3>Website <a href="http://bit.ly/schamber">http://bit.ly/schamber</a></h3>
                 <h3>12 June 2013</h3>
                 <br><br>
-                <h3>Follow along with this talk <a href="http://bit.ly/usgstalk">http://bit.ly/usgstalk</a></h3>
-                <br><br>
+                <br>
                 <center><span style="color:#949fa2;">Shortcuts: </span>
                 <ul class="bubbles desktop only">
                     <li><b>M</b> = <img src="images/grid.png"</img></li>
@@ -61,40 +60,58 @@
         </div>
     </section>
 
-    <!--slide delimiter-->
+<!--slide delimiter-->
 
+  <section class="slide" id="follow-along">
+        <div>
+        <h1>Follow along with this talk <a href="http://bit.ly/13r2n02" target="_blank">http://bit.ly/usgstalk</a></h1>
+        </div>
+    </section>
+
+<!--slide delimiter-->
     <section class="slide" id="ropensci1">
         <br><br>
         <div align="center">
             <a href="http://ropensci.org/"></a><img src="images/ropensci_main.png" width="400" alt="">
-            <h2>rOpenSci is a collaborative effort to develop R-based tools for facilitating Open Science.</h2>
+            <h2>rOpenSci is a collaborative effort <br><br>to develop R-based tools <br><br>to facilitate Open Science.</h2>
         </div>
     </section>
 
 <!--slide delimiter-->
 
     <section class="slide" id="ropensci2">
-        <h2>Some things and stuff</h2>
+        <h2></h2>
+
+        <img src="images/ropensci_github.png">
     </section>
 
 <!--slide delimiter-->
 
     <section class="slide" id="collaborators">
-        <h2>Who is responsible</h2>
-            <h3>Scott Chamberlain - <a href="http://schamberlain.github.io/scott/">(website)</a></h3> <img src="images/scott.png" width="100" alt="scott">
-            <h3>Carl Boettiger - <a href="http://carlboettiger.info/">(website)</a></h3> <img src="images/carl.png" width="100" alt="carl">
-            <h3>Karthik Ram - <a href="http://inundata.org/">(website)</a></h3> <img src="images/karthik.png" width="100" alt="carl">
-            <h3>Ted Hart - <a href="http://emhart.github.io/">(website)</a></h3> <img src="images/ted.png" width="100" alt="carl">
+        <h2>Collaborators</h2>
+        <center><table>
+        <col width="400" align="center">
+        <col width="400" align="center">
+        <tr>
+            <td><center><h4><a href="http://schamberlain.github.io/scott/" target="_blank">Scott Chamberlain</a></h4></center> <img src="images/scott.png" width="200" alt="scott"></td>
+            <td><center><h4><a href="http://carlboettiger.info/" target="_blank">Carl Boettiger</a></h4></center> <img src="images/carl.png" width="200" alt="carl"></td>
+            <td><center><h4><a href="https://github.com/ramnathv" target="_blank">Ramnath Vaidyanathan</a></h4></center> <img src="images/ramnath.png" width="200" alt="carl"></td>
+        </tr>
+        <tr>
+            <td><center><h4><a href="http://inundata.org/" target="_blank">Karthik Ram</a></h4></center> <img src="images/karthik.png" width="200" alt="carl"></td>
+            <td><center><h4><a href="http://emhart.github.io/" target="_blank">Ted Hart</a></h4> </center><img src="images/ted.png" width="200" alt="carl"></td>
+        </tr>
+        </table></center>
     </section>
 
 <!--slide delimiter-->
 
     <section class="slide" id="whyparticipate1">
         <h2>Why we participated</h2>
+        <br>
         <ul>
-            <li>To leverage USGS data</li>
-            <li>Make a more friendly web interface to R</li>
-            <li>bla bla</li>
+            <li><h3>To leverage more USGS data (already used ITIS)</h3></li>
+            <li><h3>Make a web interface to show users what they can do in R</h3></li>
         </ul>
     </section>
 
@@ -105,11 +122,12 @@
         <br>
         <h3>TaxaViewer takes in species names and outputs:</h3>
         <ul>
-            <li>Taxonomic information</li>
-            <li>Taxonomic classfication</li>
-            <li>Inasive status</li>
-            <li>Phylogeny (plants only)</li>
-            <li>Map of occurrences</li>
+            <li><h4>Taxonomic information</h4></li>
+            <li><h4>Taxonomic classfication</h4></li>
+            <li><h4>Downstream taxa</h4></li>
+            <li><h4>Phylogeny (plants only) with invasive status mapped on</h4></li>
+            <li><h4>Map of occurrences</h4></li>
+            <li><h4>Related papers in PLOS (Public Library of Science) journals</h4></li>
         </ul>
     </section>
 
@@ -120,10 +138,10 @@
         <br>
         <h3>Some important features:</h3>
         <ul>
-            <li>Simple interface, especially since submission</li>
-            <li>New interactive map interface</li>
-            <li>All content can be downloaded</li>
-            <li>Perhaps most important <i class="icon-circle-arrow-right"></i><strong> Black code buttons provide R code to reproduce locally what is done in the app</strong></li>
+            <li><h4>Simple interface, especially since submission</h4></li>
+            <li><h4>New interactive map interface</h4></li>
+            <li><h4>Some content can be downloaded</h4></li>
+            <li><h4>Perhaps most important <i class="icon-circle-arrow-right"></i><strong> Black code buttons provide R code to reproduce locally what is done in the app</strong></h4></li>
         </ul>
     </section>
 
@@ -139,8 +157,7 @@
             </ul>
             <li>App hosted on Glimmer, servers hosted by RStudio at no cost</li>
             <li>Backend - all web API calls, data munging, and plotting - done in R</li>
-            <li>Animations done with javascript (as part of Bootstrap)</li>
-            <li>Styling with <a href="http://twitter.github.io/bootstrap/">Bootstrap</a></li>
+            <li>Styling using <a href="http://twitter.github.io/bootstrap/">Bootstrap</a></li>
             <li>Icons by <a href="http://fortawesome.github.io/Font-Awesome/">FontAwesome</a></li>
             <li>Interactive map using <a href="http://ramnathv.github.io/rCharts/">rCharts</a> by Ramnath Vaidyanathan and <a href="http://leafletjs.com/">leaflet.js</a></li>
         </ul>
@@ -149,20 +166,16 @@
 <!--slide delimiter-->
 
     <section class="slide" id="tech2">
-        <h2>Code</h2>
-        <h3>All our R code is hosted on GitHub</h3>
-        <ul>
-            <li>things...</li>
-        </ul>
+        <h1>All code for app on GitHub<br> <a href="https://github.com/ropensci/usgs_app" target="_blank">here</a></h1>
     </section>
 
 <!--slide delimiter-->
 
     <section class="slide" id="moreinfo">
-        <h2>More info...</h2>
+        <br><br>
         <center><h2>the TaxaViewer app - <a href="http://glimmer.rstudio.com/ropensci/usgs_app/"><br>http://glimmer.rstudio.com/ropensci/usgs_app/</a></h2></center>
-        <center><h2>rOpenSci - <a href="http://ropensci.org/"><br>http://ropensci.org/</a></h2></center>
-        <center><h2>rOpenSci code - <a href="https://github.com/ropensci"><br>https://github.com/ropensci</a></h2></center>
+        <center><h2>All code for the app on GitHub<br> <a href="https://github.com/ropensci/usgs_app" target="_blank">here</a></h2></center>
+<!--         <center><h2>rOpenSci code - <a href="https://github.com/ropensci"><br>https://github.com/ropensci</a></h2></center> -->
     </section>
 
 <!--slide delimiter-->
@@ -170,7 +183,7 @@
     <section class="slide" id="demo">
         <div>
             <!-- <h1>Demo<i class="icon-plane"></i></h1> -->
-            <h1><a class="btn btn-primary btn-large" href="http://glimmer.rstudio.com/ropensci/usgs_app/"><i class="icon-play"></i> Demo</a></h1>
+            <h1><a class="btn btn-primary btn-large" style="line-height:100px; padding:20px 50px" href="http://glimmer.rstudio.com/ropensci/usgs_app/"><i class="icon-play"></i> Demo</a></h1>
         </div>
     </section>  
 
