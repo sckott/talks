@@ -1,0 +1,22 @@
+/* line 94, ../scss/default.scss */
+body {
+  background: #000;
+}
+
+/* line 248, ../scss/default.scss */
+slides.layout-widescreen > slide,
+slides.layout-faux-widescreen > slide {
+  margin-left: -650px;
+  width: 1300px;
+  height: 700px;
+  margin-top: -350px;
+}
+
+/* Fonts and Spacing */
+article p, article li, article li.build, section p, section li{
+  font-family: 'Open Sans','Helvetica', 'Crimson Text', 'Garamond',  'Palatino', sans-serif;
+  text-align: justify;
+  font-size: 35px;
+  line-height: 1.5em;
+  color: #444;
+}

@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>R-based tools for open and collaborative science</title>
+  <meta charset="utf-8">
+  <meta name="description" content="R-based tools for open and collaborative science">
+  <meta name="author" content="Scott Chamberlain (@recology_)">
+  <meta name="generator" content="slidify" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/default.css" media="all" >
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/phone.css" 
+    media="only screen and (max-device-width: 480px)" >
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/slidify.css" >
+  <link rel="stylesheet" href="libraries/highlighters/highlight.js/css/solarized_light.css" />
+  <base target="_blank"> <!-- This amazingness opens all links in a new tab. -->  <link rel=stylesheet href="./assets/css/esamd.css"></link>
+<link rel=stylesheet href="./assets/css/ribbons.css"></link>
+<link rel=stylesheet href="http://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css"></link>
+
+  
+  <!-- Grab CDN jQuery, fall back to local if offline -->
+  <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.min.js"></script>
+  <script>window.jQuery || document.write('<script src="libraries/widgets/quiz/js/jquery.js"><\/script>')</script> 
+  <script data-main="libraries/frameworks/io2012/js/slides" 
+    src="libraries/frameworks/io2012/js/require-1.0.8.min.js">
+  </script>
+  
+  
+
+</head>
+<body style="opacity: 0">
+  <slides class="layout-widescreen">
+    
+    <!-- LOGO SLIDE -->
+        <slide class="title-slide segue nobackground">
+  <aside class="gdbar">
+    <img src="assets/img/ropensci_small.png">
+  </aside>
+  <hgroup class="auto-fadein">
+    <h1>R-based tools for open and collaborative science</h1>
+    <h2></h2>
+    <p>Scott Chamberlain (@recology_)<br/></p>
+  </hgroup>
+  <article></article>  
+</slide>
+    
+
+    <!-- SLIDES -->
+    <slide class="" id="slide-1" style="background:;">
+  <hgroup>
+    <h2>Science needs to be more open</h2>
+  </hgroup>
+  <article data-timings="">
+    <p><center><img src="assets/img/moreopen.png" alt="need tools"></center></p>
+
+<p><a href="http://everyoneknowsbest.files.wordpress.com/2008/08/bodysculpture.jpg">http://everyoneknowsbest.files.wordpress.com/2008/08/bodysculpture.jpg</a></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-2" style="background:;">
+  <article data-timings="">
+    <!-- But we need tools to do it! -->
+
+<p><center><img src="assets/img/tools.png" alt="need tools"></center></p>
+
+<p><a href="http://www.fotopedia.com/items/flickr-4796633039">http://www.fotopedia.com/items/flickr-4796633039</a></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-3" style="background:;">
+  <hgroup>
+    <h2>What kinds of tools? Not these</h2>
+  </hgroup>
+  <article data-timings="">
+    <p><center><img src="assets/img/closedtools.png" alt="r"></center></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-4" style="background:;">
+  <hgroup>
+    <h2>These!</h2>
+  </hgroup>
+  <article data-timings="">
+    <p><center><img src="assets/img/opentools.png" alt=""></center></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-5" style="background:;">
+  <hgroup>
+    <h2>What does an ecologist do?</h2>
+  </hgroup>
+  <article data-timings="">
+    <ul>
+<li>Collect data</li>
+<li>Manipulate data</li>
+<li>Visualize</li>
+<li>Analyze</li>
+<li>Write</li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-6" style="background:;">
+  <hgroup>
+    <h2>Data increasingly on the web</h2>
+  </hgroup>
+  <article data-timings="">
+    <p><center><img src="assets/img/data.png" alt=""></center></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-7" style="background:;">
+  <hgroup>
+    <h2>R may be the perfect solution (for ecologists)</h2>
+  </hgroup>
+  <article data-timings="">
+    <p><center><img src="assets/img/r.png" alt=""></center></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-8" style="background:;">
+  <hgroup>
+    <h2>Why?</h2>
+  </hgroup>
+  <article data-timings="">
+    <ul>
+<li>R is Open source = Free + Rapid change</li>
+<li>R = entire workflow in 1 place</li>
+<li>R = reproducible science</li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-9" style="background:;">
+  <hgroup>
+    <h2>The toolbet</h2>
+  </hgroup>
+  <article data-timings="">
+    <p><center><img src="assets/img/ropensci_pkgs.png" alt=""></center></p>
+
+<p><a href="http://ropensci.org/">http://ropensci.org/</a></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-10" style="background:;">
+  <hgroup>
+    <h2>Data</h2>
+  </hgroup>
+  <article data-timings="">
+    <p><center><img src="assets/img/ropensci_data.png" alt=""></center></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-11" style="background:;">
+  <hgroup>
+    <h2>Literature</h2>
+  </hgroup>
+  <article data-timings="">
+    <p><center><img src="assets/img/ropensci_lit.png" alt=""></center></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-12" style="background:;">
+  <hgroup>
+    <h4>Make an API call</h4>
+  </hgroup>
+  <article data-timings="">
+    <pre><code class="r">library(RCurl); library(RJSONIO)
+dat &lt;- fromJSON(getURL(&quot;https://api.github.com/users/hadley/repos&quot;))
+</code></pre>
+
+<h4>Manipulate the data</h3></h4>
+
+<pre><code class="r">library(plyr); library(reshape2)
+dat_melt &lt;- melt(ldply(dat, function(x) data.frame(x[names(x) %in% c(&quot;name&quot;,&quot;watchers_count&quot;,&quot;forks&quot;)])))
+</code></pre>
+
+<h4>Run some statistical model</h4>
+
+<pre><code class="r">lm(value ~ variable, data = dat_melt)
+</code></pre>
+
+<h4>Visualize results</h4>
+
+<pre><code class="r">library(ggplot2)
+ggplot(dat_melt, aes(name, value, colour = variable)) + geom_point() + coord_flip()
+</code></pre>
+
+<h4>Write the paper</h4>
+
+<pre><code class="r"># Introduction...
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-13" style="background:;">
+  <hgroup>
+    <h2>Taxonomy</h2>
+  </hgroup>
+  <article data-timings="">
+    <pre><code class="r">library(taxize)
+specieslist &lt;- &quot;Abies procera&quot;
+classification(specieslist, db = &quot;itis&quot;)
+</code></pre>
+
+<pre><code>$`Abies procera`
+        rankName       taxonName    tsn
+1        Kingdom         Plantae 202422
+2     Subkingdom  Viridaeplantae 846492
+3   Infrakingdom    Streptophyta 846494
+4       Division    Tracheophyta 846496
+5    Subdivision Spermatophytina 846504
+6  Infradivision    Gymnospermae 846506
+7          Class       Pinopsida 500009
+8          Order         Pinales 500028
+9         Family        Pinaceae  18030
+10         Genus           Abies  18031
+11       Species   Abies procera 181835
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-14" style="background:;">
+  <article data-timings="">
+    <pre><code class="r">library(rgbif)
+splist &lt;- c(&quot;Accipiter erythronemius&quot;, &quot;Junco hyemalis&quot;, &quot;Aix sponsa&quot;, &quot;Podiceps cristatus&quot;)
+out &lt;- occurrencelist_many(splist, coordinatestatus = TRUE, maxresults = 40)
+gbifmap_list(out)
+</code></pre>
+
+<p><img src="assets/fig/gbif.png" alt="plot of chunk gbif"> </p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-15" style="background:;">
+  <article data-timings="">
+    <pre><code class="r">library(rbison)
+out &lt;- bison(species = &quot;Helianthus annuus&quot;, type = &quot;scientific_name&quot;, count = 500)
+bisonmap(input = out, tomap = &quot;county&quot;)
+</code></pre>
+
+<p><img src="assets/fig/bison.png" alt="plot of chunk bison"> </p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-16" style="background:;">
+  <article data-timings="">
+    <pre><code class="r">print(&quot;foo bar&quot;)
+</code></pre>
+
+<pre><code>## [1] &quot;foo bar&quot;
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-17" style="background:;">
+  <hgroup>
+    <h2>Take action!</h2>
+  </hgroup>
+  <article data-timings="">
+    <p><i class="icon-unlock icon-4x"></i> &nbsp;&nbsp;&nbsp;&nbsp; <i class="icon-wrench icon-4x"></i> &nbsp;&nbsp;&nbsp;&nbsp; <i class="icon-question icon-4x"></i></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-18" style="background:;">
+  <hgroup>
+    <h2>The deets</h2>
+  </hgroup>
+  <article data-timings="">
+    <ul>
+<li>Presentation made using <a href="https://github.com/ramnathv/slidify">slidify</a></li>
+<li>Written in markdown</li>
+<li>See it online here: <give link></li>
+</ul>
+
+<!-- ![current](assets/img/current.png)
+[http://www.fotopedia.com/items/flickr-2621358221](http://www.fotopedia.com/items/flickr-2621358221) -->
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+    <slide class="backdrop"></slide>
+  </slides>
+  <div class="pagination pagination-small" id='io2012-ptoc' style="display:none;">
+    <ul>
+      <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=1 title='Science needs to be more open'>
+         1
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=2 title=''>
+         2
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=3 title='What kinds of tools? Not these'>
+         3
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=4 title='These!'>
+         4
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=5 title='What does an ecologist do?'>
+         5
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=6 title='Data increasingly on the web'>
+         6
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=7 title='R may be the perfect solution (for ecologists)'>
+         7
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=8 title='Why?'>
+         8
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=9 title='The toolbet'>
+         9
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=10 title='Data'>
+         10
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=11 title='Literature'>
+         11
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=12 title='Make an API call'>
+         12
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=13 title='Taxonomy'>
+         13
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=14 title=''>
+         14
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=15 title=''>
+         15
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=16 title=''>
+         16
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=17 title='Take action!'>
+         17
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=18 title='The deets'>
+         18
+      </a>
+    </li>
+  </ul>
+  </div>  <!--[if IE]>
+    <script 
+      src="http://ajax.googleapis.com/ajax/libs/chrome-frame/1/CFInstall.min.js">  
+    </script>
+    <script>CFInstall.check({mode: 'overlay'});</script>
+  <![endif]-->
+</body>
+  <!-- Load Javascripts for Widgets -->
+  
+  <!-- LOAD HIGHLIGHTER JS FILES -->
+  <script src="libraries/highlighters/highlight.js/highlight.pack.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  <!-- DONE LOADING HIGHLIGHTER JS FILES -->
+   
+  </html>

@@ -7,6 +7,7 @@
 + show sidebar
 	+ help buttons bring down modals with information
 + all tabs have a few buttons on right hand side, for CODE, HELP, AND DOWNLOAD - all bring down modals with information and links - and you can easily copy code out of the code modals
++ would love to get your feedback on any ITIS features
 + name resolution
 	+ if names spelled wrong, they won't show up on the right
 	+ this can be improved quite a bit by adding in options for data source, partial matching, etc.
@@ -27,3 +28,8 @@
 	+ Speed
 	+ Analyses on phylogenies or spatial data perhaps
 + Love to take any questions now.
+
++ papers: 
+	+ year
+	+ more metadata
++ 
