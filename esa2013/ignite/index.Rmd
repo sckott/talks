@@ -96,7 +96,7 @@ library(RCurl); library(RJSONIO)
 dat <- fromJSON(getURL("https://api.github.com/users/hadley/repos"))
 ```
 
-#### Manipulate the data</h3> 
+#### Manipulate the data
 ```r
 library(plyr); library(reshape2)
 dat_melt <- melt(ldply(dat, function(x) data.frame(x[names(x) %in% c("name","watchers_count","forks")])))

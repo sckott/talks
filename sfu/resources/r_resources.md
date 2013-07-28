@@ -3,8 +3,6 @@ R Resources
 author: Scott Chamberlain
 date: 2013-07-30
 navigation: slide
-font-import: http://fonts.googleapis.com/css?family=Risque
-font-family: 'Risque'
 
 Where do I start?!
 ========================================================
@@ -98,16 +96,25 @@ Tasks in R
 
 + Writing
 
-Getting data
+Getting local data
 ========================================================
 
-+ Local data: 
-  + CSV files best, but 
-  + Can import from XLS/XLSX too
-+ Data on the web: 
-  + rOpenSci at [http://ropensci.org/](http://ropensci.org/)
-  + We are building bridges between data on the web and R
-  + GBIF, Dryad, ITIS, NCBI, Genbank, eLife, US National Phenology Network, PLOS literature, etc.
++ CSV files best, but 
++ Can import from XLS/XLSX too
+
+Data on the web
+========================================================
+incremental: true
+
+Um, why would I do this?
+
+Getting data directly in R allows for completely reproducible workflows
+
+Data/taxonomy/etc. constantly changing = makes sense to query for newest data
+
++ rOpenSci at [http://ropensci.org/](http://ropensci.org/)
++ We are building bridges between data on the web and R
++ GBIF, Dryad, ITIS, NCBI, Genbank, eLife, US National Phenology Network, PLOS literature, etc.
 
 Manipulating data
 ========================================================
@@ -180,7 +187,7 @@ Visualizations - base plots
 
 
 ```r
-plot(mtcars$mpg, mtcars$hp, cex=2)
+plot(hp ~ mpg, data=mtcars, cex=2)
 ```
 
 <img src="r_resources-figure/unnamed-chunk-5.png" title="plot of chunk unnamed-chunk-5" alt="plot of chunk unnamed-chunk-5" style="display: block; margin: auto;" />
