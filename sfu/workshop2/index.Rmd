@@ -70,16 +70,18 @@ ggplot(data=iris, aes(Sepal.Length, Sepal.Width, colour=Species)) +
   geom_point()
 ```
 
----
+--- &twocol
 
 ## Adjust the size (and color) of points
+
+*** =left
 
 ```{r size1, cache=TRUE, fig.height=5.5, tidy=FALSE, fig.align='center'}
 ggplot(data=iris, aes(Sepal.Length, Sepal.Width, colour=Species)) +
   geom_point(size = 6)
 ```
 
-even cooler
+*** =right
 
 ```{r size2, cache=TRUE, fig.height=5.5, tidy=FALSE, fig.align='center'}
 ggplot(data=iris, aes(Sepal.Length, Sepal.Width, color=Species, size=Species)) +
@@ -124,8 +126,11 @@ ggplot(data=iris, aes(Species, Petal.Width)) +
 
 ## Make this plot
 
-```{r makethis, cache=TRUE, fig.height=7, tidy=FALSE, fig.align='center'}
-
+```{r makethis, cache=TRUE, echo=FALSE, fig.height=7, fig.width=10, tidy=FALSE, fig.align='center', message=FALSE}
+ggplot(data=iris, aes(Petal.Width, fill=Species)) +
+  geom_histogram() +
+  facet_wrap(~ Species) +
+  theme_grey(base_size=20)
 ```
 
 --- 
@@ -163,12 +168,114 @@ ggsave(file = "/path/to/figure/filename.pdf")
 
 ## Community structure
 
-+ ad
-+ ad
-+ ad
++ Diversity indices
++ Rarefaction - comparing diverity in different samples
++ Ordination
+
+--- &twocol align1:left
+
+## Diversity indices
+
+*** =left
+
+Shannon-Weaver
+
+```{r diversity1, comment=NA, cache=TRUE}
+library(vegan)
+data(BCI)
+bci_subset <- BCI[1:3,]
+head(bci_subset)[,10:11]
+(H <- diversity(bci_subset))
+```
+
+*** =right
+
+Simpson
+
+```{r diversity2, comment=NA, cache=TRUE}
+diversity(bci_subset, index="simpson")
+```
+
+Evenness
+
+```{r diversity4, comment=NA, cache=TRUE}
+H <- diversity(bci_subset)
+H/log(specnumber(bci_subset))
+```
 
 ---
 
+## Rarefaction
+
+```{r rarefaction1, cache=TRUE, comment=NA, fig.height=5.5, fig.align='center'}
+nosp <- specnumber(BCI)
+nosp_rare <- rarefy(BCI, raremax)
+df <- data.frame(nosp, nosp_rare)
+head(df)
+```
+
+---
+
+## Make this plot
+
+```{r rarefaction2, echo=FALSE, cache=TRUE, comment=NA, fig.height=7, fig.width=10, fig.align='center', warning=FALSE}
+ggplot(df, aes(nosp, nosp_rare)) +
+  geom_point(size=4) +
+  theme_grey(base_size=20) +
+  scale_x_continuous(limits=c(70,110)) +
+  scale_y_continuous(limits=c(70,110))
+```
+
+--- &twocol
+
+## Rarefaction curves
+
+*** =left 
+
+```{r rarefaction3, cache=TRUE, comment=NA, fig.height=5.5, fig.align='center'}
+raremax <- min(rowSums(BCI))
+rarecurve(BCI, step = 20, sample = raremax, col = "blue", cex = 0.6)
+```
+
+*** =right
+
+```{r rarefaction4, cache=TRUE, comment=NA, fig.height=5.5, fig.align='center', warning=FALSE}
+data(BCI)
+sp1 <- specaccum(BCI)
+sp2 <- specaccum(BCI, "random")
+sp2
+summary(sp2)
+plot(sp1, ci.type="poly", col="blue", lwd=2, ci.lty=0, ci.col="lightblue")
+boxplot(sp2, col="yellow", add=TRUE, pch="+")
+```
+
+--- &twocol
+
+## Ordination
+
+*** =left
+
+```{r ordinationbase, cache=TRUE, comment=NA, fig.height=5.5, fig.align='center'}
+data(dune)
+ord <- metaMDS(dune)
+plot(ord)
+```
+
+*** =right
+
+```{r ordinationggplot, cache=TRUE, comment=NA, fig.height=5.5, fig.align='center'}
+ord_axes <- data.frame(scores(ord))
+ord_spp <- data.frame(scores(ord, display="species"))
+ggplot(ord_axes, aes(NMDS1, NMDS2)) +
+  geom_point() +
+  geom_point(data=ord_spp, aes(NMDS1, NMDS2), colour="red")
+```
+
+---
+
+```{r asdf, cache=TRUE, comment=NA, fig.height=5.5, fig.align='center'}
+plot(ord)
+```
 
 <!-- networks -->
 

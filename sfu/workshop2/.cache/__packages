@@ -8,6 +8,7 @@ ggplot2
 iterators
 knitr
 maps
+permute
 plyr
 RCurl
 rgbif
@@ -17,4 +18,5 @@ slidify
 slidifyLibraries
 stringr
 testthat
+vegan
 XML
