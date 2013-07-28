@@ -1,0 +1,183 @@
+---
+title       : Communities, networks, & visualizations in R
+date        : 2013-07-31
+author      : Scott Chamberlain
+job         : 
+framework   : io2012        # {io2012, html5slides, shower, dzslides, ...}
+highlighter : highlight.js  # {highlight.js, prettify, highlight}
+hitheme     : tomorrow      # 
+widgets     : []            # {mathjax, quiz, bootstrap}
+mode        : selfcontained # {standalone, draft}
+assets      :
+  css: "http://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css"
+---
+
+## The plan
+
++ General visualizations
++ Community ecology: analyses and viz
++ Networks/graphs: analyses and viz
+
+---
+
+## Lets have some fun first - visualizations
+
+```{r viz1, eval=FALSE, echo=TRUE}
+install.packages("ggplot2")
+```
+
+```{r viz2, cache=TRUE, fig.height=5.5, tidy=FALSE, fig.align='center'}
+library(ggplot2)
+ggplot(data=iris, aes(Sepal.Length, Sepal.Width, colour=Species)) +
+  geom_point() + 
+  scale_color_manual(values = c("#FF0000", "#0000FF", "#00FF00"))
+```
+
+---
+
+## Terminology
+
++ ggplot - The main function where you specify the dataset and variables to plot
++ geom - geometric objects
+  + `geom_point()`, `geom_bar()`, `geom_density()`, `geom_line()`, `geom_area()`
++ aes - aesthetics
+  + shape, alpha (transparency), color, fill, linetype
++ scale - Define how your data will be plotted
+  + continuous, discrete, log
+
+---
+
+## Building blocks, mix and match
+
+```{r buildup1, eval=FALSE, cache=TRUE, tidy=FALSE, fig.align='center'}
+ggplot(data=iris, aes(Sepal.Length, Sepal.Width, colour=Species)) +
+  geom_point()
+```
+
+OR, just do 
+
+```{r buildup2, eval=FALSE, cache=TRUE, tidy=FALSE, fig.align='center'}
+p <- ggplot(data=iris, aes(Sepal.Length, Sepal.Width, colour=Species))
+p + geom_point()
+```
+
+---
+
+## Color by species
+
+```{r color1, cache=TRUE, fig.height=5.5, tidy=FALSE, fig.align='center'}
+ggplot(data=iris, aes(Sepal.Length, Sepal.Width, colour=Species)) +
+  geom_point()
+```
+
+---
+
+## Adjust the size (and color) of points
+
+```{r size1, cache=TRUE, fig.height=5.5, tidy=FALSE, fig.align='center'}
+ggplot(data=iris, aes(Sepal.Length, Sepal.Width, colour=Species)) +
+  geom_point(size = 6)
+```
+
+even cooler
+
+```{r size2, cache=TRUE, fig.height=5.5, tidy=FALSE, fig.align='center'}
+ggplot(data=iris, aes(Sepal.Length, Sepal.Width, color=Species, size=Species)) +
+  geom_point()
+```
+
+---
+
+## Facet by species
+
+```{r viz4, cache=TRUE, fig.height=5.5, tidy=FALSE, fig.align='center'}
+ggplot(data=iris, aes(Sepal.Length, Sepal.Width)) +
+  geom_point() +
+  facet_wrap(~ Species)
+```
+
+--- &twocol
+
+## Combine geoms
+
+*** =left
+
+### Combine `geom_boxplot` and `geom_point`
+
+```{r combinegeoms1, cache=TRUE, fig.height=5.5, tidy=FALSE, fig.align='center'}
+ggplot(data=iris, aes(Species, Petal.Width)) +
+  geom_boxplot() +
+  geom_point()
+```
+
+*** =right
+
+### Order matters! 
+
+```{r combinegeoms2, cache=TRUE, fig.height=5.5, tidy=FALSE, fig.align='center'}
+ggplot(data=iris, aes(Species, Petal.Width)) +
+  geom_point() +
+  geom_boxplot()
+```
+
+---
+
+## Make this plot
+
+```{r makethis, cache=TRUE, fig.height=7, tidy=FALSE, fig.align='center'}
+
+```
+
+--- 
+
+## Saving plots using ggplot2
+
+If the plot is on your screen
+```{r saveggplot1, eval = FALSE}
+ggsave('~/path/to/figure/filename.png')
+```
+
+If your plot is assigned to an object
+```{r saveggplot2, eval = FALSE}
+ggsave(plot1, file = "~/path/to/figure/filename.png")
+```
+
+Specify a size
+```{r saveggplot3, eval = FALSE}
+ggsave(file = "/path/to/figure/filename.png", width = 6,
+height =4)
+```
+
+Or any format (pdf, png, eps, svg, jpg)
+```{r saveggplot4, eval = FALSE}
+ggsave(file = "/path/to/figure/filename.eps")
+ggsave(file = "/path/to/figure/filename.jpg")
+ggsave(file = "/path/to/figure/filename.pdf")
+```
+
+<!-- community structure -->
+<!-- community structure -->
+<!-- community structure -->
+
+--- 
+
+## Community structure
+
++ ad
++ ad
++ ad
+
+---
+
+
+<!-- networks -->
+
+--- 
+
+## Networks
+
++ ad
++ ad
++ ad
+
+---
