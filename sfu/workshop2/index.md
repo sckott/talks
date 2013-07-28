@@ -489,25 +489,6 @@ ggplot(ord_axes, aes(NMDS1, NMDS2)) + geom_point() + geom_point(data = ord_spp,
 
 
 ```r
-ord <- metaMDS(dune)
-```
-
-```
-Run 0 stress 0.1193 
-Run 1 stress 0.1809 
-Run 2 stress 0.1183 
-... New best solution
-... procrustes: rmse 0.02027  max resid 0.06498 
-Run 3 stress 0.2035 
-Run 4 stress 0.1193 
-Run 5 stress 0.1193 
-Run 6 stress 0.1183 
-... New best solution
-... procrustes: rmse 4.182e-05  max resid 0.0001343 
-*** Solution reached
-```
-
-```r
 plot(ord)
 ```
 
