@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Communities, networks, &amp; visualizations in R</title>
+  <meta charset="utf-8">
+  <meta name="description" content="Communities, networks, &amp; visualizations in R">
+  <meta name="author" content="Scott Chamberlain">
+  <meta name="generator" content="slidify" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/default.css" media="all" >
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/phone.css" 
+    media="only screen and (max-device-width: 480px)" >
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/slidify.css" >
+  <link rel="stylesheet" href="libraries/highlighters/highlight.js/css/tomorrow.css" />
+  <base target="_blank"> <!-- This amazingness opens all links in a new tab. -->  <link rel=stylesheet href="./assets/css/sfuworkshop.css"></link>
+<link rel=stylesheet href="http://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css"></link>
+
+  
+  <!-- Grab CDN jQuery, fall back to local if offline -->
+  <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.min.js"></script>
+  <script>window.jQuery || document.write('<script src="libraries/widgets/quiz/js/jquery.js"><\/script>')</script> 
+  <script data-main="libraries/frameworks/io2012/js/slides" 
+    src="libraries/frameworks/io2012/js/require-1.0.8.min.js">
+  </script>
+  
+  
+
+</head>
+<body style="opacity: 0">
+  <slides class="layout-widescreen">
+    
+    <!-- LOGO SLIDE -->
+        <slide class="title-slide segue nobackground">
+  <hgroup class="auto-fadein">
+    <h1>Communities, networks, &amp; visualizations in R</h1>
+    <h2></h2>
+    <p>Scott Chamberlain<br/></p>
+  </hgroup>
+  <article></article>  
+</slide>
+    
+
+    <!-- SLIDES -->
+    <slide class="" id="slide-1" style="background:;">
+  <hgroup>
+    <h2>The plan</h2>
+  </hgroup>
+  <article data-timings="">
+    <ul>
+<li>General visualizations</li>
+<li>Community ecology: analyses and viz</li>
+<li>Networks/graphs: analyses and viz</li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-2" style="background:;">
+  <hgroup>
+    <h2>Lets have some fun first - visualizations</h2>
+  </hgroup>
+  <article data-timings="">
+    <pre><code class="r">install.packages(&quot;ggplot2&quot;)
+</code></pre>
+
+<pre><code class="r">library(ggplot2)
+ggplot(data=iris, aes(Sepal.Length, Sepal.Width, colour=Species)) +
+  geom_point() + 
+  scale_color_manual(values = c(&quot;#FF0000&quot;, &quot;#0000FF&quot;, &quot;#00FF00&quot;))
+</code></pre>
+
+<p><img src="assets/fig/viz2.png" title="plot of chunk viz2" alt="plot of chunk viz2" style="display: block; margin: auto;" /></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-3" style="background:;">
+  <hgroup>
+    <h2>Terminology</h2>
+  </hgroup>
+  <article data-timings="">
+    <ul>
+<li>ggplot - The main function where you specify the dataset and variables to plot</li>
+<li>geom - geometric objects
+
+<ul>
+<li><code>geom_point()</code>, <code>geom_bar()</code>, <code>geom_density()</code>, <code>geom_line()</code>, <code>geom_area()</code></li>
+</ul></li>
+<li>aes - aesthetics
+
+<ul>
+<li>shape, alpha (transparency), color, fill, linetype</li>
+</ul></li>
+<li>scale - Define how your data will be plotted
+
+<ul>
+<li>continuous, discrete, log</li>
+</ul></li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-4" style="background:;">
+  <hgroup>
+    <h2>Building blocks, mix and match</h2>
+  </hgroup>
+  <article data-timings="">
+    <pre><code class="r">ggplot(data=iris, aes(Sepal.Length, Sepal.Width, colour=Species)) +
+  geom_point()
+</code></pre>
+
+<p>OR, just do </p>
+
+<pre><code class="r">p &lt;- ggplot(data=iris, aes(Sepal.Length, Sepal.Width, colour=Species))
+p + geom_point()
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-5" style="background:;">
+  <hgroup>
+    <h2>Color by species</h2>
+  </hgroup>
+  <article data-timings="">
+    <pre><code class="r">ggplot(data=iris, aes(Sepal.Length, Sepal.Width, colour=Species)) +
+  geom_point()
+</code></pre>
+
+<p><img src="assets/fig/color1.png" title="plot of chunk color1" alt="plot of chunk color1" style="display: block; margin: auto;" /></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-6" style="background:;">
+  <hgroup>
+    <h2>Adjust the size (and color) of points</h2>
+  </hgroup>
+  <article data-timings="">
+    <pre><code class="r">ggplot(data=iris, aes(Sepal.Length, Sepal.Width, colour=Species)) +
+  geom_point(size = 6)
+</code></pre>
+
+<p><img src="assets/fig/size1.png" title="plot of chunk size1" alt="plot of chunk size1" style="display: block; margin: auto;" /></p>
+
+<p>even cooler</p>
+
+<pre><code class="r">ggplot(data=iris, aes(Sepal.Length, Sepal.Width, color=Species, size=Species)) +
+  geom_point()
+</code></pre>
+
+<p><img src="assets/fig/size2.png" title="plot of chunk size2" alt="plot of chunk size2" style="display: block; margin: auto;" /></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-7" style="background:;">
+  <hgroup>
+    <h2>Facet by species</h2>
+  </hgroup>
+  <article data-timings="">
+    <pre><code class="r">ggplot(data=iris, aes(Sepal.Length, Sepal.Width)) +
+  geom_point() +
+  facet_wrap(~ Species)
+</code></pre>
+
+<p><img src="assets/fig/viz4.png" title="plot of chunk viz4" alt="plot of chunk viz4" style="display: block; margin: auto;" /></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-8" style="background:;">
+  <hgroup>
+    <h2>Combine geoms</h2>
+  </hgroup>
+  <article data-timings="">
+    
+<div style='float:left;width:48%;' class='centered'>
+  <h3>Combine <code>geom_boxplot</code> and <code>geom_point</code></h3>
+
+<pre><code class="r">ggplot(data=iris, aes(Species, Petal.Width)) +
+  geom_boxplot() +
+  geom_point()
+</code></pre>
+
+<p><img src="assets/fig/combinegeoms1.png" title="plot of chunk combinegeoms1" alt="plot of chunk combinegeoms1" style="display: block; margin: auto;" /></p>
+
+</div>
+<div style='float:right;width:48%;'>
+  <h3>Order matters!</h3>
+
+<pre><code class="r">ggplot(data=iris, aes(Species, Petal.Width)) +
+  geom_point() +
+  geom_boxplot()
+</code></pre>
+
+<p><img src="assets/fig/combinegeoms2.png" title="plot of chunk combinegeoms2" alt="plot of chunk combinegeoms2" style="display: block; margin: auto;" /></p>
+
+</div>
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-9" style="background:;">
+  <hgroup>
+    <h2>Make this plot</h2>
+  </hgroup>
+  <article data-timings="">
+    
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-10" style="background:;">
+  <hgroup>
+    <h2>Saving plots using ggplot2</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>If the plot is on your screen</p>
+
+<pre><code class="r">ggsave(&quot;~/path/to/figure/filename.png&quot;)
+</code></pre>
+
+<p>If your plot is assigned to an object</p>
+
+<pre><code class="r">ggsave(plot1, file = &quot;~/path/to/figure/filename.png&quot;)
+</code></pre>
+
+<p>Specify a size</p>
+
+<pre><code class="r">ggsave(file = &quot;/path/to/figure/filename.png&quot;, width = 6, height = 4)
+</code></pre>
+
+<p>Or any format (pdf, png, eps, svg, jpg)</p>
+
+<pre><code class="r">ggsave(file = &quot;/path/to/figure/filename.eps&quot;)
+ggsave(file = &quot;/path/to/figure/filename.jpg&quot;)
+ggsave(file = &quot;/path/to/figure/filename.pdf&quot;)
+</code></pre>
+
+<!-- community structure -->
+
+<!-- community structure -->
+
+<!-- community structure -->
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-11" style="background:;">
+  <hgroup>
+    <h2>Community structure</h2>
+  </hgroup>
+  <article data-timings="">
+    <ul>
+<li>ad</li>
+<li>ad</li>
+<li>ad</li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-12" style="background:;">
+  <article data-timings="">
+    <!-- networks -->
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-13" style="background:;">
+  <hgroup>
+    <h2>Networks</h2>
+  </hgroup>
+  <article data-timings="">
+    <ul>
+<li>ad</li>
+<li>ad</li>
+<li>ad</li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-14" style="background:;">
+  <article data-timings="">
+    
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+    <slide class="backdrop"></slide>
+  </slides>
+  <div class="pagination pagination-small" id='io2012-ptoc' style="display:none;">
+    <ul>
+      <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=1 title='The plan'>
+         1
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=2 title='Lets have some fun first - visualizations'>
+         2
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=3 title='Terminology'>
+         3
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=4 title='Building blocks, mix and match'>
+         4
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=5 title='Color by species'>
+         5
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=6 title='Adjust the size (and color) of points'>
+         6
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=7 title='Facet by species'>
+         7
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=8 title='Combine geoms'>
+         8
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=9 title='Make this plot'>
+         9
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=10 title='Saving plots using ggplot2'>
+         10
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=11 title='Community structure'>
+         11
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=12 title=''>
+         12
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=13 title='Networks'>
+         13
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=14 title=''>
+         14
+      </a>
+    </li>
+  </ul>
+  </div>  <!--[if IE]>
+    <script 
+      src="http://ajax.googleapis.com/ajax/libs/chrome-frame/1/CFInstall.min.js">  
+    </script>
+    <script>CFInstall.check({mode: 'overlay'});</script>
+  <![endif]-->
+</body>
+  <!-- Load Javascripts for Widgets -->
+  
+  <!-- LOAD HIGHLIGHTER JS FILES -->
+  <script src="libraries/highlighters/highlight.js/highlight.pack.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  <!-- DONE LOADING HIGHLIGHTER JS FILES -->
+   
+  </html>
