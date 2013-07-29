@@ -234,7 +234,7 @@ ggplot(df, aes(nosp, nosp_rare)) +
 
 ```{r rarefaction3, cache=TRUE, comment=NA, fig.height=5.5, fig.align='center'}
 raremax <- min(rowSums(BCI))
-rarecurve(BCI, step = 20, sample = raremax, col = "blue", cex = 0.6)
+rarecurve(BCI, step=20, sample=raremax, col="blue", cex=0.6)
 ```
 
 *** =right
@@ -243,39 +243,74 @@ rarecurve(BCI, step = 20, sample = raremax, col = "blue", cex = 0.6)
 data(BCI)
 sp1 <- specaccum(BCI)
 sp2 <- specaccum(BCI, "random")
-sp2
-summary(sp2)
 plot(sp1, ci.type="poly", col="blue", lwd=2, ci.lty=0, ci.col="lightblue")
 boxplot(sp2, col="yellow", add=TRUE, pch="+")
 ```
 
---- &twocol
+---
 
 ## Ordination
 
-*** =left
-
-```{r ordinationbase, cache=TRUE, comment=NA, fig.height=5.5, fig.align='center'}
+```{r ordinationbase1, cache=TRUE, comment=NA, message=FALSE, warning=FALSE}
 data(dune)
-ord <- metaMDS(dune)
+ord <- metaMDS(dune, trace=0)
 plot(ord)
 ```
 
-*** =right
+---
+
+## In ggplot2!
 
 ```{r ordinationggplot, cache=TRUE, comment=NA, fig.height=5.5, fig.align='center'}
 ord_axes <- data.frame(scores(ord))
 ord_spp <- data.frame(scores(ord, display="species"))
 ggplot(ord_axes, aes(NMDS1, NMDS2)) +
-  geom_point() +
-  geom_point(data=ord_spp, aes(NMDS1, NMDS2), colour="red")
+  geom_point(shape=21) +
+  geom_point(data=ord_spp, aes(NMDS1, NMDS2), shape=3, colour="red")
 ```
 
 ---
 
-```{r asdf, cache=TRUE, comment=NA, fig.height=5.5, fig.align='center'}
-plot(ord)
+## But I want species names
+
+```{r ordinationggplot2, cache=TRUE, comment=NA, fig.height=5.5, fig.align='center'}
+ord_spp$spp <- row.names(ord_spp)
+ggplot(ord_axes, aes(NMDS1, NMDS2)) +
+  geom_point(shape=21) +
+  geom_text(data=ord_spp, aes(NMDS1, NMDS2, label=spp), colour="red")
 ```
+
+--- &twocol
+
+## Comparison between treatments
+
+*** =left
+
+```{r adonis1, cache=TRUE, comment=NA}
+data(dune)
+data(dune.env)
+dune[1:3,1:3]
+dune.env[1:3,1:3]
+help(dune.env)
+```
+
+*** =right
+
+```{r adonis2, cache=TRUE, comment=NA}
+data.frame(adonis(dune ~ Management*A1, data=dune.env, permutations=99)$aov.tab)
+```
+
+---
+
+## Do your own ordination
+
++ Take one of the datasets in the vegan pacage
++ Pick an ordination method
+  + `cca`: constrained ordination
+  + add environmental variables to ordination, see `envfit`
+  + `adonis`: Permutational Multivariate Analysis of Variance
++ Try it out!
+
 
 <!-- networks -->
 
@@ -283,8 +318,118 @@ plot(ord)
 
 ## Networks
 
-+ ad
-+ ad
-+ ad
++ Visualizations
++ Analyses
+  + Network level metrics
+  + Species level metrics
 
 ---
+
+## Network vizualizations
+
+```{r netviz1, cache=TRUE, comment=NA, fig.height=8, fig.width=14, fig.align='center'}
+library(bipartite)
+plotweb(small1976)
+```
+
+---
+
+## Another way to visualize networks
+
+```{r netviz2, cache=TRUE, fig.height=8, fig.width=14, fig.align='center'}
+visweb(small1976, labsize=2)
+```
+
+---
+
+## Variety of other plotting options
+
+```{r netviz3, eval=FALSE}
+# Eg 1
+plotweb(small1976, high.lablength=3, low.lablength=0, arrow="down")
+
+# Eg 2
+plotweb(small1976, text.rot=90, arrow="down.center", col.interaction="wheat2",
+  y.lim=c(-1,2.5))
+
+# Eg 3
+low.abun = round(runif(dim(small1976)[1],1,40))
+names(low.abun) <- rownames(small1976)
+plotweb(small1976, text.rot=90, low.abun=low.abun, col.interaction="purple", 
+  y.width.low=0.05, y.width.high=0.05)
+```
+
+---
+
+## Network metrics - of the whole community
+
+Start with the bipartite package. Others include X, Y, and Z.
+
+```{r netlevelmets1, cache=TRUE, comment=NA, fig.height=5.5, fig.align='center'}
+res <- networklevel(small1976, index="binary")
+res
+```
+
+---
+
+## Let's compare some metrics among networks!!!
+
+```{r comparemets, cache=TRUE, comment=NA, warning=FALSE, fig.height=3.5, fig.width=10, fig.align='center'}
+library(reshape2)
+networks <- list(Safariland,barrett1987,bezerra2009,elberling1999,inouye1988,kato1990,kevan1970)
+res <- llply(networks, function(x) networklevel(x, index=c('connectance','links per species','nestedness')))
+names(res) <- c('Safariland','barrett1987','bezerra2009','elberling1999','inouye1988','kato1990','kevan1970')
+df <- melt(ldply(res), id.vars='.id')
+ggplot(df, aes(.id, value)) +
+  geom_point(size=4, alpha=0.6) + 
+  facet_wrap(~variable, scales="free") +
+  theme_bw(base_size=20) +
+  theme(axis.text.x = element_blank())
+```
+
+---
+
+## Make this plot
+
+```{r comparemets2, echo=FALSE, cache=TRUE, comment=NA, warning=FALSE, fig.height=7, fig.width=12, fig.align='center'}
+networks <- list(Safariland,barrett1987,bezerra2009,elberling1999,inouye1988,kato1990,kevan1970)
+res <- llply(networks, function(x) networklevel(x, index=c('web asymmetry','H2')))
+names(res) <- c('Safariland','barrett1987','bezerra2009','elberling1999','inouye1988','kato1990','kevan1970')
+df <- melt(ldply(res), id.vars='.id')
+ggplot(df, aes(.id, value, color=.id)) +
+  geom_point(size=4, alpha=0.6) + 
+  facet_wrap(~variable, scales="free") +
+  theme_bw(base_size=20) +
+  theme(axis.text.x = element_blank())
+```
+
+---
+
+## Species level metrics
+
+```{r splevelmets, cache=TRUE, comment=NA, warning=FALSE}
+splevel <- specieslevel(small1976, index="degree")
+head(splevel[[1]], n=3)
+head(splevel[[2]], n=3)
+```
+
+---
+
+## Species level metrics - roll your own
+
++ Pick a network in the bipartite package
++ Calculate one species level metric for all species in that network
++ Plot the metrics for each species, both plants and pollinators
+
+--- 
+
+## Resources
+
++ All this code, etc. are available [here](https://github.com/SChamberlain/posterstalks/blob/gh-pages/sfu/workshop2/index.Rmd), and as slides [here](http://schamberlain.github.io/posterstalks/sfu/workshop2/index.html)
++ Get in touch with me at sachambe at sfu.ca
++ You can poke around on the [The R homepage](http://cran.r-project.org/)
++ [R task views](http://cran.r-project.org/web/views/)
++ [Nice R documentation site](http://www.rdocumentation.org/)
++ [R mailing lists](http://www.r-project.org/mail.html), including general, stats, etc., and **ecology**!
++ [Search the R tag on StackOverflow (aka SO)](http://stackoverflow.com/questions/tagged/r): best place to ask questions, fastest response
++ Googling R? Use **"cran"** instead of **"R"** (cran=comprehensive R archive network): often R help list or on SO
