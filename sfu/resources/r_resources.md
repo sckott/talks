@@ -4,15 +4,33 @@ author: Scott Chamberlain
 date: 2013-07-30
 navigation: slide
 
+Links
+========================================================
+
+### This presentation can be viewed at 
+
+http://bit.ly/rresources
+
+### You can use/modify/etc. the code behind this presentation at 
+
+http://bit.ly/rresources_code
+
+R can be your entire workflow
+========================================================
+
++ Data
++ Manipulation
++ Visualization
++ Analysis
++ Writing
+
 Where do I start?!
 ========================================================
 
 + Install R [from here](http://cran.r-project.org/)
 + Don't know what a function does? 
 
-```r
-?plot
-```
+`?plot` or `??plot` for fuzzy search
 
 or 
 
@@ -21,7 +39,7 @@ help("plot")
 help(package="ggplot2")
 ```
 
-or
+or just execute name of function to see the code
 
 ```r
 plot
@@ -29,17 +47,27 @@ plot
 
 More help please!
 ========================================================
-+ You can poke around on the [The R homepage](http://cran.r-project.org/)
++ Poke around on the [The R homepage](http://cran.r-project.org/)
 + [R task views](http://cran.r-project.org/web/views/)
+  + Including: bayesian stats, genetics, meta-analysis, phylogenetics, spatial stuff, etc.
 + [Nice R documentation site](http://www.rdocumentation.org/)
 + [R mailing lists](http://www.r-project.org/mail.html)
   + Topics include: general, stats, etc., and **ecology**!
-+ [Search the R tag on StackOverflow (aka SO)](http://stackoverflow.com/questions/tagged/r)
-  + SO is the best place to ask questions, and where you will get the fastest response to a specific query
-+ Googling R? Use **"cran"** instead of **"R"** (cran=comprehensive R archive network)
-  + Good for very broad searches, but you often just find stuff on the R help list or on SO
+  
+More help please! - continued
+========================================================
+id: res1
 
-More on StackOverflow
+#### These are the best place to ask questions, and where you will get the fastest response to a specific query (search the R tag with "`[r]`")
+  + [Biostar](http://www.biostars.org/) *bionformatics* 
+  + [CrossValidated](http://stats.stackexchange.com/) *statistics*
+  + [Proposed Ecology stackexchange](http://area51.stackexchange.com/proposals/53186/ecology) *ecology*
+  + [StackOverflow (aka SO)](http://stackoverflow.com/questions/tagged/r) *general programming*
+
+#### Googling R? Use **"cran"** instead of **"R"** (cran=comprehensive R archive network)
++ Good for very broad searches, but you often just find stuff on the R help list or one one of the above sites
+
+More on StackOverflow and related sites
 ========================================================
 
 Some helpful tips:
@@ -99,38 +127,61 @@ Tasks in R
 Getting local data
 ========================================================
 
-+ CSV files best, but 
++ CSV files best
+
+
+```r
+read.csv("mycoolfile.csv")
+```
+
+
 + Can import from XLS/XLSX too
+
+
+```r
+install.packages("gdata")
+library(gdata)
+read.xls("mycoolfile.xls", sheet="Sheet1")
+```
+
 
 Data on the web
 ========================================================
-incremental: true
+incremental: false
 
 Um, why would I do this?
 
-Getting data directly in R allows for completely reproducible workflows
+Getting data directly in R allows for reproducible workflows = data + analysis + visualizations + writing (hint: see R pkg [knitr](http://cran.r-project.org/web/packages/knitr/index.html))
 
 Data/taxonomy/etc. constantly changing = makes sense to query for newest data
 
-+ rOpenSci at [http://ropensci.org/](http://ropensci.org/)
+rOpenSci at [http://ropensci.org/](http://ropensci.org/)
 + We are building bridges between data on the web and R
 + GBIF, Dryad, ITIS, NCBI, Genbank, eLife, US National Phenology Network, PLOS literature, etc.
 
 Manipulating data
 ========================================================
 
-Definitely learn:
+Definitely learn tools for the *split-apply-combine* strategy
 
-+ **plyr** split-apply-combine strategy
-+ **reshape2** *melt* and *cast* data.frames
-+ **data.table** faster than plyr, only need in edge cases, harder to use
++ **plyr** split apart objects, do some operation, and summarise
++ **reshape2** *melt* and *cast* data.frames & other R objects
+
+***
+
+![](img/splitapply.png)
+
+*** 
+
+<small>[Hadley Wickham (2011). The Split-Apply-Combine Strategy for Data Analysis. JSS, 40(1), 1-29.](http://www.jstatsoft.org/v40/i01) for more details</small>
 
 plyr
 ========================================================
 
 
 ```r
-head(iris)[1:3,c(1:2,5)]
+library(plyr)
+head(iris)[, c(1:2, 5)]
 ```
 
 ```
@@ -138,11 +189,13 @@ head(iris)[1:3,c(1:2,5)]
 1          5.1         3.5  setosa
 2          4.9         3.0  setosa
 3          4.7         3.2  setosa
+4          4.6         3.1  setosa
+5          5.0         3.6  setosa
+6          5.4         3.9  setosa
 ```
 
 ```r
-library(plyr)
-ddply(iris, .(Species), colwise(mean))[,1:3]
+ddply(iris, .(Species), colwise(mean))[, 1:3]
 ```
 
 ```
@@ -159,18 +212,21 @@ reshape
 
 ```r
 library(reshape2)
-head(iris)[1:3,3:5]
+head(iris)[1:3,]
 ```
 
 ```
-  Petal.Length Petal.Width Species
-1          1.4         0.2  setosa
-2          1.4         0.2  setosa
-3          1.3         0.2  setosa
+  Sepal.Length Sepal.Width Petal.Length Petal.Width Species
+1          5.1         3.5          1.4         0.2  setosa
+2          4.9         3.0          1.4         0.2  setosa
+3          4.7         3.2          1.3         0.2  setosa
 ```
+
+
 
 ```r
-head(melt(iris))[1:3,1:3]
+iris_m <- melt(iris)
+head(iris_m)[1:3,1:3]
 ```
 
 ```
@@ -182,42 +238,57 @@ head(melt(iris))[1:3,1:3]
 
 
 
+```r
+dcast(iris_m, Species ~ variable)
+```
+
+```
+     Species Sepal.Length Sepal.Width Petal.Length Petal.Width
+1     setosa           50          50           50          50
+2 versicolor           50          50           50          50
+3  virginica           50          50           50          50
+```
+
+
+
 Visualizations - base plots
 ========================================================
 
 
 ```r
-plot(hp ~ mpg, data=mtcars, cex=2)
+plot(hp ~ mpg, data=mtcars, cex=3, cex.axis=2, cex.lab=2)
 ```
 
-<img src="r_resources-figure/unnamed-chunk-5.png" title="plot of chunk unnamed-chunk-5" alt="plot of chunk unnamed-chunk-5" style="display: block; margin: auto;" />
+<img src="r_resources-figure/unnamed-chunk-9.png" title="plot of chunk unnamed-chunk-9" alt="plot of chunk unnamed-chunk-9" style="display: block; margin: auto;" />
 
 
-Visualization - ggplot2
+Visualizations - ggplot2 (learn it)
 ========================================================
 
 
 ```r
 library(ggplot2)
 ggplot(mtcars, aes(mpg, hp)) + 
-  geom_point()
+  geom_point(size=4) +
+  theme_grey(base_size=20)
 ```
 
-<img src="r_resources-figure/unnamed-chunk-6.png" title="plot of chunk unnamed-chunk-6" alt="plot of chunk unnamed-chunk-6" style="display: block; margin: auto;" />
+<img src="r_resources-figure/unnamed-chunk-10.png" title="plot of chunk unnamed-chunk-10" alt="plot of chunk unnamed-chunk-10" style="display: block; margin: auto;" />
 
 
-ggplot2 - here is where the power is
+ggplot2 - but why learn it? This -> 
 ========================================================
 
 
 ```r
 library(ggplot2)
 ggplot(mtcars, aes(mpg, hp, colour=gear)) +
-  geom_point() +
-  facet_wrap(~carb)
+  geom_point(size=4) +
+  facet_wrap(~carb) +
+  theme_grey(base_size=20)
 ```
 
-<img src="r_resources-figure/unnamed-chunk-7.png" title="plot of chunk unnamed-chunk-7" alt="plot of chunk unnamed-chunk-7" style="display: block; margin: auto;" />
+<img src="r_resources-figure/unnamed-chunk-11.png" title="plot of chunk unnamed-chunk-11" alt="plot of chunk unnamed-chunk-11" style="display: block; margin: auto;" />
 
 
 Analysis
@@ -225,7 +296,9 @@ Analysis
 
 Way too much to cover here, there can be a lot of intracacies to analyses: 
 
-+ **Ask the authors of the packages**: R mailing lists, StackOverflow, etc.
++ **Ask the authors of the packages**: email directly, probably slower than below options
+
++ R mailing lists, StackOverflow, etc. ([see previous slides](#/res1))
 
 + **CRAN Taskviews**: 
   + [Bayesian](http://cran.r-project.org/web/views/Bayesian.html)
@@ -240,11 +313,14 @@ Highly recommend learning [knitr](http://yihui.name/knitr/)
 
 knitr: Mix text w/ code = reproducible documents
 
-Bonus: it's integrated in to RStudio
+Bonus: it's integrated in to [RStudio](http://www.rstudio.com/)
 
 You can combine LaTeX or Markdown with your code
 
 For Word users = try Markdown with knitr first, shallower learning curve relative to LaTeX.
+
+`library(knitr)` then in Toolbar do *New File* then *R Markdown* to get started
+
 
 Various other resources
 ========================================================

@@ -1,3 +1,10 @@
-body {
-  font-size: 20px;
+.reveal pre code {
+	display: block;
+	padding: 0.5em;
+	font-size: 22px;
+	line-height: 1.1em;
+	background-color: white;
+	overflow: visible;
+	max-height: none;
+	word-wrap: normal;
 }
