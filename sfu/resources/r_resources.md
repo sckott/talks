@@ -147,7 +147,7 @@ read.xls("mycoolfile.xls", sheet="Sheet1")
 
 Data on the web
 ========================================================
-incremental: false
+incremental: true
 
 Um, why would I do this?
 
@@ -177,7 +177,7 @@ Definitely learn tools for the *split-apply-combine* strategy
 
 plyr
 ========================================================
-
+incremental: true
 
 ```r
 library(plyr)
@@ -194,6 +194,8 @@ head(iris)[, c(1:2, 5)]
 6          5.4         3.9  setosa
 ```
 
+
+
 ```r
 ddply(iris, .(Species), colwise(mean))[, 1:3]
 ```
@@ -208,7 +210,7 @@ ddply(iris, .(Species), colwise(mean))[, 1:3]
 
 reshape
 ========================================================
-
+incremental: true
 
 ```r
 library(reshape2)
@@ -259,7 +261,7 @@ Visualizations - base plots
 plot(hp ~ mpg, data=mtcars, cex=3, cex.axis=2, cex.lab=2)
 ```
 
-<img src="r_resources-figure/unnamed-chunk-9.png" title="plot of chunk unnamed-chunk-9" alt="plot of chunk unnamed-chunk-9" style="display: block; margin: auto;" />
+<img src="r_resources-figure/unnamed-chunk-10.png" title="plot of chunk unnamed-chunk-10" alt="plot of chunk unnamed-chunk-10" style="display: block; margin: auto;" />
 
 
 Visualizations - ggplot2 (learn it)
@@ -273,7 +275,7 @@ ggplot(mtcars, aes(mpg, hp)) +
   theme_grey(base_size=20)
 ```
 
-<img src="r_resources-figure/unnamed-chunk-10.png" title="plot of chunk unnamed-chunk-10" alt="plot of chunk unnamed-chunk-10" style="display: block; margin: auto;" />
+<img src="r_resources-figure/unnamed-chunk-11.png" title="plot of chunk unnamed-chunk-11" alt="plot of chunk unnamed-chunk-11" style="display: block; margin: auto;" />
 
 
 ggplot2 - but why learn it? This -> 
@@ -288,7 +290,7 @@ ggplot(mtcars, aes(mpg, hp, colour=gear)) +
   theme_grey(base_size=20)
 ```
 
-<img src="r_resources-figure/unnamed-chunk-11.png" title="plot of chunk unnamed-chunk-11" alt="plot of chunk unnamed-chunk-11" style="display: block; margin: auto;" />
+<img src="r_resources-figure/unnamed-chunk-12.png" title="plot of chunk unnamed-chunk-12" alt="plot of chunk unnamed-chunk-12" style="display: block; margin: auto;" />
 
 
 Analysis
@@ -320,7 +322,6 @@ You can combine LaTeX or Markdown with your code
 For Word users = try Markdown with knitr first, shallower learning curve relative to LaTeX.
 
 `library(knitr)` then in Toolbar do *New File* then *R Markdown* to get started
-
 
 Various other resources
 ========================================================

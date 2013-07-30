@@ -139,7 +139,7 @@ read.xls("mycoolfile.xls", sheet="Sheet1")
 
 Data on the web
 ========================================================
-incremental: false
+incremental: true
 
 Um, why would I do this?
 
@@ -169,16 +169,19 @@ Definitely learn tools for the *split-apply-combine* strategy
 
 plyr
 ========================================================
-
+incremental: true
 ```{r, tidy=TRUE}
 library(plyr)
 head(iris)[,c(1:2,5)]
+```
+
+```{r, tidy=TRUE}
 ddply(iris, .(Species), colwise(mean))[,1:3]
 ```
 
 reshape
 ========================================================
-
+incremental: true
 ```{r}
 library(reshape2)
 head(iris)[1:3,]
@@ -251,7 +254,6 @@ You can combine LaTeX or Markdown with your code
 For Word users = try Markdown with knitr first, shallower learning curve relative to LaTeX.
 
 `library(knitr)` then in Toolbar do *New File* then *R Markdown* to get started
-
 
 Various other resources
 ========================================================
