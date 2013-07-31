@@ -14,28 +14,99 @@ assets      :
 
 ## The plan
 
++ Data manipulation
 + General visualizations
-+ Community ecology: analyses and viz
 + Networks/graphs: analyses and viz
++ Community ecology: analyses and viz
 
 ---
 
-## Lets have some fun first - visualizations
+<!-- Data manipulation -->
 
-```{r viz1, eval=FALSE, echo=TRUE}
-install.packages("ggplot2")
+## Data manipulation
+
+<br><br><br><br>
+
+## plyr + reshape2 = <i class="icon-smile"></i>
+
+---
+
+## A few quick examples
+
+```{r manip1, cache=TRUE, comment=NA}
+library(reshape2)
+head(iris)[1:3,]
 ```
 
-```{r viz2, cache=TRUE, fig.height=5.5, tidy=FALSE, fig.align='center'}
-library(ggplot2)
-ggplot(data=iris, aes(Sepal.Length, Sepal.Width, colour=Species)) +
-  geom_point() + 
-  scale_color_manual(values = c("#FF0000", "#0000FF", "#00FF00"))
+```{r manip2, cache=TRUE, comment=NA}  
+iris_m <- melt(iris, id.vars=5)
+head(iris_m)[1:3,1:3]
+```
+
+```{r manip3, cache=TRUE, comment=NA, warning=FALSE, message=FALSE}
+dcast(iris_m, Species ~ variable, fun.aggregate=sd)
 ```
 
 ---
 
-## Terminology
+## What can we do with this?
+
+`manipulate, then plot`
+
+```{r manipplot1, cache=TRUE, fig.height=6, fig.width=11, tidy=FALSE, fig.align='center'}
+iris_m <- melt(iris, id.vars=5)
+ggplot(iris_m, aes(Species, value)) +
+  geom_boxplot() +
+  facet_wrap(~ variable) +
+  theme_grey(base_size=20)
+```
+
+---
+
+## Your turn
+
+<br><br><br><br>
+
+Read in a data file, melt the data, then cast the data, applying a function to that data.
+
+---
+
+## plyr - split, apply, combine
+
+### Function naming scheme: first letter of source R object + first letter of output R object + ply
+
++ data.frame = ddply, dlply, daply
++ list = llply, ldply, laply
++ array/vector: aaply, alply, adply
++ matrix: maply , mlply, mdply
+
+---
+
+```{r plyr1, cache=TRUE, comment=NA}
+data <- data.frame(x = c("a", "a", "b", "b", "c", "c"), y = c(2, 4, 0, 5, 5, 10))
+ddply(data, .(x), summarise, mean(y))
+```
+
+```{r plyr2, cache=TRUE, comment=NA}
+data <- data.frame(x = c("a", "a", "b", "b", "c", "c"), y = c(2, 4, 0, 5, 5, 10))
+data_list <- list(data, data, data)
+ldply(data_list, function(z) ddply(z, .(x), summarise, mean(y)))
+```
+
+---
+
+## DIY plyr
+
+<br><br><br><br>
+
+Perform split-apply-combine for an R object of your choice. 
+
+
+<!-- Visualizations -->
+
+---
+
+## ggplot2 terminology
 
 + ggplot - The main function where you specify the dataset and variables to plot
 + geom - geometric objects
@@ -47,18 +118,33 @@ ggplot(data=iris, aes(Sepal.Length, Sepal.Width, colour=Species)) +
 
 ---
 
+```{r viz1, eval=FALSE, echo=TRUE}
+install.packages("ggplot2")
+```
+
+```{r viz2, cache=TRUE, fig.height=5.5, tidy=FALSE, fig.align='center'}
+library(ggplot2)
+ggplot(data=iris, aes(Sepal.Length, Sepal.Width)) +
+  geom_point() + 
+  theme_grey(base_size=20)
+```
+
+---
+
 ## Building blocks, mix and match
 
 ```{r buildup1, eval=FALSE, cache=TRUE, tidy=FALSE, fig.align='center'}
 ggplot(data=iris, aes(Sepal.Length, Sepal.Width, colour=Species)) +
-  geom_point()
+  geom_point() + 
+  theme_grey(base_size=20)
 ```
 
 OR, just do 
 
 ```{r buildup2, eval=FALSE, cache=TRUE, tidy=FALSE, fig.align='center'}
 p <- ggplot(data=iris, aes(Sepal.Length, Sepal.Width, colour=Species))
-p + geom_point()
+p <- p + geom_point()
+p + theme_grey(base_size=20)
 ```
 
 ---
@@ -67,7 +153,8 @@ p + geom_point()
 
 ```{r color1, cache=TRUE, fig.height=5.5, tidy=FALSE, fig.align='center'}
 ggplot(data=iris, aes(Sepal.Length, Sepal.Width, colour=Species)) +
-  geom_point()
+  geom_point() +
+  theme_grey(base_size=20)
 ```
 
 --- &twocol
@@ -78,24 +165,27 @@ ggplot(data=iris, aes(Sepal.Length, Sepal.Width, colour=Species)) +
 
 ```{r size1, cache=TRUE, fig.height=5.5, tidy=FALSE, fig.align='center'}
 ggplot(data=iris, aes(Sepal.Length, Sepal.Width, colour=Species)) +
-  geom_point(size = 6)
+  geom_point(size = 6) +
+  theme_grey(base_size=20)
 ```
 
 *** =right
 
 ```{r size2, cache=TRUE, fig.height=5.5, tidy=FALSE, fig.align='center'}
 ggplot(data=iris, aes(Sepal.Length, Sepal.Width, color=Species, size=Species)) +
-  geom_point()
+  geom_point() +
+  theme_grey(base_size=20)
 ```
 
 ---
 
 ## Facet by species
 
-```{r viz4, cache=TRUE, fig.height=5.5, tidy=FALSE, fig.align='center'}
+```{r viz4, cache=TRUE, fig.height=5.5, fig.width=11, tidy=FALSE, fig.align='center'}
 ggplot(data=iris, aes(Sepal.Length, Sepal.Width)) +
   geom_point() +
-  facet_wrap(~ Species)
+  facet_wrap(~ Species) +
+  theme_grey(base_size=20)
 ```
 
 --- &twocol
@@ -155,10 +245,120 @@ height =4)
 
 Or any format (pdf, png, eps, svg, jpg)
 ```{r saveggplot4, eval = FALSE}
-ggsave(file = "/path/to/figure/filename.eps")
 ggsave(file = "/path/to/figure/filename.jpg")
 ggsave(file = "/path/to/figure/filename.pdf")
 ```
+
+<!-- networks -->
+<!-- networks -->
+<!-- networks -->
+
+--- 
+
+## Networks
+
++ Visualizations
++ Analyses
+  + Network level metrics
+  + Species level metrics
+
+---
+
+## Network vizualizations
+
+```{r netviz1, cache=TRUE, comment=NA, fig.height=8, fig.width=14, fig.align='center'}
+library(bipartite)
+plotweb(small1976)
+```
+
+---
+
+## Another way to visualize networks
+
+```{r netviz2, cache=TRUE, fig.height=8, fig.width=14, fig.align='center'}
+visweb(small1976, labsize=2)
+```
+
+---
+
+## Variety of other plotting options
+
+```{r netviz3, eval=FALSE}
+# Eg 1
+plotweb(small1976, high.lablength=3, low.lablength=0, arrow="down")
+
+# Eg 2
+plotweb(small1976, text.rot=90, arrow="down.center", col.interaction="wheat2",
+  y.lim=c(-1,2.5))
+
+# Eg 3
+low.abun = round(runif(dim(small1976)[1],1,40))
+names(low.abun) <- rownames(small1976)
+plotweb(small1976, text.rot=90, low.abun=low.abun, col.interaction="purple", 
+  y.width.low=0.05, y.width.high=0.05)
+```
+
+---
+
+## Network metrics - of the whole community
+
+Start with the bipartite package. Others include X, Y, and Z.
+
+```{r netlevelmets1, cache=TRUE, comment=NA, fig.height=5.5, fig.align='center'}
+res <- networklevel(small1976, index="binary")
+res
+```
+
+---
+
+## Let's compare some metrics among networks!!!
+
+```{r comparemets, cache=TRUE, comment=NA, warning=FALSE, fig.height=3.5, fig.width=10, fig.align='center'}
+library(reshape2)
+networks <- list(Safariland,barrett1987,bezerra2009,elberling1999,inouye1988,kato1990,kevan1970)
+res <- llply(networks, function(x) networklevel(x, index=c('connectance','links per species','nestedness')))
+names(res) <- c('Safariland','barrett1987','bezerra2009','elberling1999','inouye1988','kato1990','kevan1970')
+df <- melt(ldply(res), id.vars='.id')
+ggplot(df, aes(.id, value)) +
+  geom_point(size=4, alpha=0.6) + 
+  facet_wrap(~variable, scales="free") +
+  theme_bw(base_size=20) +
+  theme(axis.text.x = element_blank())
+```
+
+---
+
+## Make this plot
+
+```{r comparemets2, echo=FALSE, cache=TRUE, comment=NA, warning=FALSE, fig.height=7, fig.width=12, fig.align='center'}
+networks <- list(Safariland,barrett1987,bezerra2009,elberling1999,inouye1988,kato1990,kevan1970)
+res <- llply(networks, function(x) networklevel(x, index=c('web asymmetry','H2')))
+names(res) <- c('Safariland','barrett1987','bezerra2009','elberling1999','inouye1988','kato1990','kevan1970')
+df <- melt(ldply(res), id.vars='.id')
+ggplot(df, aes(.id, value, color=.id)) +
+  geom_point(size=4, alpha=0.6) + 
+  facet_wrap(~variable, scales="free") +
+  theme_bw(base_size=20) +
+  theme(axis.text.x = element_blank())
+```
+
+---
+
+## Species level metrics
+
+```{r splevelmets, cache=TRUE, comment=NA, warning=FALSE}
+splevel <- specieslevel(small1976, index="degree")
+head(splevel[[1]], n=3)
+head(splevel[[2]], n=3)
+```
+
+---
+
+## Species level metrics - roll your own
+
++ Pick a network in the bipartite package
++ Calculate one species level metric for all species in that network
++ Plot the metrics for each species, both plants and pollinators
 
 <!-- community structure -->
 <!-- community structure -->
@@ -310,116 +510,6 @@ data.frame(adonis(dune ~ Management*A1, data=dune.env, permutations=99)$aov.tab)
   + add environmental variables to ordination, see `envfit`
   + `adonis`: Permutational Multivariate Analysis of Variance
 + Try it out!
-
-
-<!-- networks -->
-
---- 
-
-## Networks
-
-+ Visualizations
-+ Analyses
-  + Network level metrics
-  + Species level metrics
-
----
-
-## Network vizualizations
-
-```{r netviz1, cache=TRUE, comment=NA, fig.height=8, fig.width=14, fig.align='center'}
-library(bipartite)
-plotweb(small1976)
-```
-
----
-
-## Another way to visualize networks
-
-```{r netviz2, cache=TRUE, fig.height=8, fig.width=14, fig.align='center'}
-visweb(small1976, labsize=2)
-```
-
----
-
-## Variety of other plotting options
-
-```{r netviz3, eval=FALSE}
-# Eg 1
-plotweb(small1976, high.lablength=3, low.lablength=0, arrow="down")
-
-# Eg 2
-plotweb(small1976, text.rot=90, arrow="down.center", col.interaction="wheat2",
-  y.lim=c(-1,2.5))
-
-# Eg 3
-low.abun = round(runif(dim(small1976)[1],1,40))
-names(low.abun) <- rownames(small1976)
-plotweb(small1976, text.rot=90, low.abun=low.abun, col.interaction="purple", 
-  y.width.low=0.05, y.width.high=0.05)
-```
-
----
-
-## Network metrics - of the whole community
-
-Start with the bipartite package. Others include X, Y, and Z.
-
-```{r netlevelmets1, cache=TRUE, comment=NA, fig.height=5.5, fig.align='center'}
-res <- networklevel(small1976, index="binary")
-res
-```
-
----
-
-## Let's compare some metrics among networks!!!
-
-```{r comparemets, cache=TRUE, comment=NA, warning=FALSE, fig.height=3.5, fig.width=10, fig.align='center'}
-library(reshape2)
-networks <- list(Safariland,barrett1987,bezerra2009,elberling1999,inouye1988,kato1990,kevan1970)
-res <- llply(networks, function(x) networklevel(x, index=c('connectance','links per species','nestedness')))
-names(res) <- c('Safariland','barrett1987','bezerra2009','elberling1999','inouye1988','kato1990','kevan1970')
-df <- melt(ldply(res), id.vars='.id')
-ggplot(df, aes(.id, value)) +
-  geom_point(size=4, alpha=0.6) + 
-  facet_wrap(~variable, scales="free") +
-  theme_bw(base_size=20) +
-  theme(axis.text.x = element_blank())
-```
-
----
-
-## Make this plot
-
-```{r comparemets2, echo=FALSE, cache=TRUE, comment=NA, warning=FALSE, fig.height=7, fig.width=12, fig.align='center'}
-networks <- list(Safariland,barrett1987,bezerra2009,elberling1999,inouye1988,kato1990,kevan1970)
-res <- llply(networks, function(x) networklevel(x, index=c('web asymmetry','H2')))
-names(res) <- c('Safariland','barrett1987','bezerra2009','elberling1999','inouye1988','kato1990','kevan1970')
-df <- melt(ldply(res), id.vars='.id')
-ggplot(df, aes(.id, value, color=.id)) +
-  geom_point(size=4, alpha=0.6) + 
-  facet_wrap(~variable, scales="free") +
-  theme_bw(base_size=20) +
-  theme(axis.text.x = element_blank())
-```
-
----
-
-## Species level metrics
-
-```{r splevelmets, cache=TRUE, comment=NA, warning=FALSE}
-splevel <- specieslevel(small1976, index="degree")
-head(splevel[[1]], n=3)
-head(splevel[[2]], n=3)
-```
-
----
-
-## Species level metrics - roll your own
-
-+ Pick a network in the bipartite package
-+ Calculate one species level metric for all species in that network
-+ Plot the metrics for each species, both plants and pollinators
 
 --- 
 

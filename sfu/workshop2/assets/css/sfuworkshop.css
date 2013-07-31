@@ -3,6 +3,22 @@ body {
   background: #fff;
 }
 
+pre {
+	font-family: 'Inconsolata', 'Courier New', monospace;
+	font-size: 15px;
+	line-height: 28px;
+	padding: 10px 0 10px 60px;
+	letter-spacing: -1px;
+	margin-bottom: 0px;
+	width: 106%;
+	left: -60px;
+	position: relative;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	overflow: hidden;
+}
+
 /* line 248, ../scss/default.scss */
 slides.layout-widescreen > slide,
 slides.layout-faux-widescreen > slide {
