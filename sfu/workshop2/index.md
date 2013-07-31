@@ -12,6 +12,14 @@ assets      :
   css: "http://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css"
 ---
 
+## Where to find this presentation
+<br><br><br>
+### The presentation = https://bitly.com/sfuworkshop
+<br><br><br>
+### The code (written in R Markdown) = http://bit.ly/1bKVX2O
+
+---
+
 ## The plan
 
 + Data manipulation
@@ -104,13 +112,13 @@ ggplot(iris_m, aes(Species, value)) +
 
 <br><br><br><br>
 
-Read in a data file, melt the data, then cast the data, applying a function to that data.
+### Read in a data file, melt the data, then cast the data, applying a function to that data.
 
 ---
 
 ## plyr - split, apply, combine
 
-### Function naming scheme: first letter of source R object + first letter of output R object + ply
+### Function naming scheme: <font color="#B38249">first letter of source R object</font> + <font color="#E09E38">first letter of output R object</font> + ply
 
 + data.frame = ddply, dlply, daply
 + list = llply, ldply, laply
@@ -162,7 +170,7 @@ ldply(data_list, function(z) ddply(z, .(x), summarise, mean(y)))
 
 <br><br><br><br>
 
-Perform split-apply-combine for an R object of your choice. 
+### Perform split-apply-combine for an R object of your choice. 
 
 
 <!-- Visualizations -->
@@ -753,8 +761,7 @@ Total         19    4.2990      NA      NA 1.0000     NA
 
 ## Resources
 
-+ All this code, etc. are available [here](https://github.com/SChamberlain/posterstalks/blob/gh-pages/sfu/workshop2/index.Rmd), and as slides [here](http://schamberlain.github.io/posterstalks/sfu/workshop2/index.html)
-+ Get in touch with me at sachambe at sfu.ca
++ All this code, etc. are available [here](http://bit.ly/1bKVX2O), and as slides [here](https://bitly.com/sfuworkshop)
 + You can poke around on the [The R homepage](http://cran.r-project.org/)
 + [R task views](http://cran.r-project.org/web/views/)
 + [Nice R documentation site](http://www.rdocumentation.org/)
