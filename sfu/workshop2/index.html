@@ -50,8 +50,8 @@
     <ul>
 <li>Data manipulation</li>
 <li>General visualizations</li>
-<li>Community ecology: analyses and viz</li>
 <li>Networks/graphs: analyses and viz</li>
+<li>Community ecology: analyses and viz</li>
 </ul>
 
   </article>
@@ -205,44 +205,15 @@ ldply(data_list, function(z) ddply(z, .(x), summarise, mean(y)))
 
 <p>Perform split-apply-combine for an R object of your choice. </p>
 
-  </article>
-  <!-- Presenter Notes -->
-</slide>
-
-<slide class="" id="slide-9" style="background:;">
-  <article data-timings="">
-    <pre><code>## Error: object &#39;name&#39; not found
-</code></pre>
-
 <!-- Visualizations -->
 
   </article>
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-10" style="background:;">
+<slide class="" id="slide-9" style="background:;">
   <hgroup>
-    <h2>Lets have some with visualizations</h2>
-  </hgroup>
-  <article data-timings="">
-    <pre><code class="r">install.packages(&quot;ggplot2&quot;)
-</code></pre>
-
-<pre><code class="r">library(ggplot2)
-ggplot(data=iris, aes(Sepal.Length, Sepal.Width)) +
-  geom_point() + 
-  theme_grey(base_size=20)
-</code></pre>
-
-<p><img src="assets/fig/viz2.png" title="plot of chunk viz2" alt="plot of chunk viz2" style="display: block; margin: auto;" /></p>
-
-  </article>
-  <!-- Presenter Notes -->
-</slide>
-
-<slide class="" id="slide-11" style="background:;">
-  <hgroup>
-    <h2>Terminology</h2>
+    <h2>ggplot2 terminology</h2>
   </hgroup>
   <article data-timings="">
     <ul>
@@ -268,7 +239,24 @@ ggplot(data=iris, aes(Sepal.Length, Sepal.Width)) +
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-12" style="background:;">
+<slide class="" id="slide-10" style="background:;">
+  <article data-timings="">
+    <pre><code class="r">install.packages(&quot;ggplot2&quot;)
+</code></pre>
+
+<pre><code class="r">library(ggplot2)
+ggplot(data=iris, aes(Sepal.Length, Sepal.Width)) +
+  geom_point() + 
+  theme_grey(base_size=20)
+</code></pre>
+
+<p><img src="assets/fig/viz2.png" title="plot of chunk viz2" alt="plot of chunk viz2" style="display: block; margin: auto;" /></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-11" style="background:;">
   <hgroup>
     <h2>Building blocks, mix and match</h2>
   </hgroup>
@@ -289,7 +277,7 @@ p + theme_grey(base_size=20)
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-13" style="background:;">
+<slide class="" id="slide-12" style="background:;">
   <hgroup>
     <h2>Color by species</h2>
   </hgroup>
@@ -305,7 +293,7 @@ p + theme_grey(base_size=20)
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-14" style="background:;">
+<slide class="" id="slide-13" style="background:;">
   <hgroup>
     <h2>Adjust the size (and color) of points</h2>
   </hgroup>
@@ -333,7 +321,7 @@ p + theme_grey(base_size=20)
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-15" style="background:;">
+<slide class="" id="slide-14" style="background:;">
   <hgroup>
     <h2>Facet by species</h2>
   </hgroup>
@@ -350,7 +338,7 @@ p + theme_grey(base_size=20)
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-16" style="background:;">
+<slide class="" id="slide-15" style="background:;">
   <hgroup>
     <h2>Combine geoms</h2>
   </hgroup>
@@ -382,7 +370,7 @@ p + theme_grey(base_size=20)
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-17" style="background:;">
+<slide class="" id="slide-16" style="background:;">
   <hgroup>
     <h2>Make this plot</h2>
   </hgroup>
@@ -393,7 +381,7 @@ p + theme_grey(base_size=20)
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-18" style="background:;">
+<slide class="" id="slide-17" style="background:;">
   <hgroup>
     <h2>Saving plots using ggplot2</h2>
   </hgroup>
@@ -419,6 +407,183 @@ p + theme_grey(base_size=20)
 ggsave(file = &quot;/path/to/figure/filename.pdf&quot;)
 </code></pre>
 
+<!-- networks -->
+
+<!-- networks -->
+
+<!-- networks -->
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-18" style="background:;">
+  <hgroup>
+    <h2>Networks</h2>
+  </hgroup>
+  <article data-timings="">
+    <ul>
+<li>Visualizations</li>
+<li>Analyses
+
+<ul>
+<li>Network level metrics</li>
+<li>Species level metrics</li>
+</ul></li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-19" style="background:;">
+  <hgroup>
+    <h2>Network vizualizations</h2>
+  </hgroup>
+  <article data-timings="">
+    <pre><code class="r">library(bipartite)
+plotweb(small1976)
+</code></pre>
+
+<p><img src="assets/fig/netviz1.png" title="plot of chunk netviz1" alt="plot of chunk netviz1" style="display: block; margin: auto;" /></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-20" style="background:;">
+  <hgroup>
+    <h2>Another way to visualize networks</h2>
+  </hgroup>
+  <article data-timings="">
+    <pre><code class="r">visweb(small1976, labsize = 2)
+</code></pre>
+
+<p><img src="assets/fig/netviz21.png" title="plot of chunk netviz2" alt="plot of chunk netviz2" style="display: block; margin: auto;" /><img src="assets/fig/netviz22.png" title="plot of chunk netviz2" alt="plot of chunk netviz2" style="display: block; margin: auto;" /></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-21" style="background:;">
+  <hgroup>
+    <h2>Variety of other plotting options</h2>
+  </hgroup>
+  <article data-timings="">
+    <pre><code class="r"># Eg 1
+plotweb(small1976, high.lablength = 3, low.lablength = 0, arrow = &quot;down&quot;)
+
+# Eg 2
+plotweb(small1976, text.rot = 90, arrow = &quot;down.center&quot;, col.interaction = &quot;wheat2&quot;, 
+    y.lim = c(-1, 2.5))
+
+# Eg 3
+low.abun = round(runif(dim(small1976)[1], 1, 40))
+names(low.abun) &lt;- rownames(small1976)
+plotweb(small1976, text.rot = 90, low.abun = low.abun, col.interaction = &quot;purple&quot;, 
+    y.width.low = 0.05, y.width.high = 0.05)
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-22" style="background:;">
+  <hgroup>
+    <h2>Network metrics - of the whole community</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>Start with the bipartite package. Others include X, Y, and Z.</p>
+
+<pre><code class="r">res &lt;- networklevel(small1976, index = &quot;binary&quot;)
+res
+</code></pre>
+
+<pre><code>           connectance      links per species    cluster coefficient 
+                0.3190                 3.0000                 0.3077 
+            nestedness           Fisher alpha cluster.coefficient.HL 
+               32.6025                44.9156                 0.3727 
+cluster.coefficient.LL 
+                0.3945 
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-23" style="background:;">
+  <hgroup>
+    <h2>Let&#39;s compare some metrics among networks!!!</h2>
+  </hgroup>
+  <article data-timings="">
+    <pre><code class="r">library(reshape2)
+networks &lt;- list(Safariland, barrett1987, bezerra2009, elberling1999, inouye1988, 
+    kato1990, kevan1970)
+res &lt;- llply(networks, function(x) networklevel(x, index = c(&quot;connectance&quot;, 
+    &quot;links per species&quot;, &quot;nestedness&quot;)))
+names(res) &lt;- c(&quot;Safariland&quot;, &quot;barrett1987&quot;, &quot;bezerra2009&quot;, &quot;elberling1999&quot;, 
+    &quot;inouye1988&quot;, &quot;kato1990&quot;, &quot;kevan1970&quot;)
+df &lt;- melt(ldply(res), id.vars = &quot;.id&quot;)
+ggplot(df, aes(.id, value)) + geom_point(size = 4, alpha = 0.6) + facet_wrap(~variable, 
+    scales = &quot;free&quot;) + theme_bw(base_size = 20) + theme(axis.text.x = element_blank())
+</code></pre>
+
+<p><img src="assets/fig/comparemets.png" title="plot of chunk comparemets" alt="plot of chunk comparemets" style="display: block; margin: auto;" /></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-24" style="background:;">
+  <hgroup>
+    <h2>Make this plot</h2>
+  </hgroup>
+  <article data-timings="">
+    <p><img src="assets/fig/comparemets2.png" title="plot of chunk comparemets2" alt="plot of chunk comparemets2" style="display: block; margin: auto;" /></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-25" style="background:;">
+  <hgroup>
+    <h2>Species level metrics</h2>
+  </hgroup>
+  <article data-timings="">
+    <pre><code class="r">splevel &lt;- specieslevel(small1976, index = &quot;degree&quot;)
+head(splevel[[1]], n = 3)
+</code></pre>
+
+<pre><code>                          degree
+Adela.purpurea                 1
+Thymelicus.lineola             2
+Macrodactlyus.subspinosus      1
+</code></pre>
+
+<pre><code class="r">head(splevel[[2]], n = 3)
+</code></pre>
+
+<pre><code>                        degree
+Salix.fragilis              13
+Chamaedaphne.calyculata     13
+Nemopanthus.mucronata       13
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-26" style="background:;">
+  <hgroup>
+    <h2>Species level metrics - roll your own</h2>
+  </hgroup>
+  <article data-timings="">
+    <ul>
+<li>Pick a network in the bipartite package</li>
+<li>Calculate one species level metric for all species in that network</li>
+<li>Plot the metrics for each species, both plants and pollinators</li>
+</ul>
+
 <!-- community structure -->
 
 <!-- community structure -->
@@ -429,7 +594,7 @@ ggsave(file = &quot;/path/to/figure/filename.pdf&quot;)
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-19" style="background:;">
+<slide class="" id="slide-27" style="background:;">
   <hgroup>
     <h2>Community structure</h2>
   </hgroup>
@@ -444,7 +609,7 @@ ggsave(file = &quot;/path/to/figure/filename.pdf&quot;)
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-20" style="background:;">
+<slide class="" id="slide-28" style="background:;">
   <hgroup>
     <h2>Diversity indices</h2>
   </hgroup>
@@ -498,7 +663,7 @@ H/log(specnumber(bci_subset))
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-21" style="background:;">
+<slide class="" id="slide-29" style="background:;">
   <hgroup>
     <h2>Rarefaction</h2>
   </hgroup>
@@ -532,7 +697,7 @@ nosp_rare &lt;- rarefy(BCI, raremax)
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-22" style="background:;">
+<slide class="" id="slide-30" style="background:;">
   <hgroup>
     <h2>Make this plot</h2>
   </hgroup>
@@ -543,7 +708,7 @@ nosp_rare &lt;- rarefy(BCI, raremax)
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-23" style="background:;">
+<slide class="" id="slide-31" style="background:;">
   <hgroup>
     <h2>Rarefaction curves</h2>
   </hgroup>
@@ -572,7 +737,7 @@ boxplot(sp2, col = &quot;yellow&quot;, add = TRUE, pch = &quot;+&quot;)
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-24" style="background:;">
+<slide class="" id="slide-32" style="background:;">
   <hgroup>
     <h2>Ordination</h2>
   </hgroup>
@@ -588,7 +753,7 @@ plot(ord)
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-25" style="background:;">
+<slide class="" id="slide-33" style="background:;">
   <hgroup>
     <h2>In ggplot2!</h2>
   </hgroup>
@@ -605,7 +770,7 @@ ggplot(ord_axes, aes(NMDS1, NMDS2)) + geom_point(shape = 21) + geom_point(data =
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-26" style="background:;">
+<slide class="" id="slide-34" style="background:;">
   <hgroup>
     <h2>But I want species names</h2>
   </hgroup>
@@ -621,7 +786,7 @@ ggplot(ord_axes, aes(NMDS1, NMDS2)) + geom_point(shape = 21) + geom_text(data = 
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-27" style="background:;">
+<slide class="" id="slide-35" style="background:;">
   <hgroup>
     <h2>Comparison between treatments</h2>
   </hgroup>
@@ -669,7 +834,7 @@ Total         19    4.2990      NA      NA 1.0000     NA
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-28" style="background:;">
+<slide class="" id="slide-36" style="background:;">
   <hgroup>
     <h2>Do your own ordination</h2>
   </hgroup>
@@ -686,184 +851,11 @@ Total         19    4.2990      NA      NA 1.0000     NA
 <li>Try it out!</li>
 </ul>
 
-<!-- networks -->
-
-  </article>
-  <!-- Presenter Notes -->
-</slide>
-
-<slide class="" id="slide-29" style="background:;">
-  <hgroup>
-    <h2>Networks</h2>
-  </hgroup>
-  <article data-timings="">
-    <ul>
-<li>Visualizations</li>
-<li>Analyses
-
-<ul>
-<li>Network level metrics</li>
-<li>Species level metrics</li>
-</ul></li>
-</ul>
-
-  </article>
-  <!-- Presenter Notes -->
-</slide>
-
-<slide class="" id="slide-30" style="background:;">
-  <hgroup>
-    <h2>Network vizualizations</h2>
-  </hgroup>
-  <article data-timings="">
-    <pre><code class="r">library(bipartite)
-plotweb(small1976)
-</code></pre>
-
-<p><img src="assets/fig/netviz1.png" title="plot of chunk netviz1" alt="plot of chunk netviz1" style="display: block; margin: auto;" /></p>
-
-  </article>
-  <!-- Presenter Notes -->
-</slide>
-
-<slide class="" id="slide-31" style="background:;">
-  <hgroup>
-    <h2>Another way to visualize networks</h2>
-  </hgroup>
-  <article data-timings="">
-    <pre><code class="r">visweb(small1976, labsize = 2)
-</code></pre>
-
-<p><img src="assets/fig/netviz21.png" title="plot of chunk netviz2" alt="plot of chunk netviz2" style="display: block; margin: auto;" /><img src="assets/fig/netviz22.png" title="plot of chunk netviz2" alt="plot of chunk netviz2" style="display: block; margin: auto;" /></p>
-
-  </article>
-  <!-- Presenter Notes -->
-</slide>
-
-<slide class="" id="slide-32" style="background:;">
-  <hgroup>
-    <h2>Variety of other plotting options</h2>
-  </hgroup>
-  <article data-timings="">
-    <pre><code class="r"># Eg 1
-plotweb(small1976, high.lablength = 3, low.lablength = 0, arrow = &quot;down&quot;)
-
-# Eg 2
-plotweb(small1976, text.rot = 90, arrow = &quot;down.center&quot;, col.interaction = &quot;wheat2&quot;, 
-    y.lim = c(-1, 2.5))
-
-# Eg 3
-low.abun = round(runif(dim(small1976)[1], 1, 40))
-names(low.abun) &lt;- rownames(small1976)
-plotweb(small1976, text.rot = 90, low.abun = low.abun, col.interaction = &quot;purple&quot;, 
-    y.width.low = 0.05, y.width.high = 0.05)
-</code></pre>
-
-  </article>
-  <!-- Presenter Notes -->
-</slide>
-
-<slide class="" id="slide-33" style="background:;">
-  <hgroup>
-    <h2>Network metrics - of the whole community</h2>
-  </hgroup>
-  <article data-timings="">
-    <p>Start with the bipartite package. Others include X, Y, and Z.</p>
-
-<pre><code class="r">res &lt;- networklevel(small1976, index = &quot;binary&quot;)
-res
-</code></pre>
-
-<pre><code>           connectance      links per species    cluster coefficient 
-                0.3190                 3.0000                 0.3077 
-            nestedness           Fisher alpha cluster.coefficient.HL 
-               32.6025                44.9156                 0.3727 
-cluster.coefficient.LL 
-                0.3945 
-</code></pre>
-
-  </article>
-  <!-- Presenter Notes -->
-</slide>
-
-<slide class="" id="slide-34" style="background:;">
-  <hgroup>
-    <h2>Let&#39;s compare some metrics among networks!!!</h2>
-  </hgroup>
-  <article data-timings="">
-    <pre><code class="r">library(reshape2)
-networks &lt;- list(Safariland, barrett1987, bezerra2009, elberling1999, inouye1988, 
-    kato1990, kevan1970)
-res &lt;- llply(networks, function(x) networklevel(x, index = c(&quot;connectance&quot;, 
-    &quot;links per species&quot;, &quot;nestedness&quot;)))
-names(res) &lt;- c(&quot;Safariland&quot;, &quot;barrett1987&quot;, &quot;bezerra2009&quot;, &quot;elberling1999&quot;, 
-    &quot;inouye1988&quot;, &quot;kato1990&quot;, &quot;kevan1970&quot;)
-df &lt;- melt(ldply(res), id.vars = &quot;.id&quot;)
-ggplot(df, aes(.id, value)) + geom_point(size = 4, alpha = 0.6) + facet_wrap(~variable, 
-    scales = &quot;free&quot;) + theme_bw(base_size = 20) + theme(axis.text.x = element_blank())
-</code></pre>
-
-<p><img src="assets/fig/comparemets.png" title="plot of chunk comparemets" alt="plot of chunk comparemets" style="display: block; margin: auto;" /></p>
-
-  </article>
-  <!-- Presenter Notes -->
-</slide>
-
-<slide class="" id="slide-35" style="background:;">
-  <hgroup>
-    <h2>Make this plot</h2>
-  </hgroup>
-  <article data-timings="">
-    <p><img src="assets/fig/comparemets2.png" title="plot of chunk comparemets2" alt="plot of chunk comparemets2" style="display: block; margin: auto;" /></p>
-
-  </article>
-  <!-- Presenter Notes -->
-</slide>
-
-<slide class="" id="slide-36" style="background:;">
-  <hgroup>
-    <h2>Species level metrics</h2>
-  </hgroup>
-  <article data-timings="">
-    <pre><code class="r">splevel &lt;- specieslevel(small1976, index = &quot;degree&quot;)
-head(splevel[[1]], n = 3)
-</code></pre>
-
-<pre><code>                          degree
-Adela.purpurea                 1
-Thymelicus.lineola             2
-Macrodactlyus.subspinosus      1
-</code></pre>
-
-<pre><code class="r">head(splevel[[2]], n = 3)
-</code></pre>
-
-<pre><code>                        degree
-Salix.fragilis              13
-Chamaedaphne.calyculata     13
-Nemopanthus.mucronata       13
-</code></pre>
-
   </article>
   <!-- Presenter Notes -->
 </slide>
 
 <slide class="" id="slide-37" style="background:;">
-  <hgroup>
-    <h2>Species level metrics - roll your own</h2>
-  </hgroup>
-  <article data-timings="">
-    <ul>
-<li>Pick a network in the bipartite package</li>
-<li>Calculate one species level metric for all species in that network</li>
-<li>Plot the metrics for each species, both plants and pollinators</li>
-</ul>
-
-  </article>
-  <!-- Presenter Notes -->
-</slide>
-
-<slide class="" id="slide-38" style="background:;">
   <hgroup>
     <h2>Resources</h2>
   </hgroup>
@@ -937,182 +929,176 @@ Nemopanthus.mucronata       13
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=9 title=''>
+        data-slide=9 title='ggplot2 terminology'>
          9
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=10 title='Lets have some with visualizations'>
+        data-slide=10 title=''>
          10
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=11 title='Terminology'>
+        data-slide=11 title='Building blocks, mix and match'>
          11
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=12 title='Building blocks, mix and match'>
+        data-slide=12 title='Color by species'>
          12
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=13 title='Color by species'>
+        data-slide=13 title='Adjust the size (and color) of points'>
          13
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=14 title='Adjust the size (and color) of points'>
+        data-slide=14 title='Facet by species'>
          14
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=15 title='Facet by species'>
+        data-slide=15 title='Combine geoms'>
          15
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=16 title='Combine geoms'>
+        data-slide=16 title='Make this plot'>
          16
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=17 title='Make this plot'>
+        data-slide=17 title='Saving plots using ggplot2'>
          17
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=18 title='Saving plots using ggplot2'>
+        data-slide=18 title='Networks'>
          18
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=19 title='Community structure'>
+        data-slide=19 title='Network vizualizations'>
          19
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=20 title='Diversity indices'>
+        data-slide=20 title='Another way to visualize networks'>
          20
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=21 title='Rarefaction'>
+        data-slide=21 title='Variety of other plotting options'>
          21
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=22 title='Make this plot'>
+        data-slide=22 title='Network metrics - of the whole community'>
          22
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=23 title='Rarefaction curves'>
+        data-slide=23 title='Let&#39;s compare some metrics among networks!!!'>
          23
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=24 title='Ordination'>
+        data-slide=24 title='Make this plot'>
          24
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=25 title='In ggplot2!'>
+        data-slide=25 title='Species level metrics'>
          25
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=26 title='But I want species names'>
+        data-slide=26 title='Species level metrics - roll your own'>
          26
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=27 title='Comparison between treatments'>
+        data-slide=27 title='Community structure'>
          27
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=28 title='Do your own ordination'>
+        data-slide=28 title='Diversity indices'>
          28
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=29 title='Networks'>
+        data-slide=29 title='Rarefaction'>
          29
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=30 title='Network vizualizations'>
+        data-slide=30 title='Make this plot'>
          30
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=31 title='Another way to visualize networks'>
+        data-slide=31 title='Rarefaction curves'>
          31
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=32 title='Variety of other plotting options'>
+        data-slide=32 title='Ordination'>
          32
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=33 title='Network metrics - of the whole community'>
+        data-slide=33 title='In ggplot2!'>
          33
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=34 title='Let&#39;s compare some metrics among networks!!!'>
+        data-slide=34 title='But I want species names'>
          34
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=35 title='Make this plot'>
+        data-slide=35 title='Comparison between treatments'>
          35
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=36 title='Species level metrics'>
+        data-slide=36 title='Do your own ordination'>
          36
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=37 title='Species level metrics - roll your own'>
+        data-slide=37 title='Resources'>
          37
-      </a>
-    </li>
-    <li>
-      <a href="#" target="_self" rel='tooltip' 
-        data-slide=38 title='Resources'>
-         38
       </a>
     </li>
   </ul>

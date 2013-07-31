@@ -16,8 +16,8 @@ assets      :
 
 + Data manipulation
 + General visualizations
-+ Community ecology: analyses and viz
 + Networks/graphs: analyses and viz
++ Community ecology: analyses and viz
 
 ---
 
@@ -158,21 +158,22 @@ ldply(data_list, function(z) ddply(z, .(x), summarise, mean(y)))
 
 Perform split-apply-combine for an R object of your choice. 
 
----
-
-
-```
-## Error: object 'name' not found
-```
-
-
-
 
 <!-- Visualizations -->
 
 ---
 
-## Lets have some with visualizations
+## ggplot2 terminology
+
++ ggplot - The main function where you specify the dataset and variables to plot
++ geom - geometric objects
+  + `geom_point()`, `geom_bar()`, `geom_density()`, `geom_line()`, `geom_area()`
++ aes - aesthetics
+  + shape, alpha (transparency), color, fill, linetype
++ scale - Define how your data will be plotted
+  + continuous, discrete, log
+
+---
 
 
 ```r
@@ -190,18 +191,6 @@ ggplot(data=iris, aes(Sepal.Length, Sepal.Width)) +
 
 <img src="assets/fig/viz2.png" title="plot of chunk viz2" alt="plot of chunk viz2" style="display: block; margin: auto;" />
 
-
----
-
-## Terminology
-
-+ ggplot - The main function where you specify the dataset and variables to plot
-+ geom - geometric objects
-  + `geom_point()`, `geom_bar()`, `geom_density()`, `geom_line()`, `geom_area()`
-+ aes - aesthetics
-  + shape, alpha (transparency), color, fill, linetype
-+ scale - Define how your data will be plotted
-  + continuous, discrete, log
 
 ---
 
@@ -353,6 +342,152 @@ ggsave(file = "/path/to/figure/filename.jpg")
 ggsave(file = "/path/to/figure/filename.pdf")
 ```
 
+
+<!-- networks -->
+<!-- networks -->
+<!-- networks -->
+
+--- 
+
+## Networks
+
++ Visualizations
++ Analyses
+  + Network level metrics
+  + Species level metrics
+
+---
+
+## Network vizualizations
+
+
+```r
+library(bipartite)
+plotweb(small1976)
+```
+
+<img src="assets/fig/netviz1.png" title="plot of chunk netviz1" alt="plot of chunk netviz1" style="display: block; margin: auto;" />
+
+
+---
+
+## Another way to visualize networks
+
+
+```r
+visweb(small1976, labsize = 2)
+```
+
+<img src="assets/fig/netviz21.png" title="plot of chunk netviz2" alt="plot of chunk netviz2" style="display: block; margin: auto;" /><img src="assets/fig/netviz22.png" title="plot of chunk netviz2" alt="plot of chunk netviz2" style="display: block; margin: auto;" />
+
+
+---
+
+## Variety of other plotting options
+
+
+```r
+# Eg 1
+plotweb(small1976, high.lablength = 3, low.lablength = 0, arrow = "down")
+
+# Eg 2
+plotweb(small1976, text.rot = 90, arrow = "down.center", col.interaction = "wheat2", 
+    y.lim = c(-1, 2.5))
+
+# Eg 3
+low.abun = round(runif(dim(small1976)[1], 1, 40))
+names(low.abun) <- rownames(small1976)
+plotweb(small1976, text.rot = 90, low.abun = low.abun, col.interaction = "purple", 
+    y.width.low = 0.05, y.width.high = 0.05)
+```
+
+
+---
+
+## Network metrics - of the whole community
+
+Start with the bipartite package. Others include X, Y, and Z.
+
+
+```r
+res <- networklevel(small1976, index = "binary")
+res
+```
+
+```
+           connectance      links per species    cluster coefficient 
+                0.3190                 3.0000                 0.3077 
+            nestedness           Fisher alpha cluster.coefficient.HL 
+               32.6025                44.9156                 0.3727 
+cluster.coefficient.LL 
+                0.3945 
+```
+
+
+---
+
+## Let's compare some metrics among networks!!!
+
+
+```r
+library(reshape2)
+networks <- list(Safariland, barrett1987, bezerra2009, elberling1999, inouye1988, 
+    kato1990, kevan1970)
+res <- llply(networks, function(x) networklevel(x, index = c("connectance", 
+    "links per species", "nestedness")))
+names(res) <- c("Safariland", "barrett1987", "bezerra2009", "elberling1999", 
+    "inouye1988", "kato1990", "kevan1970")
+df <- melt(ldply(res), id.vars = ".id")
+ggplot(df, aes(.id, value)) + geom_point(size = 4, alpha = 0.6) + facet_wrap(~variable, 
+    scales = "free") + theme_bw(base_size = 20) + theme(axis.text.x = element_blank())
+```
+
+<img src="assets/fig/comparemets.png" title="plot of chunk comparemets" alt="plot of chunk comparemets" style="display: block; margin: auto;" />
+
+
+---
+
+## Make this plot
+
+<img src="assets/fig/comparemets2.png" title="plot of chunk comparemets2" alt="plot of chunk comparemets2" style="display: block; margin: auto;" />
+
+
+---
+
+## Species level metrics
+
+
+```r
+splevel <- specieslevel(small1976, index = "degree")
+head(splevel[[1]], n = 3)
+```
+
+```
+                          degree
+Adela.purpurea                 1
+Thymelicus.lineola             2
+Macrodactlyus.subspinosus      1
+```
+
+```r
+head(splevel[[2]], n = 3)
+```
+
+```
+                        degree
+Salix.fragilis              13
+Chamaedaphne.calyculata     13
+Nemopanthus.mucronata       13
+```
+
+
+---
+
+## Species level metrics - roll your own
+
++ Pick a network in the bipartite package
++ Calculate one species level metric for all species in that network
++ Plot the metrics for each species, both plants and pollinators
 
 <!-- community structure -->
 <!-- community structure -->
@@ -607,151 +742,6 @@ Total         19    4.2990      NA      NA 1.0000     NA
   + add environmental variables to ordination, see `envfit`
   + `adonis`: Permutational Multivariate Analysis of Variance
 + Try it out!
-
-
-<!-- networks -->
-
---- 
-
-## Networks
-
-+ Visualizations
-+ Analyses
-  + Network level metrics
-  + Species level metrics
-
----
-
-## Network vizualizations
-
-
-```r
-library(bipartite)
-plotweb(small1976)
-```
-
-<img src="assets/fig/netviz1.png" title="plot of chunk netviz1" alt="plot of chunk netviz1" style="display: block; margin: auto;" />
-
-
----
-
-## Another way to visualize networks
-
-
-```r
-visweb(small1976, labsize = 2)
-```
-
-<img src="assets/fig/netviz21.png" title="plot of chunk netviz2" alt="plot of chunk netviz2" style="display: block; margin: auto;" /><img src="assets/fig/netviz22.png" title="plot of chunk netviz2" alt="plot of chunk netviz2" style="display: block; margin: auto;" />
-
-
----
-
-## Variety of other plotting options
-
-
-```r
-# Eg 1
-plotweb(small1976, high.lablength = 3, low.lablength = 0, arrow = "down")
-
-# Eg 2
-plotweb(small1976, text.rot = 90, arrow = "down.center", col.interaction = "wheat2", 
-    y.lim = c(-1, 2.5))
-
-# Eg 3
-low.abun = round(runif(dim(small1976)[1], 1, 40))
-names(low.abun) <- rownames(small1976)
-plotweb(small1976, text.rot = 90, low.abun = low.abun, col.interaction = "purple", 
-    y.width.low = 0.05, y.width.high = 0.05)
-```
-
-
----
-
-## Network metrics - of the whole community
-
-Start with the bipartite package. Others include X, Y, and Z.
-
-
-```r
-res <- networklevel(small1976, index = "binary")
-res
-```
-
-```
-           connectance      links per species    cluster coefficient 
-                0.3190                 3.0000                 0.3077 
-            nestedness           Fisher alpha cluster.coefficient.HL 
-               32.6025                44.9156                 0.3727 
-cluster.coefficient.LL 
-                0.3945 
-```
-
-
----
-
-## Let's compare some metrics among networks!!!
-
-
-```r
-library(reshape2)
-networks <- list(Safariland, barrett1987, bezerra2009, elberling1999, inouye1988, 
-    kato1990, kevan1970)
-res <- llply(networks, function(x) networklevel(x, index = c("connectance", 
-    "links per species", "nestedness")))
-names(res) <- c("Safariland", "barrett1987", "bezerra2009", "elberling1999", 
-    "inouye1988", "kato1990", "kevan1970")
-df <- melt(ldply(res), id.vars = ".id")
-ggplot(df, aes(.id, value)) + geom_point(size = 4, alpha = 0.6) + facet_wrap(~variable, 
-    scales = "free") + theme_bw(base_size = 20) + theme(axis.text.x = element_blank())
-```
-
-<img src="assets/fig/comparemets.png" title="plot of chunk comparemets" alt="plot of chunk comparemets" style="display: block; margin: auto;" />
-
-
----
-
-## Make this plot
-
-<img src="assets/fig/comparemets2.png" title="plot of chunk comparemets2" alt="plot of chunk comparemets2" style="display: block; margin: auto;" />
-
-
----
-
-## Species level metrics
-
-
-```r
-splevel <- specieslevel(small1976, index = "degree")
-head(splevel[[1]], n = 3)
-```
-
-```
-                          degree
-Adela.purpurea                 1
-Thymelicus.lineola             2
-Macrodactlyus.subspinosus      1
-```
-
-```r
-head(splevel[[2]], n = 3)
-```
-
-```
-                        degree
-Salix.fragilis              13
-Chamaedaphne.calyculata     13
-Nemopanthus.mucronata       13
-```
-
-
----
-
-## Species level metrics - roll your own
-
-+ Pick a network in the bipartite package
-+ Calculate one species level metric for all species in that network
-+ Plot the metrics for each species, both plants and pollinators
 
 --- 
 
