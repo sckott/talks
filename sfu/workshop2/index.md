@@ -31,6 +31,12 @@ assets      :
 
 ---
 
+## Intro to subsetting
+<br><br><br><br>
+### See here [https://github.com/hadley/devtools/wiki/Subsetting](https://github.com/hadley/devtools/wiki/Subsetting)
+
+---
+
 ## A few quick examples
 
 
