@@ -584,34 +584,22 @@ H/log(specnumber(bci_subset))
 
 
 ```r
+data(BCI)
 nosp <- specnumber(BCI)
+raremax <- min(rowSums(BCI))
 nosp_rare <- rarefy(BCI, raremax)
-```
-
-```
-Error: object 'raremax' not found
-```
-
-```r
 df <- data.frame(nosp, nosp_rare)
-```
-
-```
-Error: object 'nosp_rare' not found
-```
-
-```r
 head(df)
 ```
 
 ```
-   Bellis perennis Empetrum nigrum Juncus bufonius Juncus articulatus xxx
-2                3               0               0                  0   0
-13               0               0               3                  0   0
-4                2               0               0                  0   0
-16               0               0               0                  3   0
-6                0               0               0                  0   0
-1                0               0               0                  0   0
+  nosp nosp_rare
+1   93     84.34
+2   84     76.53
+3   90     79.12
+4   94     82.47
+5  101     86.91
+6   85     78.51
 ```
 
 
@@ -662,7 +650,7 @@ ord <- metaMDS(dune, trace = 0)
 plot(ord)
 ```
 
-![plot of chunk ordinationbase1](assets/fig/ordinationbase1.png) 
+<img src="assets/fig/ordinationbase1.png" title="plot of chunk ordinationbase1" alt="plot of chunk ordinationbase1" style="display: block; margin: auto;" />
 
 
 ---
@@ -674,7 +662,7 @@ plot(ord)
 ord_axes <- data.frame(scores(ord))
 ord_spp <- data.frame(scores(ord, display = "species"))
 ggplot(ord_axes, aes(NMDS1, NMDS2)) + geom_point(shape = 21) + geom_point(data = ord_spp, 
-    aes(NMDS1, NMDS2), shape = 3, colour = "red")
+    aes(NMDS1, NMDS2), shape = 3, colour = "red") + coord_fixed()
 ```
 
 <img src="assets/fig/ordinationggplot.png" title="plot of chunk ordinationggplot" alt="plot of chunk ordinationggplot" style="display: block; margin: auto;" />
@@ -688,7 +676,7 @@ ggplot(ord_axes, aes(NMDS1, NMDS2)) + geom_point(shape = 21) + geom_point(data =
 ```r
 ord_spp$spp <- row.names(ord_spp)
 ggplot(ord_axes, aes(NMDS1, NMDS2)) + geom_point(shape = 21) + geom_text(data = ord_spp, 
-    aes(NMDS1, NMDS2, label = spp), colour = "red")
+    aes(NMDS1, NMDS2, label = spp), colour = "red") + coord_fixed()
 ```
 
 <img src="assets/fig/ordinationggplot2.png" title="plot of chunk ordinationggplot2" alt="plot of chunk ordinationggplot2" style="display: block; margin: auto;" />

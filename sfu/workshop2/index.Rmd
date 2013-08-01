@@ -423,7 +423,9 @@ H/log(specnumber(bci_subset))
 ## Rarefaction
 
 ```{r rarefaction1, cache=TRUE, comment=NA, fig.height=5.5, fig.align='center'}
+data(BCI)
 nosp <- specnumber(BCI)
+raremax <- min(rowSums(BCI))
 nosp_rare <- rarefy(BCI, raremax)
 df <- data.frame(nosp, nosp_rare)
 head(df)
@@ -466,7 +468,7 @@ boxplot(sp2, col="yellow", add=TRUE, pch="+")
 
 ## Ordination
 
-```{r ordinationbase1, cache=TRUE, comment=NA, message=FALSE, warning=FALSE}
+```{r ordinationbase1, cache=TRUE, comment=NA, message=FALSE, warning=FALSE, fig.height=7, fig.width=8, fig.align='center'}
 data(dune)
 ord <- metaMDS(dune, trace=0)
 plot(ord)
@@ -476,7 +478,7 @@ plot(ord)
 
 ## In ggplot2!
 
-```{r ordinationggplot, cache=TRUE, comment=NA, fig.height=5.5, fig.align='center'}
+```{r ordinationggplot, cache=TRUE, comment=NA, fig.align='center'}
 ord_axes <- data.frame(scores(ord))
 ord_spp <- data.frame(scores(ord, display="species"))
 ggplot(ord_axes, aes(NMDS1, NMDS2)) +

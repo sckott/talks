@@ -698,29 +698,21 @@ H/log(specnumber(bci_subset))
     <h2>Rarefaction</h2>
   </hgroup>
   <article data-timings="">
-    <pre><code class="r">nosp &lt;- specnumber(BCI)
+    <pre><code class="r">data(BCI)
+nosp &lt;- specnumber(BCI)
+raremax &lt;- min(rowSums(BCI))
 nosp_rare &lt;- rarefy(BCI, raremax)
+df &lt;- data.frame(nosp, nosp_rare)
+head(df)
 </code></pre>
 
-<pre><code>Error: object &#39;raremax&#39; not found
-</code></pre>
-
-<pre><code class="r">df &lt;- data.frame(nosp, nosp_rare)
-</code></pre>
-
-<pre><code>Error: object &#39;nosp_rare&#39; not found
-</code></pre>
-
-<pre><code class="r">head(df)
-</code></pre>
-
-<pre><code>   Bellis perennis Empetrum nigrum Juncus bufonius Juncus articulatus xxx
-2                3               0               0                  0   0
-13               0               0               3                  0   0
-4                2               0               0                  0   0
-16               0               0               0                  3   0
-6                0               0               0                  0   0
-1                0               0               0                  0   0
+<pre><code>  nosp nosp_rare
+1   93     84.34
+2   84     76.53
+3   90     79.12
+4   94     82.47
+5  101     86.91
+6   85     78.51
 </code></pre>
 
   </article>
@@ -777,7 +769,7 @@ ord &lt;- metaMDS(dune, trace = 0)
 plot(ord)
 </code></pre>
 
-<p><img src="assets/fig/ordinationbase1.png" alt="plot of chunk ordinationbase1"> </p>
+<p><img src="assets/fig/ordinationbase1.png" title="plot of chunk ordinationbase1" alt="plot of chunk ordinationbase1" style="display: block; margin: auto;" /></p>
 
   </article>
   <!-- Presenter Notes -->
@@ -791,7 +783,7 @@ plot(ord)
     <pre><code class="r">ord_axes &lt;- data.frame(scores(ord))
 ord_spp &lt;- data.frame(scores(ord, display = &quot;species&quot;))
 ggplot(ord_axes, aes(NMDS1, NMDS2)) + geom_point(shape = 21) + geom_point(data = ord_spp, 
-    aes(NMDS1, NMDS2), shape = 3, colour = &quot;red&quot;)
+    aes(NMDS1, NMDS2), shape = 3, colour = &quot;red&quot;) + coord_fixed()
 </code></pre>
 
 <p><img src="assets/fig/ordinationggplot.png" title="plot of chunk ordinationggplot" alt="plot of chunk ordinationggplot" style="display: block; margin: auto;" /></p>
@@ -807,7 +799,7 @@ ggplot(ord_axes, aes(NMDS1, NMDS2)) + geom_point(shape = 21) + geom_point(data =
   <article data-timings="">
     <pre><code class="r">ord_spp$spp &lt;- row.names(ord_spp)
 ggplot(ord_axes, aes(NMDS1, NMDS2)) + geom_point(shape = 21) + geom_text(data = ord_spp, 
-    aes(NMDS1, NMDS2, label = spp), colour = &quot;red&quot;)
+    aes(NMDS1, NMDS2, label = spp), colour = &quot;red&quot;) + coord_fixed()
 </code></pre>
 
 <p><img src="assets/fig/ordinationggplot2.png" title="plot of chunk ordinationggplot2" alt="plot of chunk ordinationggplot2" style="display: block; margin: auto;" /></p>
