@@ -481,7 +481,8 @@ ord_axes <- data.frame(scores(ord))
 ord_spp <- data.frame(scores(ord, display="species"))
 ggplot(ord_axes, aes(NMDS1, NMDS2)) +
   geom_point(shape=21) +
-  geom_point(data=ord_spp, aes(NMDS1, NMDS2), shape=3, colour="red")
+  geom_point(data=ord_spp, aes(NMDS1, NMDS2), shape=3, colour="red") +
+  coord_fixed()
 ```
 
 ---
@@ -492,7 +493,8 @@ ggplot(ord_axes, aes(NMDS1, NMDS2)) +
 ord_spp$spp <- row.names(ord_spp)
 ggplot(ord_axes, aes(NMDS1, NMDS2)) +
   geom_point(shape=21) +
-  geom_text(data=ord_spp, aes(NMDS1, NMDS2, label=spp), colour="red")
+  geom_text(data=ord_spp, aes(NMDS1, NMDS2, label=spp), colour="red") +
+  coord_fixed()
 ```
 
 --- &twocol
