@@ -1,0 +1,65 @@
+/* line 94, ../scss/default.scss */
+body {
+  background: #fff;
+}
+
+strong {
+  font-weight: bold;
+}
+
+em {
+  font-style: italic
+}
+
+pre {
+	font-family: 'Inconsolata', 'Courier New', monospace;
+	font-size: 15px;
+	line-height: 28px;
+	padding: 10px 0 10px 60px;
+	letter-spacing: -1px;
+	margin-bottom: 0px;
+	width: 106%;
+	left: -60px;
+	position: relative;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	overflow: hidden;
+}
+
+/* line 248, ../scss/default.scss */
+slides.layout-widescreen > slide,
+slides.layout-faux-widescreen > slide {
+  margin-left: -650px;
+  width: 1300px;
+  height: 750px;
+  margin-top: -390px;
+}
+
+article li {
+  font-size: 34px;	
+}
+
+.title-slide {
+	background-color: #60CCFB;
+}
+
+.title-slide hgroup {
+	top: 146px;
+}
+
+.title-slide hgroup p {
+	font-size: 29px;
+	color: #797979;
+	line-height: 1.3;
+	margin-top: 2em;
+}
+
+/* line 769, ../scss/default.scss */
+.centered {
+  text-align: left;
+}
+
+slides > slide.backdrop{
+	background: white;
+};
