@@ -45,58 +45,16 @@ assets      :
 + find bugs faster
 + user community start to help each other (see [Stackoverflow](http://stackoverflow.com/))
 + additional functionality added - crowdsourcing ideas
-+ 
 
 ---
-<!-- even tenderlove gets paid to make open source -->
 
-## Companies are supporting open source
+## Companies are supporting open source (most major programming languages)
 <br><br>
 <center><font size="20">AT&T hearts open source</font></center>
 <br><br>
 <center>![](assets/img/tenderlove.png)</center>
 <br><br>
 [@tenderlove](https://twitter.com/tenderlove) lovin on Ruby and Ruby on Rails
-
----
- 
-## Making open source software
-
-### R 
-
-+ Overall development: [devtools](https://github.com/hadley/devtools)
-+ Testing: [testthat](https://github.com/hadley/testthat)
-+ Documentation: [roxygen2](http://cran.r-project.org/web/packages/roxygen2/index.html)
-+ Versioning: ideally [git](http://git-scm.com/)
-+ Collaborative development: [Github](https://github.com/)
-
----
-
-### Python
-+ asdf
-+ adsf
-+ asdf
-+ adf
-
----
-
-## credit for software dev
-+ no incentives for software dev now
-
----
-
-+ papers give credit, but not best way to talk about software
-
----
-
-+ NSF starting to recognize other products in academia
-
----
-
-## licenses 
-+ Creative Commons, MIT, etc
-+ use permissive licenses
-+ github has help for u on this
 
 ---
 
@@ -119,6 +77,49 @@ assets      :
 ---
 
 + It's almost always better than closed software
+
+---
+ 
+## Making open source software
+
++ Version control 
++ Collaboration
++ Documentation
++ Development framework
++ Testing
+
+---
+
+## R 
+
++ Version control: ideally [git](http://git-scm.com/)
++ Collaboration: [Github](https://github.com/)
++ Documentation: [roxygen2](http://cran.r-project.org/web/packages/roxygen2/index.html)
++ Development framework: [devtools](https://github.com/hadley/devtools)
++ Testing: [testthat](https://github.com/hadley/testthat)
+
+---
+
+## Python
+
++ Just ask Ethan :)
+
+---
+
+## Getting credit for software development
+
++ There currently are very few incentives for software dev
++ Papers give credit, but not best way to talk about software
++ Shouldn't we get credit for the software itself - not papers about the software?
++ NSF starting to recognize other products in academia, including data, physical collections, curriculum material and **SOFTWARE**!!! See [here](http://www.nsf.gov/pubs/policydocs/pappguide/nsf11001/gpg_2.jsp#dmp)
+
+---
+
+## Licenses 
+
++ Creative Commons, MIT, etc
++ Use permissive licenses
++ GitHub has help for you on this at [http://choosealicense.com/](http://choosealicense.com/)
 
 ---
 
