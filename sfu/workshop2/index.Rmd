@@ -1,5 +1,6 @@
 ---
-title       : Communities, networks, & visualizations in R
+title       : Intro to R
+subtitle    : data manipluation, vizualization, communities, networks
 date        : 2013-07-31
 author      : Scott Chamberlain
 job         : 

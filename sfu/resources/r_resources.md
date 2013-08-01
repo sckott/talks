@@ -66,6 +66,7 @@ id: res1
 
 #### Googling R? Use **"cran"** instead of **"R"** (cran=comprehensive R archive network)
 + Good for very broad searches, but you often just find stuff on the R help list or one one of the above sites
++ You can also use [RSeek](http://www.rseek.org) which targets R-related sources from a Google search
 
 More on StackOverflow and related sites
 ========================================================
@@ -109,7 +110,7 @@ Highly recommend [RStudio](http://www.rstudio.com/) because
 
 + Cross-platform
 + Free
-+ Server versions (can run in a browser = great for teaching, running on another computer)
++ Server versions for Linux (can run in a browser = great for teaching, running on another computer)
 
 Tasks in R
 ========================================================
@@ -296,7 +297,7 @@ ggplot(mtcars, aes(mpg, hp, colour=gear)) +
 Analysis
 ========================================================
 
-Way too much to cover here, there can be a lot of intracacies to analyses: 
+Way too much to cover here, there can be a lot of intricacies to analyses: 
 
 + **Ask the authors of the packages**: email directly, probably slower than below options
 
@@ -319,7 +320,7 @@ Bonus: it's integrated in to [RStudio](http://www.rstudio.com/)
 
 You can combine LaTeX or Markdown with your code
 
-For Word users = try Markdown with knitr first, shallower learning curve relative to LaTeX.
+For Word users = try Markdown with knitr first, shallower learning curve relative to LaTeX. You can also convert this document to Word using knitr (see [here](http://yihui.name/knitr/demo/pandoc/)
 
 `library(knitr)` then in Toolbar do *New File* then *R Markdown* to get started
 
