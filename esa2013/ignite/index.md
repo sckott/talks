@@ -9,7 +9,7 @@ hitheme     : solarized_light      #
 widgets     : []            # {mathjax, quiz, bootstrap}
 mode        : selfcontained # {standalone, draft}
 assets      :
-  css: "http://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css"
+  css: "assets/FontAwesome/css/font-awesome.css"
 ---
 
 ## Science needs to be more open
@@ -96,7 +96,7 @@ library(RCurl); library(RJSONIO)
 dat <- fromJSON(getURL("https://api.github.com/users/hadley/repos"))
 ```
 
-#### Manipulate the data</h3> 
+#### Manipulate the data
 ```r
 library(plyr); library(reshape2)
 dat_melt <- melt(ldply(dat, function(x) data.frame(x[names(x) %in% c("name","watchers_count","forks")])))

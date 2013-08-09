@@ -3,7 +3,7 @@ title       : Open source software
 subtitle    : why? - use it - make it
 date        : 2013-08-06
 author      : Scott Chamberlain
-job         : 
+job         : rOpenSci
 framework   : io2012        # {io2012, html5slides, shower, dzslides, ...}
 highlighter : highlight.js  # {highlight.js, prettify, highlight}
 hitheme     : tomorrow      # 
@@ -17,66 +17,92 @@ assets      :
 <center>
 ### Find this talk [here]()
 
-### Made with [Slidify](http://slidify.org/); the code [here](https://github.com/SChamberlain/posterstalks/blob/gh-pages/esa2013/openscience/index.Rmd)
+### Made with [Slidify](http://slidify.org/); the code here [http://bit.ly/ostalking](https://github.com/SChamberlain/posterstalks/blob/gh-pages/esa2013/openscience/index.Rmd)
 
-### Press "o" to bring up all slides - use <i class="icon-arrow-left"> &nbsp; </i><i class="icon-arrow-right"></i> to navigate
+### Press "o" to bring up all slides - <i class="icon-arrow-left"> &nbsp; </i><i class="icon-arrow-right"></i> to navigate
 </center>
 
 ---
 
-<!-- it's free! -->
-## Why open source?
-
-<center>![](assets/img/linux-penguin.png)</center>
+## Closed source software is great! 
+<br><br>
+<center>![](assets/img/closedtools.png)</center>
 
 ---
 
-<!-- bugs can get fixed quickly -->
+<center>
+## Yeah, but open source is better for a lot of reasons
+</center>
+
+---
+
+## It's free!
+
+<center>![](assets/img/beer.png)</center>
+
+---
+
 ## Bugs can get fixed quickly
 
 <center>![](assets/img/bugs.png)</center>
 
 ---
 
-## Can get lots of users potentially
+## User community helps each other (see [Stackoverflow](http://stackoverflow.com/))
 
-### Which means
+### i.e., you can get help much faster than with closed-source software
 
-+ find bugs faster
-+ user community start to help each other (see [Stackoverflow](http://stackoverflow.com/))
-+ additional functionality added - crowdsourcing ideas
+<center>![](assets/img/stackoverflow.png)</center>
 
 ---
 
-## Companies are supporting open source (most major programming languages)
+## Additional functionality added as fast as you can write the code
+
+<center>![](assets/img/cran.png)</center>
+<br>
+[link](http://r4stats.com/2013/03/19/r-2012-growth-exceeds-sas-all-time-total/)
+
+---
+
+## Open source is forkable
+
+<center>![](assets/img/code-fork.png)</center>
+
+---
+
+## Companies are supporting open source
 <br><br>
 <center><font size="20">AT&T hearts open source</font></center>
 <br><br>
 <center>![](assets/img/tenderlove.png)</center>
 <br><br>
-[@tenderlove](https://twitter.com/tenderlove) lovin on Ruby and Ruby on Rails
+[@tenderlove](https://twitter.com/tenderlove) contributor to Ruby and Ruby on Rails
 
 ---
 
-## Use open source software
-
-+ Likely made by other academics
-
----
-
-+ Be a good citizen
+<center>
+## Supporting open source ≠ less profit
+</center>
 
 ---
 
+<center>
+## Academics making open source ≠ less power
+</center>
+
+---
+
+## Be a good open source citizen
+
++ Learn a programming language
+<br>
++ Contribute code
+<br>
++ Can't code? Contribute documentation
+<br>
 + Report bugs
-
----
-
-+ Do your homework before asking questions
-
----
-
-+ It's almost always better than closed software
+<br>
++ Stackoverflow/etc. - Do your homework before asking questions
 
 ---
  
@@ -87,6 +113,7 @@ assets      :
 + Documentation
 + Development framework
 + Testing
++ Give it a proper home
 
 ---
 
@@ -97,12 +124,17 @@ assets      :
 + Documentation: [roxygen2](http://cran.r-project.org/web/packages/roxygen2/index.html)
 + Development framework: [devtools](https://github.com/hadley/devtools)
 + Testing: [testthat](https://github.com/hadley/testthat)
++ Give it a proper home: [Github](https://github.com/), [Bitbucket](https://bitbucket.org/)
 
 ---
 
-## Python
+## Building community in open source
 
-+ Just ask Ethan :)
++ Soooooo important (unlike companies, OS needs people, redundancy when some lose interest, etc.)
++ Be nice! (super important)
++ Make it easy to contribute (good docs, respond to pull requests, etc.)
++ Google groups/or similar
++ Get a Stackoverflow tag
 
 ---
 
@@ -117,10 +149,12 @@ assets      :
 
 ## Licenses 
 
-+ Creative Commons, MIT, etc
 + Use permissive licenses
++ No one best license - do your research
 + GitHub has help for you on this at [http://choosealicense.com/](http://choosealicense.com/)
++ OS licenses on the Open Source Initiative site [here](http://opensource.org/licenses)
 
 ---
 
-<center>![](assets/img/ropensci_main.png)</center>
+## Sustainability
+

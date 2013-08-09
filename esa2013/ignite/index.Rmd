@@ -9,7 +9,7 @@ hitheme     : solarized_light      #
 widgets     : []            # {mathjax, quiz, bootstrap}
 mode        : selfcontained # {standalone, draft}
 assets      :
-  css: "http://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css"
+  css: "assets/FontAwesome/css/font-awesome.css"
 ---
 
 ## Science needs to be more open

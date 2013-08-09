@@ -15,7 +15,7 @@
   <link rel="stylesheet" href="libraries/highlighters/highlight.js/css/solarized_light.css" />
   <base target="_blank"> <!-- This amazingness opens all links in a new tab. -->  <link rel=stylesheet href="./assets/css/esamd.css"></link>
 <link rel=stylesheet href="./assets/css/ribbons.css"></link>
-<link rel=stylesheet href="http://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css"></link>
+<link rel=stylesheet href="assets/FontAwesome/css/font-awesome.css"></link>
 
   
   <!-- Grab CDN jQuery, fall back to local if offline -->
@@ -191,7 +191,7 @@
 dat &lt;- fromJSON(getURL(&quot;https://api.github.com/users/hadley/repos&quot;))
 </code></pre>
 
-<h4>Manipulate the data</h3></h4>
+<h4>Manipulate the data</h4>
 
 <pre><code class="r">library(plyr); library(reshape2)
 dat_melt &lt;- melt(ldply(dat, function(x) data.frame(x[names(x) %in% c(&quot;name&quot;,&quot;watchers_count&quot;,&quot;forks&quot;)])))
