@@ -94,6 +94,8 @@ assets      :
 
 ## Be a good open source citizen
 
++ Learn a programming language
+<br>
 + Contribute code
 <br>
 + Can't code? Contribute documentation
@@ -151,3 +153,8 @@ assets      :
 + No one best license - do your research
 + GitHub has help for you on this at [http://choosealicense.com/](http://choosealicense.com/)
 + OS licenses on the Open Source Initiative site [here](http://opensource.org/licenses)
+
+---
+
+## Sustainability
+
