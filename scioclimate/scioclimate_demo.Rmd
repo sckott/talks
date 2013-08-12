@@ -1,0 +1,65 @@
+# A few examples of working with climate data in R.
+
+## NOAA climate data, using the rnoaa package
+
+### Load rnoaa
+
+```{r rnoaa_load}
+library(rnoaa)
+```
+
+### First example
+
+```{r rnoaa1}
+
+```
+
+### Second example
+
+```{r rnoaa2}
+
+```
+
+
+## World Bank climate data, using the rnoaa package
+
+### 
+
+```{r rwbclimate1_load}
+library(rWBclimate)
+```
+
+### Example 1: look at increases in temperature over time.
+
+```{r rwbclimate1}
+country.list <- c("USA", "MEX", "CAN", "BLZ")
+country.dat <- get_historical_temp(country.list, "year")
+
+ggplot(country.dat, aes(x = year, y = data, group = locator)) + 
+  geom_point() + 
+  geom_path() + 
+  labs(y="Average annual temperature of Canada", x="Year") +
+  theme_bw(base_size=22) +
+  stat_smooth(se = F, colour = "black") + 
+  facet_wrap(~locator, scale = "free")
+```
+
+### Example 2: mapping projected climate change in Africa
+
+```{r}
+# Set the kmlpath option
+options(kmlpath = "~/kmltemp")
+
+## Here we use a list basins for Africa
+af_basin <- create_map_df(Africa_basin)
+
+af_basin_dat <- get_ensemble_temp(Africa_basin, "annualanom", 2080, 2100)
+
+## Subset data to just one scenario, and one percentile
+af_basin_dat <- subset(af_basin_dat, af_basin_dat$scenario == "a2")
+af_basin_dat <- subset(af_basin_dat, af_basin_dat$percentile == 50)
+
+af_map <- climate_map(af_basin, af_basin_dat, return_map = T)
+af_map + scale_fill_continuous("Temperature \n anomaly", low = "yellow", high = "red") + 
+    theme_bw()
+```
