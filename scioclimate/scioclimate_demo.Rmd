@@ -38,28 +38,26 @@ country.dat <- get_historical_temp(country.list, "year")
 ggplot(country.dat, aes(x = year, y = data, group = locator)) + 
   geom_point() + 
   geom_path() + 
-  labs(y="Average annual temperature of Canada", x="Year") +
+  labs(y="Average annual temperature", x="Year") +
   theme_bw(base_size=22) +
   stat_smooth(se = F, colour = "black") + 
   facet_wrap(~locator, scale = "free")
 ```
 
-### Example 2: mapping projected climate change in Africa
+### Example 2: mapping projected climate change in South America
 
 ```{r}
 # Set the kmlpath option
-options(kmlpath = "~/kmltemp")
+options(kmlpath = "/Users/edmundhart/kmltemp")
 
 ## Here we use a list basins for Africa
-af_basin <- create_map_df(Africa_basin)
+soam_maps <- create_map_df(SoAm_country)
 
-af_basin_dat <- get_ensemble_temp(Africa_basin, "annualanom", 2080, 2100)
+soam_data<- get_ensemble_temp(SoAm_country, "annualanom", 2080, 2100)
 
 ## Subset data to just one scenario, and one percentile
-af_basin_dat <- subset(af_basin_dat, af_basin_dat$scenario == "a2")
-af_basin_dat <- subset(af_basin_dat, af_basin_dat$percentile == 50)
+sa_country_dat <- subset(soam_data, soam_data$scenario == "a2" & soam_data$percentile == 50)
 
-af_map <- climate_map(af_basin, af_basin_dat, return_map = T)
-af_map + scale_fill_continuous("Temperature \n anomaly", low = "yellow", high = "red") + 
-    theme_bw()
+sa_map <- climate_map(soam_maps, sa_country_dat, return_map = T)
+sa_map + scale_fill_continuous("Temperature \n anomaly", low = "yellow", high = "red") + theme_bw()
 ```
