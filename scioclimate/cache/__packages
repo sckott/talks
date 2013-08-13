@@ -1,0 +1,16 @@
+base
+doMC
+foreach
+ggplot2
+httr
+iterators
+knitr
+lubridate
+plyr
+rgdal
+rjson
+rnoaa
+rWBclimate
+scales
+sp
+stringr

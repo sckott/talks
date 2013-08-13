@@ -27,8 +27,19 @@ assets      :
 
 <br><br><br><br>
 <center>
-## Data is key to making concrete arguments about climate change
+## Data is key to making fact-based arguments about science (e.g., climate change)
 </center>
+
+---
+
+
+## The traditional workflow of GUI app to GUI app, and so on is not a defensible workflow
+<br><br><br><br>
+<center>
+![](assets/img/xkcd.png)
+</center>
+
+Comic courtesy of [XKCD](http://www.xkcd.com/722/), via Creative Commons License
 
 ---
 
@@ -43,6 +54,34 @@ assets      :
 
 ---
 
+<br><br><br><br>
+<center>
+## R allows for reproducible workflows for working with data
+</center>
+<br><br><br><br>
+<center>
+<i class="icon-calendar icon-4x">&nbsp;&nbsp;&nbsp;</i>  <i class="icon-code icon-4x">&nbsp;&nbsp;&nbsp;</i> <i class="icon-pencil icon-4x"></i>
+<br><br>
+<i class="icon-code-fork icon-4x"></i>
+</center>
+
+
+---
+
+<br><br><br><br>
 <center><font size="30">
-## LIVE DEMO
+## How? Let's take a peak at:
+<br><br>
+### Reproducible workflow
+<!-- see notes in file workflow.md -->
+<br><br>
+### Workingn with data in R 
+<!-- see demo code in file scioclimate_demo.Rmd -->
 </font></center>
+
+---
+
+<br><br><br><br>
+<center>
+![](assets/img/ropensci_main.png)
+</center>

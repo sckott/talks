@@ -1,41 +1,168 @@
-# A few examples of working with climate data in R.
+Examples working with data on the web in R
+=====
+
+## Sexy data in R
+
+```{r rcharts1}
+library(rCharts)
+names(iris) = gsub("\\.", "", names(iris))
+r1 <- rPlot(SepalLength ~ SepalWidth | Species, data = iris, color = 'Species', type = 'point')
+r1$show(cdn = TRUE)
+```
+
+```{r rcharts1}
+data(economics, package = "ggplot2")
+econ <- transform(economics, date = as.character(date))
+m1 <- mPlot(x = "date", y = c("psavert", "uempmed"), type = "Line", data = econ)
+m1$set(pointSize = 0, lineWidth = 1)
+m1$print("chart2")
+m1$show(cdn=TRUE)
+```
+
+```{r rcharts1}
+hair_eye_male <- subset(as.data.frame(HairEyeColor), Sex == "Male")
+n1 <- nPlot(Freq ~ Hair, group = "Eye", data = hair_eye_male, type = "multiBarChart")
+n1$show(cdn=TRUE)
+```
+
+```{r rcharts1}
+map3 <- Leaflet$new()
+map3$setView(c(51.505, -0.09), zoom = 13)
+map3$marker(c(51.5, -0.09), bindPopup = "<p> Hi. I am a popup </p>")
+map3$marker(c(51.495, -0.083), bindPopup = "<p> Hi. I am another popup </p>")
+map3$show(cdn=TRUE)
+```
+
+
+
+
 
 ## NOAA climate data, using the rnoaa package
 
-### Load rnoaa
+### Poking around things  you can do with rnoaa
 
-```{r rnoaa_load}
+```{r pokearound}
 library(rnoaa)
+
+# Search for hourly precipitation data in zip code 28801 on a single day
+noaa(dataset='PRECIP_HLY', location='ZIP:28801', datatype='HPCP', year=1980, month=7, day=17, token="hzGfPCLWFGWdVSkjVIljzQVfkHvlNmeQ")$data
+
+# Search sations including the word "snake"
+noaa_search(dataset='GHCND', resulttype='station', text='snake', token="hzGfPCLWFGWdVSkjVIljzQVfkHvlNmeQ")
+
+# Search countries including the word "boulder"
+noaa_search(dataset='GHCND', resulttype='city', text='boulder', token="hzGfPCLWFGWdVSkjVIljzQVfkHvlNmeQ")
 ```
 
-### First example
 
-```{r rnoaa1}
+### Example 1
 
+#### Search for normal daily max temperature and plot it!
+
+```{r rnooa1_, comment=NA, warning=FALSE, message=FALSE, cache=TRUE}
+library(rnoaa)
+library(scales)
+library(ggplot2)
+out <- noaa(dataset='NORMAL_DLY', station='GHCND:USW00014895', datatype='dly-tmax-normal', year=2010, month=4, token="hzGfPCLWFGWdVSkjVIljzQVfkHvlNmeQ")
+noaa_plot(out)
 ```
 
-### Second example
 
-```{r rnoaa2}
+### Example 2, sea ice!
 
+#### Map a single year/month/pole combo
+
+```{r seaice1}
+urls <- seaiceeurls(mo='Apr', pole='N', yr=1990)
+dir.create("seaicedata")
+out <- noaa_seaice(url=urls, storepath="seaicedata")
+ggplot(out, aes(long, lat, group=group)) + 
+  geom_polygon(fill="steelblue") +
+  theme_ice()
 ```
+
+#### Map all years for April only for North pole
+
+```{r seaice2}
+library(doMC)
+library(plyr)
+urls <- seaiceeurls(mo='Apr', pole='N')[1:12]
+registerDoMC(cores=4)
+out <- llply(urls, noaa_seaice, storepath="seaicedata", .parallel=TRUE)
+names(out) <- seq(1979,1990,1)
+df <- ldply(out)
+ggplot(df, aes(long, lat, group=group)) + 
+  geom_polygon(fill="steelblue") +
+  theme_ice() +
+  facet_wrap(~ .id)
+```
+
+
+### Example 3, a bit more complicated
+
+#### Load some packages
+
+```{r rnoaa_load, comment=NA, warning=FALSE, message=FALSE, cache=TRUE}
+library(lubridate)
+library(doMC)
+library(plyr)
+library(stringr)
+```
+
+#### Find stations to get data from
+
+```{r findstations, comment=NA, warning=FALSE, message=FALSE, cache=TRUE}
+stations <- noaa_stations(dataset='GHCND', enddate='20121201')
+res <- sapply(stations$data, function(x) x$meta$id)
+```
+
+#### Get data from stations, just searching on the first 60.
+
+```{r noaa_stations, comment=NA, warning=FALSE, message=FALSE, cache=TRUE}
+noaa_fw <- failwith(NULL,noaa)
+registerDoMC(cores=4)
+dat <- compact(llply(as.character(res)[1:20], function(x) noaa_fw(dataset='GHCND', station=x, year=2010, month=7), .parallel=TRUE))
+```
+
+#### Make a data.frame and fix dates. 
+
+```{r noaa_getdata, comment=NA, warning=FALSE, message=FALSE, cache=TRUE}
+df <- ldply(dat, function(x) x$data)
+df$date <- ymd(str_replace(as.character(df$date), "T00:00:00\\.000", ''))
+df <- df[df$dataType == 'PRCP',]
+```
+
+#### Plot precipitation by day for each station
+
+```{r noaa_plot, comment=NA, warning=FALSE, message=FALSE, cache=TRUE}
+library(ggplot2)
+
+ggplot(df, aes(date, value)) +
+  theme_bw(base_size=18) + 
+  geom_line(size=2) +
+  facet_grid(station~., scales="free") +
+  scale_x_datetime(breaks = date_breaks("7 days"), labels = date_format('%d/%m/%y')) +
+  labs(y=as.character(df[1,'dataType']), x="Date") +
+  noaa_theme() +
+  theme(strip.text.y = element_text(angle=0))
+```
+
+
 
 
 ## World Bank climate data, using the rnoaa package
 
-### 
-
-```{r rwbclimate1_load}
-library(rWBclimate)
-```
-
 ### Example 1: look at increases in temperature over time.
 
-```{r rwbclimate1}
-country.list <- c("USA", "MEX", "CAN", "BLZ")
-country.dat <- get_historical_temp(country.list, "year")
+It is possible to extract historical data from GCM queries, but this is acutally model backcasting output, not true historical records. The climate data api can download data at the same spatial scales as all other requests (country or basin), but the time scale differs. You can download data at monthly, yearly or decadanal time scales. Monthly data is actually the mean monthly temperature or precipitation value for each month from 1901-2009 for countries, or 1960-2009 for basins. You can indicate the type of data you want in the call by setting the time_scale parameter to month, *year* or decade.
 
-ggplot(country.dat, aes(x = year, y = data, group = locator)) + 
+```{r rwbclimate1, comment=NA, warning=FALSE, message=FALSE, cache=TRUE}
+library(rWBclimate)
+
+countries <- c("USA", "MEX", "CAN", "BLZ")
+dat <- get_historical_temp(countries, "year")
+
+ggplot(dat, aes(x = year, y = data, group = locator)) + 
   geom_point() + 
   geom_path() + 
   labs(y="Average annual temperature", x="Year") +
@@ -44,20 +171,47 @@ ggplot(country.dat, aes(x = year, y = data, group = locator)) +
   facet_wrap(~locator, scale = "free")
 ```
 
-### Example 2: mapping projected climate change in South America
+
+### Example 2: Plotting annual data for different countries
+
+Data can be extracted from countries or basins submitted as vectors. Here we will plot the expected temperature anomaly for each 20 year period over a baseline control period of 1961-2000. These countries chosen span the north to south pole. It's clear from the plot that the northern most countries (US and Canada) have the biggest anomaly, and Belize, the most equatorial country, has the smallest anomaly.
 
 ```{r}
-# Set the kmlpath option
-options(kmlpath = "/Users/edmundhart/kmltemp")
+country.list <- c("CAN", "USA", "MEX", "BLZ", "ARG")
+country.dat <- get_model_temp(country.list, "annualanom", 2010, 2100)
 
-## Here we use a list basins for Africa
-soam_maps <- create_map_df(SoAm_country)
+# Subset data
+country.dat.bcc <- country.dat[country.dat$gcm == "bccr_bcm2_0", ]
 
-soam_data<- get_ensemble_temp(SoAm_country, "annualanom", 2080, 2100)
+## Exclude A2 scenario
+country.dat.bcc <- subset(country.dat.bcc, country.dat.bcc$scenario != "a2")
+ggplot(country.dat.bcc, aes(x = fromYear, y = data, group = locator, colour = locator)) + 
+  geom_point() + 
+  geom_path() + 
+  ylab("Temperature anomaly over baseline") + 
+  theme_bw(base_size=20)
+```
 
-## Subset data to just one scenario, and one percentile
-sa_country_dat <- subset(soam_data, soam_data$scenario == "a2" & soam_data$percentile == 50)
 
-sa_map <- climate_map(soam_maps, sa_country_dat, return_map = T)
-sa_map + scale_fill_continuous("Temperature \n anomaly", low = "yellow", high = "red") + theme_bw()
+
+## Phenology data using rnpn (interacts with the US National Phenology Network)
+
+```{r rnpn1}
+library(rnpn)
+
+# Lookup names
+temp <- lookup_names(name='bird', type='common')
+comnames <- temp[temp$species_id %in% c(357, 359, 1108), 'common_name']
+
+# Get some data
+out <- getobsspbyday(speciesid=c(357, 359, 1108), startdate='2010-04-01', enddate='2013-09-31')
+names(out) <- comnames
+df <- ldply(out)
+df$date <- as.Date(df$date)
+
+library(ggplot2)
+ggplot(df, aes(date, count)) + 
+  geom_line() +
+  theme_grey(base_size=20) +
+  facet_grid(.id ~.)
 ```
