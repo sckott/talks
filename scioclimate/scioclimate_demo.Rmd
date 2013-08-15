@@ -1,7 +1,7 @@
 Examples working with data on the web in R
 =====
 
-## Sexy data in R
+## Interactive data in R
 
 ```{r rcharts1}
 library(rCharts)
@@ -34,7 +34,21 @@ map3$show(cdn=TRUE)
 ```
 
 
+## Politicians talk - SunlightFoundation listens
 
+### Look at mentions of the phrase "climate change" in congress
+
+```{r govdat}
+library(govdat)
+
+dat_d <- sll_cw_timeseries(phrase='climate change', party="D")
+dat_d$party <- rep("D", nrow(dat_d))
+dat_r <- sll_cw_timeseries(phrase='climate change', party="R")
+dat_r$party <- rep("R", nrow(dat_r))
+dat_both <- rbind(dat_d, dat_r)
+ggplot(dat_both, aes(day, count, colour=party)) + geom_line() + 
+theme_grey(base_size=20) + scale_colour_manual(values=c("blue","red"))
+```
 
 
 ## NOAA climate data, using the rnoaa package
@@ -45,13 +59,13 @@ map3$show(cdn=TRUE)
 library(rnoaa)
 
 # Search for hourly precipitation data in zip code 28801 on a single day
-noaa(dataset='PRECIP_HLY', location='ZIP:28801', datatype='HPCP', year=1980, month=7, day=17, token="hzGfPCLWFGWdVSkjVIljzQVfkHvlNmeQ")$data
+noaa(dataset='PRECIP_HLY', location='ZIP:28801', datatype='HPCP', year=1980, month=7, day=17)$data
 
 # Search sations including the word "snake"
-noaa_search(dataset='GHCND', resulttype='station', text='snake', token="hzGfPCLWFGWdVSkjVIljzQVfkHvlNmeQ")
+noaa_search(dataset='GHCND', resulttype='station', text='snake')
 
 # Search countries including the word "boulder"
-noaa_search(dataset='GHCND', resulttype='city', text='boulder', token="hzGfPCLWFGWdVSkjVIljzQVfkHvlNmeQ")
+noaa_search(dataset='GHCND', resulttype='city', text='boulder')
 ```
 
 
@@ -63,7 +77,7 @@ noaa_search(dataset='GHCND', resulttype='city', text='boulder', token="hzGfPCLWF
 library(rnoaa)
 library(scales)
 library(ggplot2)
-out <- noaa(dataset='NORMAL_DLY', station='GHCND:USW00014895', datatype='dly-tmax-normal', year=2010, month=4, token="hzGfPCLWFGWdVSkjVIljzQVfkHvlNmeQ")
+out <- noaa(dataset='NORMAL_DLY', station='GHCND:USW00014895', datatype='dly-tmax-normal', year=2010, month=4)
 noaa_plot(out)
 ```
 
