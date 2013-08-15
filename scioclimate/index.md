@@ -27,14 +27,14 @@ assets      :
 
 <br><br><br><br>
 <center>
-## Data is key to backing up arguments about many things (e.g., climate change)
+## Data can be important to backing up arguments about climate change
 </center>
 
 ---
 
 <br><br><br><br>
 <center>
-## But how can getting/manipulating/visualizing data be incorporated into a workflow?
+`## But how can getting/manipulating/visualizing data be incorporated into a workflow?
 </center>
 
 ---
@@ -74,7 +74,7 @@ Bonus points for version control
 
 ---
 
-## What climate data sources do you use? 
+## What climate data sources do you use or want to use? 
 
 + ____________
 + ____________
@@ -82,14 +82,23 @@ Bonus points for version control
 
 ---
 
+## Working with web data from R
+
++ Data provided from a database via APIs (Application Programming Interfaces)
++ We use functions in R to request data
++ Tools like [RCur](http://cran.r-project.org/web/packages/RCurl/index.html), [XML](http://cran.r-project.org/web/packages/XML/index.html), [RJSONIO](http://cran.r-project.org/web/packages/RJSONIO/index.html), [httr](http://cran.r-project.org/web/packages/httr/index.html) make calls to get data, and parse data
++ Developers (even you!) write functions to interact with APIs - simplified for end users
+
+---
+
 <br><br><br><br>
 <center><font size="30">
 ## How? Let's take a peak at:
 <br><br>
-### [Reproducible workflow](raw file link)
+### [Reproducible workflow](https://raw.github.com/SChamberlain/posterstalks/gh-pages/scioclimate/workflow.md)
 <!-- see notes in file workflow.md -->
 <br><br>
-### [Working with data in R](raw file link)
+### [Working with data in R](https://raw.github.com/SChamberlain/posterstalks/gh-pages/scioclimate/scioclimate_demo.Rmd)
 <!-- see demo code in file scioclimate_demo.Rmd -->
 </font></center>
 
@@ -100,7 +109,7 @@ Bonus points for version control
 ## Take a moment to take our survey 
 </center>
 <br><br>
-<center><font size="18">[click here](link to survey)</font></center>
+<center><font size="18">[click here - http://bit.ly/ropenscisurvey](https://ucbpsych.qualtrics.com/SE/?SID=SV_5w4kjM2ViueDKXX)</font></center>
 
 <br><br><br><br>
 <center>

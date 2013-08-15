@@ -1,4 +1,4 @@
-Wofkflow notes
+Workflow notes
 ======
 
 1. Use Markdown or LaTex, MD much easier

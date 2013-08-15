@@ -5,31 +5,46 @@ Examples working with data on the web in R
 
 ```{r rcharts1}
 library(rCharts)
-names(iris) = gsub("\\.", "", names(iris))
-r1 <- rPlot(SepalLength ~ SepalWidth | Species, data = iris, color = 'Species', type = 'point')
-r1$show(cdn = TRUE)
-```
 
-```{r rcharts1}
+# Load a data set
 data(economics, package = "ggplot2")
+
+# Make the date column of date format
 econ <- transform(economics, date = as.character(date))
+
+# Make a javascript plot object
 m1 <- mPlot(x = "date", y = c("psavert", "uempmed"), type = "Line", data = econ)
+
+# Set attributes
 m1$set(pointSize = 0, lineWidth = 1)
-m1$print("chart2")
+
+# Visualize
 m1$show(cdn=TRUE)
 ```
 
-```{r rcharts1}
+```{r rcharts2}
+# Load a data set
 hair_eye_male <- subset(as.data.frame(HairEyeColor), Sex == "Male")
+
+# Make a javascript plot object
 n1 <- nPlot(Freq ~ Hair, group = "Eye", data = hair_eye_male, type = "multiBarChart")
+
+# Visualize
 n1$show(cdn=TRUE)
 ```
 
-```{r rcharts1}
+```{r rcharts3}
+# Make a new map object
 map3 <- Leaflet$new()
+
+# Set view dimensions and zoom
 map3$setView(c(51.505, -0.09), zoom = 13)
+
+# Add two markers
 map3$marker(c(51.5, -0.09), bindPopup = "<p> Hi. I am a popup </p>")
 map3$marker(c(51.495, -0.083), bindPopup = "<p> Hi. I am another popup </p>")
+
+# Visualize
 map3$show(cdn=TRUE)
 ```
 
@@ -40,14 +55,26 @@ map3$show(cdn=TRUE)
 
 ```{r govdat}
 library(govdat)
+library(ggplot2)
 
+# Get mentions of climate change from Democrats
 dat_d <- sll_cw_timeseries(phrase='climate change', party="D")
+
+# Add a column that says this is data from deomcrats
 dat_d$party <- rep("D", nrow(dat_d))
+
+# Get mentions of climate change from Democrats
 dat_r <- sll_cw_timeseries(phrase='climate change', party="R")
+
+# Add a column that says this is data from republicans
 dat_r$party <- rep("R", nrow(dat_r))
+
+# Put two tables together
 dat_both <- rbind(dat_d, dat_r)
+
+# Plot data
 ggplot(dat_both, aes(day, count, colour=party)) + geom_line() + 
-theme_grey(base_size=20) + scale_colour_manual(values=c("blue","red"))
+  theme_grey(base_size=20) + scale_colour_manual(values=c("blue","red"))
 ```
 
 
@@ -77,8 +104,20 @@ noaa_search(dataset='GHCND', resulttype='city', text='boulder')
 library(rnoaa)
 library(scales)
 library(ggplot2)
+
+# Search for NOAA data 
 out <- noaa(dataset='NORMAL_DLY', station='GHCND:USW00014895', datatype='dly-tmax-normal', year=2010, month=4)
+
+# Plot data
 noaa_plot(out)
+
+# Where is this station
+temp <- noaa_stations(dataset='NORMAL_DLY', station='GHCND:USW00014895')
+latlong <- data.frame(temp$data$meta[c('latitude','longitude')])
+world <- map_data(map='world', region='.')
+ggplot(world, aes(long, lat)) + # make the plot
+  geom_polygon(aes(group=group), fill="white", color="gray40", size=0.2) +
+  geom_point(data=latlong, aes(longitude, latitude), size=6)
 ```
 
 
@@ -87,9 +126,16 @@ noaa_plot(out)
 #### Map a single year/month/pole combo
 
 ```{r seaice1}
+# Get URLs for data
 urls <- seaiceeurls(mo='Apr', pole='N', yr=1990)
+
+# Create directory to store data in
 dir.create("seaicedata")
+
+# Download sea ice data
 out <- noaa_seaice(url=urls, storepath="seaicedata")
+
+# Plot data
 ggplot(out, aes(long, lat, group=group)) + 
   geom_polygon(fill="steelblue") +
   theme_ice()
@@ -100,11 +146,21 @@ ggplot(out, aes(long, lat, group=group)) +
 ```{r seaice2}
 library(doMC)
 library(plyr)
+
+# Get URLs for data
 urls <- seaiceeurls(mo='Apr', pole='N')[1:12]
+
+# Download sea ice data
 registerDoMC(cores=4)
 out <- llply(urls, noaa_seaice, storepath="seaicedata", .parallel=TRUE)
+
+# Name elements of list
 names(out) <- seq(1979,1990,1)
+
+# Make a data.frame
 df <- ldply(out)
+
+# Plot data
 ggplot(df, aes(long, lat, group=group)) + 
   geom_polygon(fill="steelblue") +
   theme_ice() +
@@ -126,14 +182,20 @@ library(stringr)
 #### Find stations to get data from
 
 ```{r findstations, comment=NA, warning=FALSE, message=FALSE, cache=TRUE}
+# Get list of stations
 stations <- noaa_stations(dataset='GHCND', enddate='20121201')
+
+# Get station IDs
 res <- sapply(stations$data, function(x) x$meta$id)
 ```
 
 #### Get data from stations, just searching on the first 60.
 
 ```{r noaa_stations, comment=NA, warning=FALSE, message=FALSE, cache=TRUE}
+# Make the function noaa work even when data not available
 noaa_fw <- failwith(NULL,noaa)
+
+# Search for data
 registerDoMC(cores=4)
 dat <- compact(llply(as.character(res)[1:20], function(x) noaa_fw(dataset='GHCND', station=x, year=2010, month=7), .parallel=TRUE))
 ```
@@ -164,7 +226,7 @@ ggplot(df, aes(date, value)) +
 
 
 
-## World Bank climate data, using the rnoaa package
+## World Bank climate data, using the rWBclimate package
 
 ### Example 1: look at increases in temperature over time.
 
@@ -191,14 +253,17 @@ ggplot(dat, aes(x = year, y = data, group = locator)) +
 Data can be extracted from countries or basins submitted as vectors. Here we will plot the expected temperature anomaly for each 20 year period over a baseline control period of 1961-2000. These countries chosen span the north to south pole. It's clear from the plot that the northern most countries (US and Canada) have the biggest anomaly, and Belize, the most equatorial country, has the smallest anomaly.
 
 ```{r}
+# Search for data
 country.list <- c("CAN", "USA", "MEX", "BLZ", "ARG")
 country.dat <- get_model_temp(country.list, "annualanom", 2010, 2100)
 
-# Subset data
+# Subset data to one specific model
 country.dat.bcc <- country.dat[country.dat$gcm == "bccr_bcm2_0", ]
 
-## Exclude A2 scenario
+# Exclude A2 scenario
 country.dat.bcc <- subset(country.dat.bcc, country.dat.bcc$scenario != "a2")
+
+# Plot data
 ggplot(country.dat.bcc, aes(x = fromYear, y = data, group = locator, colour = locator)) + 
   geom_point() + 
   geom_path() + 
@@ -223,6 +288,7 @@ names(out) <- comnames
 df <- ldply(out)
 df$date <- as.Date(df$date)
 
+# Visualize data
 library(ggplot2)
 ggplot(df, aes(date, count)) + 
   geom_line() +
