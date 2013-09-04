@@ -293,5 +293,7 @@ library(ggplot2)
 ggplot(df, aes(date, count)) + 
   geom_line() +
   theme_grey(base_size=20) +
-  facet_grid(.id ~.)
+  facet_grid(.id ~.) +
+  theme_bw(base_size=20) +
+  theme(grid.axis.major=element_blank())
 ```
