@@ -253,7 +253,7 @@ if we are to avoid mistakes of JIF, we need research on altmetrics
     <h2>Obviously!</h2>
   </hgroup>
   <article data-timings="">
-    <p>programatic access to altmetrics data
+    <p>Programatic access to altmetrics data key for reproducibility
 <br>
 <center><img src="assets/img/spinner.png" alt=""></center></p>
 
@@ -438,10 +438,22 @@ dat &lt;- signposts(doi=dois)
 <pre><code class="r">from altmetric import Altmetric
 a = Altmetric()
 out = a.doi(&#39;10.1126/science.1173146&#39;)
-out[&#39;context&#39;][&#39;journal&#39;][&#39;sparkline&#39;]
+out[&#39;history&#39;]
 </code></pre>
 
-<pre><code class="bash">[1994.842, 31.896, 17.45, 10.58, 8.032, 5.688, 2.85, 1, 1, 0.75]
+<pre><code class="bash"># Almetric score history
+{u&#39;1d&#39;: 0,
+ u&#39;1m&#39;: 0,
+ u&#39;1w&#39;: 0,
+ u&#39;1y&#39;: 5.328,
+ u&#39;2d&#39;: 0,
+ u&#39;3d&#39;: 0,
+ u&#39;3m&#39;: 0,
+ u&#39;4d&#39;: 0,
+ u&#39;5d&#39;: 0,
+ u&#39;6d&#39;: 0,
+ u&#39;6m&#39;: 0,
+ u&#39;at&#39;: 18.688}
 </code></pre>
 
   </article>

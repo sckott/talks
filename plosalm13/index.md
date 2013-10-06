@@ -129,7 +129,7 @@ if we are to avoid mistakes of JIF, we need research on altmetrics
 
 ## Obviously!
 
-programatic access to altmetrics data
+Programatic access to altmetrics data key for reproducibility
 <br>
 <center>![](assets/img/spinner.png)</center>
 
@@ -311,12 +311,24 @@ get [here](https://pypi.python.org/pypi/altmetric)
 from altmetric import Altmetric
 a = Altmetric()
 out = a.doi('10.1126/science.1173146')
-out['context']['journal']['sparkline']
+out['history']
 ```
 
 
 ```bash
-[1994.842, 31.896, 17.45, 10.58, 8.032, 5.688, 2.85, 1, 1, 0.75]
+# Almetric score history
+{u'1d': 0,
+ u'1m': 0,
+ u'1w': 0,
+ u'1y': 5.328,
+ u'2d': 0,
+ u'3d': 0,
+ u'3m': 0,
+ u'4d': 0,
+ u'5d': 0,
+ u'6d': 0,
+ u'6m': 0,
+ u'at': 18.688}
 ```
 
 
