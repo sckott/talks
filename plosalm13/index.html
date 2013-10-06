@@ -1,0 +1,842 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Programmatic access for Altmetrics</title>
+  <meta charset="utf-8">
+  <meta name="description" content="Programmatic access for Altmetrics">
+  <meta name="author" content="Scott Chamberlain (@recology_)">
+  <meta name="generator" content="slidify" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/default.css" media="all" >
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/phone.css" 
+    media="only screen and (max-device-width: 480px)" >
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/slidify.css" >
+  <link rel="stylesheet" href="libraries/highlighters/highlight.js/css/solarized_light.css" />
+  <base target="_blank"> <!-- This amazingness opens all links in a new tab. -->  <link rel=stylesheet href="libraries/widgets/nvd3/css/nv.d3.css"></link>
+<link rel=stylesheet href="libraries/widgets/nvd3/css/rNVD3.css"></link>
+<link rel=stylesheet href="./assets/css/opensource.css"></link>
+<link rel=stylesheet href="http://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css"></link>
+
+  
+  <!-- Grab CDN jQuery, fall back to local if offline -->
+  <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.min.js"></script>
+  <script>window.jQuery || document.write('<script src="libraries/widgets/quiz/js/jquery.js"><\/script>')</script> 
+  <script data-main="libraries/frameworks/io2012/js/slides" 
+    src="libraries/frameworks/io2012/js/require-1.0.8.min.js">
+  </script>
+  
+  <script src="libraries/widgets/nvd3/js/jquery-1.8.2.min.js"></script>
+<script src="libraries/widgets/nvd3/js/d3.v3.min.js"></script>
+<script src="libraries/widgets/nvd3/js/nv.d3.min-new.js"></script>
+<script src="libraries/widgets/nvd3/js/fisheye.js"></script>
+
+
+</head>
+<body style="opacity: 0">
+  <slides class="layout-widescreen">
+    
+    <!-- LOGO SLIDE -->
+        <slide class="title-slide segue nobackground">
+  <hgroup class="auto-fadein">
+    <h1>Programmatic access for Altmetrics</h1>
+    <h2></h2>
+    <p>Scott Chamberlain (@recology_)<br/>rOpenSci</p>
+  </hgroup>
+  <article></article>  
+</slide>
+    
+
+    <!-- SLIDES -->
+    <slide class="" id="slide-1" style="background:;">
+  <article data-timings="">
+    <!-- 
+SHOOTING FOR 15 MIN (15-20 IS GOOD, BUT DO NO MORE THAN 15 MIN.) 
+-->
+
+<p><br><br><br><br>
+<center><img src="assets/img/ropensci_main.png"></center></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-2" style="background:;">
+  <article data-timings="">
+    <p><br><br><br><br>
+<center></p>
+
+<h3>Find this talk here <a href="http://bit.ly/roalm">http://bit.ly/roalm</a></h3>
+
+<h3>Made with <a href="http://slidify.org/">Slidify</a>; the code <a href="https://github.com/SChamberlain/posterstalks/blob/gh-pages/plosalm13/index.Rmd">here</a></h3>
+
+<h3>Press &quot;o&quot; to bring up all slides - <i class="icon-arrow-left"> &nbsp; </i><i class="icon-arrow-right"></i> to navigate</h3>
+
+<p></center></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-3" style="background:;">
+  <hgroup>
+    <h2>Two points will be made:</h2>
+  </hgroup>
+  <article data-timings="">
+    <p><br><br><br></p>
+
+<p><font size="14"><center> Programmatic access is key <br><br>
+Open altmetrics data would be nice</center></font></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-4" style="background:;">
+  <hgroup>
+    <h2>Programmatic access is key</h2>
+  </hgroup>
+  <article data-timings="">
+    <p><center><img src="assets/img/code.png" alt=""></center></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-5" style="background:;">
+  <hgroup>
+    <h2>Programmatic access to altmetrics</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>Computers are simply better at repetitive tasks</p>
+
+<ul>
+<li>Makes repetitive tasks take far less time</li>
+<li>Facilitates tool creation by developers</li>
+<li>Allows research questions to be addressed more quickly</li>
+<li>Facilitates reproducibility</li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-6" style="background:;">
+  <article data-timings="">
+    <p><br><br><br>
+<font size="14"><center>What is needed for easy programmatic access?</center></font></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-7" style="background:;">
+  <hgroup>
+    <h2>Modern API technology: RESTful</h2>
+  </hgroup>
+  <article data-timings="">
+    <p><a href="http://en.wikipedia.org/wiki/REST_API">REST API</a> - the modern way to serve data to consumers</p>
+
+<ul>
+<li>GET</li>
+<li>POST</li>
+<li>PUT</li>
+<li>PATCH</li>
+<li>HEAD</li>
+<li>etc...</li>
+</ul>
+
+<p>Makes data consumption easy from any programming language</p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-8" style="background:;">
+  <hgroup>
+    <h2>Good docs (for developers)</h2>
+  </hgroup>
+  <article data-timings="">
+    <p><br>
+<center><img src="assets/img/book.png" alt=""></center></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-9" style="background:;">
+  <hgroup>
+    <h2>Various authentication methods??</h2>
+  </hgroup>
+  <article data-timings="">
+    <p><br>
+At least IMHO</p>
+
+<p>OAuth makes sense for web workflows, but not so much for programmatic workflows.</p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-10" style="background:;">
+  <hgroup>
+    <h2>Many libraries already available, but more needed</h2>
+  </hgroup>
+  <article data-timings="">
+    <table><thead>
+<tr>
+<th>Data source</th>
+<th>Libraries</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>PLOS ALM</td>
+<td>R</td>
+</tr>
+<tr>
+<td>ImpactStory</td>
+<td>R, Javascript</td>
+</tr>
+<tr>
+<td>Altmetric</td>
+<td>R, Python, Ruby, iOS</td>
+</tr>
+<tr>
+<td>PlumAnalytics</td>
+<td>??</td>
+</tr>
+</tbody></table>
+
+<!-- table of libraries available for different APIs -->
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-11" style="background:;">
+  <hgroup>
+    <h2>Altmetrics needs researchers</h2>
+  </hgroup>
+  <article data-timings="">
+    <p><center><img src="assets/img/beaker.png" alt=""></center></p>
+
+<!-- 
+if we are to avoid mistakes of JIF, we need research on altmetrics
+-->
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-12" style="background:;">
+  <hgroup>
+    <h2>How do altmetrics researchers get data?</h2>
+  </hgroup>
+  <article data-timings="">
+    <ul>
+<li><a href="http://www.plosone.org/article/info%3Adoi%2F10.1371%2Fjournal.pone.0064841">Do Altmetrics Work? Twitter and Ten Other...</a> - via Altmetric.com</li>
+<li><a href="http://arxiv.org/pdf/1308.1838v1.pdf">Tweeting biomedicine: an analysis of tweets...</a> - via Altmetric.com</li>
+<li><a href="http://www.plosone.org/article/info%3Adoi%2F10.1371%2Fjournal.pone.0019917">The Spread of Scientific Information...</a> - via PLOS ALM</li>
+<li><a href="http://www.jmir.org/2011/4/e123/">Can Tweets Predict Citations? ...</a> - via Twitter Search API</li>
+<li><a href="http://arxiv.org/html/1203.4745v1">Altmetrics in the Wild...</a> - via PLOS ALM, various APIs, WebofSci citations</li>
+<li><a href="http://www.ploscollections.org/article/info%3Adoi%2F10.1371%2Fjournal.pone.0068914">Social Media Release Increases Dissemination...</a> - via manual collection</li>
+<li><a href="http://www.ploscollections.org/article/info%3Adoi%2F10.1371%2Fjournal.pone.0050943">Identifying Audiences of E-Infrastructures...</a> - via Google Analytics</li>
+<li><a href="http://www.plosone.org/article/info%3Adoi%2F10.1371%2Fjournal.pone.0047523">How the Scientific Community Reacts to...</a> - via Twitter Search API, Google Scholar citations</li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-13" style="background:;">
+  <hgroup>
+    <h2>Obviously!</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>programatic access to altmetrics data
+<br>
+<center><img src="assets/img/spinner.png" alt=""></center></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-14" style="background:;">
+  <hgroup>
+    <h2>Example in R</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>Load libraries, get 200 DOIs, get ALM data, plot</p>
+
+<pre><code class="r">library(rplos); library(alm); library(plyr)
+dois &lt;- searchplos(terms=&#39;*:*&#39;, fields=&quot;id&quot;, limit=200)
+alm &lt;- ldply( alm(doi=do.call(c,dois$id), total_details=TRUE) )
+plot_density(alm, c(&quot;counter_pdf&quot;,&quot;mendeley_shares&quot;,&quot;pmc_pdf&quot;,&quot;pmc_total&quot;), c(&quot;#83DFB4&quot;,&quot;#EFA5A5&quot;,&quot;#CFD470&quot;,&quot;#B2C9E4&quot;), plot_type=&quot;h&quot;)
+</code></pre>
+
+<p><img src="assets/fig/plot.png" title="plot of chunk plot" alt="plot of chunk plot" style="display: block; margin: auto;" /></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-15" style="background:;">
+  <article data-timings="">
+    <pre><code class="r">library(rplos); library(alm); library(rCharts)
+dois &lt;- c(&#39;10.1371/journal.pone.0001543&#39;,&#39;10.1371/journal.pone.0040117&#39;,&#39;10.1371/journal.pone.0029797&#39;,&#39;10.1371/journal.pone.0039395&#39;)
+dat &lt;- signposts(doi=dois)
+</code></pre>
+
+<pre><code class="r">plot_signposts(input = dat, type = &quot;multiBarChart&quot;, height = 400)
+</code></pre>
+
+<div id='chart41595442e577' class='rChart nvd3'></div>
+
+<script type='text/javascript'>
+ $(document).ready(function(){
+      drawchart41595442e577()
+    });
+    function drawchart41595442e577(){  
+      var opts = {
+ "dom": "chart41595442e577",
+"width":    800,
+"height":    400,
+"x": "doi",
+"y": "value",
+"group": "variable",
+"type": "multiBarChart",
+"id": "chart41595442e577" 
+},
+        data = [
+ {
+ "doi": "0040117",
+"variable": "views",
+"value":   1628 
+},
+{
+ "doi": "0039395",
+"variable": "views",
+"value":   1035 
+},
+{
+ "doi": "0029797",
+"variable": "views",
+"value":  29208 
+},
+{
+ "doi": "0001543",
+"variable": "views",
+"value":   3494 
+},
+{
+ "doi": "0040117",
+"variable": "shares",
+"value":      0 
+},
+{
+ "doi": "0039395",
+"variable": "shares",
+"value":      0 
+},
+{
+ "doi": "0029797",
+"variable": "shares",
+"value":    237 
+},
+{
+ "doi": "0001543",
+"variable": "shares",
+"value":      0 
+},
+{
+ "doi": "0040117",
+"variable": "bookmarks",
+"value":      8 
+},
+{
+ "doi": "0039395",
+"variable": "bookmarks",
+"value":      8 
+},
+{
+ "doi": "0029797",
+"variable": "bookmarks",
+"value":     51 
+},
+{
+ "doi": "0001543",
+"variable": "bookmarks",
+"value":      8 
+},
+{
+ "doi": "0040117",
+"variable": "citations",
+"value":      1 
+},
+{
+ "doi": "0039395",
+"variable": "citations",
+"value":      0 
+},
+{
+ "doi": "0029797",
+"variable": "citations",
+"value":      7 
+},
+{
+ "doi": "0001543",
+"variable": "citations",
+"value":      5 
+} 
+]
+  
+      var data = d3.nest()
+        .key(function(d){
+          return opts.group === undefined ? 'main' : d[opts.group]
+        })
+        .entries(data)
+      
+      nv.addGraph(function() {
+        var chart = nv.models[opts.type]()
+          .x(function(d) { return d[opts.x] })
+          .y(function(d) { return d[opts.y] })
+          .width(opts.width)
+          .height(opts.height)
+         
+        chart
+  .reduceXTicks(false)
+          
+        
+
+        
+        
+        
+      
+       d3.select("#" + opts.id)
+        .append('svg')
+        .datum(data)
+        .transition().duration(500)
+        .call(chart);
+
+       nv.utils.windowResize(chart.update);
+       return chart;
+      });
+    };
+</script>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-16" style="background:;">
+  <hgroup>
+    <h2>Altmetric API from Python</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>get <a href="https://pypi.python.org/pypi/altmetric">here</a></p>
+
+<pre><code class="r">from altmetric import Altmetric
+a = Altmetric()
+out = a.doi(&#39;10.1126/science.1173146&#39;)
+out[&#39;context&#39;][&#39;journal&#39;][&#39;sparkline&#39;]
+</code></pre>
+
+<pre><code class="bash">[1994.842, 31.896, 17.45, 10.58, 8.032, 5.688, 2.85, 1, 1, 0.75]
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-17" style="background:;">
+  <article data-timings="">
+    <style type="text/css">
+  table {
+    border: none;
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 24px;
+    line-height: 12px;
+    font-family: 'Trebuchet MS';
+    font-weight: bolder;
+    color: rgb(102, 102, 102);
+  }
+
+  table td, table th {
+    font-size: 20px;
+    padding: 1em 0.5em;
+  } 
+</style>
+
+<h2>Combining metrics across aggregators</h2>
+
+<table><thead>
+<tr>
+<th>Data source</th>
+<th>PLoS</th>
+<th>ImpactStory</th>
+<th>Altmetric</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>WebOfScience</td>
+<td>webofscience</td>
+<td>--</td>
+<td>--</td>
+</tr>
+<tr>
+<td>Dryad</td>
+<td>--</td>
+<td>dryad:total_downloads package_views</td>
+<td>--</td>
+</tr>
+<tr>
+<td>Figshare</td>
+<td>--</td>
+<td>figshare:views shares downloads</td>
+<td>--</td>
+</tr>
+<tr>
+<td>Github</td>
+<td>--</td>
+<td>github:forks stars</td>
+<td>--</td>
+</tr>
+<tr>
+<td>Google+</td>
+<td>--</td>
+<td>--</td>
+<td>cited by gplus count</td>
+</tr>
+<tr>
+<td>MSM</td>
+<td>--</td>
+<td>--</td>
+<td>cited by msm count</td>
+</tr>
+<tr>
+<td>Scopus citations</td>
+<td>scopus</td>
+<td>plosalm:scopus</td>
+<td>--</td>
+</tr>
+<tr>
+<td>Mendeley readers</td>
+<td>mendeley shares</td>
+<td>mendeley readers</td>
+<td>mendeley readers</td>
+</tr>
+<tr>
+<td>Twitter</td>
+<td>twitter</td>
+<td>topsy:tweets</td>
+<td>cited by tweeters count</td>
+</tr>
+</tbody></table>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-18" style="background:;">
+  <hgroup>
+    <h2>Altmetrics data will largely come from aggregators</h2>
+  </hgroup>
+  <article data-timings="">
+    <p><br></p>
+
+<div class="row">
+    <img src="assets/img/plosalm.png"></img>
+    <img src="assets/img/impactstory.png"></img>
+    <img src="assets/img/altmetricdotcom.png"></img>
+    <img src="assets/img/plumanalytics.png"></img>
+</div>
+
+<!-- And users will get data from these, so this is where focus should be -->
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-19" style="background:;">
+  <hgroup>
+    <h2>Why is open good?</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>Altmetrics needs checks on</p>
+
+<ul>
+<li>Consistency (tweets from source A and B should be =)</li>
+<li>Correlation (is metric A strongly corr. with B?)</li>
+<li>Interpretation (open source the interpretation)</li>
+<li>Gaming (security through obscurity doesn&#39;t work)</li>
+</ul>
+
+<!-- 
+This can be done better when data is open and easily available.
+-->
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-20" style="background:;">
+  <hgroup>
+    <h2>Additional value comes from open altmetrics data in</h2>
+  </hgroup>
+  <article data-timings="">
+    <ul>
+<li>Knowledge from research findings
+
+<ul>
+<li>(doesn&#39;t require open data I suppose :( )</li>
+</ul></li>
+<li>Open products
+
+<ul>
+<li><a href="http://opensnp.org/">openSNP</a></li>
+<li><a href="http://sciencecard.org/">ScienceCard</a></li>
+</ul></li>
+<li>For-profit products</li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-21" style="background:;">
+  <hgroup>
+    <h2>An open use case</h2>
+  </hgroup>
+  <article data-timings="">
+    <p><em>Are individual altmetrics consistent among data providers?</em></p>
+
+<p><center><img src="assets/img/fig2.png" alt=""></center></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-22" style="background:;">
+  <hgroup>
+    <h2>Transparency one of major complaints in DORA of JIF</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>Altmetrics APIs could provide</p>
+
+<ul>
+<li>Provenance for each metric</li>
+<li>Any data manipulation done</li>
+<li>Date of data collection</li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-23" style="background:;">
+  <hgroup>
+    <h2>An even better use case for open</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>When hefty decisions are made on the back of altmetrics, open avail. of data will pay off</p>
+
+<ul>
+<li>Track provenance of a metric</li>
+<li>What calculations were made</li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-24" style="background:;">
+  <article data-timings="">
+    <p><br><br><br>
+<font size="14"><center>Do we need a CommonCrawl for altmetrics?</center></font></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-25" style="background:;">
+  <article data-timings="">
+    <p><br><br><br></p>
+
+<p><font size="14"><center> Programmatic access <br><br>
+Open altmetrics data</center></font></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+    <slide class="backdrop"></slide>
+  </slides>
+  <div class="pagination pagination-small" id='io2012-ptoc' style="display:none;">
+    <ul>
+      <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=1 title=''>
+         1
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=2 title=''>
+         2
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=3 title='Two points will be made:'>
+         3
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=4 title='Programmatic access is key'>
+         4
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=5 title='Programmatic access to altmetrics'>
+         5
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=6 title=''>
+         6
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=7 title='Modern API technology: RESTful'>
+         7
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=8 title='Good docs (for developers)'>
+         8
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=9 title='Various authentication methods??'>
+         9
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=10 title='Many libraries already available, but more needed'>
+         10
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=11 title='Altmetrics needs researchers'>
+         11
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=12 title='How do altmetrics researchers get data?'>
+         12
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=13 title='Obviously!'>
+         13
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=14 title='Example in R'>
+         14
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=15 title=''>
+         15
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=16 title='Altmetric API from Python'>
+         16
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=17 title=''>
+         17
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=18 title='Altmetrics data will largely come from aggregators'>
+         18
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=19 title='Why is open good?'>
+         19
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=20 title='Additional value comes from open altmetrics data in'>
+         20
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=21 title='An open use case'>
+         21
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=22 title='Transparency one of major complaints in DORA of JIF'>
+         22
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=23 title='An even better use case for open'>
+         23
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=24 title=''>
+         24
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=25 title=''>
+         25
+      </a>
+    </li>
+  </ul>
+  </div>  <!--[if IE]>
+    <script 
+      src="http://ajax.googleapis.com/ajax/libs/chrome-frame/1/CFInstall.min.js">  
+    </script>
+    <script>CFInstall.check({mode: 'overlay'});</script>
+  <![endif]-->
+</body>
+  <!-- Load Javascripts for Widgets -->
+  
+  <!-- LOAD HIGHLIGHTER JS FILES -->
+  <script src="libraries/highlighters/highlight.js/highlight.pack.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  <!-- DONE LOADING HIGHLIGHTER JS FILES -->
+   
+  </html>
