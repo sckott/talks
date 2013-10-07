@@ -79,14 +79,11 @@ SHOOTING FOR 15 MIN (15-20 IS GOOD, BUT DO NO MORE THAN 15 MIN.)
 </slide>
 
 <slide class="" id="slide-3" style="background:;">
-  <hgroup>
-    <h2>Two points will be made:</h2>
-  </hgroup>
   <article data-timings="">
     <p><br><br><br></p>
 
-<p><font size="14"><center> Programmatic access is key <br><br>
-Open altmetrics data would be nice</center></font></p>
+<p><font size="14"><center> Programmatic access to altmetrics <br><br>
+Open altmetrics data</center></font></p>
 
   </article>
   <!-- Presenter Notes -->
@@ -94,10 +91,12 @@ Open altmetrics data would be nice</center></font></p>
 
 <slide class="" id="slide-4" style="background:;">
   <hgroup>
-    <h2>Programmatic access is key</h2>
+    <h2>Programmatic access</h2>
   </hgroup>
   <article data-timings="">
     <p><center><img src="assets/img/code.png" alt=""></center></p>
+
+<!-- used by the provider themselves, publishers, in a web browse, and from the command line -->
 
   </article>
   <!-- Presenter Notes -->
@@ -132,18 +131,15 @@ Open altmetrics data would be nice</center></font></p>
 
 <slide class="" id="slide-7" style="background:;">
   <hgroup>
-    <h2>Modern API technology: RESTful</h2>
+    <h2>Modern API technology</h2>
   </hgroup>
   <article data-timings="">
     <p><a href="http://en.wikipedia.org/wiki/REST_API">REST API</a> - the modern way to serve data to consumers</p>
 
 <ul>
-<li>GET</li>
-<li>POST</li>
-<li>PUT</li>
-<li>PATCH</li>
-<li>HEAD</li>
-<li>etc...</li>
+<li>Base URI, e.g. <a href="http://foo.com">http://foo.com</a></li>
+<li>Media type, e.g., json, xml</li>
+<li>HTTP verbs, like GET, POST, PUT, PATCH, HEAD, etc...</li>
 </ul>
 
 <p>Makes data consumption easy from any programming language</p>
@@ -153,6 +149,23 @@ Open altmetrics data would be nice</center></font></p>
 </slide>
 
 <slide class="" id="slide-8" style="background:;">
+  <hgroup>
+    <h2>Proper HTTP status codes</h2>
+  </hgroup>
+  <article data-timings="">
+    <ul>
+<li>1xx - informational</li>
+<li>2xx - success</li>
+<li>3xx - redirection</li>
+<li>4xx - client error</li>
+<li>5xx - server error</li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-9" style="background:;">
   <hgroup>
     <h2>Good docs (for developers)</h2>
   </hgroup>
@@ -164,23 +177,75 @@ Open altmetrics data would be nice</center></font></p>
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-9" style="background:;">
+<slide class="" id="slide-10" style="background:;">
   <hgroup>
-    <h2>Various authentication methods??</h2>
+    <h2>Authentication</h2>
   </hgroup>
   <article data-timings="">
     <p><br>
-At least IMHO</p>
+At least IMHO -&gt;</p>
 
 <p>OAuth makes sense for web workflows, but not so much for programmatic workflows.</p>
+
+<p>Having both options is nice.</p>
 
   </article>
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-10" style="background:;">
+<slide class="" id="slide-11" style="background:;">
+  <article data-timings="">
+    <p><br><br><br>
+<font size="14"><center>Consuming altmetrics programmatically</center></font></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-12" style="background:;">
   <hgroup>
-    <h2>Many libraries already available, but more needed</h2>
+    <h2>We need altmetrics research</h2>
+  </hgroup>
+  <article data-timings="">
+    <p><center><img src="assets/img/beaker.png" alt=""></center></p>
+
+<!-- 
+if we are to avoid mistakes of JIF, we need research on altmetrics
+-->
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-13" style="background:;">
+  <hgroup>
+    <h2>Programatic access to altmetrics data key for reproducibility</h2>
+  </hgroup>
+  <article data-timings="">
+    <p><center><img src="assets/img/spinner.png" alt=""></center></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-14" style="background:;">
+  <hgroup>
+    <h2>What languages do researchers use?</h2>
+  </hgroup>
+  <article data-timings="">
+    <ul>
+<li>R</li>
+<li>Python</li>
+<li>Ruby?</li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-15" style="background:;">
+  <hgroup>
+    <h2>Many libraries available, but more needed</h2>
   </hgroup>
   <article data-timings="">
     <table><thead>
@@ -213,55 +278,234 @@ At least IMHO</p>
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-11" style="background:;">
+<slide class="" id="slide-16" style="background:;">
   <hgroup>
-    <h2>Altmetrics needs researchers</h2>
+    <h2>rOpenSci contributions in R</h2>
   </hgroup>
   <article data-timings="">
-    <p><center><img src="assets/img/beaker.png" alt=""></center></p>
+    <p><br><br></p>
 
-<!-- 
-if we are to avoid mistakes of JIF, we need research on altmetrics
--->
-
-  </article>
-  <!-- Presenter Notes -->
-</slide>
-
-<slide class="" id="slide-12" style="background:;">
-  <hgroup>
-    <h2>How do altmetrics researchers get data?</h2>
-  </hgroup>
-  <article data-timings="">
-    <ul>
-<li><a href="http://www.plosone.org/article/info%3Adoi%2F10.1371%2Fjournal.pone.0064841">Do Altmetrics Work? Twitter and Ten Other...</a> - via Altmetric.com</li>
-<li><a href="http://arxiv.org/pdf/1308.1838v1.pdf">Tweeting biomedicine: an analysis of tweets...</a> - via Altmetric.com</li>
-<li><a href="http://www.plosone.org/article/info%3Adoi%2F10.1371%2Fjournal.pone.0019917">The Spread of Scientific Information...</a> - via PLOS ALM</li>
-<li><a href="http://www.jmir.org/2011/4/e123/">Can Tweets Predict Citations? ...</a> - via Twitter Search API</li>
-<li><a href="http://arxiv.org/html/1203.4745v1">Altmetrics in the Wild...</a> - via PLOS ALM, various APIs, WebofSci citations</li>
-<li><a href="http://www.ploscollections.org/article/info%3Adoi%2F10.1371%2Fjournal.pone.0068914">Social Media Release Increases Dissemination...</a> - via manual collection</li>
-<li><a href="http://www.ploscollections.org/article/info%3Adoi%2F10.1371%2Fjournal.pone.0050943">Identifying Audiences of E-Infrastructures...</a> - via Google Analytics</li>
-<li><a href="http://www.plosone.org/article/info%3Adoi%2F10.1371%2Fjournal.pone.0047523">How the Scientific Community Reacts to...</a> - via Twitter Search API, Google Scholar citations</li>
+<ul>
+<li><a href="http://cran.r-project.org/web/packages/alm/index.html">alm</a> for PLOS ALM (&amp; other publishers?)</li>
+<li><a href="http://cran.r-project.org/web/packages/rImpactStory/index.html">rImpactStory</a> for ImpactStory</li>
+<li><a href="http://cran.r-project.org/web/packages/rAltmetric/index.html">rAltmetric</a> for Altmetric</li>
+<li>metaAltmetrics - (<em>not made</em>) Combine altmetrics across providers, across canonical data sources</li>
 </ul>
 
   </article>
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-13" style="background:;">
+<slide class="" id="slide-17" style="background:;">
   <hgroup>
-    <h2>Obviously!</h2>
+    <h2>Our packages interact with REST APIs</h2>
   </hgroup>
   <article data-timings="">
-    <p>Programatic access to altmetrics data key for reproducibility
-<br>
-<center><img src="assets/img/spinner.png" alt=""></center></p>
+    <pre><code class="r">args &lt;- list(api_key = &lt;yourkey&gt;, doi = &quot;10.1371/journal.pmed.1001361&quot;)
+out &lt;- GET(&quot;http://alm.plos.org/api/v3/articles&quot;, query=args)
+content(out)
+</code></pre>
+
+<pre><code class="r">{
+  doi: &quot;10.1371/journal.pmed.1001361&quot;,
+  title: &quot;Personalized Prediction of Lifetime Benefits with Statin Therapy for Asymptomatic Individuals: A Modeling Study&quot;,
+  url: &quot;http://www.plosmedicine.org/article/info%3Adoi%2F10.1371%2Fjournal.pmed.1001361&quot;,
+  mendeley: &quot;437b07d9-bc40-4c57-b60e-1f60fefe2300&quot;,
+  pmid: &quot;23300388&quot;,
+  pmcid: &quot;3531501&quot;,
+  publication_date: &quot;2012-12-27T08:00:00Z&quot;,
+  update_date: &quot;2013-10-07T11:06:58Z&quot;,
+  views: 9329,
+  shares: 62,
+  bookmarks: 5,
+  citations: 1
+}
+</code></pre>
 
   </article>
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-14" style="background:;">
+<slide class="" id="slide-18" style="background:;">
+  <hgroup>
+    <h2>Almetrics data via R</h2>
+  </hgroup>
+  <article data-timings="">
+    <pre><code class="r">alm(doi = &quot;10.1371/journal.pone.0029797&quot;)
+</code></pre>
+
+<pre><code class="coffee">An object of class &quot;almtot&quot;
+Slot &quot;meta&quot;:
+$doi
+[1] &quot;10.1371/journal.pone.0029797&quot;
+...&lt;more metadata&gt;
+
+Slot &quot;summary&quot;:
+  views shares bookmarks citations
+1 29229    237        51         7
+
+Slot &quot;data&quot;:
+                .id  pdf  html shares groups comments likes citations total
+1         bloglines   NA    NA     NA     NA       NA    NA         0     0
+2         citeulike   NA    NA      1     NA       NA    NA        NA     1
+3          connotea   NA    NA     NA     NA       NA    NA         0     0
+4          crossref   NA    NA     NA     NA       NA    NA         7     7
+5            nature   NA    NA     NA     NA       NA    NA         4     4
+...
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-19" style="background:;">
+  <hgroup>
+    <h2>Metadata</h2>
+  </hgroup>
+  <article data-timings="">
+    <pre><code class="r">almmeta(&quot;mendeley&quot;)
+</code></pre>
+
+<pre><code>$mendeley
+$mendeley$desc
+[1] &quot;Mendeley is a reference manager and social bookmarking tool. The Mendeley API returns incomplete API responses for articles where they don&#39;t have enough information, and we ignore those.&quot;
+
+$mendeley$infourl
+[1] &quot;https://github.com/articlemetrics/alm/wiki/Mendeley&quot;
+
+$mendeley$authentication
+[1] &quot;OAuth 1.0&quot;
+
+$mendeley$apiurl
+[1] &quot;http://api.mendeley.com/oapi/documents/details/DOI/?type=doi&amp;consumer_key=API_KEY&quot;
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-20" style="background:;">
+  <article data-timings="">
+    <style type="text/css">
+  table {
+    border: none;
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 24px;
+    line-height: 12px;
+    font-family: 'Trebuchet MS';
+    font-weight: bolder;
+    color: rgb(102, 102, 102);
+  }
+
+  table td, table th {
+    font-size: 20px;
+    padding: 1em 0.5em;
+  } 
+</style>
+
+<h2>Combining metrics across aggregators</h2>
+
+<table><thead>
+<tr>
+<th>Data source</th>
+<th>PLoS</th>
+<th>ImpactStory</th>
+<th>Altmetric</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>WebOfScience</td>
+<td>webofscience</td>
+<td>--</td>
+<td>--</td>
+</tr>
+<tr>
+<td>Dryad</td>
+<td>--</td>
+<td>dryad:total_downloads package_views</td>
+<td>--</td>
+</tr>
+<tr>
+<td>Figshare</td>
+<td>--</td>
+<td>figshare:views shares downloads</td>
+<td>--</td>
+</tr>
+<tr>
+<td>Github</td>
+<td>--</td>
+<td>github:forks stars</td>
+<td>--</td>
+</tr>
+<tr>
+<td>Google+</td>
+<td>--</td>
+<td>--</td>
+<td>cited by gplus count</td>
+</tr>
+<tr>
+<td>MSM</td>
+<td>--</td>
+<td>--</td>
+<td>cited by msm count</td>
+</tr>
+<tr>
+<td>Scopus citations</td>
+<td>scopus</td>
+<td>plosalm:scopus</td>
+<td>--</td>
+</tr>
+<tr>
+<td>Mendeley readers</td>
+<td>mendeley shares</td>
+<td>mendeley readers</td>
+<td>mendeley readers</td>
+</tr>
+<tr>
+<td>Twitter</td>
+<td>twitter</td>
+<td>topsy:tweets</td>
+<td>cited by tweeters count</td>
+</tr>
+</tbody></table>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-21" style="background:;">
+  <hgroup>
+    <h2>Combining metrics</h2>
+  </hgroup>
+  <article data-timings="">
+    <h3>Get data from three different providers</h3>
+
+<pre><code class="coffee">plos_data &lt;- alm(doi)
+impactstory_data &lt;- metrics(doi)
+altmetric_data &lt;- altmetric_data(altmetrics(doi))
+</code></pre>
+
+<h3>Easily combine data with a single function, and highlight inconsistencies</h3>
+
+<pre><code class="r">alt_combine(plos_data, impactstory_data, altmetric_data)
+</code></pre>
+
+<pre><code>Warning: Inconsistency in facebookLikes, check metadata
+</code></pre>
+
+<pre><code>       dataSource fromProvider values
+1         twitter      PLOSALM    100
+2   facebookLikes  ImpactStory     50
+3   facebookLikes    Altmetric     40
+4 scopusCitations    Altmetric    150
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-22" style="background:;">
   <hgroup>
     <h2>Example in R</h2>
   </hgroup>
@@ -280,7 +524,7 @@ plot_density(alm, c(&quot;counter_pdf&quot;,&quot;mendeley_shares&quot;,&quot;pm
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-15" style="background:;">
+<slide class="" id="slide-23" style="background:;">
   <article data-timings="">
     <pre><code class="r">library(rplos); library(alm); library(rCharts)
 dois &lt;- c(&#39;10.1371/journal.pone.0001543&#39;,&#39;10.1371/journal.pone.0040117&#39;,&#39;10.1371/journal.pone.0029797&#39;,&#39;10.1371/journal.pone.0039395&#39;)
@@ -428,7 +672,7 @@ dat &lt;- signposts(doi=dois)
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-16" style="background:;">
+<slide class="" id="slide-24" style="background:;">
   <hgroup>
     <h2>Altmetric API from Python</h2>
   </hgroup>
@@ -460,119 +704,17 @@ out[&#39;history&#39;]
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-17" style="background:;">
+<slide class="" id="slide-25" style="background:;">
   <article data-timings="">
-    <style type="text/css">
-  table {
-    border: none;
-    width: 100%;
-    border-collapse: collapse;
-    font-size: 24px;
-    line-height: 12px;
-    font-family: 'Trebuchet MS';
-    font-weight: bolder;
-    color: rgb(102, 102, 102);
-  }
-
-  table td, table th {
-    font-size: 20px;
-    padding: 1em 0.5em;
-  } 
-</style>
-
-<h2>Combining metrics across aggregators</h2>
-
-<table><thead>
-<tr>
-<th>Data source</th>
-<th>PLoS</th>
-<th>ImpactStory</th>
-<th>Altmetric</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>WebOfScience</td>
-<td>webofscience</td>
-<td>--</td>
-<td>--</td>
-</tr>
-<tr>
-<td>Dryad</td>
-<td>--</td>
-<td>dryad:total_downloads package_views</td>
-<td>--</td>
-</tr>
-<tr>
-<td>Figshare</td>
-<td>--</td>
-<td>figshare:views shares downloads</td>
-<td>--</td>
-</tr>
-<tr>
-<td>Github</td>
-<td>--</td>
-<td>github:forks stars</td>
-<td>--</td>
-</tr>
-<tr>
-<td>Google+</td>
-<td>--</td>
-<td>--</td>
-<td>cited by gplus count</td>
-</tr>
-<tr>
-<td>MSM</td>
-<td>--</td>
-<td>--</td>
-<td>cited by msm count</td>
-</tr>
-<tr>
-<td>Scopus citations</td>
-<td>scopus</td>
-<td>plosalm:scopus</td>
-<td>--</td>
-</tr>
-<tr>
-<td>Mendeley readers</td>
-<td>mendeley shares</td>
-<td>mendeley readers</td>
-<td>mendeley readers</td>
-</tr>
-<tr>
-<td>Twitter</td>
-<td>twitter</td>
-<td>topsy:tweets</td>
-<td>cited by tweeters count</td>
-</tr>
-</tbody></table>
+    <p><center><img src="assets/img/unlock.png" alt=""></center></p>
 
   </article>
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-18" style="background:;">
+<slide class="" id="slide-26" style="background:;">
   <hgroup>
-    <h2>Altmetrics data will largely come from aggregators</h2>
-  </hgroup>
-  <article data-timings="">
-    <p><br></p>
-
-<div class="row">
-    <img src="assets/img/plosalm.png"></img>
-    <img src="assets/img/impactstory.png"></img>
-    <img src="assets/img/altmetricdotcom.png"></img>
-    <img src="assets/img/plumanalytics.png"></img>
-</div>
-
-<!-- And users will get data from these, so this is where focus should be -->
-
-  </article>
-  <!-- Presenter Notes -->
-</slide>
-
-<slide class="" id="slide-19" style="background:;">
-  <hgroup>
-    <h2>Why is open good?</h2>
+    <h2>Why is openness a good thing?</h2>
   </hgroup>
   <article data-timings="">
     <p>Altmetrics needs checks on</p>
@@ -592,16 +734,16 @@ This can be done better when data is open and easily available.
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-20" style="background:;">
+<slide class="" id="slide-27" style="background:;">
   <hgroup>
-    <h2>Additional value comes from open altmetrics data in</h2>
+    <h2>Additional value from openness</h2>
   </hgroup>
   <article data-timings="">
     <ul>
 <li>Knowledge from research findings
 
 <ul>
-<li>(doesn&#39;t require open data I suppose :( )</li>
+<li>Doesn&#39;t require open data I suppose :(, but helps</li>
 </ul></li>
 <li>Open products
 
@@ -616,22 +758,22 @@ This can be done better when data is open and easily available.
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-21" style="background:;">
+<slide class="" id="slide-28" style="background:;">
   <hgroup>
     <h2>An open use case</h2>
   </hgroup>
   <article data-timings="">
     <p><em>Are individual altmetrics consistent among data providers?</em></p>
 
-<p><center><img src="assets/img/fig2.png" alt=""></center></p>
+<p><img src="assets/fig/isqfig2.png" title="plot of chunk isqfig2" alt="plot of chunk isqfig2" style="display: block; margin: auto;" /></p>
 
   </article>
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-22" style="background:;">
+<slide class="" id="slide-29" style="background:;">
   <hgroup>
-    <h2>Transparency one of major complaints in DORA of JIF</h2>
+    <h2>Lack of JIF transparency - major DORA complaint</h2>
   </hgroup>
   <article data-timings="">
     <p>Altmetrics APIs could provide</p>
@@ -640,15 +782,16 @@ This can be done better when data is open and easily available.
 <li>Provenance for each metric</li>
 <li>Any data manipulation done</li>
 <li>Date of data collection</li>
+<li>more...</li>
 </ul>
 
   </article>
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-23" style="background:;">
+<slide class="" id="slide-30" style="background:;">
   <hgroup>
-    <h2>An even better use case for open</h2>
+    <h2>Additional reasons for openness</h2>
   </hgroup>
   <article data-timings="">
     <p>When hefty decisions are made on the back of altmetrics, open avail. of data will pay off</p>
@@ -658,20 +801,27 @@ This can be done better when data is open and easily available.
 <li>What calculations were made</li>
 </ul>
 
+<p>Openness may engender trust in the community</p>
+
   </article>
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-24" style="background:;">
+<slide class="" id="slide-31" style="background:;">
   <article data-timings="">
     <p><br><br><br>
 <font size="14"><center>Do we need a CommonCrawl for altmetrics?</center></font></p>
 
+<!-- 
+Wouldn't necessarily detract value form what commercial companies do -
+In fact, may create greater value.
+-->
+
   </article>
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-25" style="background:;">
+<slide class="" id="slide-32" style="background:;">
   <article data-timings="">
     <p><br><br><br></p>
 
@@ -700,13 +850,13 @@ Open altmetrics data</center></font></p>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=3 title='Two points will be made:'>
+        data-slide=3 title=''>
          3
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=4 title='Programmatic access is key'>
+        data-slide=4 title='Programmatic access'>
          4
       </a>
     </li>
@@ -724,109 +874,109 @@ Open altmetrics data</center></font></p>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=7 title='Modern API technology: RESTful'>
+        data-slide=7 title='Modern API technology'>
          7
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=8 title='Good docs (for developers)'>
+        data-slide=8 title='Proper HTTP status codes'>
          8
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=9 title='Various authentication methods??'>
+        data-slide=9 title='Good docs (for developers)'>
          9
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=10 title='Many libraries already available, but more needed'>
+        data-slide=10 title='Authentication'>
          10
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=11 title='Altmetrics needs researchers'>
+        data-slide=11 title=''>
          11
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=12 title='How do altmetrics researchers get data?'>
+        data-slide=12 title='We need altmetrics research'>
          12
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=13 title='Obviously!'>
+        data-slide=13 title='Programatic access to altmetrics data key for reproducibility'>
          13
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=14 title='Example in R'>
+        data-slide=14 title='What languages do researchers use?'>
          14
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=15 title=''>
+        data-slide=15 title='Many libraries available, but more needed'>
          15
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=16 title='Altmetric API from Python'>
+        data-slide=16 title='rOpenSci contributions in R'>
          16
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=17 title=''>
+        data-slide=17 title='Our packages interact with REST APIs'>
          17
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=18 title='Altmetrics data will largely come from aggregators'>
+        data-slide=18 title='Almetrics data via R'>
          18
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=19 title='Why is open good?'>
+        data-slide=19 title='Metadata'>
          19
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=20 title='Additional value comes from open altmetrics data in'>
+        data-slide=20 title=''>
          20
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=21 title='An open use case'>
+        data-slide=21 title='Combining metrics'>
          21
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=22 title='Transparency one of major complaints in DORA of JIF'>
+        data-slide=22 title='Example in R'>
          22
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=23 title='An even better use case for open'>
+        data-slide=23 title=''>
          23
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=24 title=''>
+        data-slide=24 title='Altmetric API from Python'>
          24
       </a>
     </li>
@@ -834,6 +984,48 @@ Open altmetrics data</center></font></p>
       <a href="#" target="_self" rel='tooltip' 
         data-slide=25 title=''>
          25
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=26 title='Why is openness a good thing?'>
+         26
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=27 title='Additional value from openness'>
+         27
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=28 title='An open use case'>
+         28
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=29 title='Lack of JIF transparency - major DORA complaint'>
+         29
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=30 title='Additional reasons for openness'>
+         30
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=31 title=''>
+         31
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=32 title=''>
+         32
       </a>
     </li>
   </ul>
