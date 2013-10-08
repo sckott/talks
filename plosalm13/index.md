@@ -93,8 +93,6 @@ Makes data consumption easy from any programming language
 
 ## Authentication
 <br>
-At least IMHO ->
-
 OAuth makes sense for web workflows, but not so much for programmatic workflows.
 
 Having both options is nice.
@@ -116,7 +114,7 @@ if we are to avoid mistakes of JIF, we need research on altmetrics
 
 ---
 
-## Programatic access to altmetrics data key for reproducibility
+## Programmatic access to altmetrics data key for reproducibility
 <center>![](assets/img/spinner.png)</center>
 
 ---
@@ -151,12 +149,12 @@ if we are to avoid mistakes of JIF, we need research on altmetrics
 
 ---
 
-## Our packages interact with REST APIs
+## Interacting with REST APIs in R
 
 
 ```r
-args <- list(api_key = <yourkey>, doi = "10.1371/journal.pmed.1001361")
-out <- GET("http://alm.plos.org/api/v3/articles", query=args)
+out <- GET("http://alm.plos.org/api/v3/articles?doi=10.1371/journal.pmed.1001361&key=<key>")
+stop_for_status(out)
 content(out)
 ```
 
@@ -527,7 +525,7 @@ This can be done better when data is open and easily available.
 * Knowledge from research findings
   * Doesn't require open data I suppose :(, but helps
 * Open products
-  * [openSNP](http://opensnp.org/)
+  * [ReaderMeter](http://readermeter.org/)
   * [ScienceCard](http://sciencecard.org/)
 * For-profit products
 

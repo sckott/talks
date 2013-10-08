@@ -183,9 +183,7 @@ Open altmetrics data</center></font></p>
   </hgroup>
   <article data-timings="">
     <p><br>
-At least IMHO -&gt;</p>
-
-<p>OAuth makes sense for web workflows, but not so much for programmatic workflows.</p>
+OAuth makes sense for web workflows, but not so much for programmatic workflows.</p>
 
 <p>Having both options is nice.</p>
 
@@ -219,7 +217,7 @@ if we are to avoid mistakes of JIF, we need research on altmetrics
 
 <slide class="" id="slide-13" style="background:;">
   <hgroup>
-    <h2>Programatic access to altmetrics data key for reproducibility</h2>
+    <h2>Programmatic access to altmetrics data key for reproducibility</h2>
   </hgroup>
   <article data-timings="">
     <p><center><img src="assets/img/spinner.png" alt=""></center></p>
@@ -298,11 +296,11 @@ if we are to avoid mistakes of JIF, we need research on altmetrics
 
 <slide class="" id="slide-17" style="background:;">
   <hgroup>
-    <h2>Our packages interact with REST APIs</h2>
+    <h2>Interacting with REST APIs in R</h2>
   </hgroup>
   <article data-timings="">
-    <pre><code class="r">args &lt;- list(api_key = &lt;yourkey&gt;, doi = &quot;10.1371/journal.pmed.1001361&quot;)
-out &lt;- GET(&quot;http://alm.plos.org/api/v3/articles&quot;, query=args)
+    <pre><code class="r">out &lt;- GET(&quot;http://alm.plos.org/api/v3/articles?doi=10.1371/journal.pmed.1001361&amp;key=&lt;key&gt;&quot;)
+stop_for_status(out)
 content(out)
 </code></pre>
 
@@ -748,7 +746,7 @@ This can be done better when data is open and easily available.
 <li>Open products
 
 <ul>
-<li><a href="http://opensnp.org/">openSNP</a></li>
+<li><a href="http://readermeter.org/">ReaderMeter</a></li>
 <li><a href="http://sciencecard.org/">ScienceCard</a></li>
 </ul></li>
 <li>For-profit products</li>
@@ -910,7 +908,7 @@ Open altmetrics data</center></font></p>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=13 title='Programatic access to altmetrics data key for reproducibility'>
+        data-slide=13 title='Programmatic access to altmetrics data key for reproducibility'>
          13
       </a>
     </li>
@@ -934,7 +932,7 @@ Open altmetrics data</center></font></p>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=17 title='Our packages interact with REST APIs'>
+        data-slide=17 title='Interacting with REST APIs in R'>
          17
       </a>
     </li>

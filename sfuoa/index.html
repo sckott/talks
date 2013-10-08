@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Altmetrics - Article-level impact for web native scholarship</title>
+  <meta charset="utf-8">
+  <meta name="description" content="Altmetrics - Article-level impact for web native scholarship">
+  <meta name="author" content="Scott Chamberlain">
+  <meta name="generator" content="slidify" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/default.css" media="all" >
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/phone.css" 
+    media="only screen and (max-device-width: 480px)" >
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/slidify.css" >
+  <link rel="stylesheet" href="libraries/highlighters/highlight.js/css/solarized_light.css" />
+  <base target="_blank"> <!-- This amazingness opens all links in a new tab. -->  <link rel=stylesheet href="libraries/widgets/nvd3/css/nv.d3.css"></link>
+<link rel=stylesheet href="libraries/widgets/nvd3/css/rNVD3.css"></link>
+<link rel=stylesheet href="./assets/css/opensource.css"></link>
+<link rel=stylesheet href="http://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css"></link>
+
+  
+  <!-- Grab CDN jQuery, fall back to local if offline -->
+  <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.min.js"></script>
+  <script>window.jQuery || document.write('<script src="libraries/widgets/quiz/js/jquery.js"><\/script>')</script> 
+  <script data-main="libraries/frameworks/io2012/js/slides" 
+    src="libraries/frameworks/io2012/js/require-1.0.8.min.js">
+  </script>
+  
+  <script src="libraries/widgets/nvd3/js/jquery-1.8.2.min.js"></script>
+<script src="libraries/widgets/nvd3/js/d3.v3.min.js"></script>
+<script src="libraries/widgets/nvd3/js/nv.d3.min-new.js"></script>
+<script src="libraries/widgets/nvd3/js/fisheye.js"></script>
+
+
+</head>
+<body style="opacity: 0">
+  <slides class="layout-widescreen">
+    
+    <!-- LOGO SLIDE -->
+        <slide class="title-slide segue nobackground">
+  <hgroup class="auto-fadein">
+    <h1>Altmetrics - Article-level impact for web native scholarship</h1>
+    <h2></h2>
+    <p>Scott Chamberlain<br/></p>
+  </hgroup>
+  <article></article>  
+</slide>
+    
+
+    <!-- SLIDES -->
+    <slide class="" id="slide-1" style="background:;">
+  <article data-timings="">
+    <!-- 
+SHOOTING FOR 15 MIN (25-30 min) 
+-->
+
+<p><br><br><br><br>
+<center><img src="assets/img/ropensci_main.png"></center></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-2" style="background:;">
+  <article data-timings="">
+    <p><br><br><br><br>
+<center></p>
+
+<h3>Find this talk here <a href="http://bit.ly/sfualm">http://bit.ly/roalm</a></h3>
+
+<h3>Made with <a href="http://slidify.org/">Slidify</a>; the code <a href="https://github.com/SChamberlain/posterstalks/blob/gh-pages/sfuoa/index.Rmd">here</a></h3>
+
+<h3>Press &quot;o&quot; to bring up all slides - <i class="icon-arrow-left"> &nbsp; </i><i class="icon-arrow-right"></i> to navigate</h3>
+
+<h3>Press &quot;w&quot; to change aspect ratios</h3>
+
+<p></center></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-3" style="background:;">
+  <hgroup>
+    <h2>The plan</h2>
+  </hgroup>
+  <article data-timings="">
+    <ul>
+<li>Pose the problem: jif doesn&#39;t capture article level impact.  Jif not open., easily gamed, single entity controlling</li>
+<li>the solution: altmetrics, open versions, transparent, diverse impacts, </li>
+<li>relation to open access: see ross&#39; paper, can give OA journals some visibility in absence of impact factor</li>
+<li>really not being used for hiring decisions now, but possibly soon? It seems inevitable</li>
+<li>details: what do they look like? How are they collected.<br></li>
+<li>wrap up</li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-4" style="background:;">
+  <hgroup>
+    <h2>There are a lot of papers out there</h2>
+  </hgroup>
+  <article data-timings="">
+    <p><br>
+<center><img src="assets/img/papers.png" alt=""></center></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-5" style="background:;">
+  <hgroup>
+    <h2>How do we sort them out, the good from the bad</h2>
+  </hgroup>
+  <article data-timings="">
+    
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-6" style="background:;">
+  <hgroup>
+    <h2>We rank journals using the JIF</h2>
+  </hgroup>
+  <article data-timings="">
+    <p><br>
+<center><img src="assets/img/jif.png" alt=""></center></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-7" style="background:;">
+  <hgroup>
+    <h2>Then judge papers and scholars on a journal&#39;s IF</h2>
+  </hgroup>
+  <article data-timings="">
+    <p><br>
+<center><img src="assets/img/jif_judge.png" alt=""></center></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-8" style="background:;">
+  <article data-timings="">
+    <p><br><br><br></p>
+
+<p><font size="14"><center> Problems </center></font></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-9" style="background:;">
+  <hgroup>
+    <h2>JIF is not open</h2>
+  </hgroup>
+  <article data-timings="">
+    <p><br>
+<center><img src="assets/img/closed_lock.png" alt=""></center></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-10" style="background:;">
+  <hgroup>
+    <h2>JIF is controlled by single for-profit entity w/o transparency</h2>
+  </hgroup>
+  <article data-timings="">
+    <p><br>
+<center><img src="assets/img/money.png" alt=""></center></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-11" style="background:;">
+  <hgroup>
+    <h2>Measured at the journal level</h2>
+  </hgroup>
+  <article data-timings="">
+    <p><br>
+<center><img src="assets/img/journallevel.png" alt=""></center></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-12" style="background:;">
+  <article data-timings="">
+    <p><br><br><br></p>
+
+<p><font size="14"><center> Altmetrics </center></font></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-13" style="background:;">
+  <hgroup>
+    <h2>Measured on article level</h2>
+  </hgroup>
+  <article data-timings="">
+    
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-14" style="background:;">
+  <hgroup>
+    <h2>Measures diverse impacts</h2>
+  </hgroup>
+  <article data-timings="">
+    
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-15" style="background:;">
+  <hgroup>
+    <h2>Diverse set of providers</h2>
+  </hgroup>
+  <article data-timings="">
+    <p><br></p>
+
+<div class="row">
+  <img src="assets/img/plumanalytics.png"></img>
+  &nbsp;&nbsp;&nbsp;&nbsp;
+  <img src="assets/img/altmetricdotcom.png"></img>
+  &nbsp;&nbsp;
+  <img src="assets/img/impactstory.png"></img>
+  &nbsp;&nbsp;&nbsp;&nbsp;
+  <img src="assets/img/plosalm.png"></img>
+</div>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-16" style="background:;">
+  <hgroup>
+    <h2>Which have...</h2>
+  </hgroup>
+  <article data-timings="">
+    <ul>
+<li class = '..all'>open data (PLOS, ImpactStory), or</li>
+<li class = '..some'>open data (Altmetric)</li>
+</ul>
+
+<p>In stark contrast to the JIF</p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-17" style="background:;">
+  <article data-timings="">
+    <p><br><br><br></p>
+
+<p><font size="14"><center> What does this have to do with OA? </center></font></p>
+
+<!-- relation to open access: see ross' paper, can give OA journals some visibility in absence of impact factor -->
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-18" style="background:;">
+  <article data-timings="">
+    <p>some stuff...</p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-19" style="background:;">
+  <article data-timings="">
+    <p><br><br><br></p>
+
+<p><font size="14"><center> How are altmetrics being used? </center></font></p>
+
+<!-- really not being used for hiring decisions now, but possibly soon? It seems inevitable. being
+used for filtering what papers to read
+used for ????
+-->
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-20" style="background:;">
+  <article data-timings="">
+    <p><br><br><br></p>
+
+<p><font size="14"><center> What do these altmetrics look like? </center></font></p>
+
+<!-- details: what do they look like? How are they collected.   -->
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-21" style="background:;">
+  <article data-timings="">
+    <p>wrap up</p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+    <slide class="backdrop"></slide>
+  </slides>
+  <div class="pagination pagination-small" id='io2012-ptoc' style="display:none;">
+    <ul>
+      <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=1 title=''>
+         1
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=2 title=''>
+         2
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=3 title='The plan'>
+         3
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=4 title='There are a lot of papers out there'>
+         4
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=5 title='How do we sort them out, the good from the bad'>
+         5
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=6 title='We rank journals using the JIF'>
+         6
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=7 title='Then judge papers and scholars on a journal&#39;s IF'>
+         7
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=8 title=''>
+         8
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=9 title='JIF is not open'>
+         9
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=10 title='JIF is controlled by single for-profit entity w/o transparency'>
+         10
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=11 title='Measured at the journal level'>
+         11
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=12 title=''>
+         12
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=13 title='Measured on article level'>
+         13
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=14 title='Measures diverse impacts'>
+         14
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=15 title='Diverse set of providers'>
+         15
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=16 title='Which have...'>
+         16
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=17 title=''>
+         17
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=18 title=''>
+         18
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=19 title=''>
+         19
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=20 title=''>
+         20
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=21 title=''>
+         21
+      </a>
+    </li>
+  </ul>
+  </div>  <!--[if IE]>
+    <script 
+      src="http://ajax.googleapis.com/ajax/libs/chrome-frame/1/CFInstall.min.js">  
+    </script>
+    <script>CFInstall.check({mode: 'overlay'});</script>
+  <![endif]-->
+</body>
+  <!-- Load Javascripts for Widgets -->
+  
+  <!-- LOAD HIGHLIGHTER JS FILES -->
+  <script src="libraries/highlighters/highlight.js/highlight.pack.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  <!-- DONE LOADING HIGHLIGHTER JS FILES -->
+   
+  </html>
