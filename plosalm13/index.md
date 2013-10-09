@@ -42,7 +42,7 @@ Open altmetrics data</center></font>
 
 <center>![](assets/img/code.png)</center>
 
-<!-- used by the provider themselves, publishers, in a web browse, and from the command line -->
+<!-- used by the provider themselves, publishers, in a web browser, and from the command line -->
 
 ---
 
@@ -64,13 +64,14 @@ Computers are simply better at repetitive tasks
 
 ## Modern API technology
 
-[REST API](http://en.wikipedia.org/wiki/REST_API) - the modern way to serve data to consumers
+[REST API](http://en.wikipedia.org/wiki/REST_API)
+
+The modern way to serve data to consumers<br>
+Makes data consumption easy from any programming language
 
 * Base URI, e.g. http://foo.com
 * Media type, e.g., json, xml
 * HTTP verbs, like GET, POST, PUT, PATCH, HEAD, etc...
-
-Makes data consumption easy from any programming language
 
 ---
 
@@ -81,6 +82,13 @@ Makes data consumption easy from any programming language
 * 3xx - redirection
 * 4xx - client error
 * 5xx - server error
+
+---
+
+<br>
+<center>![](assets/img/shutdown.png)</center>
+
+<!-- Gives 200 status code, instead of e.g., 503 "Service Unavailable" -->
 
 --- 
 
@@ -96,6 +104,31 @@ Makes data consumption easy from any programming language
 OAuth makes sense for web workflows, but not so much for programmatic workflows.
 
 Having both options is nice.
+
+---
+
+## A spec for REST?
+
+RAML - [http://raml.org/](http://raml.org/)
+
+Programatically create new clients
+
+```coffee
+#%RAML 0.8
+–––
+title: World Music API
+baseUri: http://example.api.com/{version}
+version: v1
+traits:
+  - paged:
+      queryParameters:
+        pages:
+           description: The number of pages to return
+ /songs:
+   get:
+   post: 
+         ...
+```
 
 ---
 
@@ -127,25 +160,30 @@ if we are to avoid mistakes of JIF, we need research on altmetrics
 
 ---
 
-## Many libraries available, but more needed
+## Having a look at the literature...
 
-| Data source   | Libraries            |
-| ------------- | -------------        |
-| PLOS ALM      | R                    |
-| ImpactStory   | R, Javascript        |
-| Altmetric     | R, Python, Ruby, iOS |
-| PlumAnalytics | ??                   |
-
-<!-- table of libraries available for different APIs -->
+* [Do Altmetrics Work? Twitter and Ten Other...](http://www.plosone.org/article/info%3Adoi%2F10.1371%2Fjournal.pone.0064841) - via Altmetric.com
+* [Tweeting biomedicine: an analysis of tweets...](http://arxiv.org/pdf/1308.1838v1.pdf) - via Altmetric.com
+* [The Spread of Scientific Information...](http://www.plosone.org/article/info%3Adoi%2F10.1371%2Fjournal.pone.0019917) - via PLOS ALM
+* [Can Tweets Predict Citations? ...](http://www.jmir.org/2011/4/e123/) - via Twitter Search API
+* [Altmetrics in the Wild...](http://arxiv.org/html/1203.4745v1) - via PLOS ALM, various APIs, WebofSci citations
+* [Social Media Release Increases Dissemination...](http://www.ploscollections.org/article/info%3Adoi%2F10.1371%2Fjournal.pone.0068914) - via manual collection
+* [Identifying Audiences of E-Infrastructures...](http://www.ploscollections.org/article/info%3Adoi%2F10.1371%2Fjournal.pone.0050943) - via Google Analytics
+* [How the Scientific Community Reacts to...](http://www.plosone.org/article/info%3Adoi%2F10.1371%2Fjournal.pone.0047523) - via Twitter Search API, Google Scholar citations
 
 ---
 
-## rOpenSci contributions in R
-<br><br>
-+ [alm](http://cran.r-project.org/web/packages/alm/index.html) for PLOS ALM (& other publishers?)
-+ [rImpactStory](http://cran.r-project.org/web/packages/rImpactStory/index.html) for ImpactStory
-+ [rAltmetric](http://cran.r-project.org/web/packages/rAltmetric/index.html) for Altmetric
-+ metaAltmetrics - (*not made*) Combine altmetrics across providers, across canonical data sources
+## Many libraries available, but more needed
+
+| Data source   | Libraries            | rOpenSci Contributions in R
+| ------------- | -------------        | ---------
+| PLOS ALM      | R                    | [alm][alm]
+| ImpactStory   | R, Javascript        | [rImpactStory][ris]
+| Altmetric     | R, Python, Ruby, iOS | [rAltmetric][ralt]
+
+[alm]: http://cran.r-project.org/web/packages/alm/index.html
+[ris]: http://cran.r-project.org/web/packages/rImpactStory/index.html
+[ralt]: http://cran.r-project.org/web/packages/rAltmetric/index.html
 
 ---
 
@@ -174,6 +212,7 @@ content(out)
   citations: 1
 }
 ```
+<!-- very easy to get altmetrics data --> 
 
 ---
 
@@ -205,7 +244,8 @@ Slot "data":
 5            nature   NA    NA     NA     NA       NA    NA         4     4
 ...
 ```
-
+<!-- can provide metadata along with data tables for easy manipulation
+--> 
 ---
 
 ## Metadata
@@ -231,6 +271,10 @@ $mendeley$apiurl
 ```
 
 
+<!-- a thing I'm working on is detailed metadata a user can 
+call up 
+--> 
+
 ---
 
 <style type="text/css">
@@ -252,18 +296,27 @@ $mendeley$apiurl
 </style>
 
 ## Combining metrics across aggregators
+<br>
 
 | Data source | PLoS | ImpactStory | Altmetric |
 | ----------- | ---- | ----------- | --------- |
 | WebOfScience | webofscience | -- | -- |
-| Dryad | -- | dryad:total_downloads package_views | -- |
-| Figshare | -- | figshare:views shares downloads | -- | 
+| Dryad | -- | dryad:total_downloads | -- |
+| Figshare | figshare | figshare:views shares downloads | -- | 
 | Github | -- | github:forks stars | -- |
 | Google+ | -- | -- | cited by gplus count |
-| MSM | -- | -- | cited by msm count |
-| Scopus citations | scopus | plosalm:scopus | -- |
 | Mendeley readers | mendeley shares | mendeley readers | mendeley readers |
 | Twitter | twitter | topsy:tweets | cited by tweeters count |
+
+---
+
+## Proposed R library
+
+metaAlm - (*doesn't actually exist*) 
+<br><br>
+Combine altmetrics data across providers (ImpactStory, Altmetric, etc.)
+<br>
+and across data sources (Twitter, Facebook, etc.)
 
 ---
 
@@ -272,11 +325,10 @@ $mendeley$apiurl
 ### Get data from three different providers
 
 ```coffee
-plos_data <- alm(doi)
-impactstory_data <- metrics(doi)
-altmetric_data <- altmetric_data(altmetrics(doi))
+plos_data <- alm(<doi>)
+impactstory_data <- metrics(<doi>)
+altmetric_data <- altmetric_data(altmetrics(<doi>))
 ```
-
 
 ### Easily combine data with a single function, and highlight inconsistencies
 
@@ -470,37 +522,6 @@ plot_signposts(input = dat, type = "multiBarChart", height = 400)
 
 ---
 
-## Altmetric API from Python
-
-get [here](https://pypi.python.org/pypi/altmetric)
-
-
-```r
-from altmetric import Altmetric
-a = Altmetric()
-out = a.doi('10.1126/science.1173146')
-out['history']
-```
-
-
-```bash
-# Almetric score history
-{u'1d': 0,
- u'1m': 0,
- u'1w': 0,
- u'1y': 5.328,
- u'2d': 0,
- u'3d': 0,
- u'3m': 0,
- u'4d': 0,
- u'5d': 0,
- u'6d': 0,
- u'6m': 0,
- u'at': 18.688}
-```
-
----
-
 <center>![](assets/img/unlock.png)</center>
 
 ---
@@ -520,14 +541,30 @@ This can be done better when data is open and easily available.
 
 ---
 
+## Why is openness a good thing?
+
+Altmetrics needs checks on
+
+* Consistency (tweets from source A and B should be =)
+* Correlation (is metric A strongly corr. with B?)
+* Interpretation (open source the interpretation)
+* Gaming (security through obscurity doesn't work)
+
+<br><br>
+**Open data makes all this easier**
+
+---
+
 ## Additional value from openness
 
 * Knowledge from research findings
-  * Doesn't require open data I suppose :(, but helps
+  * Doesn't require open data I suppose :(, but helps facilitate research
+  * e.g., think how hard text-mining is - we don't want that in altmetrics
 * Open products
   * [ReaderMeter](http://readermeter.org/)
   * [ScienceCard](http://sciencecard.org/)
 * For-profit products
+* Who knows? Making data open allows many experiments, some of which will stick
 
 ---
 
@@ -559,16 +596,6 @@ When hefty decisions are made on the back of altmetrics, open avail. of data wil
 * What calculations were made
 
 Openness may engender trust in the community
-
----
-
-<br><br><br>
-<font size="14"><center>Do we need a CommonCrawl for altmetrics?</center></font>
-
-<!-- 
-Wouldn't necessarily detract value form what commercial companies do -
-In fact, may create greater value.
--->
 
 ---
 
