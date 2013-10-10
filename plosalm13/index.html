@@ -41,7 +41,7 @@
   <hgroup class="auto-fadein">
     <h1>Programmatic access for Altmetrics</h1>
     <h2></h2>
-    <p>Scott Chamberlain (@recology_)<br/>rOpenSci</p>
+    <p>Scott Chamberlain (@recology_)<br/>rOpenSci / Simon Fraser University</p>
   </hgroup>
   <article></article>  
 </slide>
@@ -57,20 +57,14 @@ SHOOTING FOR 15 MIN (15-20 IS GOOD, BUT DO NO MORE THAN 15 MIN.)
 <p><br><br><br><br>
 <center><img src="assets/img/ropensci_main.png"></center></p>
 
-  </article>
-  <!-- Presenter Notes -->
-</slide>
-
-<slide class="" id="slide-2" style="background:;">
-  <article data-timings="">
-    <p><br><br><br><br>
+<p><br>
 <center></p>
 
 <h3>Find this talk here <a href="http://bit.ly/roalm">http://bit.ly/roalm</a></h3>
 
 <h3>Made with <a href="http://slidify.org/">Slidify</a>; the code <a href="https://github.com/SChamberlain/posterstalks/blob/gh-pages/plosalm13/index.Rmd">here</a></h3>
 
-<h3>Press &quot;o&quot; to bring up all slides - <i class="icon-arrow-left"> &nbsp; </i><i class="icon-arrow-right"></i> to navigate</h3>
+<h3>Press &quot;o&quot; to bring up all slides - &quot;w&quot; to change aspect - &quot;g&quot; to go to page</h3>
 
 <p></center></p>
 
@@ -78,7 +72,7 @@ SHOOTING FOR 15 MIN (15-20 IS GOOD, BUT DO NO MORE THAN 15 MIN.)
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-3" style="background:;">
+<slide class="" id="slide-2" style="background:;">
   <article data-timings="">
     <p><br><br><br></p>
 
@@ -89,7 +83,7 @@ Open altmetrics data</center></font></p>
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-4" style="background:;">
+<slide class="" id="slide-3" style="background:;">
   <hgroup>
     <h2>Programmatic access</h2>
   </hgroup>
@@ -102,7 +96,7 @@ Open altmetrics data</center></font></p>
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-5" style="background:;">
+<slide class="" id="slide-4" style="background:;">
   <hgroup>
     <h2>Programmatic access to altmetrics</h2>
   </hgroup>
@@ -120,7 +114,7 @@ Open altmetrics data</center></font></p>
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-6" style="background:;">
+<slide class="" id="slide-5" style="background:;">
   <article data-timings="">
     <p><br><br><br>
 <font size="14"><center>What is needed for easy programmatic access?</center></font></p>
@@ -129,7 +123,7 @@ Open altmetrics data</center></font></p>
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-7" style="background:;">
+<slide class="" id="slide-6" style="background:;">
   <hgroup>
     <h2>Modern API technology</h2>
   </hgroup>
@@ -149,7 +143,7 @@ Makes data consumption easy from any programming language</p>
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-8" style="background:;">
+<slide class="" id="slide-7" style="background:;">
   <hgroup>
     <h2>Proper HTTP status codes</h2>
   </hgroup>
@@ -166,7 +160,7 @@ Makes data consumption easy from any programming language</p>
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-9" style="background:;">
+<slide class="" id="slide-8" style="background:;">
   <article data-timings="">
     <p><br>
 <center><img src="assets/img/shutdown.png" alt=""></center></p>
@@ -177,7 +171,7 @@ Makes data consumption easy from any programming language</p>
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-10" style="background:;">
+<slide class="" id="slide-9" style="background:;">
   <hgroup>
     <h2>Good docs (for developers)</h2>
   </hgroup>
@@ -189,7 +183,7 @@ Makes data consumption easy from any programming language</p>
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-11" style="background:;">
+<slide class="" id="slide-10" style="background:;">
   <hgroup>
     <h2>Authentication</h2>
   </hgroup>
@@ -203,7 +197,7 @@ OAuth makes sense for web workflows, but not so much for programmatic workflows.
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-12" style="background:;">
+<slide class="" id="slide-11" style="background:;">
   <hgroup>
     <h2>A spec for REST?</h2>
   </hgroup>
@@ -217,16 +211,25 @@ OAuth makes sense for web workflows, but not so much for programmatic workflows.
 title: World Music API
 baseUri: http://example.api.com/{version}
 version: v1
-traits:
-  - paged:
-      queryParameters:
-        pages:
-           description: The number of pages to return
  /songs:
    get:
    post: 
-         ...
+  ...
 </code></pre>
+
+<p>Good place to include altmetrics standards...</p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-12" style="background:;">
+  <hgroup>
+    <h2>Deploying APIs is probably hard</h2>
+  </hgroup>
+  <article data-timings="">
+    <p><br>
+<center><img src="assets/img/code-fork.png" alt=""></center></p>
 
   </article>
   <!-- Presenter Notes -->
@@ -269,21 +272,6 @@ if we are to avoid mistakes of JIF, we need research on altmetrics
 
 <slide class="" id="slide-16" style="background:;">
   <hgroup>
-    <h2>What languages do researchers use?</h2>
-  </hgroup>
-  <article data-timings="">
-    <ul>
-<li>R</li>
-<li>Python</li>
-<li>Ruby?</li>
-</ul>
-
-  </article>
-  <!-- Presenter Notes -->
-</slide>
-
-<slide class="" id="slide-17" style="background:;">
-  <hgroup>
     <h2>Having a look at the literature...</h2>
   </hgroup>
   <article data-timings="">
@@ -297,6 +285,18 @@ if we are to avoid mistakes of JIF, we need research on altmetrics
 <li><a href="http://www.ploscollections.org/article/info%3Adoi%2F10.1371%2Fjournal.pone.0050943">Identifying Audiences of E-Infrastructures...</a> - via Google Analytics</li>
 <li><a href="http://www.plosone.org/article/info%3Adoi%2F10.1371%2Fjournal.pone.0047523">How the Scientific Community Reacts to...</a> - via Twitter Search API, Google Scholar citations</li>
 </ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-17" style="background:;">
+  <hgroup>
+    <h2>Most popular programming language?</h2>
+  </hgroup>
+  <article data-timings="">
+    <p><br>
+<center><img src="assets/img/excel.png" alt=""></center></p>
 
   </article>
   <!-- Presenter Notes -->
@@ -317,7 +317,7 @@ if we are to avoid mistakes of JIF, we need research on altmetrics
 <tr>
 <td>PLOS ALM</td>
 <td>R</td>
-<td><a href="http://cran.r-project.org/web/packages/alm/index.html">alm</a></td>
+<td><a href="http://cran.r-project.org/web/packages/alm/index.html">alm</a> ** Copernicus, etc.</td>
 </tr>
 <tr>
 <td>ImpactStory</td>
@@ -369,7 +369,7 @@ content(out)
 
 <slide class="" id="slide-20" style="background:;">
   <hgroup>
-    <h2>Almetrics data via R</h2>
+    <h2>Data via alm interface to PLOS ALM</h2>
   </hgroup>
   <article data-timings="">
     <pre><code class="r">alm(doi = &quot;10.1371/journal.pone.0029797&quot;)
@@ -722,13 +722,26 @@ dat &lt;- signposts(doi=dois)
 
 <slide class="" id="slide-26" style="background:;">
   <article data-timings="">
-    <p><center><img src="assets/img/unlock.png" alt=""></center></p>
+    <p><br>
+<center><img src="assets/img/unlock.png" alt=""></center></p>
 
   </article>
   <!-- Presenter Notes -->
 </slide>
 
 <slide class="" id="slide-27" style="background:;">
+  <article data-timings="">
+    <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+<p><br><br><br></p>
+
+<blockquote class="twitter-tweet"><p>“I’d argue that <a href="https://twitter.com/search?q=%23opendata&amp;src=hash">#opendata</a> today is exactly where open source was some 2 decades ago”-<a href="https://twitter.com/BenBalter">@BenBalter</a> <a href="http://t.co/VJ6QiLybUU">http://t.co/VJ6QiLybUU</a> <a href="https://twitter.com/search?q=%23oss&amp;src=hash">#oss</a></p>&mdash; Alex Howard (@digiphile) <a href="https://twitter.com/digiphile/statuses/388089575346028544">October 9, 2013</a></blockquote>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-28" style="background:;">
   <hgroup>
     <h2>Why is openness a good thing?</h2>
   </hgroup>
@@ -750,7 +763,7 @@ This can be done better when data is open and easily available.
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-28" style="background:;">
+<slide class="" id="slide-29" style="background:;">
   <hgroup>
     <h2>Why is openness a good thing?</h2>
   </hgroup>
@@ -771,7 +784,7 @@ This can be done better when data is open and easily available.
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-29" style="background:;">
+<slide class="" id="slide-30" style="background:;">
   <hgroup>
     <h2>Additional value from openness</h2>
   </hgroup>
@@ -797,50 +810,27 @@ This can be done better when data is open and easily available.
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-30" style="background:;">
+<slide class="" id="slide-31" style="background:;">
   <hgroup>
     <h2>An open use case</h2>
   </hgroup>
   <article data-timings="">
     <p><em>Are individual altmetrics consistent among data providers?</em></p>
 
-<p><img src="assets/fig/isqfig2.png" title="plot of chunk isqfig2" alt="plot of chunk isqfig2" style="display: block; margin: auto;" /></p>
+<p><img src="assets/fig/isqfig3.png" title="plot of chunk isqfig3" alt="plot of chunk isqfig3" style="display: block; margin: auto;" /></p>
 
-  </article>
-  <!-- Presenter Notes -->
-</slide>
-
-<slide class="" id="slide-31" style="background:;">
-  <hgroup>
-    <h2>Lack of JIF transparency - major DORA complaint</h2>
-  </hgroup>
-  <article data-timings="">
-    <p>Altmetrics APIs could provide</p>
-
-<ul>
-<li>Provenance for each metric</li>
-<li>Any data manipulation done</li>
-<li>Date of data collection</li>
-<li>more...</li>
-</ul>
+<p><font size="6"><a href="http://www.niso.org/publications/isq/2013/v25no2/chamberlain">10.3789/isqv25no2.2013.02</a></font></p>
 
   </article>
   <!-- Presenter Notes -->
 </slide>
 
 <slide class="" id="slide-32" style="background:;">
-  <hgroup>
-    <h2>Additional reasons for openness</h2>
-  </hgroup>
   <article data-timings="">
-    <p>When hefty decisions are made on the back of altmetrics, open avail. of data will pay off</p>
+    <p><br><br><br></p>
 
-<ul>
-<li>Track provenance of a metric</li>
-<li>What calculations were made</li>
-</ul>
-
-<p>Openness may engender trust in the community</p>
+<p><font size="14"><center> Programmatic access <br><br>
+Open altmetrics data</center></font></p>
 
   </article>
   <!-- Presenter Notes -->
@@ -850,8 +840,7 @@ This can be done better when data is open and easily available.
   <article data-timings="">
     <p><br><br><br></p>
 
-<p><font size="14"><center> Programmatic access <br><br>
-Open altmetrics data</center></font></p>
+<p><font size="14"><center> Programmatic access to Open altmetrics data</center></font></p>
 
   </article>
   <!-- Presenter Notes -->
@@ -875,61 +864,61 @@ Open altmetrics data</center></font></p>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=3 title=''>
+        data-slide=3 title='Programmatic access'>
          3
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=4 title='Programmatic access'>
+        data-slide=4 title='Programmatic access to altmetrics'>
          4
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=5 title='Programmatic access to altmetrics'>
+        data-slide=5 title=''>
          5
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=6 title=''>
+        data-slide=6 title='Modern API technology'>
          6
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=7 title='Modern API technology'>
+        data-slide=7 title='Proper HTTP status codes'>
          7
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=8 title='Proper HTTP status codes'>
+        data-slide=8 title=''>
          8
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=9 title=''>
+        data-slide=9 title='Good docs (for developers)'>
          9
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=10 title='Good docs (for developers)'>
+        data-slide=10 title='Authentication'>
          10
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=11 title='Authentication'>
+        data-slide=11 title='A spec for REST?'>
          11
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=12 title='A spec for REST?'>
+        data-slide=12 title='Deploying APIs is probably hard'>
          12
       </a>
     </li>
@@ -953,13 +942,13 @@ Open altmetrics data</center></font></p>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=16 title='What languages do researchers use?'>
+        data-slide=16 title='Having a look at the literature...'>
          16
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=17 title='Having a look at the literature...'>
+        data-slide=17 title='Most popular programming language?'>
          17
       </a>
     </li>
@@ -977,7 +966,7 @@ Open altmetrics data</center></font></p>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=20 title='Almetrics data via R'>
+        data-slide=20 title='Data via alm interface to PLOS ALM'>
          20
       </a>
     </li>
@@ -1019,7 +1008,7 @@ Open altmetrics data</center></font></p>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=27 title='Why is openness a good thing?'>
+        data-slide=27 title=''>
          27
       </a>
     </li>
@@ -1031,25 +1020,25 @@ Open altmetrics data</center></font></p>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=29 title='Additional value from openness'>
+        data-slide=29 title='Why is openness a good thing?'>
          29
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=30 title='An open use case'>
+        data-slide=30 title='Additional value from openness'>
          30
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=31 title='Lack of JIF transparency - major DORA complaint'>
+        data-slide=31 title='An open use case'>
          31
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=32 title='Additional reasons for openness'>
+        data-slide=32 title=''>
          32
       </a>
     </li>

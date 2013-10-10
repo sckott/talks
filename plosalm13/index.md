@@ -2,7 +2,7 @@
 title       : Programmatic access for Altmetrics
 date        : 2013-10-10
 author      : Scott Chamberlain (@recology_)
-job         : rOpenSci
+job         : rOpenSci / Simon Fraser University
 framework   : io2012        # {io2012, html5slides, shower, dzslides, ...}
 highlighter : highlight.js  # {highlight.js, prettify, highlight}
 hitheme     : solarized_light      # 
@@ -18,15 +18,13 @@ SHOOTING FOR 15 MIN (15-20 IS GOOD, BUT DO NO MORE THAN 15 MIN.)
 <br><br><br><br>
 <center><img src="assets/img/ropensci_main.png"></center>
 
----
-
-<br><br><br><br>
+<br>
 <center>
 ### Find this talk here [http://bit.ly/roalm](http://bit.ly/roalm)
 
 ### Made with [Slidify](http://slidify.org/); the code [here](https://github.com/SChamberlain/posterstalks/blob/gh-pages/plosalm13/index.Rmd)
 
-### Press "o" to bring up all slides - <i class="icon-arrow-left"> &nbsp; </i><i class="icon-arrow-right"></i> to navigate
+### Press "o" to bring up all slides - "w" to change aspect - "g" to go to page
 </center>
 
 ---
@@ -119,16 +117,20 @@ Programatically create new clients
 title: World Music API
 baseUri: http://example.api.com/{version}
 version: v1
-traits:
-  - paged:
-      queryParameters:
-        pages:
-           description: The number of pages to return
  /songs:
    get:
    post: 
-         ...
+  ...
 ```
+
+Good place to include altmetrics standards...
+
+---
+
+## Deploying APIs is probably hard
+
+<br>
+<center>![](assets/img/code-fork.png)</center>
 
 ---
 
@@ -152,14 +154,6 @@ if we are to avoid mistakes of JIF, we need research on altmetrics
 
 ---
 
-## What languages do researchers use?
-
-* R
-* Python
-* Ruby?
-
----
-
 ## Having a look at the literature...
 
 * [Do Altmetrics Work? Twitter and Ten Other...](http://www.plosone.org/article/info%3Adoi%2F10.1371%2Fjournal.pone.0064841) - via Altmetric.com
@@ -173,11 +167,17 @@ if we are to avoid mistakes of JIF, we need research on altmetrics
 
 ---
 
+## Most popular programming language?
+<br>
+<center>![](assets/img/excel.png)</center>
+
+---
+
 ## Many libraries available, but more needed
 
 | Data source   | Libraries            | rOpenSci Contributions in R
 | ------------- | -------------        | ---------
-| PLOS ALM      | R                    | [alm][alm]
+| PLOS ALM      | R                    | [alm][alm] ** Copernicus, etc.
 | ImpactStory   | R, Javascript        | [rImpactStory][ris]
 | Altmetric     | R, Python, Ruby, iOS | [rAltmetric][ralt]
 
@@ -216,7 +216,7 @@ content(out)
 
 ---
 
-## Almetrics data via R
+## Data via alm interface to PLOS ALM
 
 
 ```r
@@ -521,8 +521,15 @@ plot_signposts(input = dat, type = "multiBarChart", height = 400)
 
 
 ---
-
+<br>
 <center>![](assets/img/unlock.png)</center>
+
+---
+
+<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+<br><br><br>
+<blockquote class="twitter-tweet"><p>“I’d argue that <a href="https://twitter.com/search?q=%23opendata&amp;src=hash">#opendata</a> today is exactly where open source was some 2 decades ago”-<a href="https://twitter.com/BenBalter">@BenBalter</a> <a href="http://t.co/VJ6QiLybUU">http://t.co/VJ6QiLybUU</a> <a href="https://twitter.com/search?q=%23oss&amp;src=hash">#oss</a></p>&mdash; Alex Howard (@digiphile) <a href="https://twitter.com/digiphile/statuses/388089575346028544">October 9, 2013</a></blockquote>
 
 ---
 
@@ -572,30 +579,10 @@ Altmetrics needs checks on
 
 *Are individual altmetrics consistent among data providers?*
 
-<img src="assets/fig/isqfig2.png" title="plot of chunk isqfig2" alt="plot of chunk isqfig2" style="display: block; margin: auto;" />
+<img src="assets/fig/isqfig3.png" title="plot of chunk isqfig3" alt="plot of chunk isqfig3" style="display: block; margin: auto;" />
 
 
----
-
-## Lack of JIF transparency - major DORA complaint
-
-Altmetrics APIs could provide
-
-* Provenance for each metric
-* Any data manipulation done
-* Date of data collection
-* more...
-
----
-
-## Additional reasons for openness
-
-When hefty decisions are made on the back of altmetrics, open avail. of data will pay off
-
-* Track provenance of a metric
-* What calculations were made
-
-Openness may engender trust in the community
+<font size="6"><a href="http://www.niso.org/publications/isq/2013/v25no2/chamberlain">10.3789/isqv25no2.2013.02</a></font>
 
 ---
 
@@ -603,3 +590,9 @@ Openness may engender trust in the community
 
 <font size="14"><center> Programmatic access <br><br>
 Open altmetrics data</center></font>
+
+---
+
+<br><br><br>
+
+<font size="14"><center> Programmatic access to Open altmetrics data</center></font>
