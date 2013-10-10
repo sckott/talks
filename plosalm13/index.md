@@ -167,9 +167,23 @@ if we are to avoid mistakes of JIF, we need research on altmetrics
 
 ---
 
-## Most popular programming language?
+<br><br><br>
+<font size="14"><center>Most popular programming language?</center></font>
+
+---
+
 <br>
 <center>![](assets/img/excel.png)</center>
+
+Obviously
+
+---
+
+<br>
+<div class="row" align="center">
+  <img src="assets/img/ropensci_main.png">
+  <img src="assets/img/swc.png">
+</div>
 
 ---
 
