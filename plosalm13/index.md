@@ -15,7 +15,7 @@ assets      :
 <!-- 
 SHOOTING FOR 15 MIN (15-20 IS GOOD, BUT DO NO MORE THAN 15 MIN.) 
 -->
-<br><br><br><br>
+<br><br>
 <center><img src="assets/img/ropensci_main.png"></center>
 
 <br>
@@ -604,6 +604,13 @@ Altmetrics needs checks on
 
 <font size="14"><center> Programmatic access <br><br>
 Open altmetrics data</center></font>
+
+---
+
+<br><br><br>
+<center><font size="14">Programmatic access</font></center><br>
+<center><img src="assets/img/heart.png"></center><br>
+<center><font size="14">open data</font></center>
 
 ---
 
