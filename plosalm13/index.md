@@ -15,8 +15,9 @@ assets      :
 <!-- 
 SHOOTING FOR 15 MIN (15-20 IS GOOD, BUT DO NO MORE THAN 15 MIN.) 
 -->
-<br><br>
+
 <center><img src="assets/img/ropensci_main.png"></center>
+<center><img src="assets/img/sloan.png"></center>
 
 <br>
 <center>
