@@ -45,7 +45,7 @@ article p {
 }
 
 .title-slide {
-	background-color: #60CCFB;
+	background-color: white;
 }
 
 .title-slide hgroup {
@@ -83,6 +83,7 @@ slide:not(.segue) h2 {
     letter-spacing: -2px;
     line-height: 1.2em;
     color: #024DFD;
+    text-align: center;
 }
 
 table {
@@ -99,4 +100,16 @@ table {
 table td, table th {
   font-size: 24px;
   padding: 1em 0.5em;
+}
+
+.strikeout {
+    position: relative;
+}
+.strikeout::after {
+    border-bottom: 5px solid black;
+    content: "";
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 50%;
 }
