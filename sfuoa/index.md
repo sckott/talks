@@ -17,7 +17,7 @@ Have a 30 min slot, SHOOTING FOR 25 minutes
 
 <br><br><br><br>
 <center>
-### Find this talk here [http://bit.ly/sfualm](http://bit.ly/sfualm)
+### Find this talk on the web here [http://bit.ly/sfualm](http://bit.ly/sfualm)
 
 ### Made with [Slidify](http://slidify.org/); the code [here](https://github.com/SChamberlain/posterstalks/blob/gh-pages/sfuoa/index.Rmd)
 
@@ -26,16 +26,16 @@ Have a 30 min slot, SHOOTING FOR 25 minutes
 ### Press "w" to change aspect ratios
 </center>
 
----
-
-## The plan
+<!--
+The plan
 
 + Pose the problem: jif doesn't capture article level impact.  Jif not open., easily gamed, single entity controlling
 + the solution: altmetrics, open versions, transparent, diverse impacts, 
 + relation to open access: see ross' paper, can give OA journals some visibility in absence of impact factor
 + really not being used for hiring decisions now, but possibly soon? It seems inevitable
-+ details: what do they look like? How are they collected.  
++ details: what do they look like? How are they collected.
 + wrap up
+-->
 
 ---
 
@@ -49,38 +49,34 @@ Have a 30 min slot, SHOOTING FOR 25 minutes
 
 <br><br><br>
 
-<font size="14"><center> How do we sort them out, the good from the bad </center></font>
+<font size="14"><center> How do we sort out the good from the bad...<br>
+and discover the impactful papers </center></font>
 
 ---
 
 ## We rank journals using the JIF
 <br>
-<center>![](assets/img/jif.png)</center>
 
----
+<div class="row">
+  <img src="assets/img/jif.png"></img>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <img src="assets/img/eugenegarfield.png"></img>
+</div>
 
-## Then we judge papers, journals, scholars, departments, schools on journal IF's
-<br>
-<center>![](assets/img/jif_judge.png)</center>
+<!-- get image of eugene garfield -->
 
 ---
 
 <br><br><br>
 
-<font size="14"><center> Problems </center></font>
+<font size="14"><center> But there are problems </center></font>
 
 --- 
 
-## JIF is not open
+## JIF is not open <br> single for-profit w/o transparency
 <center>![](assets/img/lock.png)</center>
 
---- 
-
-## JIF is controlled by single for-profit entity w/o transparency
-<br>
-<center>![](assets/img/jif.png)</center>
-
---- 
+---
 
 ## Measured at the journal level
 <br>
@@ -99,12 +95,43 @@ Have a 30 min slot, SHOOTING FOR 25 minutes
 
 ---
 
+## We judge papers, people, schools on IF's
+<br>
+<center>![](assets/img/frown.png)</center>
+
+--- 
+
 ## Frustration with the JIF
 
 <br>
 <center>![](assets/img/dora.png)</center>
 
 <center><h2>9,596 signatories</h2></center>
+
+<!-- Some lines from what DORA wants... -->
+
+
+---
+
+<br><br><br>
+
+<font size="14"><center> So what can be done? </center></font>
+
+---
+
+<br><br><br>
+
+<font size="14"><center> Maybe you've heard of the internet? </center></font>
+
+---
+
+## Scholarly activities increasingly moving to the web
+
+* Journals are more or less all online
+* Many companies collecting metrics on internet use
+* We love to share things on the web
+* CV's are online
+* Etc., etc.
 
 ---
 
@@ -115,6 +142,38 @@ Have a 30 min slot, SHOOTING FOR 25 minutes
 ## Article-level metrics
 
 ## Alternative metrics
+
+---
+
+<br><br><br>
+
+<font size="14"><center> story time </center></font>
+
+---
+
+## A story about real impact
+
+<center>![](assets/img/cameronneylon.jpeg)</center>
+<br><br><br><br>
+<font size="8"> <a href="http://www.slideshare.net/CameronNeylon/research-assessment-to-support-research-impact">From a talk by Cameron Neylon</a> </font>
+
+---
+
+## Article in w/o strikingly large page views
+
+<center>![](assets/img/neylon1.png)</center>
+
+---
+
+## But with highly relevant interactions
+
+<center>![](assets/img/neylon2.png)</center>
+
+---
+
+<br><br><br>
+
+<font size="14"><center> end story </center></font>
 
 ---
 
@@ -143,7 +202,15 @@ Have a 30 min slot, SHOOTING FOR 25 minutes
 
 ## ImpactStory just got NSF grant to track software reuse/impact
 
-*screenshot of their proposal on Figshare*
+<center>![](assets/img/impactstory_eager.png)</center>
+
+---
+
+<br>
+
+<center>![](assets/img/56indicatorsofimpact.png)</center>
+
+<!-- get image -->
 
 ---
 
@@ -154,6 +221,14 @@ Have a 30 min slot, SHOOTING FOR 25 minutes
 * <font color="orange">Citations</font>: Scopus, PubMed Central, Crossref
 <br><br><br>
 * <font color="green">Social media</font>: Twitter, Mendeley, Facebook, etc.
+
+---
+
+## <font color="black">Altmetrics measure scholarly vs. public impact</font>
+<br>
+* <font color="steelblue">Scholarly</font>: Citations, shares by scholars, etc.
+<br><br><br>
+* <font color="blue">Public</font>: News articles, shares by non-scholars, etc.
 
 ---
 
@@ -188,34 +263,7 @@ Have a 30 min slot, SHOOTING FOR 25 minutes
 
 <br><br><br>
 
-<font size="14"><center> What does this have to do with OA? </center></font>
-
-<!-- relation to open access: see ross' paper, can give OA journals some visibility in absence of impact factor -->
-
---- 
-
-## Many OA journals don't select for impact
-
-Altmetrics can help filter articles *after* publication
-
-*screenshot of two different papers w/ very different altmetrics data*
-
----
-
-## Filtering is a key thing altmetrics can do
-
-* But largely unrealized
-* Though some promising work from researchers
-
-<screenshot from jevin west's work>
-
-* And at least one app: NAME?
-
----
-
-<br><br><br>
-
-<font size="14"><center> What do these altmetrics look like? And where do they come from? </center></font>
+<font size="14"><center> What do altmetrics look like? </center></font>
 
 <!-- details: what do they look like? How are they collected. -->
 
@@ -243,8 +291,8 @@ Altmetrics can help filter articles *after* publication
 
 
 ```r
-# Plot data from html, xml, and pdf across papers, all within same plot if
-# possible
+# Plot data from Scopus, PubMed Central, Crossref across papers, all within
+# same plot if possible
 ```
 
 
@@ -256,8 +304,8 @@ Altmetrics can help filter articles *after* publication
 
 
 ```r
-# Plot data from html, xml, and pdf across papers, all within same plot if
-# possible
+# Plot data from Twitter, Mendeley, Facebook, etc. across papers, all within
+# same plot if possible
 ```
 
 
@@ -293,13 +341,67 @@ used for ????
 
 ## Altmetric.com
 
-* Publishers using to display metrics
+* Publishers display metrics
 
 <center><img src="assets/img/altmetric_eg.png"></center>
 
 ---
 
-* Anecdotes that academics reporting altmetrics on their CV's and say that it *may* have helped them get tenure
+## Anecdotes
+
+* Academics reporting altmetrics on their CV's and say that it *may* have helped them get tenure
+* Stories of use in hiring/tenure decisions - but no hard data
+* Some have used altmetrics on their application to be an editor for <a href="#">PeerJ</a>
+* Wellcome Trust has been thinking about using for evaluations
+* Amy Brand @ Harvard on evaluations - don't look at journal name; do look at citations - other products "leaking in"
+* SSRN - uses downloads as a metric for relative impact/use
+* Wikipedia mentions can be particularly interesting - *a textbook on the web*
+
+---
+<br><br><br>
+
+<font size="14"><center> What does this have to do with OA? </center></font>
+
+<!-- relation to open access: see ross' paper, can give OA journals some visibility in absence of impact factor -->
+
+--- 
+
+## Many OA journals don't select for impact
+
+Quickly accumulating altmetrics can help filter articles *after* publication
+
+<div class="row" align="center">
+  <img src="assets/img/plosone_highviews.png"></img>
+  <a href="http://www.plosone.org/article/info%3Adoi%2F10.1371%2Fjournal.pone.0073791">link</a>
+</div>
+<div class="row" align="center">
+  <img src="assets/img/plosone_lowviews.png"></img>
+  <a href="http://www.plosone.org/article/info%3Adoi%2F10.1371%2Fjournal.pone.0023019">link</a>
+</div>
+<!-- <center>![](assets/img/plosone_highviews.png)</center>
+<center>![](assets/img/plosone_lowviews.png)</center> -->
+<!-- [doi:10.1371/journal.pone.0073791](http://www.plosone.org/article/info%3Adoi%2F10.1371%2Fjournal.pone.0073791)
+[doi:10.1371/journal.pone.0023019](http://www.plosone.org/article/info%3Adoi%2F10.1371%2Fjournal.pone.0023019) -->
+
+---
+
+<br>
+*7 of 10 most popular articles in 2012 as measured by altmetrics from Altmetric.com were open access - none were form Science/Nature - majority of chatter about them from non-scientists* - wouldn't have been apparent from citations
+<br><br><br><br>
+<font size="4">
+[1]: <a href="">Ross Mounce 2013, BAIST</a> 
+</font>
+
+---
+
+## Filtering using altmetrics for OA and non-OA
+
+* But largely unrealized
+* Though some promising work from researchers
+
+**screenshot from jevin west's work**
+
+**And at least one app: NAME?**
 
 ---
 
@@ -355,7 +457,7 @@ Slot "data":
 
 --- 
 
-## Things to worry about
+## What I'm worried about
 
 * Data consistency: aggregators don't collect data in the same way, e.g., Twitter => ImpactStory (Topsy), Altmetric (Twitter API), PlumAnalytics (Topsy), PLOS ALM (??)
 * Data provenance: aggregators tracking this, but newcomers may not - some provenance we'll never know
@@ -366,8 +468,28 @@ Slot "data":
 
 ---
 
+## ?Standards for almetrics?
+
+* NISO to the rescue!!!
+* $207K grant from Sloan Foundation 
+* Standards
+	* Granularity or data collected
+	* Duration of metrics
+	* Role of social media in altmetrics
+	* Data sharing
+
+---
+
 <div class="row">
 	<img src="assets/img/comments.png">
 	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 	<img src="assets/img/unlock.png">
 </div>
+
+---
+
+## Resources
+
+* Follow the #altmetrics hashtag on Twitter, Google+
+* Blogs of [PLOS ALM](URL), [Altmetric.com](URL), [ImpactStory](URL), and [PlumAnalytics](URL)
+* [Altmetrics.org](http://altmetrics.org)
