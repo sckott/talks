@@ -104,10 +104,14 @@ and discover the impactful papers </center></font>
 <br>
 <center>![](assets/img/dora.png)</center>
 
-<center><h2>9,596 signatories</h2></center>
+* 9,596 signatories
+* Don't use JIF
+* Value all research outputs
 
-<!-- Some lines from what DORA wants... -->
-
+<!-- <center><h2>9,596 signatories</h2></center>
+<center><h2>Don't use JIF</h2></center>
+<center><h2>Value all research outputs</h2></center>
+<center><h2>Value all research outputs</h2></center> -->
 
 ---
 
@@ -119,17 +123,19 @@ and discover the impactful papers </center></font>
 
 <br><br><br>
 
-<font size="14"><center> Maybe you've heard of the internet? </center></font>
+<font size="14"><center> There's this thing called the internet... </center></font>
 
 ---
 
 ## Scholarly activities increasingly moving to the web
 
-* Journals are more or less all online
-* Many companies collecting metrics on internet use
-* We love to share things on the web
-* CV's are online
-* Etc., etc.
+>- Journals are more or less all online
+	- Many companies collecting metrics on internet use
+	- We love to share things on the web
+	- CV's are online
+	- Etc., etc.
+
+>- We can listen to these conversations
 
 ---
 
@@ -378,13 +384,13 @@ used for ????
 
 ## Anecdotes
 
-* Academics reporting altmetrics on their CV's and say that it *may* have helped them get tenure
-* Stories of use in hiring/tenure decisions - but no hard data
-* Some have used altmetrics on their application to be an editor for <a href="#">PeerJ</a>
-* Wellcome Trust has been thinking about using for evaluations
-* Amy Brand @ Harvard on evaluations - don't look at journal name; do look at citations - other products "leaking in"
-* SSRN - uses downloads as a metric for relative impact/use
-* Wikipedia mentions can be particularly interesting - *a textbook on the web*
+>* Academics reporting altmetrics on their CV's and say that it *may* have helped them get tenure
+>* Stories of use in hiring/tenure decisions - but no hard data
+>* Some have used altmetrics on their application to be an editor for <a href="#">PeerJ</a>
+>* Wellcome Trust has been thinking about using for evaluations
+>* Amy Brand @ Harvard on evaluations - don't look at journal name; do look at citations - other products "leaking in"
+>* SSRN - uses downloads as a metric for relative impact/use
+>* Wikipedia mentions can be particularly interesting - *a textbook on the web*
 
 ---
 <br><br><br>
@@ -487,16 +493,16 @@ Slot "data":
 
 ## What I'm worried about
 
-* Data consistency: aggregators don't collect data in the same way, e.g., Twitter => ImpactStory (Topsy), Altmetric (Twitter API), PlumAnalytics (Topsy), PLOS ALM (??)
-* Data provenance: aggregators tracking this, but newcomers may not - some provenance we'll never know
-* Long-term sustainability: Web resources are ephemeral - how do we ensure data persistence?
-* Openness: 
+>* Data consistency: aggregators don't collect data in the same way, e.g., Twitter => ImpactStory (Topsy), Altmetric (Twitter API), PlumAnalytics (Topsy), PLOS ALM (??)
+>* Data provenance: aggregators tracking this, but newcomers may not - some provenance we'll never know
+>* Long-term sustainability: Web resources are ephemeral - how do we ensure data persistence?
+>* Openness: 
 	* open data
 	* transparent calculations
 
 ---
 
-## ?Standards for almetrics?
+## ¿Standards for almetrics?
 
 * NISO to the rescue!!!
 * $207K grant from Sloan Foundation 
