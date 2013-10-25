@@ -59,11 +59,9 @@ and discover the impactful papers </center></font>
 
 <div class="row">
   <img src="assets/img/jif.png"></img>
-  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  &nbsp;&nbsp;&nbsp;
   <img src="assets/img/eugenegarfield.png"></img>
 </div>
-
-<!-- get image of eugene garfield -->
 
 ---
 
@@ -155,7 +153,7 @@ and discover the impactful papers </center></font>
 
 <center>![](assets/img/cameronneylon.jpeg)</center>
 <br><br><br><br>
-<font size="8"> <a href="http://www.slideshare.net/CameronNeylon/research-assessment-to-support-research-impact">From a talk by Cameron Neylon</a> </font>
+<font size="8"> <a href="http://www.slideshare.net/CameronNeylon/research-assessment-to-support-research-impact">From this talk by Cameron Neylon</a> </font>
 
 ---
 
@@ -173,7 +171,7 @@ and discover the impactful papers </center></font>
 
 <br><br><br>
 
-<font size="14"><center> end story </center></font>
+<font size="14"><center> end story, see <a href="http://www.slideshare.net/CameronNeylon/research-assessment-to-support-research-impact">here</a> for his slides </center></font>
 
 ---
 
@@ -210,7 +208,11 @@ and discover the impactful papers </center></font>
 
 <center>![](assets/img/56indicatorsofimpact.png)</center>
 
-<!-- get image -->
+
+<br>
+<font size="4">
+[1]: <a href="http://cas-csid.cas.unt.edu/?p=4475">Keith Brown, CSID Blog, 2013-05-22</a> 
+</font>
 
 ---
 
@@ -263,7 +265,7 @@ and discover the impactful papers </center></font>
 
 <br><br><br>
 
-<font size="14"><center> What do altmetrics look like? </center></font>
+<font size="14"><center> What do altmetrics look like? <br><br> using a set of 500 papers from PLOS One published in 2010 </center></font>
 
 <!-- details: what do they look like? How are they collected. -->
 
@@ -278,9 +280,11 @@ and discover the impactful papers </center></font>
 
 
 ```r
-# Plot data from html, xml, and pdf across papers, all within same plot if
-# possible
+plot_density(outdf, source = c("counter_pdf", "counter_html"), color = c("#DBAC6A", 
+    "#A06D34"), plot_type = "histogram")
 ```
+
+![plot of chunk usageplot](assets/fig/usageplot.png) 
 
 
 ---
@@ -291,9 +295,11 @@ and discover the impactful papers </center></font>
 
 
 ```r
-# Plot data from Scopus, PubMed Central, Crossref across papers, all within
-# same plot if possible
+plot_density(outdf, source = c("crossref_citations", "pubmed_citations", "scopus_citations"), 
+    color = c("#EFA5A5", "#CFD470", "#B2C9E4"), plot_type = "histogram")
 ```
+
+![plot of chunk citationplot](assets/fig/citationplot.png) 
 
 
 ---
@@ -304,12 +310,35 @@ and discover the impactful papers </center></font>
 
 
 ```r
-# Plot data from Twitter, Mendeley, Facebook, etc. across papers, all within
-# same plot if possible
+plot_density(outdf, source = c("twitter_total", "mendeley_total", "facebook_total"), 
+    color = c("#EFA5A5", "#CFD470", "#B2C9E4"), plot_type = "histogram")
 ```
 
+![plot of chunk socialmediaplot](assets/fig/socialmediaplot.png) 
 
---- 
+
+---
+
+## Accumulation through time
+
+<center>![](assets/img/piwowar_throughtime.png)</center>
+
+<br>
+<font size="4">
+[1]: <a href="http://arxiv.org/html/1203.4745v1">Priem, Piwowar & Hemminger, arXiv:1203.4745, Fig. 8</a> 
+</font>
+
+---
+
+## Correlation
+
+<center>![](assets/img/piwowar_corr.png)</center>
+
+<font size="4">
+[1]: <a href="http://arxiv.org/html/1203.4745v1">Priem, Piwowar & Hemminger, arXiv:1203.4745, Fig. 9</a> 
+</font>
+
+---
 
 <br><br><br>
 
@@ -389,19 +418,20 @@ Quickly accumulating altmetrics can help filter articles *after* publication
 *7 of 10 most popular articles in 2012 as measured by altmetrics from Altmetric.com were open access - none were form Science/Nature - majority of chatter about them from non-scientists* - wouldn't have been apparent from citations
 <br><br><br><br>
 <font size="4">
-[1]: <a href="">Ross Mounce 2013, BAIST</a> 
+[1]: <a href="http://asis.org/Bulletin/Apr-13/AprMay13_Mounce.html">Ross Mounce 2013, BAIST</a> 
 </font>
 
 ---
 
-## Filtering using altmetrics for OA and non-OA
+## Filtering using altmetrics
 
-* But largely unrealized
-* Though some promising work from researchers
+* Largely unrealized - especially useful in mega OA journals
+* [Jevin West](http://octavia.zoology.washington.edu/people/jevin/Homepage.html)
 
-**screenshot from jevin west's work**
-
-**And at least one app: NAME?**
+<center><img src="assets/img/alns.png"></center>
+<font size="4">
+[1]: <a href="http://article-level-metrics.plos.org/files/2013/10/West.pdf">link</a> 
+</font>
 
 ---
 
@@ -415,12 +445,10 @@ Quickly accumulating altmetrics can help filter articles *after* publication
 
 ## Data via alm interface to PLOS ALM
 
-
-```r
+```coffee
 library(alm)
-alm(doi = "10.1371/journal.pone.0029797")
+alm(doi="10.1371/journal.pone.0029797")
 ```
-
 
 ```coffee
 An object of class "almtot"

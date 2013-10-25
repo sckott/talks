@@ -116,11 +116,9 @@ and discover the impactful papers </center></font></p>
 
 <div class="row">
   <img src="assets/img/jif.png"></img>
-  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  &nbsp;&nbsp;&nbsp;
   <img src="assets/img/eugenegarfield.png"></img>
 </div>
-
-<!-- get image of eugene garfield -->
 
   </article>
   <!-- Presenter Notes -->
@@ -272,7 +270,7 @@ and discover the impactful papers </center></font></p>
   <article data-timings="">
     <p><center><img src="assets/img/cameronneylon.jpeg" alt=""></center>
 <br><br><br><br>
-<font size="8"> <a href="http://www.slideshare.net/CameronNeylon/research-assessment-to-support-research-impact">From a talk by Cameron Neylon</a> </font></p>
+<font size="8"> <a href="http://www.slideshare.net/CameronNeylon/research-assessment-to-support-research-impact">From this talk by Cameron Neylon</a> </font></p>
 
   </article>
   <!-- Presenter Notes -->
@@ -304,7 +302,7 @@ and discover the impactful papers </center></font></p>
   <article data-timings="">
     <p><br><br><br></p>
 
-<p><font size="14"><center> end story </center></font></p>
+<p><font size="14"><center> end story, see <a href="http://www.slideshare.net/CameronNeylon/research-assessment-to-support-research-impact">here</a> for his slides </center></font></p>
 
   </article>
   <!-- Presenter Notes -->
@@ -361,7 +359,10 @@ and discover the impactful papers </center></font></p>
 
 <p><center><img src="assets/img/56indicatorsofimpact.png" alt=""></center></p>
 
-<!-- get image -->
+<p><br>
+<font size="4">
+[1]: <a href="http://cas-csid.cas.unt.edu/?p=4475">Keith Brown, CSID Blog, 2013-05-22</a> 
+</font></p>
 
   </article>
   <!-- Presenter Notes -->
@@ -455,7 +456,7 @@ and discover the impactful papers </center></font></p>
   <article data-timings="">
     <p><br><br><br></p>
 
-<p><font size="14"><center> What do altmetrics look like? </center></font></p>
+<p><font size="14"><center> What do altmetrics look like? <br><br> using a set of 500 papers from PLOS One published in 2010 </center></font></p>
 
 <!-- details: what do they look like? How are they collected. -->
 
@@ -472,9 +473,11 @@ and discover the impactful papers </center></font></p>
 <li>html, xml, pdf downloads, collected by publishers</li>
 </ul>
 
-<pre><code class="r"># Plot data from html, xml, and pdf across papers, all within same plot if
-# possible
+<pre><code class="r">plot_density(outdf, source = c(&quot;counter_pdf&quot;, &quot;counter_html&quot;), color = c(&quot;#DBAC6A&quot;, 
+    &quot;#A06D34&quot;), plot_type = &quot;histogram&quot;)
 </code></pre>
+
+<p><img src="assets/fig/usageplot.png" alt="plot of chunk usageplot"> </p>
 
   </article>
   <!-- Presenter Notes -->
@@ -489,9 +492,11 @@ and discover the impactful papers </center></font></p>
 <li>Scopus, PubMed Central, Crossref</li>
 </ul>
 
-<pre><code class="r"># Plot data from Scopus, PubMed Central, Crossref across papers, all within
-# same plot if possible
+<pre><code class="r">plot_density(outdf, source = c(&quot;crossref_citations&quot;, &quot;pubmed_citations&quot;, &quot;scopus_citations&quot;), 
+    color = c(&quot;#EFA5A5&quot;, &quot;#CFD470&quot;, &quot;#B2C9E4&quot;), plot_type = &quot;histogram&quot;)
 </code></pre>
+
+<p><img src="assets/fig/citationplot.png" alt="plot of chunk citationplot"> </p>
 
   </article>
   <!-- Presenter Notes -->
@@ -506,15 +511,48 @@ and discover the impactful papers </center></font></p>
 <li>Twitter, Mendeley, Facebook, etc., collected by altmetrics aggregators</li>
 </ul>
 
-<pre><code class="r"># Plot data from Twitter, Mendeley, Facebook, etc. across papers, all within
-# same plot if possible
+<pre><code class="r">plot_density(outdf, source = c(&quot;twitter_total&quot;, &quot;mendeley_total&quot;, &quot;facebook_total&quot;), 
+    color = c(&quot;#EFA5A5&quot;, &quot;#CFD470&quot;, &quot;#B2C9E4&quot;), plot_type = &quot;histogram&quot;)
 </code></pre>
+
+<p><img src="assets/fig/socialmediaplot.png" alt="plot of chunk socialmediaplot"> </p>
 
   </article>
   <!-- Presenter Notes -->
 </slide>
 
 <slide class="" id="slide-32" style="background:;">
+  <hgroup>
+    <h2>Accumulation through time</h2>
+  </hgroup>
+  <article data-timings="">
+    <p><center><img src="assets/img/piwowar_throughtime.png" alt=""></center></p>
+
+<p><br>
+<font size="4">
+[1]: <a href="http://arxiv.org/html/1203.4745v1">Priem, Piwowar &amp; Hemminger, arXiv:1203.4745, Fig. 8</a> 
+</font></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-33" style="background:;">
+  <hgroup>
+    <h2>Correlation</h2>
+  </hgroup>
+  <article data-timings="">
+    <p><center><img src="assets/img/piwowar_corr.png" alt=""></center></p>
+
+<p><font size="4">
+[1]: <a href="http://arxiv.org/html/1203.4745v1">Priem, Piwowar &amp; Hemminger, arXiv:1203.4745, Fig. 9</a> 
+</font></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-34" style="background:;">
   <article data-timings="">
     <p><br><br><br></p>
 
@@ -529,7 +567,7 @@ used for ????
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-33" style="background:;">
+<slide class="" id="slide-35" style="background:;">
   <hgroup>
     <h2>Plum Analytics</h2>
   </hgroup>
@@ -545,7 +583,7 @@ used for ????
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-34" style="background:;">
+<slide class="" id="slide-36" style="background:;">
   <hgroup>
     <h2>ImpactStory</h2>
   </hgroup>
@@ -560,7 +598,7 @@ used for ????
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-35" style="background:;">
+<slide class="" id="slide-37" style="background:;">
   <hgroup>
     <h2>Altmetric.com</h2>
   </hgroup>
@@ -575,7 +613,7 @@ used for ????
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-36" style="background:;">
+<slide class="" id="slide-38" style="background:;">
   <hgroup>
     <h2>Anecdotes</h2>
   </hgroup>
@@ -594,7 +632,7 @@ used for ????
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-37" style="background:;">
+<slide class="" id="slide-39" style="background:;">
   <article data-timings="">
     <p><br><br><br></p>
 
@@ -606,7 +644,7 @@ used for ????
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-38" style="background:;">
+<slide class="" id="slide-40" style="background:;">
   <hgroup>
     <h2>Many OA journals don&#39;t select for impact</h2>
   </hgroup>
@@ -633,38 +671,39 @@ used for ????
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-39" style="background:;">
+<slide class="" id="slide-41" style="background:;">
   <article data-timings="">
     <p><br>
 <em>7 of 10 most popular articles in 2012 as measured by altmetrics from Altmetric.com were open access - none were form Science/Nature - majority of chatter about them from non-scientists</em> - wouldn&#39;t have been apparent from citations
 <br><br><br><br>
 <font size="4">
-[1]: <a href="">Ross Mounce 2013, BAIST</a> 
+[1]: <a href="http://asis.org/Bulletin/Apr-13/AprMay13_Mounce.html">Ross Mounce 2013, BAIST</a> 
 </font></p>
 
   </article>
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-40" style="background:;">
+<slide class="" id="slide-42" style="background:;">
   <hgroup>
-    <h2>Filtering using altmetrics for OA and non-OA</h2>
+    <h2>Filtering using altmetrics</h2>
   </hgroup>
   <article data-timings="">
     <ul>
-<li>But largely unrealized</li>
-<li>Though some promising work from researchers</li>
+<li>Largely unrealized - especially useful in mega OA journals</li>
+<li><a href="http://octavia.zoology.washington.edu/people/jevin/Homepage.html">Jevin West</a></li>
 </ul>
 
-<p><strong>screenshot from jevin west&#39;s work</strong></p>
-
-<p><strong>And at least one app: NAME?</strong></p>
+<p><center><img src="assets/img/alns.png"></center>
+<font size="4">
+[1]: <a href="http://article-level-metrics.plos.org/files/2013/10/West.pdf">link</a> 
+</font></p>
 
   </article>
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-41" style="background:;">
+<slide class="" id="slide-43" style="background:;">
   <article data-timings="">
     <p><br><br><br></p>
 
@@ -676,13 +715,13 @@ used for ????
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-42" style="background:;">
+<slide class="" id="slide-44" style="background:;">
   <hgroup>
     <h2>Data via alm interface to PLOS ALM</h2>
   </hgroup>
   <article data-timings="">
-    <pre><code class="r">library(alm)
-alm(doi = &quot;10.1371/journal.pone.0029797&quot;)
+    <pre><code class="coffee">library(alm)
+alm(doi=&quot;10.1371/journal.pone.0029797&quot;)
 </code></pre>
 
 <pre><code class="coffee">An object of class &quot;almtot&quot;
@@ -709,7 +748,7 @@ Slot &quot;data&quot;:
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-43" style="background:;">
+<slide class="" id="slide-45" style="background:;">
   <article data-timings="">
     <p><br><br><br></p>
 
@@ -719,7 +758,7 @@ Slot &quot;data&quot;:
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-44" style="background:;">
+<slide class="" id="slide-46" style="background:;">
   <article data-timings="">
     <p><br><br><br></p>
 
@@ -729,7 +768,7 @@ Slot &quot;data&quot;:
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-45" style="background:;">
+<slide class="" id="slide-47" style="background:;">
   <hgroup>
     <h2>What I&#39;m worried about</h2>
   </hgroup>
@@ -750,7 +789,7 @@ Slot &quot;data&quot;:
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-46" style="background:;">
+<slide class="" id="slide-48" style="background:;">
   <hgroup>
     <h2>?Standards for almetrics?</h2>
   </hgroup>
@@ -772,7 +811,7 @@ Slot &quot;data&quot;:
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-47" style="background:;">
+<slide class="" id="slide-49" style="background:;">
   <article data-timings="">
     <div class="row">
     <img src="assets/img/comments.png">
@@ -784,7 +823,7 @@ Slot &quot;data&quot;:
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-48" style="background:;">
+<slide class="" id="slide-50" style="background:;">
   <hgroup>
     <h2>Resources</h2>
   </hgroup>
@@ -991,43 +1030,43 @@ Slot &quot;data&quot;:
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=32 title=''>
+        data-slide=32 title='Accumulation through time'>
          32
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=33 title='Plum Analytics'>
+        data-slide=33 title='Correlation'>
          33
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=34 title='ImpactStory'>
+        data-slide=34 title=''>
          34
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=35 title='Altmetric.com'>
+        data-slide=35 title='Plum Analytics'>
          35
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=36 title='Anecdotes'>
+        data-slide=36 title='ImpactStory'>
          36
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=37 title=''>
+        data-slide=37 title='Altmetric.com'>
          37
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=38 title='Many OA journals don&#39;t select for impact'>
+        data-slide=38 title='Anecdotes'>
          38
       </a>
     </li>
@@ -1039,7 +1078,7 @@ Slot &quot;data&quot;:
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=40 title='Filtering using altmetrics for OA and non-OA'>
+        data-slide=40 title='Many OA journals don&#39;t select for impact'>
          40
       </a>
     </li>
@@ -1051,7 +1090,7 @@ Slot &quot;data&quot;:
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=42 title='Data via alm interface to PLOS ALM'>
+        data-slide=42 title='Filtering using altmetrics'>
          42
       </a>
     </li>
@@ -1063,32 +1102,44 @@ Slot &quot;data&quot;:
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=44 title=''>
+        data-slide=44 title='Data via alm interface to PLOS ALM'>
          44
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=45 title='What I&#39;m worried about'>
+        data-slide=45 title=''>
          45
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=46 title='?Standards for almetrics?'>
+        data-slide=46 title=''>
          46
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=47 title=''>
+        data-slide=47 title='What I&#39;m worried about'>
          47
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=48 title='Resources'>
+        data-slide=48 title='?Standards for almetrics?'>
          48
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=49 title=''>
+         49
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=50 title='Resources'>
+         50
       </a>
     </li>
   </ul>
