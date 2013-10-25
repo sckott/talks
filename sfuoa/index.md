@@ -455,12 +455,6 @@ alm(doi="10.1371/journal.pone.0029797")
 ```
 
 ```coffee
-An object of class "almtot"
-Slot "meta":
-$doi
-[1] "10.1371/journal.pone.0029797"
-...<more metadata>
-
 Slot "summary":
   views shares bookmarks citations
 1 29229    237        51         7
@@ -474,6 +468,10 @@ Slot "data":
 5            nature   NA    NA     NA     NA       NA    NA         4     4
 ...
 ```
+
+<font size="4">
+[1]: <a href="http://ropensci.org/packages/#altmetrics">Get the <code>alm</code> R package here</a> 
+</font>
 
 ---
 
@@ -523,3 +521,4 @@ Slot "data":
 * Follow the #altmetrics hashtag on Twitter, Google+
 * Blogs of [PLOS ALM](URL), [Altmetric.com](URL), [ImpactStory](URL), and [PlumAnalytics](URL)
 * [Altmetrics.org](http://altmetrics.org)
+* [R packages for programmatic access to altmetrics data](http://ropensci.org/packages/#altmetrics)
