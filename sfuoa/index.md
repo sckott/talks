@@ -1,5 +1,5 @@
 ---
-title       : Altmetrics - Article-level impact for web native scholarship
+title       : Article-level impact for web native scholarship
 date        : 2013-10-25
 author      : Scott Chamberlain
 framework   : io2012        # {io2012, html5slides, shower, dzslides, ...}
@@ -141,11 +141,9 @@ and discover the impactful papers </center></font>
 
 <br><br><br>
 
-## Altmetrics
-
-## Article-level metrics
-
-## Alternative metrics
+## Altmetrics: <font color="grey"><em>new ways of measuring impact</em></font>
+<br><br>
+## Article-level metrics: <font color="grey"><em>altmetrics on a scholarly paper</em></font>
 
 ---
 
@@ -225,15 +223,15 @@ and discover the impactful papers </center></font>
 
 ## Which...
 
-* Serve 
+>* Serve 
 	* Universities: Plum Analytics
 	* Publishers: Altmetric.com, ImpactStory
 	* Individuals: ImpactStory
 	* Readers: PLOS ALM
-* Vary in openness 
-	* Open data: PLOS\*\*, Plum Analytics\*\*
+>* Vary in data openness
+	* Open data: [PLOS](http://alm.plos.org/)
+	* Just opened up: Plum Analytics (see [here](https://plu.mx/developers))
 	* Some open data: Altmetric.com
-	* Open data, but API deprecated: ImpactStory
 
 ---
 
@@ -485,12 +483,6 @@ Slot "data":
 
 --- 
 
-<br><br><br>
-
-<font size="14"><center> We don't want altmetrics to become the new JIF </center></font>
-
---- 
-
 ## What I'm worried about
 
 >* Data consistency: aggregators don't collect data in the same way, e.g., Twitter => ImpactStory (Topsy), Altmetric (Twitter API), PlumAnalytics (Topsy), PLOS ALM (??)
@@ -511,6 +503,10 @@ Slot "data":
 	* Duration of metrics
 	* Role of social media in altmetrics
 	* Data sharing
+
+<font size="4">
+[1]: <a href="http://www.niso.org/news/pr/view?item_key=72efc1097d4caf7b7b5bdf9c54a165818399ec86">NISO Altmetrics Standards Site</a> 
+</font>
 
 ---
 
