@@ -24,7 +24,16 @@ Have a 30 min slot, SHOOTING FOR 25 minutes
 ### Press "o" to bring up all slides - <i class="icon-arrow-left"> &nbsp; </i><i class="icon-arrow-right"></i> to navigate
 
 ### Press "w" to change aspect ratios
+
+### License: CC0 (i.e., public domain, do whatever you want with this)
 </center>
+<center>
+<a rel="license" href="http://creativecommons.org/publicdomain/mark/1.0/">
+<img src="http://i.creativecommons.org/p/mark/1.0/88x31.png"
+     style="border-style: none;" alt="Public Domain Mark" />
+</a>
+</center>
+
 
 <!--
 The plan
