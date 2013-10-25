@@ -149,38 +149,6 @@ and discover the impactful papers </center></font>
 
 ---
 
-<br><br><br>
-
-<font size="14"><center> story time </center></font>
-
----
-
-## A story about real impact
-
-<center>![](assets/img/cameronneylon.jpeg)</center>
-<br><br><br><br>
-<font size="8"> <a href="http://www.slideshare.net/CameronNeylon/research-assessment-to-support-research-impact">From this talk by Cameron Neylon</a> </font>
-
----
-
-## Article in w/o strikingly large page views
-
-<center>![](assets/img/neylon1.png)</center>
-
----
-
-## But with highly relevant interactions
-
-<center>![](assets/img/neylon2.png)</center>
-
----
-
-<br><br><br>
-
-<font size="14"><center> end story, see <a href="http://www.slideshare.net/CameronNeylon/research-assessment-to-support-research-impact">here</a> for his slides </center></font>
-
----
-
 ## Measured on article level
 
 <center>![](assets/img/singlearticle.png)</center>
@@ -373,14 +341,46 @@ used for ????
 
 ---
 
+<br><br><br>
+
+<font size="14"><center> story time </center></font>
+
+---
+
+## A story about real impact
+
+<center>![](assets/img/cameronneylon.jpeg)</center>
+<br><br><br><br>
+<font size="8"> <a href="http://www.slideshare.net/CameronNeylon/research-assessment-to-support-research-impact">From this talk by Cameron Neylon</a> </font>
+
+---
+
+## Article in w/o strikingly large page views
+
+<center>![](assets/img/neylon1.png)</center>
+
+---
+
+## But with highly relevant interactions
+
+<center>![](assets/img/neylon2.png)</center>
+
+---
+
+<br><br><br>
+
+<font size="14"><center> end story, see <a href="http://www.slideshare.net/CameronNeylon/research-assessment-to-support-research-impact">here</a> for his slides </center></font>
+
+---
+
 ## Anecdotes
 
 >* Academics reporting altmetrics on their CV's and say that it *may* have helped them get tenure
->* Stories of use in hiring/tenure decisions - but no hard data
+>* Stories of use in hiring/tenure decisions - but no hard data (e.g., [this](http://blogs.scientificamerican.com/information-culture/2013/02/13/providing-context-for-the-metrics-used-to-evaluate-the-scientific-literature/))
 >* Some have used altmetrics on their application to be an editor for <a href="#">PeerJ</a>
->* Wellcome Trust has been thinking about using for evaluations
->* Amy Brand @ Harvard on evaluations - don't look at journal name; do look at citations - other products "leaking in"
->* SSRN - uses downloads as a metric for relative impact/use
+>* [Wellcome Trust](http://www.wellcome.ac.uk/) has been thinking about using for evaluations
+>* [Amy Brand @ Harvard](http://www.faculty.harvard.edu/about-office/our-team) on evaluations - don't look at journal name; do look at citations - other products "leaking in"
+>* [SSRN](http://www.ssrn.com/) - uses downloads as a metric for relative impact/use
 >* Wikipedia mentions can be particularly interesting - *a textbook on the web*
 
 ---
