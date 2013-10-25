@@ -25,13 +25,10 @@ Have a 30 min slot, SHOOTING FOR 25 minutes
 
 ### Press "w" to change aspect ratios
 
-### License: CC0 (i.e., public domain, do whatever you want with this)
+### License: CC-BY 3.0 (i.e., reuse, and credit)
 </center>
 <center>
-<a rel="license" href="http://creativecommons.org/publicdomain/mark/1.0/">
-<img src="http://i.creativecommons.org/p/mark/1.0/88x31.png"
-     style="border-style: none;" alt="Public Domain Mark" />
-</a>
+<a href="http://creativecommons.org/licenses/by/3.0/"><img src="assets/img/cc-by.png"></img></a> 
 </center>
 
 
