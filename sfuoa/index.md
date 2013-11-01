@@ -15,7 +15,7 @@ assets      :
 Have a 30 min slot, SHOOTING FOR 25 minutes
 -->
 
-<br><br><br><br>
+<br><br>
 <center>
 ### Find this talk on the web here [http://bit.ly/sfualm](http://bit.ly/sfualm)
 
@@ -24,11 +24,8 @@ Have a 30 min slot, SHOOTING FOR 25 minutes
 ### Press "o" to bring up all slides - <i class="icon-arrow-left"> &nbsp; </i><i class="icon-arrow-right"></i> to navigate
 
 ### Press "w" to change aspect ratios
-
-### License: CC-BY 3.0 (i.e., reuse, and credit)
-</center>
-<center>
-<a href="http://creativecommons.org/licenses/by/3.0/"><img src="assets/img/cc-by.png"></img></a> 
+<br>
+### License: CC-BY 3.0 - You are free to copy, share, adapt, or remix, photograph, film, or broadcast, blog, live-blog, or post video of this presentation, provided that you attribute the work to its author and respect the rights and licenses associated with its components.
 </center>
 
 
