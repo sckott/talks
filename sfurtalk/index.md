@@ -4,28 +4,24 @@ date        : 2013-11-18
 author      : Scott Chamberlain
 framework   : io2012        # {io2012, html5slides, shower, dzslides, ...}
 highlighter : highlight.js  # {highlight.js, prettify, highlight}
-hitheme     : solarized_light      # 
-widgets     : [nvd3]            # {mathjax, quiz, bootstrap}
+hitheme     : solarized_light     # 
 mode        : selfcontained # {standalone, draft}
 assets      :
-  css: "http://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css"
+  css: "http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css"
 ---
 
 
 ## Science needs to be more...
 
-<br>
-<font size="14">
-	<center>Open</center><br><br>
-	<center>Reproducible</center>
-</font>
+<br><br>
+<div class="row"><center><img src="assets/img/unlock.png"></img><img src="assets/img/spinner.png"></img></center></div>
 
 ---
 
 <br><br><br>
 <font size="14">
-	<center> <font color="green">Open -></font> to increase pace of science - most research publicly funded - etc.</center><br><br>
-	<center><font color="blue">Reproducible -></font> for yourself!, and for others (if reproducible, more confidence in results)</center>
+	<center> <font color="green"> <i class="fa fa-unlock">&nbsp;Open:</i></font> to increase pace of science - most research publicly funded - etc.</center><br><br>
+	<center><font color="blue"><i class="fa fa-spinner">&nbsp;Reproducible:</i></font> for yourself!, and for others (if reproducible, more confidence in results)</center>
 </font>
 
 ---
@@ -67,13 +63,16 @@ assets      :
 
 ## Taxonomy - taxize
 
-<br><br>
-
 * Check name spelling
 * Get accepted names
 * Get synonyms
 * Comm from sci - sci from comm
 * Taxonomic hierarchies
+
+---
+
+<br><br><br>
+<font size="14"><center>To the command line!</center></font>
 
 ---
 
@@ -91,8 +90,13 @@ assets      :
 ---
 
 <br><br><br>
+<font size="14"><center>To the command line!</center></font>
 
-<font size="18"><center> Workshop at SFU: Sometime in Jan/Feb </center></font>
+---
+
+<br><br><br>
+
+<font size="18"><center> Workshop at SFU: Sometime in Jan/Feb - Look for more SWC workshops early next year</center></font>
 <br><br>
 <font size="18"><center> <a href="http://ropensci.org/">http://ropensci.org/</a> </center></font>
 <br><br>
