@@ -2,6 +2,7 @@ alm
 base
 devtools
 ggplot2
+knitr
 lubridate
 plyr
 rCharts
@@ -11,5 +12,7 @@ reshape2
 rjson
 rplos
 sacbox
+shiny
+shinyAce
 slidify
 slidifyLibraries
