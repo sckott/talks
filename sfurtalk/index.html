@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>rOpenSci</title>
+  <title>Reproducible research in R - gettin' the data</title>
   <meta charset="utf-8">
-  <meta name="description" content="rOpenSci">
+  <meta name="description" content="Reproducible research in R - gettin' the data">
   <meta name="author" content="Scott Chamberlain">
   <meta name="generator" content="slidify" />
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -39,7 +39,7 @@
     <!-- LOGO SLIDE -->
         <slide class="title-slide segue nobackground">
   <hgroup class="auto-fadein">
-    <h1>rOpenSci</h1>
+    <h1>Reproducible research in R - gettin' the data</h1>
     <h2></h2>
     <p>Scott Chamberlain<br/></p>
   </hgroup>
@@ -49,27 +49,77 @@
 
     <!-- SLIDES -->
     <slide class="" id="slide-1" style="background:;">
+  <hgroup>
+    <h2>Science needs to be more...</h2>
+  </hgroup>
   <article data-timings="">
-    <p><br><br><br></p>
-
-<p><font size="14"><center> There is a lot of open data on the web via APIs </center></font></p>
+    <p><br>
+<font size="14">
+    <center>Open</center><br><br>
+    <center>Reproducible</center>
+</font></p>
 
   </article>
   <!-- Presenter Notes -->
 </slide>
 
 <slide class="" id="slide-2" style="background:;">
-  <hgroup>
-    <h2>There&#39;s also a reproduciblity crisis</h2>
-  </hgroup>
   <article data-timings="">
-    <p><center><img src="assets/img/reproducibility.png" alt=""></center></p>
+    <p><br><br><br>
+<font size="14">
+    <center> <font color="green">Open -&gt;</font> to increase pace of science - most research publicly funded - etc.</center><br><br>
+    <center><font color="blue">Reproducible -&gt;</font> for yourself!, and for others (if reproducible, more confidence in results)</center>
+</font></p>
 
   </article>
   <!-- Presenter Notes -->
 </slide>
 
 <slide class="" id="slide-3" style="background:;">
+  <article data-timings="">
+    <p><br><br><br>
+<font size="14">
+    <center>What tools do we need to achieve this goal?</center>
+</font></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-4" style="background:;">
+  <hgroup>
+    <h2>Not these!</h2>
+  </hgroup>
+  <article data-timings="">
+    <p><center><img src="assets/img/closedtools.png" alt="r"></center></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-5" style="background:;">
+  <hgroup>
+    <h2>These!</h2>
+  </hgroup>
+  <article data-timings="">
+    <p><center><img src="assets/img/opentools.png" alt=""></center></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-6" style="background:;">
+  <hgroup>
+    <h2>Data is increasingly on the web</h2>
+  </hgroup>
+  <article data-timings="">
+    <p><center><img src="assets/img/data.png" alt=""></center></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-7" style="background:;">
   <hgroup>
     <h2>Connecting scientists to open data on the web</h2>
   </hgroup>
@@ -81,7 +131,7 @@
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-4" style="background:;">
+<slide class="" id="slide-8" style="background:;">
   <article data-timings="">
     <p><center><img src="assets/img/ropensci_pkgs.png" alt=""></center></p>
 
@@ -89,17 +139,49 @@
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-5" style="background:;">
+<slide class="" id="slide-9" style="background:;">
+  <hgroup>
+    <h2>Taxonomy - taxize</h2>
+  </hgroup>
   <article data-timings="">
-    <p><center> <img src="assets/img/pyopensci.png" alt=""> </center>
-<br><br>
-<center> <img src="assets/img/ropengov.png" alt=""> </center></p>
+    <p><br><br></p>
+
+<ul>
+<li>Check name spelling</li>
+<li>Get accepted names</li>
+<li>Get synonyms</li>
+<li>Comm from sci - sci from comm</li>
+<li>Taxonomic hierarchies</li>
+</ul>
 
   </article>
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-6" style="background:;">
+<slide class="" id="slide-10" style="background:;">
+  <hgroup>
+    <h2>Biodiversity suite</h2>
+  </hgroup>
+  <article data-timings="">
+    <ul>
+<li>Occurrence data from
+
+<ul>
+<li><a href="https://github.com/ropensci/rgbif">GBIF</a></li>
+<li><a href="https://github.com/ropensci/rbison">BISON</a></li>
+<li><a href="https://github.com/ropensci/rvertnet">VertNet</a></li>
+<li><a href="https://github.com/ropensci/rinat">iNaturalist</a></li>
+<li>Etc.</li>
+</ul></li>
+<li>Maps in many flavors</li>
+<li>Search across all source - <a href="https://github.com/ropensci/spocc">spocc</a></li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-11" style="background:;">
   <article data-timings="">
     <p><br><br><br></p>
 
@@ -119,38 +201,68 @@
     <ul>
       <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=1 title=''>
+        data-slide=1 title='Science needs to be more...'>
          1
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=2 title='There&#39;s also a reproduciblity crisis'>
+        data-slide=2 title=''>
          2
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=3 title='Connecting scientists to open data on the web'>
+        data-slide=3 title=''>
          3
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=4 title=''>
+        data-slide=4 title='Not these!'>
          4
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=5 title=''>
+        data-slide=5 title='These!'>
          5
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=6 title=''>
+        data-slide=6 title='Data is increasingly on the web'>
          6
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=7 title='Connecting scientists to open data on the web'>
+         7
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=8 title=''>
+         8
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=9 title='Taxonomy - taxize'>
+         9
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=10 title='Biodiversity suite'>
+         10
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=11 title=''>
+         11
       </a>
     </li>
   </ul>
