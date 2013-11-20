@@ -2,7 +2,7 @@
 
 ### Install
 
-install_github("rgbif", "ropensci", ref="newapi")
+# install_github("rgbif", "ropensci")
 library(rgbif)
 
 ### Get occurrence data
@@ -15,7 +15,7 @@ dat$data
 
 ### Search across all sources
 
-install_github("spocc", "ropensci")
+# install_github("spocc", "ropensci")
 library(spocc)
 
 out <- occ(query='Pinus contorta', from=c('gbif','bison'))
@@ -26,11 +26,13 @@ occ_todf(out)
 
 #### rCharts
 
+# install_github("rCharts", "ramnathv", ref="dev")
 library(rCharts)
 spp <- c('Danaus plexippus','Accipiter striatus','Pinus contorta')
 dat <- lapply(spp, function(x) occ(query=x, from='gbif'))
 dat <- occmany_todf(dat)@data 
-maprcharts(data=dat)
+tmp <- maprcharts(data=dat)
+tmp$show(cdn=TRUE)
 
 #### To share on Github
 

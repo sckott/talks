@@ -17,6 +17,8 @@ synonyms(out)
 
 ### Common names from scientific names
 
+Note: you'll see some messages telling you to get an API key, not to worry
+
 sci2comm(scinames=c('Helianthus annuus','Poa annua'))
 
 ### Scientific from common names
