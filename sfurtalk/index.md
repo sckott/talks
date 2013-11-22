@@ -12,6 +12,8 @@ assets      :
 
 <br><br>
 ### License: CC-BY 3.0 - You are free to copy, share, adapt, or remix, photograph, film, or broadcast, blog, live-blog, or post video of this presentation, provided that you attribute the work to its author and respect the rights and licenses associated with its components.
+<br><br>
+### Icons: by <a href="http://fortawesome.github.io/Font-Awesome/">FontAwesome</a>
 
 ---
 
@@ -34,6 +36,8 @@ assets      :
 
 <br><br>
 <center><img src="assets/img/lazyboy.jpg"></img></center>
+
+<a href="http://www.ebay.com/itm/M-M-Dispenser-LA-Z-BOY-RECLINER-CHAIR-with-Remote-Control-/400593996036?afsrc=1">link</a>
 
 ---
 
