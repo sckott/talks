@@ -17,31 +17,6 @@ assets      :
 
 ---
 
-
-```r
-list(5, 6, 7)
-```
-
-```
-## [[1]]
-## [1] 5
-## 
-## [[2]]
-## [1] 6
-## 
-## [[3]]
-## [1] 7
-```
-
-
-
-    ```{r}
-    hist(rnorm(100))
-    5 + 6
-    ```
-
----
-
 ## There's also a reproduciblity crisis
 
 <center>![](assets/img/reproducibility.png)</center>
