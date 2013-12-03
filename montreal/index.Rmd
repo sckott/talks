@@ -1,0 +1,85 @@
+---
+title       : A data toolkit for open science
+date        : 2013-12-13
+author      : Scott Chamberlain
+framework   : io2012        # {io2012, html5slides, shower, dzslides, ...}
+highlighter : highlight.js  # {highlight.js, prettify, highlight}
+hitheme     : solarized_light     # 
+mode        : selfcontained # {standalone, draft}
+assets      :
+  css: "http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css"
+---
+
+<br><br>
+### License: CC-BY 3.0 - You are free to copy, share, adapt, or remix, photograph, film, or broadcast, blog, live-blog, or post video of this presentation, provided that you attribute the work to its author and respect the rights and licenses associated with its components.
+<br><br>
+### Icons: by <a href="http://fortawesome.github.io/Font-Awesome/">FontAwesome</a>
+
+---
+
+## Science needs to be more...
+
+<br><br>
+<div class="row"><center><img src="assets/img/unlock.png"></img><img src="assets/img/spinner.png"></img></center></div>
+
+---
+
+<br><br><br>
+<font size="14">
+	<center> <font color="green"> <i class="fa fa-unlock">&nbsp;Open:</i></font> to increase pace of science - most research publicly funded - etc.</center><br><br>
+	<center><font color="blue"><i class="fa fa-spinner">&nbsp;Reproducible:</i></font> for yourself!, and for others (if reproducible, more confidence in results)</center>
+</font>
+
+---
+
+## Or maybe you're really lazy (aka: you want science to be easier)
+
+<br><br>
+<center><img src="assets/img/lazyboy.jpg"></img></center>
+
+<a href="http://www.ebay.com/itm/M-M-Dispenser-LA-Z-BOY-RECLINER-CHAIR-with-Remote-Control-/400593996036?afsrc=1">link</a>
+
+---
+
+<br><br><br>
+<font size="14">
+	<center>What tools do we need to achieve this goal?</center>
+</font>
+
+---
+
+## Not these!
+
+<center>![r](assets/img/closedtools.png)</center>
+
+---
+
+## These!
+
+<center>![](assets/img/opentools.png)</center>
+
+---
+
+## Data is increasingly on the web
+
+<center>![](assets/img/data.png)</center>
+
+---
+
+## Connecting scientists to open data on the web
+<br>
+<center>![](assets/img/ropensci_main.png)</center>
+
+---
+
+<center>![](assets/img/ropensci_pkgs.png)</center>
+
+---
+
+<br><br><br>
+
+<font size="18"><center> rOpenSci on the web: <a href="http://ropensci.org/">http://ropensci.org/</a> </center></font>
+<br><br>
+<font size="18"><center> This talk on the interwebs: <a href="http://bit.ly/montrealtalk">http://bit.ly/montrealtalk</a> </center></font>
+<br><br>
+<font size="18"><center> <a href="http://software-carpentry.org/bootcamps/index.html#future">Montreal Software Carpentry 2 day Bootcamp</a> </center>
