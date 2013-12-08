@@ -17,9 +17,9 @@ Have a 30 min slot, SHOOTING FOR 25 minutes
 
 <br><br>
 <center>
-### Find this talk on the web here [http://bit.ly/sfualm](http://bit.ly/sfualm)
+### Find this talk on the web here [http://recology.info/talks/sfuoa](http://recology.info/talks/sfuoa)
 
-### Made with [Slidify](http://slidify.org/); the code [here](https://github.com/SChamberlain/posterstalks/blob/gh-pages/sfuoa/index.Rmd)
+### Made with [Slidify](http://slidify.org/); the code [here](https://github.com/sckott/talks/blob/gh-pages/sfuoa/index.Rmd)
 
 ### Press "o" to bring up all slides - <i class="icon-arrow-left"> &nbsp; </i><i class="icon-arrow-right"></i> to navigate
 

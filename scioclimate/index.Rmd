@@ -16,9 +16,9 @@ assets      :
 
 <br><br><br><br>
 <center>
-### Find this talk here [http://bit.ly/sciordata](http://bit.ly/sciordata)
+### Find this talk here [http://recology.info/talks/scioclimate](http://recology.info/talks/scioclimate)
 
-### Made with [Slidify](http://slidify.org/); the code here [http://bit.ly/sciordatacode](https://github.com/SChamberlain/posterstalks/blob/gh-pages/scioclimate/index.Rmd)
+### Made with [Slidify](http://slidify.org/); the code here [https://github.com/sckott/talks/blob/gh-pages/scioclimate/index.Rmd](https://github.com/sckott/talks/blob/gh-pages/scioclimate/index.Rmd)
 
 ### Press "o" to bring up all slides - <i class="icon-arrow-left"> &nbsp; </i><i class="icon-arrow-right"></i> to navigate
 </center>

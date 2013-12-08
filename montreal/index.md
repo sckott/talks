@@ -7,13 +7,18 @@ highlighter : highlight.js  # {highlight.js, prettify, highlight}
 hitheme     : solarized_light     # 
 mode        : selfcontained # {standalone, draft}
 assets      :
-  css: "http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css"
+  css: ["http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css", "http://netdna.bootstrapcdn.com/bootstrap/2.3.2/css/bootstrap.min.css"]
+---
+
+<br><br>
+<center><h2>Press "o" to bring up all slides <br>"w" to change aspect <br>"g" to go to page<h2></center>
+
 ---
 
 <br><br>
 ### License: CC-BY 3.0 - You are free to copy, share, adapt, or remix, photograph, film, or broadcast, blog, live-blog, or post video of this presentation, provided that you attribute the work to its author and respect the rights and licenses associated with its components.
 <br><br>
-### Icons: by <a href="http://fortawesome.github.io/Font-Awesome/">FontAwesome</a>
+### Icons: by <a href="http://fortawesome.github.io/Font-Awesome/">FontAwesome v4.0.3</a>
 
 ---
 
@@ -26,8 +31,14 @@ assets      :
 
 <br><br><br>
 <font size="14">
-	<center> <font color="green"> <i class="fa fa-unlock">&nbsp;Open:</i></font> to increase pace of science - most research publicly funded - etc.</center><br><br>
-	<center><font color="blue"><i class="fa fa-spinner">&nbsp;Reproducible:</i></font> for yourself!, and for others (if reproducible, more confidence in results)</center>
+	<center> <font color="green"> <i class="fa fa-unlock fa-3x">&nbsp;Open</i></font> <br><br>to increase pace of science <br>& most research publicly funded - etc.</center><br><br>
+</font>
+
+---
+
+<br><br><br>
+<font size="14">
+	<center><font color="blue"><i class="fa fa-spinner fa-3x">&nbsp;Reproducible</i></font> <br><br>for yourself!<br> for others (if reproducible, more confidence in results)</center>
 </font>
 
 ---
@@ -60,7 +71,26 @@ assets      :
 
 ---
 
-## Data is increasingly on the web
+## Yes, there's a learning curve, but...
+
+<center>![](assets/img/tasks.jpg)</center>
+
+<a href="http://www.globalnerdy.com/2012/04/24/geeks-and-repetitive-tasks/">link</a>
+
+---
+
+<h2> <font color="black">A perfect marriage</font> </h2>
+
+<br><br>
+<center> 
+	<font color="red" size="12"><i class="fa fa-spinner fa-5x">&nbsp;</i></font>
+	<font color="green" size="12"> <i class="fa fa-unlock fa-5x">&nbsp;</i></font> 
+	<font color="blue" size="12"><i class="fa fa-cloud fa-5x">&nbsp;</i></font> 
+</center>
+
+---
+
+## Data is increasingly on the web <i class="fa fa-cloud"></i>
 
 <center>![](assets/img/data.png)</center>
 
@@ -68,11 +98,24 @@ assets      :
 
 ## Connecting scientists to open data on the web
 <br>
-<center>![](assets/img/ropensci_main.png)</center>
+<center><img src="assets/img/ropensci_main.png"></center>
+<center><img src="assets/img/sloan.png"></center>
 
 ---
 
-<center>![](assets/img/ropensci_pkgs.png)</center>
+## rOpenSci packages
+
+<div class="row-fluid">
+  <div class="span3 offset1">
+	  <i class="fa fa-bar-chart-o fa-2x">Data</i>
+  </div>
+  <div class="span3 offset1">
+  	<i class="fa fa-book fa-2x">Literature</i>
+  </div>
+  <div class="span3 offset1">
+  	<i class="fa fa-bars fa-2x">Hybrid</i>
+  </div>
+</div>
 
 ---
 

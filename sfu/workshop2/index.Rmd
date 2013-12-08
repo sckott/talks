@@ -15,9 +15,9 @@ assets      :
 
 ## Where to find this presentation
 <br><br><br>
-### The presentation = https://bitly.com/sfuworkshop
+### The presentation = http://recology.info/talks/sfu/workshop2
 <br><br><br>
-### The code (written in R Markdown) = http://bit.ly/1bKVX2O
+### The code (written in R Markdown) = https://github.com/sckott/talks/blob/gh-pages/sfu/workshop2/index.Rmd
 
 ---
 

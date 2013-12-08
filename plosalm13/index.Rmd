@@ -21,9 +21,9 @@ SHOOTING FOR 15 MIN (15-20 IS GOOD, BUT DO NO MORE THAN 15 MIN.)
 
 <br>
 <center>
-### Find this talk here [http://bit.ly/roalm](http://bit.ly/roalm)
+### Find this talk here [http://bit.ly/roalm](http://recology.info/talks/plosalm13)
 
-### Made with [Slidify](http://slidify.org/); the code [here](https://github.com/SChamberlain/posterstalks/blob/gh-pages/plosalm13/index.Rmd)
+### Made with [Slidify](http://slidify.org/); the code [here](https://github.com/sckott/talks/blob/gh-pages/plosalm13/index.Rmd)
 
 ### Press "o" to bring up all slides - "w" to change aspect - "g" to go to page
 </center>

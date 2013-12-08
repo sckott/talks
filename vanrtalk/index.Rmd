@@ -45,4 +45,4 @@ assets      :
 <br><br>
 <font size="18"><center> <a href="https://twitter.com/ropensci">@ropensci</a> </center></font>
 <br><br>
-<font size="18"><center> <a href="http://bit.ly/vanrtalk">http://bit.ly/vanrtalk</a> </center></font>
+<font size="18"><center> <a href="http://recology.info/talks/vanrtalk">http://recology.info/talks/vanrtalk</a> </center></font>

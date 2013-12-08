@@ -119,4 +119,4 @@ assets      :
 <br><br>
 <font size="18"><center> <a href="http://ropensci.org/">http://ropensci.org/</a> </center></font>
 <br><br>
-<font size="18"><center> <a href="http://bit.ly/sfurtalk">http://bit.ly/sfurtalk</a> </center></font>
+<font size="18"><center> <a href="http://recology.info/talks/sfurtalk">http://recology.info/talks/sfurtalk</a> </center></font>
