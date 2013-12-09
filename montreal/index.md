@@ -108,12 +108,34 @@ assets      :
 <div class="row-fluid">
   <div class="span3 offset1">
 	  <i class="fa fa-bar-chart-o fa-2x">Data</i>
+	  <br>
+	  <ul>
+	  	<li>taxize</li>
+	  	<li>rgbif</li>
+		<li>rbison</li>
+		<li>treebase</li>
+		<li>fishbase</li>
+		<li>rWBclimate</li>
+	  </ul>
   </div>
   <div class="span3 offset1">
   	<i class="fa fa-book fa-2x">Literature</i>
+  	<br>
+	  <ul>
+	  	<li>rplos</li>
+	  	<li>rAltmetrics</li>
+		<li>RMendeley</li>
+		<li>alm</li>
+		<li>rmetadata</li>
+	  </ul>
   </div>
   <div class="span3 offset1">
   	<i class="fa fa-bars fa-2x">Hybrid</i>
+  	<br>
+	  <ul>
+	  	<li>rfigshare</li>
+	  	<li>rdataone</li>
+	  </ul>
   </div>
 </div>
 
