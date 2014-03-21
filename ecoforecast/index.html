@@ -1,0 +1,547 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+		
+		<title>rOpenSci - UBC Talk</title>
+		<meta name="description" content="UBC Talk">
+		<meta name="author" content="Scott Chamberlain">
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<link rel="stylesheet" href="css/reveal.min.css">
+		<link rel="stylesheet" href="css/theme/solarized.css" id="theme">
+
+		<!-- <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css"> -->
+		<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+
+		<!-- For syntax highlighting -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+		<!-- <link rel="stylesheet" href="lib/css/foundation.css"> -->
+		<!-- <link rel="stylesheet" href="lib/css/font-awesome.min.css"> -->
+
+		<!-- If the query includes 'print-pdf', use the PDF print sheet -->
+		<script>
+			document.write( '<link rel="stylesheet" href="css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+
+		<style type="text/css">
+			#rotate_text {
+				-webkit-transform: rotate(-90deg);
+				-moz-transform: rotate(-90deg);
+				transform: rotate(-90deg);
+				position: absolute;
+				vertical-align: middle;
+				filter:progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+			}
+		</style>
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+	<!-- Any section element inside of this container is displayed as a slide -->
+	<div class="slides">
+		<section>
+			<br>
+			  <h1>rOpenSci - open source tools for open science</h1>
+			  <p class="grey">Scott Chamberlain
+			  <p class="grey">@ropensci
+		</section>
+
+		<section>
+			<br><br>
+			<h2><center> This talk on the interwebs: <br><br><br><br> <a href="http://recology.info/ecoforecast/index.html">http://bit.ly/ecoforecast</a> </center></h2>
+		</section>	
+
+		<section>
+			<br>
+<h2><a href="http://creativecommons.org/licenses/by/4.0/legalcode">License: CC-BY 4.0</a> - You are free to copy, share, adapt, or remix, photograph, film, or broadcast, blog, live-blog, or post video of this presentation, provided that you attribute the work to its author and respect the rights and licenses associated with its components.</h2>
+		</section>
+
+		<section>
+			<center><h2>Science needs to be more...</h2></center>
+			  <br><br>
+			  <center><div class="row">
+			    <font color="green"><h2><i class="fa fa-unlock fa-5x"></i></font>&nbsp;&nbsp;&nbsp;&nbsp;<font color="red"><i class="fa fa-spinner fa-5x"></i></h2></font>
+			  </div></center>
+		</section>
+
+		<section>
+		    <font color="green"> <i class="fa fa-unlock fa-3x">&nbsp;Why Open?</i></font> 
+		    <br><br>
+		    <ul>
+	    	<br><br>
+	    	<h2 style="float:left;"> <i class="fa fa-code"></i> To increase the pace of science  </h2>
+			<h2 style="float:left;"> <i class="fa fa-code"></i> Most research publicly funded </h2>
+			</ul>
+		</section>
+
+		<section>
+			<center>
+				<font color="green"> <i class="fa fa-unlock fa-3x">&nbsp;Why Open?</i></font> 
+				<br><br>
+				<p class="grey">Sharing data increases citations</center>
+				<center><img src="img/piwowar.png" width="500"></center>
+			<a href="http://www.plosone.org/article/info%3Adoi%2F10.1371%2Fjournal.pone.0000308" style="float:left;">Piwowar et al.</a>
+		</section>
+
+		<section>
+			<center>
+		    <font color="red"><i class="fa fa-spinner fa-3x">&nbsp;Why Reproducible?</i> </font>
+		    <br><br>
+	    	<ul>
+	    	<br><br>
+	    	<h2 style="float:left;"> <i class="fa fa-code"></i> for yourself!</h2>
+			<h2 style="float:left;"> <i class="fa fa-code"></i> for others (if reproducible, more confidence in results) </h2>
+			</ul>
+			</center>
+		</section>
+
+		<section>
+			<center><font color="red"><i class="fa fa-spinner fa-3x">&nbsp;Why Reproducible?</i> </font>
+			<p class="grey">Sort of a moral obligation as a scientist, right?
+				<p class="grey">And to avoid this -> </center>
+
+			<table cellpadding="40" cellspacing="40">
+			<tr>
+			<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td> 
+				<td>    <center><p>Reinhart-Rogoff<img src="img/excel.png" width="500"></center> 
+				<a href="http://www.nytimes.com/2013/04/19/opinion/krugman-the-excel-depression.html?_r=0" style="float:left;">excel</a></td>
+			<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td> 
+				<td>    <center><p>Chronic fatigue syndrome-XMRV<img src="img/judy.jpg" width="300"></center> 
+				<a href="http://retractionwatch.com/2011/12/22/chronic-fatigue-syndrome-xmrv-paper-retracted-by-science-completely-this-time/" style="float:left;">cfs</a></td>
+			</tr>
+			</table>
+		</section>
+
+		<section>
+			<h1>Or maybe you just want science to be easier</h1>
+		</section>
+
+		<section>
+			<h1>What tools do we need? What's missing?</h1>
+		</section>
+
+		<section>
+			<h1>A reproducible workflow</h1>
+		</section>
+
+		<section>
+			<center><h2>Not these!</h2></center>
+			<center><img src="img/closedtools.png"></center>
+		</section>
+
+		<section>
+		  <center><h2>These!</h2></center>
+		  <center><img src="img/opentools.png"></center>
+		</section>
+
+		<section>
+		  <center><h2>There's a learning curve, but...</h2></center>
+		  <center><img src="img/tasks.jpg"></center>
+		  <a href="http://www.globalnerdy.com/2012/04/24/geeks-and-repetitive-tasks/" style="float:left;">link</a>
+		</section>
+
+				<section>
+		<center><h2> Workflows side by side</h2></center>
+			<table cellpadding="40" cellspacing="20">
+				<tr>
+	<td>&nbsp;&nbsp;</td> 
+		<td width="50%"> <p>Our workflow now
+		    <ul>
+		      <font size="6">
+			    <li>Browser</li>
+			    <li>Excel</li>
+			    <li>SAS</li>
+			    <li>SigmaPlot</li>
+			    <li>Word</li>
+			    <li>Endnote</li>
+			  </font>
+		    </ul> </td>
+    <td>&nbsp;&nbsp;</td> 
+
+	   <td width="50%">  <p>What it could be 
+			<ul>
+		    <li>R (or Python)</li>
+		    <li>+ a few open source things (<a href="http://daringfireball.net/projects/markdown/">Markdown</a>, or <a href="http://www.latex-project.org/">LaTeX</a> )</li></ul></td>
+	<td>&nbsp;&nbsp;</td> 
+		</tr>
+		<tr>
+<td>&nbsp;&nbsp;</td> 
+		    <td><p> <i class="fa fa-money"></i> Cost = $$$$$$$<br>
+		    	<p> <i class="fa fa-unlock"></i> Open? = Nope
+			    <p> <i class="fa fa-spinner"></i> Reproducible? = Nope</td>
+<td>&nbsp;&nbsp;</td> 
+		    <td><p> <i class="fa fa-money"></i> Cost = 0<br>
+		    	<p> <i class="fa fa-unlock"></i> Open? = Yes!
+			    <p> <i class="fa fa-spinner"></i> Reproducible? = Yep</td>
+		  
+		</tr>
+	</table>
+		</section>
+
+
+		<section>
+		  <center><h2>A perfect marriage</h2></center>
+		  <br><br>
+		  <center>
+		  	<font color="green" size="12"> <i class="fa fa-unlock fa-5x">&nbsp;</i></font>
+		    <font color="red" size="12"><i class="fa fa-spinner fa-5x">&nbsp;</i></font>
+		    <font color="blue" size="12" class="fragment"><i class="fa fa-cloud fa-5x">&nbsp;</i></font> 
+		  </center>
+		</section>
+
+		<section>
+		  <h2>Data is increasingly on the web <font color="blue"><i class="fa fa-cloud"></i></font></h2>
+		  <center><img src="img/data.png"></center>
+		</section>
+
+		<section>
+			<center><h2> <font color="red">Reproducibly</font> plug data from the web into your science</h2></center>
+			<p style="float:left;">API: Application Programming Interface - APIs are the highways connecting providers to users.
+			<br><br>
+			<center> <h2>Data <i class="fa fa-link fa-3x"></i>&nbsp;&nbsp; Science </h2> </center>
+		</section>
+
+		<section>
+		  <center><h2>Connecting scientists to open data on the web</h2></center>
+		  <br>
+		  <center><img src="img/ropensci_main.png"></center>
+		  <center><img src="img/sloan.png"></center>
+		</section>
+
+		<section>
+		  <br><br><br>
+		  <center>
+		    <font size="40">Data acquisition <i class="fa fa-plus"></i> data manipulation <i class="fa fa-plus"></i> data analysis <i class="fa fa-plus"></i> data visualization <i class="fa fa-bar-chart-o"></i> - combined with tools for writing <i class="fa fa-pencil"></i> in R, including <code>knitr</code> and <code>Markdown/LaTeX</code> - make an open science workflow <i class="fa fa-spinner"></i></font>
+		  </center>
+		</section>
+
+		<section>
+		  <br><br><br>
+		  <center>
+		    <font size="40"> <font color="blue"><strong>DATA ACQUISITION</strong></font> <i class="fa fa-plus"></i> data manipulation <i class="fa fa-plus"></i> data analysis <i class="fa fa-plus"></i> data visualization <i class="fa fa-bar-chart-o"></i> - combined with tools for writing <i class="fa fa-pencil"></i> in <code>R</code>, including <code>knitr</code> and <code>Markdown/LaTeX</code> - make an open science workflow <i class="fa fa-spinner"></i></font>
+		  </center>
+		</section>
+
+		<section>
+		  <h2>rOpenSci packages</h2>
+
+		  <h3>at <a href="http://ropensci.org/packages/">ropensci.org/packages</a> </h3>
+
+			<table cellpadding="40" cellspacing="40">
+				<tr>
+	<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td> 
+		<td>    <font color="red"><i class="fa fa-bar-chart-o">&nbsp;Data</i></font><br><br>
+		    <ul>
+		      <li> <a href="https://github.com/ropensci/taxize">taxize</a> </li>
+		      <li> <a href="https://github.com/ropensci/rgbif">rgbif</a> </li>
+		      <li> <a href="https://github.com/ropensci/rbison">rbison</a> </li>
+		      <li> <a href="https://github.com/ropensci/treebase">treebase</a> </li>
+		      <li> <a href="https://github.com/ropensci/rfishbase">rfishbase</a> </li>
+		      <li> <a href="https://github.com/ropensci/rWBclimate">rWBclimate</a> </li>
+		      <li> <a href="https://github.com/ropensci/reml">reml</a> </li>
+		      <li> <a href="https://github.com/ropensci/RNeXML">RNeXML</a> </li>
+		    </ul>
+		</td>
+		<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td> 
+		<td>
+		    <font color="blue"><i class="fa fa-book">&nbsp;Literature</font></i>
+		    <br><br>
+		    <ul>
+		      <li> <a href="https://github.com/ropensci/rplos">rplos</a> </li>
+		      <li> <a href="https://github.com/ropensci/alm">alm</a> </li>
+		      <li> <a href="https://github.com/ropensci/rAltmetric">rAltmetric</a> </li>
+		      <li> <a href="https://github.com/ropensci/RMendeley">RMendeley</a> </li>
+		      <li> <a href="https://github.com/ropensci/rmetadata">rmetadata</a> </li>
+		    </ul>
+</td>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td> 
+		<td>
+		    <font color="green"><i class="fa fa-bars">&nbsp;Hybrid</font></i>
+		    <br><br>
+		    <ul>
+		      <li> <a href="https://github.com/ropensci/rfigshare">rfighsare</a> </li>
+		      <li> <a href="https://github.com/ropensci/rdataone">rdataone</a> </li>
+		    </ul>
+		</td>
+			</table>
+		</section>
+
+		<section>
+			<h1>Hold up - Why would I want to get data programatically?</h1>
+		</section>
+
+		<section>
+			<h2 style="float:left;"> <i class="fa fa-code"></i> Science is just easier </h2>
+			<br><br><br>
+			<h2 style="float:left;"> <i class="fa fa-code"></i> You can reproduce your work </h2>
+			<br><br><br>
+			<h2 style="float:left;"> <i class="fa fa-code"></i> Others can reproduce your work </h2>
+		</section>
+
+		<section>
+			<section data-markdown>
+				## taxonomy!!!! - <font color="red">taxize</font>
+
+				```r
+				library(taxize)
+				itis_downstream(tsns=18030, downto="Genus")
+				```
+
+				```
+	     tsn parentname parenttsn   taxonname rankid rankname
+				1  18031   Pinaceae     18030       Abies    180    Genus
+				2  18033   Pinaceae     18030       Picea    180    Genus
+				3  18035   Pinaceae     18030       Pinus    180    Genus
+				4 183396   Pinaceae     18030       Tsuga    180    Genus
+				5 183405   Pinaceae     18030      Cedrus    180    Genus
+				6 183409   Pinaceae     18030       Larix    180    Genus
+				7 183418   Pinaceae     18030 Pseudotsuga    180    Genus
+				8 822529   Pinaceae     18030  Keteleeria    180    Genus
+				9 822530   Pinaceae     18030 Pseudolarix    180    Genus
+				```
+			</section>
+
+			<section data-markdown>
+				
+				```r
+				classification("Pinus contorta", db = "ncbi")
+				```
+
+				```
+				                 name         rank
+1  cellular organisms      no rank
+2           Eukaryota superkingdom
+3       Viridiplantae      kingdom
+4        Streptophyta       phylum
+5      Streptophytina      no rank
+6         Embryophyta      no rank
+7        Tracheophyta      no rank
+8       Euphyllophyta      no rank
+9       Spermatophyta      no rank
+10   Acrogymnospermae      no rank
+11            Pinidae     subclass
+12            Pinales        order
+13           Pinaceae       family
+14              Pinus        genus
+15              Pinus     subgenus
+16     Pinus contorta      species
+				```
+			</section>
+
+		</section>		
+
+		<section data-markdown>
+			## Mapping biodiversity data - <font color="red">rgbif</font>
+			
+			```r
+			library(rgbif)
+			key <- name_backbone(name='Danaus plexippus', kingdom='animals')$speciesKey
+			out <- occ_search(taxonKey=key, limit=300, return='data')
+			gbifmap(out)
+			```
+
+			![](code/figure/rgbif.png) 
+		</section>
+
+		<section data-markdown>
+			## Projected climate data - <font color="red">rWBclimate</font>
+
+			```r
+			library(rWBclimate)
+			country_dat <- get_historical_temp(c("USA", "MEX", "CAN", "BLZ"), "year")
+			ggplot(country_dat, aes(x = year, y = data, group = locator)) + 
+			  theme_bw(base_size=18) + 
+			  geom_point() + 
+			  geom_path() + 
+			  labs(y="Average annual temperature of Canada", x="Year") + 
+			  stat_smooth(se = F, colour = "black") + 
+			  facet_wrap(~locator, scale = "free")
+			``` 
+
+			![](code/figure/rWBclimate.png) 
+		</section>
+
+		<section>
+			<h2>Unified species occurrence data - <font color="red">spocc</font></h2>
+
+			<img src="img/spocc_outline.png">
+		</section>
+
+		<section data-markdown>
+			## Unified species occurrence data - <font color="red">spocc</font>
+
+			```r
+			library(spocc); library(rCharts)
+			spnames <- c('Accipiter striatus', 'Setophaga caerulescens', 
+				'Spinus tristis')
+			out <- occ(query=spnames, from=c('gbif','bison'), 
+				gbifopts=list(georeferenced=TRUE))
+			head(out$gbif$data)
+			```
+			
+			```
+			##                                name       key longitude latitude prov
+			## 1 Accipiter striatus Vieillot, 1808 773408845    -97.28   32.876 gbif
+			## 2 Accipiter striatus Vieillot, 1808 768992325    -76.10    4.724 gbif
+			## 3 Accipiter striatus Vieillot, 1808 773414146   -122.27   37.771 gbif
+			## 4 Accipiter striatus Vieillot, 1808 773440541    -98.00   32.800 gbif
+			## 5 Accipiter striatus Vieillot, 1808 773423188    -76.54   38.688 gbif
+			## 6 Accipiter striatus Vieillot, 1808 773432602   -122.78   38.613 gbif
+			```
+
+		</section>
+
+		<section>
+			<center><h2>Various plotting options</h2></center>
+			<table cellpadding="30" cellspacing="30">
+			<tr>
+				<td>&nbsp;&nbsp;</td> 
+		<!-- <td> <div id="rotate_text">rCharts</div></td> -->
+				<td>&nbsp;&nbsp;</td> 
+				<td> <img src="img/rcharts.png" width="350"> </td>
+			    <td>&nbsp;&nbsp;</td> 
+	 	<!-- <td> <div id="rotate_text">GitHub</div></td> -->
+			 	<td>&nbsp;&nbsp;</td>
+			    <td> <img src="img/mapgist.png" width="350"> </td>
+			    <td>&nbsp;&nbsp;</td> 
+		    </tr>
+		    <tr>
+		    	<td>&nbsp;&nbsp;</td> 
+		<!-- <td> <div id="rotate_text">CartoDB</div></td> -->
+				<td>&nbsp;&nbsp;</td> 
+			    <td><img src="img/cartodb.png" width="350"> </td>
+			    <td>&nbsp;&nbsp;</td> 
+	 	<!-- <td> <div id="rotate_text">Shiny</div></td> -->
+			 	<td>&nbsp;&nbsp;</td> 
+			    <td><img src="img/mapshiny.png" width="350"> </td>
+			</tr>
+			</table>
+		</section>
+			
+		<section>
+			<h2>Static maps: ggplot2 and ggmap</h2>
+			<br>
+			<img src="img/ggmap.png">
+		</section>
+
+		<section>
+			<h2>Interactive maps: leaflet.js</h2>
+			<br>
+			<iframe src="img/map.html" width="100%" height="400"></iframe>
+		</section>
+
+		<section>
+			<h2>Interactive maps: GitHub</h2>
+			<br>
+			<script src="https://gist.github.com/sckott/7935773.js"></script>
+		</section>
+
+		<section>
+			<h2>Coming soon...</h2>
+
+			<img src="img/rmaps.png"></img>
+		</section>
+
+		<section>
+			<br><br><br><br>
+			<h1>this is powerful</h1>
+		</section>
+
+		<section>
+			<br><br><br><br>
+			<h1>R <i class="fa fa-plus"></i> writing <i class="fa fa-pencil"></i></h1>
+		</section>
+
+		<section>
+			<h2>knitr <i class="fa fa-plus"></i> Markdown or LaTeX <br><i class="fa fa-arrow-right"></i> executable papers</h2>
+			<img src="img/knitr.png">
+			
+			<blockquote>Xie Y (2012). knitr: A general-purpose package for dynamic report generation in R.</blockquote>
+		</section>
+
+		<section>
+			<h2>An example</h2>
+			<p>Piwowar paper on GitHub at <a href="https://github.com/hpiwowar/citation11k">https://github.com/hpiwowar/citation11k</a>
+			<br>
+			<img src="img/piwowar_readme.png" width="800">
+		</section>
+
+		<section>
+			<h2>The final paper, compiled w/ knitr from text+code</h2>
+			<br>
+			<img src="img/piwowar_result.png" width="800">
+		</section>
+
+		<section>
+			<br><br><br>
+			  <center>
+			    <font size="40">Data acquisition <i class="fa fa-plus"></i> data manipulation <i class="fa fa-plus"></i> data analysis <i class="fa fa-plus"></i> data visualization <i class="fa fa-bar-chart-o"></i> - combined with tools for writing <i class="fa fa-pencil"></i> in R, including <code>knitr</code> and <code>Markdown/LaTeX</code> - make an open science workflow <i class="fa fa-spinner"></i></font>
+			  </center>
+		</section>
+
+		<section>
+			<br>
+		  <font size="18"><center> rOpenSci on the web: <a href="http://ropensci.org/">http://ropensci.org/</a> </center></font>
+		  <br><br>
+		  <font size="18"><center> This talk on the interwebs: <a href="http://ropensci.github.io/workshops-ubc-2014-02/00-introduction/intro_slides/index.html#/">http://bit.ly/ubcropensci</a> </center></font>
+		  <br><br>
+		  <font size="18"><center>Made w/ <a href="https://github.com/hakimel/reveal.js">reveal.js</a></center></font>
+		  <br>
+		  <font size="18"><center>Icons by: <a href="http://fortawesome.github.io/Font-Awesome/">FontAwesome v4.0.3</a></center></font>
+		</section>
+			</div> 
+
+	<!-- End slides -->
+
+
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.min.js"></script>
+
+		<script>
+		// Full list of configuration options available here:
+		// https://github.com/hakimel/reveal.js#configuration
+		Reveal.initialize({
+			controls: true,
+			progress: true,
+			history: true,
+			center: false,
+			slideNumber: true,
+			keyboard: true,
+			touch: true,
+
+			width: 1100,
+		    height: 700,
+
+			theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+			transition: Reveal.getQueryHash().transition || 'none', // default/cube/page/concave/zoom/linear/fade/none
+
+			// Parallax scrolling
+			// parallaxBackgroundImage: 'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg',
+			// parallaxBackgroundSize: '2100px 900px',
+
+			// Optional libraries used to extend on reveal.js
+			dependencies: [
+				{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+				{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+				{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+				{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+				{ src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+				{ src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+			]
+		});
+		</script>
+
+	</body>
+</html>
