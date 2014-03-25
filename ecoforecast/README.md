@@ -1,4 +1,4 @@
-# rOpenSci Montreal QCBS talk
+# rOpenSci Ecoforecast talk
 
 by Scott Chamberlain
 
@@ -7,8 +7,8 @@ A talk made with [reveal.js](https://github.com/hakimel/reveal.js)
 ## Reproduce this talk
 
 ```
-git clone https://github.com/ropensci/workshops-ubc-2014-02
-cd workshops-ubc-2014-02
+git clone git@github.com:sckott/talks.git
+cd talks/ecoforecast
 open index.html
 ```
 

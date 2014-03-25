@@ -318,7 +318,7 @@ body {
 .reveal pre {
 	display: block;
 	position: relative;
-	width: 90%;
+	width: 100%;
 	margin: 15px auto;
 
 	text-align: left;
@@ -338,6 +338,7 @@ body {
 	overflow: auto;
 	max-height: 400px;
 	word-wrap: normal;
+	font-size: 25px;
 }
 .reveal pre.stretch code {
 	height: 100%;
