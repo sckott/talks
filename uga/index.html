@@ -14,6 +14,8 @@
 		<link rel="stylesheet" href="css/reveal.min.css">
 		<link rel="stylesheet" href="css/theme/solarized.css" id="theme">
 
+		<link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro' rel='stylesheet' type='text/css'>
+
 		<!-- <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css"> -->
 		<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.css">
 		<link rel="stylesheet" href="lib/css/font-awesome-4.2.0/css/font-awesome.css">
@@ -41,6 +43,9 @@
 				vertical-align: middle;
 				filter:progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
 			}
+
+			ul.a {list-style-type: circle; margin: 0; padding: 0;}
+			ul.b {list-style-type: square; margin-left: 0; padding-left: 0;}
 		</style>
 	</head>
 
@@ -50,40 +55,42 @@
 
 	<!-- Any section element inside of this container is displayed as a slide -->
 	<div class="slides">
-		<section>
-			<br>
-				<h1>Cultivating open and reproducible science</h1>
-				<p class="grey">Scott Chamberlain
-				<p class="grey">@recology_
+		<section id="intro">
+				<img src="img/ropensci_main.png" alt="ropensci" />
+				<h2><font color="#B8172F">Cultivating open and reproducible science</font></h2><br>
+				<p class="grey">Scott Chamberlain (@recology_)
+				<p class="grey">recology.info/talks/uga<br><br>
+				<center>Supported by:</center>
+				<img src="img/sloan_logo2.png" alt="sloan" />
 		</section>
 
-		<section>
+		<section id="license">
 			<br>
 <h2>License: CC-BY 3.0 - You are free to copy, share, adapt, or remix, photograph, film, or broadcast, blog, live-blog, or post video of this presentation, provided that you attribute the work to its author and respect the rights and licenses associated with its components.</h2>
 		</section>
 
-		<section>
-			<center><img src="img/notes_for_nature.png" width="900"></center>
+		<section id="notes">
+			<center><img src="img/notes_for_nature.png" width="1100"></center>
 		</section>
 
-		<section>
-			<center><img src="img/sensors.png" width="900"></center>
+		<section id="sensors">
+			<center><img src="img/sensors.png" width="1100"></center>
 		</section>
 
-		<section>
-			<center><img src="img/esa_archives.png" width="900"></center>
+		<section id="messy_data">
+			<center><img src="img/esa_archives.png" width="1100"></center>
 		</section>
 
-		<section>
-			<center><img src="img/dryad_embargo_red.png" width="900"></center>
+		<section id="embargo">
+			<center><img src="img/dryad_embargo_red.png" width="1100"></center>
 		</section>
 
-		<section>
-			<font size="52"><h1 align="left">These data are hard to get</h1></font>
+		<section id="data_hard">
+			<h1 align="left">These data are hard to get</h1>
 			<h2><i class="fa fa-lock fa-5x" style="color:#b22d28"></i></h2>
 		</section>
 
-		<section>
+		<section id="weneed">
 			<center><h1 align="left">We need...</h2></center>
 				<br><br>
 				<center><div class="row">
@@ -92,28 +99,28 @@
 		</section>
 
 <!-- NSF data policy -->
-		<section>
+		<section id="nfs">
 		 	<font size="38"><blockquote>Instructions for preparation of the Biographical Sketch have been revised to rename the <strong>"Publications" section to "Products"</strong> and amend terminology and instructions accordingly. This change makes clear that products may include, but are not limited to, publications, <strong>data sets, software, patents, and copyrights.</strong></blockquote></font>
 			</br><small><a href="http://www.nsf.gov/pubs/2013/nsf13004/nsf13004.jsp?WT.mc_id=USNSF_109">Issuance of a new NSF Proposal & Award Policies and Procedures Guide (October 4th)</a></small>
 		</section>
 
 <!-- # plos data policy -->
-		<section>
+		<section id="plos">
 			<font size="38"><blockquote>the Data Policy states the <strong>‘minimal dataset’</strong> consists “of the <strong>dataset used to reach the conclusions</strong> drawn in the manuscript with related metadata and methods, and any additional data required to replicate the reported study findings in their entirety. This does not mean that authors must submit all data collected as part of the research, but that they must provide the <strong>data that are relevant to the specific analysis presented in the paper.</strong></blockquote></font>
 			</br><small><a href="http://www.nsf.gov/pubs/2013/nsf13004/nsf13004.jsp?WT.mc_id=USNSF_109">Issuance of a new NSF Proposal & Award Policies and Procedures Guide (October 4th)</a></small>
 		</section>
 
-		<section>
+		<section id="why_open1">
 				<font color="green"> <i class="fa fa-unlock fa-3x">&nbsp;Why Open?</i></font>
 				<br><br>
 				<ul>
-				<br><br>
-				<h2 style="float:left;"> <i class="fa fa-code"></i> To increase the pace of science	</h2>
-			<h2 style="float:left;"> <i class="fa fa-code"></i> Most research publicly funded </h2>
-			</ul>
+					<br><br>
+					<h2 style="float:left;"> <i class="fa fa-code"></i> To increase the pace of science	</h2>
+					<h2 style="float:left;"> <i class="fa fa-code"></i> Most research publicly funded </h2>
+				</ul>
 		</section>
 
-		<section>
+		<section id="why_open2">
 			<center>
 				<font color="green"> <i class="fa fa-unlock fa-3x">&nbsp;Why Open?</i></font>
 				<br><br>
@@ -122,7 +129,7 @@
 			<a href="http://www.plosone.org/article/info%3Adoi%2F10.1371%2Fjournal.pone.0000308" style="float:left;">Piwowar et al.</a>
 		</section>
 
-		<section>
+		<section id="why_reproducible1">
 			<center>
 				<font color="blue"><i class="fa fa-spinner fa-3x">&nbsp;Why Reproducible?</i> </font>
 				<br><br>
@@ -134,7 +141,7 @@
 			</center>
 		</section>
 
-		<section>
+		<section id="why_reproducible2">
 			<center><font color="blue"><i class="fa fa-spinner fa-3x">&nbsp;Why Reproducible?</i> </font>
 			<p class="grey">Sort of a moral obligation as a scientist, right?
 				<p class="grey">And to avoid this -> </center>
@@ -151,35 +158,35 @@
 			</table>
 		</section>
 
-		<section>
-			<font size="52"><h1>Or maybe you just want science to be easier</h1></font>
+		<section id="easier">
+			<font size="52"><h1 align="left">Or maybe you just want science to be easier</h1></font>
 		</section>
 
-		<section>
-			<font size="52"><h1>What tools do we need? What's missing?</h1></font>
+		<section id="whats_needed">
+			<font size="52"><h1 align="left">What tools do we need? What's missing?</h1></font>
 		</section>
 
-		<section>
-			<font size="52"><h1>A reproducible workflow</h1></font>
+		<section id="reproducible">
+			<font size="52"><h1 align="left">A reproducible workflow</h1></font>
 		</section>
 
-		<section>
+		<section id="not_these">
 			<center><h2>Not these!</h2></center>
 			<center><img src="img/closedtools.png"></center>
 		</section>
 
-		<section>
+		<section id="these">
 			<center><h2>These!</h2></center>
 			<center><img src="img/opentools.png"></center>
 		</section>
 
-		<section>
+		<section id="learning_curve">
 			<center><h2>There's a learning curve, but...</h2></center>
 			<center><img src="img/tasks.jpg"></center>
 			<a href="http://www.globalnerdy.com/2012/04/24/geeks-and-repetitive-tasks/" style="float:left;">link</a>
 		</section>
 
-				<section>
+		<section id="workflows">
 		<center><h2> Workflows side by side</h2></center>
 			<table cellpadding="40" cellspacing="20">
 				<tr>
@@ -218,7 +225,7 @@
 		</section>
 
 
-		<section>
+		<section id="perfect">
 			<center><h2>A perfect marriage</h2></center>
 			<br><br>
 			<center>
@@ -253,40 +260,40 @@
 			    <img src="img/core_team.png">
 			    </div><br>
 			    <h3>formed from ad-hoc conversation over Twitter. Now a <a href="http://ropensci.org/community/#community" title="rOpenSci Community" target="_blank">worldwide community of researchers</a>.</h3>
-	</section>
+		</section>
 
 		<section id="workflow">
 			<br><br><br>
 			<center>
-				<font size="40">Data acquisition <i class="fa fa-cloud-download"></i> &nbsp;&nbsp;&nbsp; <i class="fa fa-plus"></i> <br><br> data manipulation/analysis/viz <i class="fa fa-bar-chart"></i> &nbsp;&nbsp;&nbsp; <i class="fa fa-plus"></i> <br><br> writing <i class="fa fa-pencil"></i> &nbsp;&nbsp;&nbsp; <i class="fa fa-plus"></i> <br><br> publish <i class="fa fa-cloud-upload"></i></font>
+				<h2>Data acquisition <i class="fa fa-cloud-download"></i> &nbsp;&nbsp;&nbsp; <i class="fa fa-plus"></i> <br><br> data manipulation/analysis/viz <i class="fa fa-bar-chart"></i> &nbsp;&nbsp;&nbsp; <i class="fa fa-plus"></i> <br><br> writing <i class="fa fa-pencil"></i> &nbsp;&nbsp;&nbsp; <i class="fa fa-plus"></i> <br><br> publish <i class="fa fa-cloud-upload"></i></h2>
 			</center>
 		</section>
 
 		<section id="workflow_acquisition">
 			<br><br><br>
 			<center>
-				<font size="40"><font color="blue"><strong>Data acquisition</strong> <i class="fa fa-cloud-download"></i></font> &nbsp;&nbsp;&nbsp; <i class="fa fa-plus"></i> <br><br> data manipulation/analysis/viz <i class="fa fa-bar-chart"></i> &nbsp;&nbsp;&nbsp; <i class="fa fa-plus"></i> <br><br> writing <i class="fa fa-pencil"></i> &nbsp;&nbsp;&nbsp; <i class="fa fa-plus"></i> <br><br> publish <i class="fa fa-cloud-upload"></i></font>
+				<h2><font color="blue"><strong>Data acquisition</strong> <i class="fa fa-cloud-download"></i></font> &nbsp;&nbsp;&nbsp; <i class="fa fa-plus"></i> <br><br> data manipulation/analysis/viz <i class="fa fa-bar-chart"></i> &nbsp;&nbsp;&nbsp; <i class="fa fa-plus"></i> <br><br> writing <i class="fa fa-pencil"></i> &nbsp;&nbsp;&nbsp; <i class="fa fa-plus"></i> <br><br> publish <i class="fa fa-cloud-upload"></i></h2>
 			</center>
 		</section>
 
 		<section id="workflow_manip">
 			<br><br><br>
 			<center>
-				<font size="40">Data acquisition <i class="fa fa-cloud-download"></i> &nbsp;&nbsp;&nbsp; <i class="fa fa-plus"></i> <br><br> <font color="blue"><strong>data manipulation/analysis/viz</strong> <i class="fa fa-bar-chart"></i></font> &nbsp;&nbsp;&nbsp; <i class="fa fa-plus"></i> <br><br> writing <i class="fa fa-pencil"></i> &nbsp;&nbsp;&nbsp; <i class="fa fa-plus"></i> <br><br> publish <i class="fa fa-cloud-upload"></i></font>
+				<h2>Data acquisition <i class="fa fa-cloud-download"></i> &nbsp;&nbsp;&nbsp; <i class="fa fa-plus"></i> <br><br> <font color="blue"><strong>data manipulation/analysis/viz</strong> <i class="fa fa-bar-chart"></i></font> &nbsp;&nbsp;&nbsp; <i class="fa fa-plus"></i> <br><br> writing <i class="fa fa-pencil"></i> &nbsp;&nbsp;&nbsp; <i class="fa fa-plus"></i> <br><br> publish <i class="fa fa-cloud-upload"></i></h2>
 			</center>
 		</section>
 
 		<section id="workflow_writing">
 			<br><br><br>
 			<center>
-				<font size="40">Data acquisition <i class="fa fa-cloud-download"></i> &nbsp;&nbsp;&nbsp; <i class="fa fa-plus"></i> <br><br> data manipulation/analysis/viz <i class="fa fa-bar-chart"></i> &nbsp;&nbsp;&nbsp; <i class="fa fa-plus"></i> <br><br> <font color="blue"><strong>writing</strong> <i class="fa fa-pencil"></i></font> &nbsp;&nbsp;&nbsp; <i class="fa fa-plus"></i> <br><br> publish <i class="fa fa-cloud-upload"></i></font>
+				<h2>Data acquisition <i class="fa fa-cloud-download"></i> &nbsp;&nbsp;&nbsp; <i class="fa fa-plus"></i> <br><br> data manipulation/analysis/viz <i class="fa fa-bar-chart"></i> &nbsp;&nbsp;&nbsp; <i class="fa fa-plus"></i> <br><br> <font color="blue"><strong>writing</strong> <i class="fa fa-pencil"></i></font> &nbsp;&nbsp;&nbsp; <i class="fa fa-plus"></i> <br><br> publish <i class="fa fa-cloud-upload"></i></h2>
 			</center>
 		</section>
 
 		<section id="workflow_publish">
 			<br><br><br>
 			<center>
-				<font size="40">Data acquisition <i class="fa fa-cloud-download"></i> &nbsp;&nbsp;&nbsp; <i class="fa fa-plus"></i> <br><br> data manipulation/analysis/viz <i class="fa fa-bar-chart"></i> &nbsp;&nbsp;&nbsp; <i class="fa fa-plus"></i> <br><br> writing <i class="fa fa-pencil"></i> &nbsp;&nbsp;&nbsp; <i class="fa fa-plus"></i> <br><br> <font color="blue"><strong>publish</strong> <i class="fa fa-cloud-upload"></i></font></font>
+				<h2>Data acquisition <i class="fa fa-cloud-download"></i> &nbsp;&nbsp;&nbsp; <i class="fa fa-plus"></i> <br><br> data manipulation/analysis/viz <i class="fa fa-bar-chart"></i> &nbsp;&nbsp;&nbsp; <i class="fa fa-plus"></i> <br><br> writing <i class="fa fa-pencil"></i> &nbsp;&nbsp;&nbsp; <i class="fa fa-plus"></i> <br><br> <font color="blue"><strong>publish</strong> <i class="fa fa-cloud-upload"></i></font></h2>
 			</center>
 		</section>
 
@@ -360,7 +367,7 @@
 			<h1><font color="red"><i class="fa fa-table">&nbsp;Data</font></i></h1>
 		</section>
 
-		<section data-markdown>
+		<section data-markdown  id="rplos">
 			## Public Library of Science full text - <font color="red">rplos</font>
 
 			```r
@@ -371,7 +378,7 @@
 			![](code/figure/unnamed-chunk-1.png)
 		</section>
 
-		<section data-markdown>
+		<section data-markdown id="rgbif">
 			## Mapping biodiversity data - <font color="red">rgbif</font>
 
 			```r
@@ -384,7 +391,7 @@
 			![](code/figure/rgbif.png)
 		</section>
 
-		<section data-markdown>
+		<section data-markdown id="rwbclimate">
 			## Projected climate data - <font color="red">rWBclimate</font>
 
 			```r
@@ -402,13 +409,13 @@
 			![](code/figure/rWBclimate.png)
 		</section>
 
-		<section>
+		<section id="spocc1">
 			<h2>Unified species occurrence data - <font color="red">spocc</font></h2>
 
 			<img src="img/spocc_outline.png">
 		</section>
 
-		<section data-markdown>
+		<section data-markdown id="spocc2">
 			## Unified species occurrence data - <font color="red">spocc</font>
 
 			```r
@@ -432,7 +439,7 @@
 
 		</section>
 
-		<section>
+		<section id="spocc3">
 			<center><h2>Various plotting options</h2></center>
 			<table cellpadding="30" cellspacing="30">
 			<tr>
@@ -459,19 +466,19 @@
 			</table>
 		</section>
 
-		<section>
+		<section id="viz_github">
 			<h2>Visualize data interactively with GitHub</h2>
 			<br>
 			<script src="https://gist.github.com/sckott/7935773.js"></script>
 		</section>
 
-		<section>
+		<section id="viz_cartodb">
 			<h2>Visualize data interactively with CartoDB</h2>
 			<br>
 			<iframe width='100%' height='800' frameborder='0' src='http://recology.cartodb.com/viz/76a5598e-444b-11e3-8a8c-5404a6a69006/embed_map?title=false&description=false&search=false&shareable=false&cartodb_logo=true&layer_selector=false&legends=false&scrollwheel=true&sublayer_options=1&sql=&zoom=3&center_lat=37.61423141542417&center_lon=-100.72265625'></iframe>
 		</section>
 
-		<section>
+		<section id="powerful">
 			<br><br><br><br>
 			<font size="48"><h1>this is powerful</h1></font>
 		</section>
@@ -505,30 +512,30 @@
 			<h1><font color="green"><i class="fa fa-table">&nbsp;Publishing</font></i></h1>
 		</section>
 
-		<section>
+		<section id="r_publish">
 			<br><br><br><br>
 			<h1>R <i class="fa fa-plus"></i> data publishing <i class="fa fa-table"></i></h1>
 		</section>
 
-		<section>
+		<section id="eml1">
 			<br><br>
 			<blockquote>EML (Jones et al., 2001) is a comprehensive standard that
 			has been adopted by a sector of the larger international ecological research community.
 			</blockquote>
 		</section>
 
-		<section>
+		<section id="eml2">
 			<br><br>
 			<blockquote>EML provides a common structure for these resources, to better enable ecologists to document,
 			share, and interpret ecological data</blockquote>
 		</section>
 
-		<section>
+		<section id="eml3">
 			<br><br>
 			<h2>EML standard enables data integration at the machine level (with little or no human intervention).</h2>
 		</section>
 
-		<section data-markdown>
+		<section data-markdown id="eml_eg">
 			<script type="text/template">
 			## Valid EML
 
@@ -553,7 +560,7 @@
 			</script>
 		</section>
 
-		<section data-markdown>
+		<section data-markdown id="eml_writing">
 
 			<script type="text/template">
 			## Writing valid EML and uploading to a persistent repo is simple
@@ -575,49 +582,99 @@
 
 		<!-- ## writing	-->
 
-		<section>
+		<!-- <section id="r_writing">
 			<br><br><br><br>
 			<h1>R <i class="fa fa-plus"></i> writing <i class="fa fa-pencil"></i></h1>
 		</section>
 
-		<section>
+		<section id="knitr">
 			<h2>knitr <i class="fa fa-plus"></i> Markdown or LaTeX <br><i class="fa fa-arrow-right"></i> executable papers</h2>
 			<img src="img/knitr.png">
 
 			<blockquote>Xie Y (2012). knitr: A general-purpose package for dynamic report generation in R.</blockquote>
 		</section>
 
-		<section>
+		<section id="piwowar">
 			<h2>An example</h2>
 			<p>Piwowar paper on GitHub at <a href="https://github.com/hpiwowar/citation11k">https://github.com/hpiwowar/citation11k</a>
 			<br>
 			<img src="img/piwowar_readme.png" width="800">
 		</section>
 
-		<section>
+		<section id="final_paper">
 			<h2>The final paper, compiled w/ knitr from text+code</h2>
 			<br>
 			<img src="img/piwowar_result.png" width="800">
-		</section>
+		</section> -->
 
 		<section id="workflow3">
 			<br><br><br>
 			<center>
-				<font size="40">Data acquisition <i class="fa fa-cloud-download"></i> &nbsp;&nbsp;&nbsp; <i class="fa fa-plus"></i> <br><br> data manipulation/analysis/viz <i class="fa fa-bar-chart"></i> &nbsp;&nbsp;&nbsp; <i class="fa fa-plus"></i> <br><br> writing <i class="fa fa-pencil"></i> &nbsp;&nbsp;&nbsp; <i class="fa fa-plus"></i> <br><br> publish <i class="fa fa-cloud-upload"></i></font>
+				<h2>Data acquisition <i class="fa fa-cloud-download"></i> &nbsp;&nbsp;&nbsp; <i class="fa fa-plus"></i> <br><br> data manipulation/analysis/viz <i class="fa fa-bar-chart"></i> &nbsp;&nbsp;&nbsp; <i class="fa fa-plus"></i> <br><br> writing <i class="fa fa-pencil"></i> &nbsp;&nbsp;&nbsp; <i class="fa fa-plus"></i> <br><br> publish <i class="fa fa-cloud-upload"></i></h2>
 			</center>
+		</section>
+
+		<!-- Community section -->
+
+		<section id="community">
+			<font size="48"><h1>Community building</h1></font>
+		</section>
+
+		<section id="ropensci_community">
+			<h2>The rOpenSci Community</h2>
+			<img src="img/ropensci_community.png" alt="ropensci_community" width="1100"/>
+		</section>
+
+		<section id="community_size">
+			<h1>Community size</h1><br><br>
+			<ul class="b">
+				<li><h2 align="left">71 contributors</h2></li>
+				<li><h2 align="left">148 Github repositories</h2></li>
+			</ul>
+		</section>
+
+		<section id="domains">
+			<h1>Domains</h1><br><br>
+			<ul class="b">
+				<li><h2 align="left"> <strong>Ecology</strong> </h2><br><br></li>
+				<li><h2 align="left">History</h2></li>
+				<li><h2 align="left">Archeology</h2></li>
+				<li><h2 align="left">More...</h2></li>
+			</ul>
+		</section>
+
+		<section id="training">
+			<h1>Training</h1><br><br>
+			<i class="fa fa-user fa-4x"></i>
+			<br><br>
+			<i class="fa fa-arrow-circle-down fa-4x"></i>
+			<br><br>
+<font color="green"><i class="fa fa-user fa-2x"></i></font>&nbsp;<font color="green"><i class="fa fa-user fa-2x"></i></font>&nbsp;<font color="green"><i class="fa fa-user fa-2x"></i></font>&nbsp;<font color="green"><i class="fa fa-user fa-2x"></i></font>&nbsp;<font color="green"><i class="fa fa-user fa-2x"></i></font>&nbsp;<font color="green"><i class="fa fa-user fa-2x"></i></font>&nbsp;<font color="green"><i class="fa fa-user fa-2x"></i></font>&nbsp;<font color="green"><i class="fa fa-user fa-2x"></i></font>&nbsp;<font color="green"><i class="fa fa-user fa-2x"></i></font>&nbsp;<font color="green"><i class="fa fa-user fa-2x"></i></font>&nbsp;<font color="green"><i class="fa fa-user fa-2x"></i></font>&nbsp;<font color="green"><i class="fa fa-user fa-2x"></i></font>
+<br>
+<font color="green"><i class="fa fa-user fa-2x"></i></font>&nbsp;<font color="green"><i class="fa fa-user fa-2x"></i></font>&nbsp;<font color="green"><i class="fa fa-user fa-2x"></i></font>&nbsp;<font color="green"><i class="fa fa-user fa-2x"></i></font>&nbsp;<font color="green"><i class="fa fa-user fa-2x"></i></font>&nbsp;<font color="green"><i class="fa fa-user fa-2x"></i></font>&nbsp;<font color="green"><i class="fa fa-user fa-2x"></i></font>&nbsp;<font color="green"><i class="fa fa-user fa-2x"></i></font>&nbsp;<font color="green"><i class="fa fa-user fa-2x"></i></font>&nbsp;<font color="green"><i class="fa fa-user fa-2x"></i></font>
+<br>
+<font color="green"><i class="fa fa-user fa-2x"></i></font>&nbsp;<font color="green"><i class="fa fa-user fa-2x"></i></font>&nbsp;<font color="green"><i class="fa fa-user fa-2x"></i></font>&nbsp;<font color="green"><i class="fa fa-user fa-2x"></i></font>&nbsp;<font color="green"><i class="fa fa-user fa-2x"></i></font>&nbsp;<font color="green"><i class="fa fa-user fa-2x"></i></font>&nbsp;<font color="green"><i class="fa fa-user fa-2x"></i></font>
+		</section>
+
+		<section id="hackathons">
+			<h1>Hackathons</h1><br><br>
+			<img src="img/ropensci_hackathon.png" alt="hackathon" width="1100" />
+		</section>
+
+		<section id="ambassadors">
+			<h1 align="left">rOpenSci Ambassador Program</h1><br>
+			<h2>...</h2>
 		</section>
 
 		<section>
 			<br>
 			<font size="18"><center> rOpenSci on the web: <a href="http://ropensci.org/">http://ropensci.org/</a> </center></font>
 			<br><br>
-			<font size="18"><center> This talk on the interwebs: <a href="http://recology.info/talks/montreal">http://recology.info/talks/montreal</a> </center></font>
-			<br><br>
-			<font size="18"><center> <a href="http://gvwilson.github.io/2014-01-20-montreal/">Montreal Software Carpentry 2 day Bootcamp</a> </center>
-			<br>
+			<font size="18"><center> This talk on the interwebs: <a href="http://recology.info/talks/uga">http://recology.info/talks/uga</a> </center></font>
+			<br><br><br><br><br><br>
 			<font size="18"><center>Made w/ <a href="https://github.com/hakimel/reveal.js">reveal.js</a></center></font>
 			<br>
-			<font size="18"><center>Icons by: <a href="http://fortawesome.github.io/Font-Awesome/">FontAwesome v4.0.3</a></center></font>
+			<font size="18"><center>Icons by: <a href="http://fortawesome.github.io/Font-Awesome/">FontAwesome v4.2.0</a></center></font>
 		</section>
 			</div>
 
@@ -641,8 +698,8 @@
 			keyboard: true,
 			touch: true,
 
-			width: 1100,
-				height: 700,
+			width: 1300,
+			height: 900,
 
 			theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
 			transition: Reveal.getQueryHash().transition || 'none', // default/cube/page/concave/zoom/linear/fade/none

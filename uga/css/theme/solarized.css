@@ -1,10 +1,10 @@
-@import url(https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic);
+@import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:300);
 /**
  * Solarized Light theme for reveal.js.
  * Author: Achim Staebler
  */
 @font-face {
-  font-family: 'League Gothic';
+  font-family: 'Source Sans Pro';
   src: url("../../lib/font/league_gothic-webfont.eot");
   src: url("../../lib/font/league_gothic-webfont.eot?#iefix") format("embedded-opentype"), url("../../lib/font/league_gothic-webfont.woff") format("woff"), url("../../lib/font/league_gothic-webfont.ttf") format("truetype"), url("../../lib/font/league_gothic-webfont.svg#LeagueGothicRegular") format("svg");
   font-weight: normal;
@@ -25,7 +25,7 @@ body {
   background-color: #fdf6e3; }
 
 .reveal {
-  font-family: "Lato", sans-serif;
+  font-family: "Source Sans Pro", sans-serif;
   font-size: 36px;
   font-weight: normal;
   letter-spacing: -0.02em;
@@ -47,10 +47,9 @@ body {
 .reveal h6 {
   margin: 0 0 20px 0;
   color: #586e75;
-  font-family: "League Gothic", Impact, sans-serif;
+  font-family: "Source Sans Pro", Impact, sans-serif;
   line-height: 0.9em;
   letter-spacing: 0.02em;
-  text-transform: uppercase;
   text-shadow: none; }
 
 .reveal h1 {
