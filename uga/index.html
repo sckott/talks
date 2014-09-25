@@ -74,12 +74,12 @@
 		</section>
 
 		<section id="messy_data">
-			<center><img src="img/esa_archives.png" width="1100"></center>
+			<center><img src="img/esa_archives.png" width="1200"></center>
 		</section>
 
-		<section id="embargo">
+		<!-- <section id="embargo">
 			<center><img src="img/dryad_embargo_red.png" width="1100"></center>
-		</section>
+		</section> -->
 
 		<section id="data_hard">
 			<h1 align="left">These data are hard to get</h1>
@@ -98,8 +98,8 @@
 			<h1>Cultural barriers</h1>
 			<br><br>
 			<ul style="float:left;">
-				<h2>Lack of incentives <font color="orange">carrots</font></h2>
-				<h2>Lack of pressure <font color="red">sticks</font></h2>
+				<h2>Lack of incentives (<font color="orange">carrots</font>)</h2>
+				<h2>Lack of pressure (<font color="red">sticks</font>)</h2>
 				<h2>Getting scooped</h2>
 				<h2>Takes too much time!</h2>
 			</ul>
@@ -182,7 +182,12 @@
 		</section> -->
 
 		<section id="whats_needed">
-			<font size="52"><h1 align="left">What tools do we need? <br><br>What's missing?</h1></font>
+			<font size="52"><h1 align="left">What's needed?</h1></font>
+		</section>
+
+		<section id="toolset">
+			<br>
+			<img src="img/tools.png" alt="toolset" width="1200" />
 		</section>
 
 		<section id="reproducible_workflow">
@@ -258,12 +263,16 @@
 			<img src="img/data.png" width="1000">
 		</section>
 
-		<section id="apis">
-			<h2> <font color="red">Reproducibly</font> plug data from the web into your science</h2>
+		<section id="apis1">
 			<br><br>
-			<p style="float:left;">API: Application Programming Interface - APIs are the highways connecting providers to users.
+			<h2>API: Application Programming Interface</h2>
 			<br><br><br><br>
 			<h2><i class="fa fa-link fa-3x"></i>&nbsp;&nbsp;</h2>
+		</section>
+
+		<section id="apis2">
+			<br><br>
+			<h2> <font color="red">Reproducibly</font> plug data from the web into your science</h2>
 		</section>
 
 		<section id="ropensci">
@@ -276,9 +285,10 @@
 		<section id="ropensci_team">
 			<h2>How rOpenSci got started</h2>
 			    <div>
-			    <img src="img/core_team.png">
-			    </div><br>
-			    <h3>formed from ad-hoc conversation over Twitter. Now a <a href="http://ropensci.org/community/#community" title="rOpenSci Community" target="_blank">worldwide community of researchers</a>.</h3>
+			    <!-- <img src="img/core_team.png"> -->
+			    </div>
+					<br><br><br>
+			    <h3>formed from ad-hoc conversation over Twitter. Now a worldwide community of researchers <br><br> <a href="http://ropensci.org/community/#community" title="rOpenSci Community" target="_blank">http://ropensci.org/community</a>.</h3>
 		</section>
 
 		<section id="workflow">
@@ -411,25 +421,24 @@
 			## Projected climate data - <font color="red">rWBclimate</font>
 
 			```r
-			library('rWBclimate')
-			library('ggplot2')
+			library('rWBclimate'); library('ggplot2')
 			country_dat <- get_historical_temp(c("USA", "MEX", "CAN", "BLZ"), "year")
 			ggplot(country_dat, aes(x = year, y = data, group = locator)) +
 				theme_bw(base_size=18) +
 				geom_point() +
 				geom_path() +
-				labs(y="Average annual temperature of Canada", x="Year") +
+				labs(y="Average annual temperature", x="Year") +
 				stat_smooth(se = F, colour = "black") +
 				facet_wrap(~locator, scale = "free")
 			```
 
-			<img src="code/figure/rwbclimate2.png" alt="rwbclimate" width="1100" />
+			<img src="code/figure/rwbclimate2.png" alt="rwbclimate" width="1000" />
 			</script>
 		</section>
 
 		<section data-markdown id="rentrez_data">
 			<script type="text/template">
-			## Get FASTA format sequence data
+			## Get FASTA format sequence data - <font color="red">rentrez</font>
 
 			```r
 			library(rentrez)
@@ -437,6 +446,7 @@
 			seq <- entrez_fetch(db="nuccore", id=res$ids[1], rettype="fasta")
 			cat(seq)
 			```
+<br><br>
 
 			```
 			>gi|685146762|emb|HG932315.1| Lymnaea stagnalis mitochondrial partial COI gene for cytochrome oxidase subunit 1, specimen voucher SNSD Moll S955
@@ -461,6 +471,7 @@
 		</section>
 
 		<section data-markdown id="spocc2_1">
+			<script type="text/template">
 			## Unified species occurrence data - <font color="red">spocc</font>
 
 			```r
@@ -468,7 +479,7 @@
 			spnames <- c('Accipiter striatus', 'Setophaga caerulescens', 'Spinus tristis')
 			(out <- occ(query=spnames, from=c('gbif','ebird')))
 			```
-
+<br><br>
 			```
 			Summary of results - occurrences found for:
 			 gbif  : 75 records across 3 species
@@ -478,16 +489,17 @@
 			 ecoengine :  0 records across 3 species
 			 antweb :  0 records across 3 species
 			```
-
+		</script>
 		</section>
 
 		<section data-markdown id="spocc2_2">
+			<script type="text/template">
 			## Unified species occurrence data - <font color="red">spocc</font>
 
 			```r
 			out$gbif
 			```
-
+<br><br>
 			```
 			Species [Accipiter striatus (25), Setophaga caerulescens (25), Spinus tristis (25)]
 			First 10 rows of [Accipiter_striatus]
@@ -505,6 +517,7 @@
 			10 Accipiter striatus  -99.09873 26.49104 gbif 891049443 cdround,cudc,gass84
 			..                ...        ...      ...  ...       ...                 ...
 			```
+			</script>
 		</section>
 
 		<section id="spocc3">
@@ -548,7 +561,7 @@
 
 		<section id="powerful">
 			<br><br><br><br>
-			<font size="48"><h1>this is pretty cool <i class="fa fa-smile-o"></i></h1></font>
+			<font size="48"><h1>this is kinda cool <i class="fa fa-smile-o"></i></h1></font>
 		</section>
 
 		<!-- ## literature section -->
@@ -564,16 +577,17 @@
 
 			```r
 			library(rplos)
-			plot_throughtime(list("reproducible science"), 500)
+			plot_throughtime(list("reproducible science"), 500) +
+				theme_grey(base_size = 20)
 			```
 
-			<img src="code/figure/rplos_fig.png" alt="rplos_fig" width="700" />
+			<img src="code/figure/rplos_fig.png" alt="rplos_fig" width="1100" />
 			</script>
 		</section>
 
 		<section data-markdown id="rentrez_lit">
 			<script type="text/template">
-			## Search for articles with keyword _bioinformatics_
+			## Search for articles with keyword _bioinformatics_ - <font color="red">rentrez</font>
 
 			```r
 			library('rentrez')
@@ -581,7 +595,7 @@
 			out <- entrez_summary(db = "pmc", id=res$ids)
 			unlist(sapply(out, "[[", "DOI"))
 			```
-
+<br><br>
 			```
 			[1] "10.1186/1471-2164-15-772"            "10.1186/1471-2164-15-770"            "10.1186/0717-6287-47-39"
 			[4] "10.1186/s12916-014-0166-6"           "10.1186/s40478-014-0093-y"           "10.1158/1541-7786.MCR-11-0421"
@@ -596,7 +610,7 @@
 
 		<section data-markdown id="fulltext_1">
 			<script type="text/template">
-			## fulltext package - for text mining
+			## <font color="red">fulltext</font> - text mining
 
 			```r
 			library('fulltext')
@@ -609,7 +623,7 @@
 			Returned:
 			  [PLoS: 0; BMC: 0; Crossref: 10; Entrez: 10]
 			```
-
+<br>
 			```r
 			print(res$entrez, n = 3)
 
@@ -628,7 +642,7 @@
 
 		<section data-markdown id="fulltext_2">
 			<script type="text/template">
-			## fulltext package - for text mining
+			## <font color="red">fulltext</font> - text mining
 
 			```r
 			library('fulltext')
@@ -640,7 +654,7 @@
 			text <- xmlParse(out$plos$data[[1]])
 			xpathSApply(text, "//permissions")
 			```
-
+<br>
 			```
 			[[1]]
 			<permissions>
@@ -717,6 +731,8 @@
 			share, and interpret ecological data</blockquote>
 			<br><br>
 			<blockquote>EML standard enables data integration at the machine level (with little or no human intervention).</blockquote>
+<br>
+			<a href="https://knb.ecoinformatics.org/#external//emlparser/docs/index.html">Read more about EML</a>
 		</section>
 
 		<section data-markdown id="eml_eg">
@@ -740,6 +756,7 @@
 		</individualName>
 		<electronicMailAddress>karthik.ram@gmail.com</electronicMailAddress>
 	</creator>
+	...
 ```
 			</script>
 		</section>
@@ -753,34 +770,6 @@
 				<li><h2>More...</h2></li>
 			</ul>
 		</section>
-
-
-		<!-- ## writing	-->
-
-		<!-- <section id="r_writing">
-			<br><br><br><br>
-			<h1>R <i class="fa fa-plus"></i> writing <i class="fa fa-pencil"></i></h1>
-		</section>
-
-		<section id="knitr">
-			<h2>knitr <i class="fa fa-plus"></i> Markdown or LaTeX <br><i class="fa fa-arrow-right"></i> executable papers</h2>
-			<img src="img/knitr.png">
-
-			<blockquote>Xie Y (2012). knitr: A general-purpose package for dynamic report generation in R.</blockquote>
-		</section>
-
-		<section id="piwowar">
-			<h2>An example</h2>
-			<p>Piwowar paper on GitHub at <a href="https://github.com/hpiwowar/citation11k">https://github.com/hpiwowar/citation11k</a>
-			<br>
-			<img src="img/piwowar_readme.png" width="800">
-		</section>
-
-		<section id="final_paper">
-			<h2>The final paper, compiled w/ knitr from text+code</h2>
-			<br>
-			<img src="img/piwowar_result.png" width="800">
-		</section> -->
 
 		<section id="workflow3">
 			<br><br><br>
@@ -804,6 +793,7 @@
 		<section id="ropensci_community">
 			<h2>The rOpenSci Community</h2>
 			<img src="img/ropensci_community.png" alt="ropensci_community" width="1100"/>
+			<a href="http://ropensci.org/community/#community">http://ropensci.org/community</a>
 		</section>
 
 		<section id="community_size">
@@ -811,7 +801,7 @@
 			<ul class="b">
 				<li><h2 align="left">71 contributors</h2></li>
 				<li><h2 align="left">148 Github repositories</h2></li>
-				<li><h2 align="left">9,042 commits over ~3 years</h2></li>
+				<li><h2 align="left">> 9,000 commits over ~3 years</h2></li>
 				<li><h2 align="left">a few pkgs with ~900 commits</h2></li>
 				<li><h2 align="left">~66 R packages</h2></li>
 			</ul>
@@ -833,21 +823,23 @@
 			<br><br>
 			<i class="fa fa-arrow-circle-down fa-4x"></i>
 			<br><br>
-<font color="green"><i class="fa fa-user fa-2x"></i></font>&nbsp;<font color="green"><i class="fa fa-user fa-2x"></i></font>&nbsp;<font color="green"><i class="fa fa-user fa-2x"></i></font>&nbsp;<font color="green"><i class="fa fa-user fa-2x"></i></font>&nbsp;<font color="green"><i class="fa fa-user fa-2x"></i></font>&nbsp;<font color="green"><i class="fa fa-user fa-2x"></i></font>&nbsp;<font color="green"><i class="fa fa-user fa-2x"></i></font>&nbsp;<font color="green"><i class="fa fa-user fa-2x"></i></font>&nbsp;<font color="green"><i class="fa fa-user fa-2x"></i></font>&nbsp;<font color="green"><i class="fa fa-user fa-2x"></i></font>&nbsp;<font color="green"><i class="fa fa-user fa-2x"></i></font>&nbsp;<font color="green"><i class="fa fa-user fa-2x"></i></font>
+			<i class="fa fa-graduation-cap fa-4x"></i>
+<!-- <font color="green"><i class="fa fa-user fa-2x"></i></font>&nbsp;<font color="green"><i class="fa fa-user fa-2x"></i></font>&nbsp;<font color="green"><i class="fa fa-user fa-2x"></i></font>&nbsp;<font color="green"><i class="fa fa-user fa-2x"></i></font>&nbsp;<font color="green"><i class="fa fa-user fa-2x"></i></font>&nbsp;<font color="green"><i class="fa fa-user fa-2x"></i></font>&nbsp;<font color="green"><i class="fa fa-user fa-2x"></i></font>&nbsp;<font color="green"><i class="fa fa-user fa-2x"></i></font>&nbsp;<font color="green"><i class="fa fa-user fa-2x"></i></font>&nbsp;<font color="green"><i class="fa fa-user fa-2x"></i></font>&nbsp;<font color="green"><i class="fa fa-user fa-2x"></i></font>&nbsp;<font color="green"><i class="fa fa-user fa-2x"></i></font>
 <br>
 <font color="green"><i class="fa fa-user fa-2x"></i></font>&nbsp;<font color="green"><i class="fa fa-user fa-2x"></i></font>&nbsp;<font color="green"><i class="fa fa-user fa-2x"></i></font>&nbsp;<font color="green"><i class="fa fa-user fa-2x"></i></font>&nbsp;<font color="green"><i class="fa fa-user fa-2x"></i></font>&nbsp;<font color="green"><i class="fa fa-user fa-2x"></i></font>&nbsp;<font color="green"><i class="fa fa-user fa-2x"></i></font>&nbsp;<font color="green"><i class="fa fa-user fa-2x"></i></font>&nbsp;<font color="green"><i class="fa fa-user fa-2x"></i></font>&nbsp;<font color="green"><i class="fa fa-user fa-2x"></i></font>
 <br>
-<font color="green"><i class="fa fa-user fa-2x"></i></font>&nbsp;<font color="green"><i class="fa fa-user fa-2x"></i></font>&nbsp;<font color="green"><i class="fa fa-user fa-2x"></i></font>&nbsp;<font color="green"><i class="fa fa-user fa-2x"></i></font>&nbsp;<font color="green"><i class="fa fa-user fa-2x"></i></font>&nbsp;<font color="green"><i class="fa fa-user fa-2x"></i></font>&nbsp;<font color="green"><i class="fa fa-user fa-2x"></i></font>
+<font color="green"><i class="fa fa-user fa-2x"></i></font>&nbsp;<font color="green"><i class="fa fa-user fa-2x"></i></font>&nbsp;<font color="green"><i class="fa fa-user fa-2x"></i></font>&nbsp;<font color="green"><i class="fa fa-user fa-2x"></i></font>&nbsp;<font color="green"><i class="fa fa-user fa-2x"></i></font>&nbsp;<font color="green"><i class="fa fa-user fa-2x"></i></font>&nbsp;<font color="green"><i class="fa fa-user fa-2x"></i></font> -->
 		</section>
 
-		<section id="hackathons">
+		<!-- <section id="hackathons">
 			<h1>Hackathons</h1><br><br>
 			<img src="img/ropensci_hackathon.png" alt="hackathon" width="1100" />
-		</section>
+		</section> -->
 
 		<section id="ambassadors">
 			<h1 align="left">rOpenSci Ambassador Program</h1><br><br>
-			<i class="fa fa-bullhorn fa-5x"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-code fa-5x"></i>
+			<h3><i class="fa fa-bullhorn fa-3x">Give talks</i></h3><br>
+			<h3><i class="fa fa-code fa-3x">Code demos</i></h3>
 		</section>
 
 		<section id="quality">
@@ -862,6 +854,14 @@
 			</ul>
 		</section>
 
+		<section id="in_closing">
+			<h1>In closing...</h1>
+			<br>
+			<h2>It's about making science better</h2>
+			<br>
+			<h2>rOpenSci is one vehicle with which to help</h2>
+		</section>
+
 		<section id="license">
 			<br>
 <h2>License: <strong>CC-BY 3.0</strong> - You are free to copy, share, adapt, or remix, photograph, film, or broadcast, blog, live-blog, or post video of this presentation, provided that you attribute the work to its author and respect the rights and licenses associated with its components.</h2>
@@ -871,7 +871,7 @@
 			<br>
 			<h3>rOpenSci on the web: <a href="http://ropensci.org/">http://ropensci.org/</a> </h3>
 			<br><br>
-			<h3> This talk on the interwebs: <a href="http://recology.info/talks/uga">http://recology.info/talks/uga</a> </h3>
+			<h3> This talk on the web: <a href="http://recology.info/talks/uga">http://recology.info/talks/uga</a> </h3>
 			<br><br><br><br><br><br>
 			<h3>Made w/ <a href="https://github.com/hakimel/reveal.js">reveal.js</a></h3>
 			<br>
