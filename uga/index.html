@@ -13,6 +13,7 @@
 
 		<link rel="stylesheet" href="css/reveal.min.css">
 		<link rel="stylesheet" href="css/theme/solarized.css" id="theme">
+		<link rel="stylesheet" href="css/style.css">
 
 		<link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro' rel='stylesheet' type='text/css'>
 
@@ -73,6 +74,10 @@
 			<center><img src="img/sensors.png" width="1100"></center>
 		</section>
 
+		<section id="manual_data">
+			<center><img src="img/ropensci_data.png" width="1100"></center>
+		</section>
+
 		<section id="messy_data">
 			<center><img src="img/esa_archives.png" width="1200"></center>
 		</section>
@@ -100,8 +105,8 @@
 			<ul style="float:left;">
 				<h2>Lack of incentives (<font color="orange">carrots</font>)</h2>
 				<h2>Lack of pressure (<font color="red">sticks</font>)</h2>
-				<h2>Getting scooped</h2>
-				<h2>Takes too much time!</h2>
+				<h2>Getting scooped (<i class="fa fa-spoon"></i>)</h2>
+				<h2>Takes too much time! (<i class="fa fa-clock-o"></i>)</h2>
 			</ul>
 		</section>
 
@@ -285,11 +290,15 @@
 		<section id="ropensci_team">
 			<h2>How rOpenSci got started</h2>
 			    <div>
-			    <!-- <img src="img/core_team.png"> -->
+			    <img src="img/core_team.png">
 			    </div>
 					<br><br><br>
 			    <h3>formed from ad-hoc conversation over Twitter. Now a worldwide community of researchers <br><br> <a href="http://ropensci.org/community/#community" title="rOpenSci Community" target="_blank">http://ropensci.org/community</a>.</h3>
 		</section>
+
+		<!-- <section id="ropensci_does">
+
+		</section> -->
 
 		<section id="workflow">
 			<br><br><br>
@@ -329,59 +338,69 @@
 		<section id="packages">
 			<h2>rOpenSci packages</h2>
 
-			<h3>at <a href="http://ropensci.org/packages/">ropensci.org/packages</a> </h3>
+			<h3><a href="http://ropensci.org/packages/">ropensci.org/packages</a> </h3>
 
-			<table cellpadding="40" cellspacing="40">
+			<table cellpadding="20" cellspacing="20">
 				<tr>
-	<td>&nbsp;&nbsp;</td>
-		<td>		<font color="red"><i class="fa fa-table">&nbsp;Data</i></font><br><br>
+	<!-- <td>&nbsp;</td> -->
+		<td>	<h3> <font color="red"> <i class="fa fa-table">&nbsp;Data</i> </font> </h3>
+			<br>
 				<ul>
-					<li> <a href="https://github.com/ropensci/taxize">taxize</a> </li>
-					<li> <a href="https://github.com/ropensci/rgbif">rgbif</a> </li>
-					<li> <a href="https://github.com/ropensci/rbison">rbison</a> </li>
-					<li> <a href="https://github.com/ropensci/treebase">treebase</a> </li>
-					<li> <a href="https://github.com/ropensci/rfishbase">rfishbase</a> </li>
-					<li> <a href="https://github.com/ropensci/rWBclimate">rWBclimate</a> </li>
-					<li> <a href="https://github.com/ropensci/reml">reml</a> </li>
-					<li> <a href="https://github.com/ropensci/RNeXML">RNeXML</a> </li>
+					<li> <h3><a href="https://github.com/ropensci/taxize">taxize</a></h3> </li>
+					<li> <h3><a href="https://github.com/ropensci/rgbif">rgbif</a></h3> </li>
+					<li> <h3><a href="https://github.com/ropensci/rbison">rbison</a></h3> </li>
+					<li> <h3><a href="https://github.com/ropensci/treebase">treebase</a></h3> </li>
+					<li> <h3><a href="https://github.com/ropensci/rfishbase">rfishbase</a></h3> </li>
+					<li> <h3><a href="https://github.com/ropensci/rWBclimate">rWBclimate</a></h3> </li>
+					<li> <h3><a href="https://github.com/ropensci/EML">EML</a></h3> </li>
+					<li> <h3><a href="https://github.com/ropensci/RNeXML">RNeXML</a></h3> </li>
 				</ul>
 		</td>
-		<td>&nbsp;&nbsp;</td>
+		<td>&nbsp;</td>
 		<td>
-				<font color="blue"><i class="fa fa-book">&nbsp;Literature</font></i>
-				<br><br>
+				<h3> <font color="blue"><i class="fa fa-book">&nbsp;Literature</font></i> </h3>
+				<br>
 				<ul>
-					<li> <a href="https://github.com/ropensci/rplos">rplos</a> </li>
-					<li> <a href="https://github.com/ropensci/RMendeley">RMendeley</a> </li>
-					<li> <a href="https://github.com/ropensci/rmetadata">rmetadata</a> </li>
-					<li> <a href="https://github.com/ropensci/rentrez">rentrez</a> </li>
-					<li> <a href="https://github.com/ropensci/fulltext">fulltext</a> </li>
-					<li> <a href="https://github.com/ropensci/bmc">bmc</a> </li>
-					<li> <a href="https://github.com/ropensci/elife">eLife</a> </li>
-					<li> <a href="https://github.com/ropensci/rcrossref">rcrossref</a> </li>
+					<li> <h3><a href="https://github.com/ropensci/rplos">rplos</a></h3> </li>
+					<li> <h3><a href="https://github.com/ropensci/RMendeley">RMendeley</a></h3> </li>
+					<li> <h3><a href="https://github.com/ropensci/rmetadata">rmetadata</a></h3> </li>
+					<li> <h3><a href="https://github.com/ropensci/rentrez">rentrez</a></h3> </li>
+					<li> <h3><a href="https://github.com/ropensci/fulltext">fulltext</a></h3> </li>
+					<li> <h3><a href="https://github.com/ropensci/bmc">bmc</a></h3> </li>
+					<li> <h3><a href="https://github.com/ropensci/elife">eLife</a></h3> </li>
+					<li> <h3><a href="https://github.com/ropensci/rcrossref">rcrossref</a></h3> </li>
 				</ul>
 </td>
-<td>&nbsp;&nbsp;</td>
+<td>&nbsp;</td>
 			<td>
-					<font color="black"><i class="fa fa-bar-chart-o">&nbsp;Altmetrics</font></i>
-					<br><br>
+			 <h3> <font color="black"><i class="fa fa-bar-chart-o">&nbsp;Altmetrics</font></i> </h3>
+					<br>
 					<ul>
-						<li> <a href="https://github.com/ropensci/alm">alm</a> </li>
-						<li> <a href="https://github.com/ropensci/rAltmetric">rAltmetric</a> </li>
+						<li> <h3><a href="https://github.com/ropensci/alm">alm</a></h3> </li>
+						<li> <h3><a href="https://github.com/ropensci/rAltmetric">rAltmetric</a></h3> </li>
 					</ul>
 			</td>
-		<td>&nbsp;&nbsp;</td>
+		<td>&nbsp;</td>
 			<td>
-					<font color="green"><i class="fa fa-bars">&nbsp;Publishing</font></i>
-					<br><br>
+					<h3><font color="green"><i class="fa fa-bars">&nbsp;Publishing</font></i></h3>
+					<br>
 					<ul>
-						<li> <a href="https://github.com/ropensci/rfigshare">rfighsare</a> </li>
-						<li> <a href="https://github.com/ropensci/EML">EML</a> </li>
-						<li> <a href="https://github.com/ropensci/zenodo">zenodo</a> </li>
-						<li> <a href="https://github.com/ropensci/dvn">dvn</a> </li>
+						<li> <h3><a href="https://github.com/ropensci/rfigshare">rfighsare</a></h3> </li>
+						<li> <h3><a href="https://github.com/ropensci/EML">EML</a></h3> </li>
+						<li> <h3><a href="https://github.com/ropensci/zenodo">zenodo</a></h3> </li>
+						<li> <h3><a href="https://github.com/ropensci/dvn">dvn</a></h3> </li>
 					</ul>
 			</td>
 			</table>
+		</section>
+
+		<section id="demos">
+			<h1>Code demos</h1>
+			<br><br>
+			<ul>
+				<h2>The diversity of projects</h2>
+				<h2>How easy it is</h2>
+			</ul>
 		</section>
 
 		<!-- <section>
@@ -436,6 +455,12 @@
 			</script>
 		</section>
 
+		<section id="rentrez_david">
+			<h1> rentrez - an R client for ENTREZ </h1>
+			<br>
+			<img src="img/community/david_winter.png" alt="david winter" />
+		</section>
+
 		<section data-markdown id="rentrez_data">
 			<script type="text/template">
 			## Get FASTA format sequence data - <font color="red">rentrez</font>
@@ -464,6 +489,88 @@
 			</script>
 		</section>
 
+		<section id="taxize_people">
+			<h1>taxize <br> <small>all things taxonomy</small> </h1>
+			<br><br>
+			<img src="img/community/ben_mawrick.jpg" alt="ben marwick" width="300" />
+			<img src="img/community/ed_szocs.png" alt="ed" width="300"  />
+			<img src="img/community/scott.png" alt="Scott Chamberlain" width="300"  />
+			<img src="img/community/karthik.png" alt="karthik ram"  width="300" />
+			<br><h3>
+				and many more...
+			</h3>
+		</section>
+
+		<section data-markdown id="taxize_approach">
+			<script type="text/template">
+				# taxize summary
+
+
+				- ## Data sources, Lots! currently 20
+				- ## Verbs (ish)
+				  - ### `classification()`
+				  - ### `children()`
+				  - ### `downstream()`
+				  - ### `comm2sci()`, `sci2comm()`
+				  - ### `resolve()`
+				  - ### `synonyms()`
+			</script>
+		</section>
+
+		<section data-markdown id="taxize_example1">
+			<script type="text/template">
+				## Taxonomic hierarchies from NCBI/ITIS/COL/etc - <font color="red">taxize</font>
+
+				```r
+				library('taxize')
+				out <- classification(c("Chironomus riparius", "Chaetopteryx"), db = "ncbi")
+				lapply(out, head)
+				```
+<br>
+				```r
+				[[1]]
+				                name         rank
+				1 cellular organisms      no rank
+				2          Eukaryota superkingdom
+				3       Opisthokonta      no rank
+				4            Metazoa      kingdom
+				5          Eumetazoa      no rank
+				6          Bilateria      no rank
+
+				[[2]]
+				                name         rank
+				1 cellular organisms      no rank
+				2          Eukaryota superkingdom
+				3       Opisthokonta      no rank
+				4            Metazoa      kingdom
+				5          Eumetazoa      no rank
+				6          Bilateria      no rank
+				```
+			</script>
+		</section>
+
+		<section data-markdown id="taxize_example2">
+			<script type="text/template">
+				## Get all sci. names downstream to rank X - <font color="red">taxize</font>
+				```r
+				col_downstream(name = "Apis", downto = "Species")
+				```
+				<br><br>
+
+				```
+				$Apis
+				  childtaxa_id     childtaxa_name childtaxa_rank
+				1      6971712 Apis andreniformis        Species
+				2      6971713        Apis cerana        Species
+				3      6971714       Apis dorsata        Species
+				4      6971715        Apis florea        Species
+				5      6971716 Apis koschevnikovi        Species
+				6      6845885     Apis mellifera        Species
+				7      6971717   Apis nigrocincta        Species
+				```
+			</script>
+		</section>
+
 		<section id="spocc1">
 			<h2>Unified species occurrence data - <font color="red">spocc</font></h2>
 
@@ -475,7 +582,7 @@
 			## Unified species occurrence data - <font color="red">spocc</font>
 
 			```r
-			library(spocc); library(rCharts)
+			library(spocc)
 			spnames <- c('Accipiter striatus', 'Setophaga caerulescens', 'Spinus tristis')
 			(out <- occ(query=spnames, from=c('gbif','ebird')))
 			```
@@ -647,10 +754,8 @@
 			```r
 			library('fulltext')
 			library('XML')
-			(res <- ft_search(query = 'ecology', from = c('entrez','plos'),
-			                  plosopts = list(fq='-article_type:correction')))
-			res$plos
-			out <- ft_get(ids = res$plos$data$id[1:5], from = "plos")
+			(res <- ft_search(query = 'ecology', from = c('entrez','plos')))
+			out <- ft_get(ids = res$plos$data$id[1], from = "plos")
 			text <- xmlParse(out$plos$data[[1]])
 			xpathSApply(text, "//permissions")
 			```
@@ -722,15 +827,14 @@
 
 		<section id="eml1">
 			<h1>EML</h1>
-			<br><br>
-			<blockquote>EML (Jones et al., 2001) is a comprehensive standard that
+			<!-- <blockquote>EML (Jones et al., 2001) is a comprehensive standard that
 			has been adopted by a sector of the larger international ecological research community.
-			</blockquote>
+			</blockquote> -->
+			<br>
+			<blockquote><h2>EML provides a common structure for data, to better enable ecologists to document,
+			share, and interpret ecological data</h2></blockquote>
 			<br><br>
-			<blockquote>EML provides a common structure for these resources, to better enable ecologists to document,
-			share, and interpret ecological data</blockquote>
-			<br><br>
-			<blockquote>EML standard enables data integration at the machine level (with little or no human intervention).</blockquote>
+			<blockquote><h2>EML standard enables data integration at the machine level (with little or no human intervention).</h2></blockquote>
 <br>
 			<a href="https://knb.ecoinformatics.org/#external//emlparser/docs/index.html">Read more about EML</a>
 		</section>
@@ -767,6 +871,7 @@
 				<li><h2>Figshare</h2></li>
 				<li><h2>Zenodo</h2></li>
 				<li><h2>Dataone</h2></li>
+				<li><h2>Various journals</h2></li>
 				<li><h2>More...</h2></li>
 			</ul>
 		</section>
@@ -786,7 +891,7 @@
 
 		<section id="why_community">
 			<h2>Why community building?</h2>
-			<img src="img/2mode.jpg" alt="network" width="1100" />
+			<img src="img/2mode.jpg" alt="network" width="1100" /><br>
 			<a href="http://permut.wordpress.com/2011/07/09/hbo-recycled-recycled/">link</a>
 		</section>
 
@@ -843,9 +948,10 @@
 		</section>
 
 		<section id="quality">
-			<h1>rOpenSci lends</h1>
+			<h1>rOpenSci brings to the table:</h1>
 			<br><br>
 			<ul style="float:left;">
+				<h2>Bridge between scientists and data providers</h2>
 				<h2>Visibility</h2>
 				<h2>Consistency</h2>
 				<h2>Quality</h2>
@@ -857,9 +963,9 @@
 		<section id="in_closing">
 			<h1>In closing...</h1>
 			<br>
-			<h2>It's about making science better</h2>
+			<h2>This is all about making science better</h2>
 			<br>
-			<h2>rOpenSci is one vehicle with which to help</h2>
+			<h2>rOpenSci is just one vehicle with which to help</h2>
 		</section>
 
 		<section id="license">
