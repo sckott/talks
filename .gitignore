@@ -4,3 +4,4 @@ dist
 .sass-cache
 app/components
 .DS_Store
+sfustats/stats_dep_notes.md
