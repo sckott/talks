@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>SFU Talk</title>
+		<meta name="description" content="SFU Talk">
+		<meta name="author" content="Scott Chamberlain">
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<link rel="stylesheet" href="css/reveal.min.css">
+		<link rel="stylesheet" href="css/theme/solarized.css" id="theme">
+		<link rel="stylesheet" href="css/style.css">
+
+		<link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro' rel='stylesheet' type='text/css'>
+
+		<!-- <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css"> -->
+		<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.css">
+		<link rel="stylesheet" href="lib/css/font-awesome-4.2.0/css/font-awesome.css">
+
+		<!-- For syntax highlighting -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+		<!-- <link rel="stylesheet" href="lib/css/foundation.css"> -->
+		<!-- <link rel="stylesheet" href="lib/css/font-awesome.min.css"> -->
+
+		<!-- If the query includes 'print-pdf', use the PDF print sheet -->
+		<script>
+			document.write( '<link rel="stylesheet" href="css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+
+		<style type="text/css">
+			#rotate_text {
+				-webkit-transform: rotate(-90deg);
+				-moz-transform: rotate(-90deg);
+				transform: rotate(-90deg);
+				position: absolute;
+				vertical-align: middle;
+				filter:progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+			}
+
+			ul.a {list-style-type: circle; margin: 0; padding: 0;}
+			ul.b {list-style-type: square; margin-left: 0; padding-left: 0;}
+		</style>
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+	<!-- Any section element inside of this container is displayed as a slide -->
+	<div class="slides">
+		<section id="intro">
+				<!-- <img src="img/ropensci_main.png" alt="ropensci" /> -->
+				<h2><font color="#B8172F">solr - an R client for Solr</font></h2><br>
+				<p class="grey">Scott Chamberlain (@ropensci)
+					<p class="grey">UC Berkeley / rOpenSci
+				<!-- <p class="grey">recology.info/talks/sfustats<br><br> --><br><br>
+				<center>Supported by:</center>
+				<img src="img/sloan_logo2.png" alt="sloan" />
+		</section>
+
+		<section id="link">
+			<h2> This talk on the web: <br><br><a href="http://recology.info/talks/sfbaysolr">recology.info/talks/sfbaysolr</a> </h2>
+		</section>
+
+		<section id="license">
+			<br>
+<h2>License: <strong>CC-BY 4.0</strong> - You are free to copy, share, adapt, or remix, photograph, film, or broadcast, blog, live-blog, or post video of this presentation, provided that you attribute the work to its author and respect the rights and licenses associated with its components.</h2>
+
+		<a href="https://creativecommons.org/licenses/by/4.0/">https://creativecommons.org/licenses/by/4.0/</a>
+		</section>
+
+		<section id="perfect">
+			<center><h2>A perfect combination</h2></center>
+			<br><br>
+			<center>
+				<font color="red" size="12"><i class="fa fa-refresh fa-5x">&nbsp;</i></font>
+				<font color="green" size="12"> <i class="fa fa-unlock fa-5x">&nbsp;</i></font>
+				<font color="blue" size="12" class="fragment"><i class="fa fa-cloud fa-5x">&nbsp;</i></font>
+			</center>
+			<br>
+			<h2 class="fragment">Data is increasingly on the web <font color="blue"><i class="fa fa-cloud"></i></font></h2>
+		</section>
+
+		<section id="apis1">
+			<br><br>
+			<h2>API: Application Programming Interface</h2>
+			<br><br><br><br>
+			<h2><i class="fa fa-link fa-3x"></i>&nbsp;&nbsp;</h2>
+		</section>
+
+		<section id="apis2">
+			<br><br>
+			<h2> <font color="red">Reproducibly</font> plug data from the web into research workflows</h2>
+		</section>
+
+		<section id="ropensci">
+			<br><br><br>
+			<center><img src="img/ropensci_main.png"></center>
+			<br><br>
+			<center><img src="img/sloan_logo2.png"></center>
+		</section>
+
+		<section id="ropensci_team">
+	    <div>
+	    <img src="img/core_team.png" width="100%">
+	    </div>
+		</section>
+
+		<section id="solr_intro">
+			<p>hello world</p>
+		</section>
+
+		<section data-markdown id="rgbif">
+			<script type="text/template">
+			## Mapping biodiversity data - <font color="red">rgbif</font>
+
+			```r
+			library(rgbif)
+			key <- name_backbone(name='Danaus plexippus', kingdom='animals')$speciesKey
+			out <- occ_search(taxonKey=key, limit=300, return='data')
+			gbifmap(out)
+			```
+
+			<img src="code/figure/rgbif.png" alt="rwbclimate" width="700" />
+			</script>
+		</section>
+
+		<section id="in_closing">
+			<h1>In closing...</h1>
+			<br>
+			<h2>...</h2>
+		</section>
+
+		<section id="end">
+			<br>
+			<h3>rOpenSci on the web: <a href="http://ropensci.org/">ropensci.org</a> </h3>
+			<br><br>
+			<h3> This talk on the web: <a href="http://recology.info/talks/sfbaysolr">recology.info/talks/sfbaysolr</a> </h3>
+			<br><br><br><br><br><br>
+			<h3>Made w/ <a href="https://github.com/hakimel/reveal.js">reveal.js</a></h3>
+			<br>
+			<h3>Icons by: <a href="http://fortawesome.github.io/Font-Awesome/">FontAwesome v4.4.0</a></h3>
+		</section>
+
+			</div>
+
+	<!-- End slides -->
+
+
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.min.js"></script>
+
+		<script>
+		// Full list of configuration options available here:
+		// https://github.com/hakimel/reveal.js#configuration
+		Reveal.initialize({
+			controls: false,
+			progress: true,
+			history: true,
+			center: false,
+			slideNumber: true,
+			keyboard: true,
+			touch: true,
+
+			width: 1400,
+			height: 900,
+
+			theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+			transition: Reveal.getQueryHash().transition || 'none', // default/cube/page/concave/zoom/linear/fade/none
+
+			// Parallax scrolling
+			// parallaxBackgroundImage: 'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg',
+			// parallaxBackgroundSize: '2100px 900px',
+
+			// Optional libraries used to extend on reveal.js
+			dependencies: [
+				{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+				{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+				{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+				{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+				{ src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+				{ src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+			]
+		});
+		</script>
+
+	</body>
+</html>
