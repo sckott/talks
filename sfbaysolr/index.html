@@ -58,7 +58,8 @@
 	<div class="slides">
 		<section id="intro">
 				<!-- <img src="img/ropensci_main.png" alt="ropensci" /> -->
-				<h2><font color="#B8172F">solr - an R client for Solr</font></h2><br>
+				<h1><font color="#B8172F">solr - an R client for Solr</font></h1>
+				<br><br><br>
 				<p class="grey">Scott Chamberlain (@ropensci)
 					<p class="grey">UC Berkeley / rOpenSci
 				<!-- <p class="grey">recology.info/talks/sfustats<br><br> --><br><br>
@@ -115,33 +116,181 @@
 		</section>
 
 		<section id="solr_intro">
-			<p>hello world</p>
+			<h1>Solr in R</h1>
+			<br><br>
+			<ul>
+				<li><h2>Use cases for Solr in R</h2></li>
+				<li><h2>Demo the solr R client</h2></li>
+			</ul>
 		</section>
 
-		<section data-markdown id="rgbif">
+		<section id="usecase_search1">
+			<h1>Use case: Data exploration</h1>
+			<br>
+			<h2>R has all the tools you'll need for <strong>data manipulation</strong>, <strong>vizualization</strong>, and <strong>statistics</strong></h2>
+			<br>
+			<h2>Access to infinite data via Solr makes this a powerful combination</h2>
+		</section>
+
+		<section id="usecase_search2">
+			<h1>Use case: Data exploration</h1>
+			<br>
+			<h2>The <strong>data.frame</strong> is the most common data structure in R, and the easiest to work with</h2>
+			<br>
+			<center>
+				<font color="red" size="12"><i class="fa fa-table fa-5x">&nbsp;</i></font>
+			</center>
+		</section>
+
+		<section id="usecase_search3">
+			<h1>Use case: Data exploration</h1>
+			<br>
+			<h2>in the <code>solr</code> R client, we make the <strong>data.frame</strong> the default output from search</h2>
+			<br>
+			<h2>easy downstream use for vizualization, statistics, modelling</h2>
+		</section>
+
+		<section id="usecase_server_man1">
+			<h1>Use case: Solr Server Management</h1>
+			<br>
+			<h2>You probably don't want to do all your server management from R, but most things e.g.,</h2>
+			<br><br>
+			<ul>
+				<li><h2>create/delete a collection/core</h2></li>
+				<li><h2>add/delete/update documents from files, and R objects</h2></li>
+			</ul>
+			<br><br>
+			<h2>are, or will be, easy in <code>solr</code> R client</h2>
+		</section>
+
+		<section data-markdown id="connection">
 			<script type="text/template">
-			## Mapping biodiversity data - <font color="red">rgbif</font>
+			## First, how do we connect - <font color="red">solr_connect()</font>
+			<br>
+			### By default connects to port `8983` on `localhost`
 
 			```r
-			library(rgbif)
-			key <- name_backbone(name='Danaus plexippus', kingdom='animals')$speciesKey
-			out <- occ_search(taxonKey=key, limit=300, return='data')
-			gbifmap(out)
+			library("solr")
+			solr_connect()
+			#> <solr_connection>
+			#>   url:     http://localhost:8983
+			#>   errors:  simple
+			#>   verbose: TRUE
+			#>   proxy:
+			```
+			<br>
+			### Use a remote Solr instance
+
+			```r
+			solr_connect('http://api.plos.org/search')
+			#> <solr_connection>
+			#>   url:     http://api.plos.org/search
+			#>   errors:  simple
+			#>   verbose: TRUE
+			#>   proxy:
 			```
 
-			<img src="code/figure/rgbif.png" alt="rwbclimate" width="700" />
+			### You can also toggle error verbosity, whether URLs are printed, and use a proxy
 			</script>
+		</section>
+
+		<section id="search">
+			<h1>Search examples</h1>
+		</section>
+
+		<section data-markdown id="solr_search">
+			<script type="text/template">
+			## Basic search - <font color="red">solr_search()</font>
+			<br>
+			### Search for words "sports" and "alcohol" within 7 words of each other
+
+			```r
+			library("solr")
+			solr_connect('http://api.plos.org/search')
+			solr_search(q='everything:"sports alcohol"~7', fl='abstract', rows=3)
+			```
+
+			```
+			"result"
+			```
+			</script>
+		</section>
+
+		<section data-markdown id="solr_all">
+			<script type="text/template">
+			## Search with all options - <font color="red">solr_all()</font>
+			<br>
+			### Wild-card search, faceting on the field `journal`
+
+			```r
+			library("solr")
+			solr_connect('http://api.plos.org/search')
+			solr_all(q='*:*', rows=2, fl='id', facet="true", facet.field="journal")
+			```
+
+			```
+			"result"
+			```
+			</script>
+		</section>
+
+		<section data-markdown id="solr_facet">
+			<script type="text/template">
+			## Facet search - <font color="red">solr_facet()</font>
+			<br>
+			### Facet search, faceting on publication date, given start date/end and gap
+
+			```r
+			library("solr")
+			solr_connect('http://api.plos.org/search')
+			solr_facet(q='*:*', facet.date='publication_date',
+				facet.date.start='NOW/DAY-5DAYS',
+				facet.date.end='NOW', facet.date.gap='+1DAY')
+			```
+
+			```
+			"result"
+			```
+			</script>
+		</section>
+
+		<section id="search_more">
+			<h1>Additional search functions</h1>
+			<br>
+			<ul>
+				<li><h2><strong>solr_mlt()</strong> - more like this search</h2></li>
+				<li><h2><strong>solr_group()</strong> - group search</h2></li>
+				<li><h2><strong>solr_highlight()</strong> - highlight search</h2></li>
+				<li><h2><strong>solr_stats()</strong> - stats search</h2></li>
+			</ul>
+		</section>
+
+		<section id="server_management">
+			<h1>Server management</h1>
+		</section>
+
+		<section id="server_fxns">
+			<h1>Server management functions</h1>
+			<br>
+			<ul>
+				<li><h2><strong>collection_*()</strong> - manage collections</h2></li>
+				<li><h2><strong>core_*()</strong> - manage cores</h2></li>
+			</ul>
 		</section>
 
 		<section id="in_closing">
 			<h1>In closing...</h1>
 			<br>
-			<h2>...</h2>
+			<h2>Would love your feedback - kick the tires - let me know what could be better</h2>
+			<br>
+			<h3>solr R client on GitHub: <a href="https://github.com/ropensci/solr">github.com/ropensci/solr</a> </h3>
 		</section>
 
 		<section id="end">
 			<br>
-			<h3>rOpenSci on the web: <a href="http://ropensci.org/">ropensci.org</a> </h3>
+			<h3>rOpenSci on the web: <a href="https://ropensci.org/">ropensci.org</a> </h3>
+			<br><br>
+			<h3>rOpenSci discussion forum: <a href="https://discuss.ropensci.org/">discuss.ropensci.org</a> </h3>
 			<br><br>
 			<h3> This talk on the web: <a href="http://recology.info/talks/sfbaysolr">recology.info/talks/sfbaysolr</a> </h3>
 			<br><br><br><br><br><br>

@@ -2,7 +2,7 @@
 
 Scott Chamberlain, rOpenSci/UC Berkeley
 
-Solr is a very commonly used search engine tool. As such, the R community needs a client to talk to Solr - to simplify searching Solr installations, and even manage configurations, and manage documents. This talk will go over the R client in development, named solr, and run through a couple of use cases that should provide good reasons to interact with Solr from R.
+Solr is a widely used search engine tool. As such, the R community needs a client to talk to Solr - to simplify searching Solr installations, and even managing configurations, cores, collections, and documents. This talk will go over the R client in development, and run through a couple of use cases that should provide good reasons to interact with Solr from R.
 
 ## Speaker Bio
 
