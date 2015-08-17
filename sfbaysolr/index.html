@@ -4,8 +4,8 @@
 	<head>
 		<meta charset="utf-8">
 
-		<title>SFU Talk</title>
-		<meta name="description" content="SFU Talk">
+		<title>SFBAY Solr</title>
+		<meta name="description" content="SFBAY Solr">
 		<meta name="author" content="Scott Chamberlain">
 		<meta name="apple-mobile-web-app-capable" content="yes" />
 		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
@@ -17,23 +17,16 @@
 
 		<link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro' rel='stylesheet' type='text/css'>
 
-		<!-- <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css"> -->
-		<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.css">
-		<link rel="stylesheet" href="lib/css/font-awesome-4.2.0/css/font-awesome.css">
+		<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.css">
+		<link rel="stylesheet" href="lib/css/font-awesome-4.4.0/css/font-awesome.css">
 
 		<!-- For syntax highlighting -->
 		<link rel="stylesheet" href="lib/css/zenburn.css">
-		<!-- <link rel="stylesheet" href="lib/css/foundation.css"> -->
-		<!-- <link rel="stylesheet" href="lib/css/font-awesome.min.css"> -->
 
 		<!-- If the query includes 'print-pdf', use the PDF print sheet -->
 		<script>
 			document.write( '<link rel="stylesheet" href="css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
 		</script>
-
-		<!--[if lt IE 9]>
-		<script src="lib/js/html5shiv.js"></script>
-		<![endif]-->
 
 		<style type="text/css">
 			#rotate_text {
@@ -62,7 +55,6 @@
 				<br><br><br>
 				<p class="grey">Scott Chamberlain (@ropensci)
 					<p class="grey">UC Berkeley / rOpenSci
-				<!-- <p class="grey">recology.info/talks/sfustats<br><br> --><br><br>
 				<center>Supported by:</center>
 				<img src="img/sloan_logo2.png" alt="sloan" />
 		</section>
@@ -124,6 +116,14 @@
 			</ul>
 		</section>
 
+		<section id="solr5">
+			<h1>Solr v5</h1>
+			<br>
+			<h2>We're developing against Solv v5</h2>
+			<br>
+			<h2>So some things may not work with Solr V4 and less</h2>
+		</section>
+
 		<section id="usecase_search1">
 			<h1>Use case: Data exploration</h1>
 			<br>
@@ -148,6 +148,33 @@
 			<h2>in the <code>solr</code> R client, we make the <strong>data.frame</strong> the default output from search</h2>
 			<br>
 			<h2>easy downstream use for vizualization, statistics, modelling</h2>
+		</section>
+
+		<section data-markdown id="usecase_search4">
+			<script type="text/template">
+			## Use case: Data exploration
+			### In addition, <code>dplyr</code> like data.frame summaries
+
+			```r
+			library("nycflights13")
+			flights
+			#> Source: local data frame [336,776 x 16]
+			#>
+			#>    year month day dep_time dep_delay arr_time arr_delay carrier tailnum flight origin dest
+			#> 1  2013     1   1      517         2      830        11      UA  N14228   1545    EWR  IAH
+			#> 2  2013     1   1      533         4      850        20      UA  N24211   1714    LGA  IAH
+			#> 3  2013     1   1      542         2      923        33      AA  N619AA   1141    JFK  MIA
+			#> 4  2013     1   1      544        -1     1004       -18      B6  N804JB    725    JFK  BQN
+			#> 5  2013     1   1      554        -6      812       -25      DL  N668DN    461    LGA  ATL
+			#> 6  2013     1   1      554        -4      740        12      UA  N39463   1696    EWR  ORD
+			#> 7  2013     1   1      555        -5      913        19      B6  N516JB    507    EWR  FLL
+			#> 8  2013     1   1      557        -3      709       -14      EV  N829AS   5708    LGA  IAD
+			#> 9  2013     1   1      557        -3      838        -8      B6  N593JB     79    JFK  MCO
+			#> 10 2013     1   1      558        -2      753         8      AA  N3ALAA    301    LGA  ORD
+			#> ..  ...   ... ...      ...       ...      ...       ...     ...     ...    ...    ...  ...
+			#> Variables not shown: air_time (dbl), distance (dbl), hour (dbl), minute (dbl)
+			```
+			</script>
 		</section>
 
 		<section id="usecase_server_man1">
@@ -205,13 +232,18 @@
 			### Search for words "sports" and "alcohol" within 7 words of each other
 
 			```r
-			library("solr")
 			solr_connect('http://api.plos.org/search')
-			solr_search(q='everything:"sports alcohol"~7', fl='abstract', rows=3)
+			solr_search(q = 'everything:"sports alcohol"~7',
+				fl = c('alm_twitterCount', 'id'), rows = 3)
 			```
 
-			```
-			"result"
+			```r
+			#> Source: local data frame [3 x 2]
+#>
+			#>                             id alm_twitterCount
+			#> 1 10.1371/journal.pone.0134889               23
+			#> 2 10.1371/journal.pone.0134480                0
+			#> 3 10.1371/journal.pone.0088384              542
 			```
 			</script>
 		</section>
@@ -223,13 +255,28 @@
 			### Wild-card search, faceting on the field `journal`
 
 			```r
-			library("solr")
-			solr_connect('http://api.plos.org/search')
-			solr_all(q='*:*', rows=2, fl='id', facet="true", facet.field="journal")
+			res <- solr_all(q='*:*', rows=1, fl='id', facet="true", facet.field="journal")
+			res$response$docs
 			```
 
+			```r
+			#> [[1]]
+			#> [[1]]$id
+			#> [1] "10.1371/journal.pone.0123754/title"
 			```
-			"result"
+
+			```r
+			res$facet_counts$facet_fields$journal
+			#>  [1] "plos one"                         "1120256"
+			#>  [3] "plos genetics"                    "45898"
+			#>  [5] "plos pathogens"                   "40159"
+			#>  [7] "plos computational biology"       "33336"
+			#>  [9] "plos neglected tropical diseases" "30417"
+			#> [11] "plos biology"                     "27756"
+			#> [13] "plos medicine"                    "19285"
+			#> [15] "plos clinical trials"             "521"
+			#> [17] "plos collections"                 "20"
+			#> [19] "plos medicin"                     "9"
 			```
 			</script>
 		</section>
@@ -241,15 +288,20 @@
 			### Facet search, faceting on publication date, given start date/end and gap
 
 			```r
-			library("solr")
-			solr_connect('http://api.plos.org/search')
-			solr_facet(q='*:*', facet.date='publication_date',
+			res <- solr_facet(q='*:*', facet.date='publication_date',
 				facet.date.start='NOW/DAY-5DAYS',
 				facet.date.end='NOW', facet.date.gap='+1DAY')
 			```
 
-			```
-			"result"
+			```r
+			res$facet_dates$publication_date
+			#>                   date value
+			#> 1 2015-08-09T00:00:00Z   627
+			#> 2 2015-08-10T00:00:00Z  1581
+			#> 3 2015-08-11T00:00:00Z  2445
+			#> 4 2015-08-12T00:00:00Z  2658
+			#> 5 2015-08-13T00:00:00Z  2752
+			#> 6 2015-08-14T00:00:00Z  1585
 			```
 			</script>
 		</section>
@@ -275,14 +327,80 @@
 			<ul>
 				<li><h2><strong>collection_*()</strong> - manage collections</h2></li>
 				<li><h2><strong>core_*()</strong> - manage cores</h2></li>
+				<li><h2><strong>add_*()</strong> - add documents from R objects</h2></li>
+				<li><h2><strong>update_*()</strong> - add documents from files</h2></li>
 			</ul>
+		</section>
+
+		<section data-markdown id="collection">
+			<script type="text/template">
+			## Create collection - <font color="red">collection_create()</font>
+			<br>
+			### xxx
+
+			```r
+			collection_create(...)
+			```
+
+			```
+			"result"
+			```
+			</script>
+		</section>
+
+		<section data-markdown id="core">
+			<script type="text/template">
+			## Create core - <font color="red">core_create()</font>
+			<br>
+			### xxx
+
+			```r
+			core_create(...)
+			```
+
+			```
+			"result"
+			```
+			</script>
+		</section>
+
+		<section data-markdown id="add">
+			<script type="text/template">
+			## Add documents from R objects - <font color="red">add()</font>
+			<br>
+			### xxx
+
+			```r
+			add(...)
+			```
+
+			```
+			"result"
+			```
+			</script>
+		</section>
+
+		<section data-markdown id="update">
+			<script type="text/template">
+			## Add documents from files - <font color="red">update_*()</font>
+			<br>
+			### xxx
+
+			```r
+			update_json(...)
+			```
+
+			```
+			"result"
+			```
+			</script>
 		</section>
 
 		<section id="in_closing">
 			<h1>In closing...</h1>
 			<br>
-			<h2>Would love your feedback - kick the tires - let me know what could be better</h2>
-			<br>
+			<h2>Would love your feedback <br> kick the tires <br> let me know what could be better</h2>
+			<br><br><br>
 			<h3>solr R client on GitHub: <a href="https://github.com/ropensci/solr">github.com/ropensci/solr</a> </h3>
 		</section>
 
