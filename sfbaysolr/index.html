@@ -73,12 +73,12 @@
 			<center><h2>A perfect combination</h2></center>
 			<br><br>
 			<center>
-				<font color="red" size="12"><i class="fa fa-refresh fa-5x">&nbsp;</i></font>
-				<font color="green" size="12"> <i class="fa fa-unlock fa-5x">&nbsp;</i></font>
-				<font color="blue" size="12" class="fragment"><i class="fa fa-cloud fa-5x">&nbsp;</i></font>
+				<font color="#D8AA67" size="12"><i class="fa fa-refresh fa-5x">&nbsp;</i></font>
+				<font color="#E09B33" size="12"> <i class="fa fa-unlock fa-5x">&nbsp;</i></font>
+				<font color="#9F6B33" size="12" class="fragment"><i class="fa fa-cloud fa-5x">&nbsp;</i></font>
 			</center>
 			<br>
-			<h2 class="fragment">Data is increasingly on the web <font color="blue"><i class="fa fa-cloud"></i></font></h2>
+			<h2 class="fragment">Data is increasingly on the web <font color="#9F6B33"><i class="fa fa-cloud"></i></font></h2>
 		</section>
 
 		<section id="apis1">
@@ -138,7 +138,7 @@
 			<h3>The <strong>data.frame</strong> is the most common data structure in R, and the easiest to work with</h3>
 			<br>
 			<center>
-				<font color="red" size="12"><i class="fa fa-table fa-5x">&nbsp;</i></font>
+				<font color="blue" size="12"><i class="fa fa-table fa-5x">&nbsp;</i></font>
 			</center>
 		</section>
 
@@ -177,10 +177,40 @@
 			</script>
 		</section>
 
+		<section data-markdown id="usecase_search5">
+			<script type="text/template">
+			## Use case: Data exploration
+			### Given a data.frame, <code>dplyr</code> provides powerful tools
+
+			```r
+			library("nycflights13")
+			library("dplyr")
+			tbl_df(flights) %>%
+				select(carrier, dep_delay) %>%
+				filter(dep_delay > 100) %>%
+				group_by(carrier) %>%
+				summarise(mean = mean(dep_delay)) %>%
+				arrange(desc(mean)) %>%
+				top_n(5)
+			```
+
+			```r
+			Source: local data frame [16 x 2]
+
+			   carrier     mean
+			1       HA 283.2500
+			2       F9 203.6667
+			3       FL 191.2460
+			4       VX 187.6771
+			5       DL 186.9031
+			```
+			</script>
+		</section>
+
 		<section id="usecase_quickstart1">
 			<h2>Use case: Easy R client libraries</h2>
 			<br>
-			<h3>Many public web APIs use Solr - creating an R client is super easy with the <code>solr</code> R client</h3>
+			<h3>Many public web APIs use Solr <br><br><br><br>R client = easy w/ <code>solr</code> R client</h3>
 		</section>
 
 		<section id="usecase_quickstart2">
@@ -190,10 +220,30 @@
 			<br>
 			<h3>
 				<ul>
-					<li><code>rbison</code>: USGS BISON web services</li>
-					<li><code>rbison</code>: USGS BISON web services</li>
+					<li><a href="https://github.com/ropensci/rbison">rbison</a>: USGS BISON web services</li>
+					<br>
+					<li><a href="https://github.com/ropensci/rplos">rplos</a>: Public Libary of Science search API</li>
+					<br>
+					<li><a href="https://github.com/ropensci/rdatacite">rdatacite</a>: Datacite search API</li>
 				</ul>
 			</h3>
+		</section>
+
+		<section data-markdown id="usecase_quickstart3">
+			<script type="text/template">
+			## Simply wrap solr R pkg functions, e.g.:
+			<br>
+			```r
+			dc_search <- function(..., callopts=list()) {
+				solr_connect("http://search.datacite.org/api")
+				solr_search(..., callopts = callopts)
+			}
+			```
+			<br>
+			### And we're done
+			<br><br>
+			### From `rdatacite` (github.com/ropensci/rdatacite)
+			</script>
 		</section>
 
 		<section id="usecase_server_man1">
