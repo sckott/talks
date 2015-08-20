@@ -18,7 +18,7 @@
 		<link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro' rel='stylesheet' type='text/css'>
 
 		<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.css">
-		<link rel="stylesheet" href="lib/css/font-awesome-4.4.0/css/font-awesome.css">
+		<link rel="stylesheet" href="lib/css/font-awesome-4.2.0/css/font-awesome.css">
 
 		<!-- For syntax highlighting -->
 		<link rel="stylesheet" href="lib/css/zenburn.css">
@@ -45,9 +45,7 @@
 
 	<body>
 
-		<div class="reveal">
-
-	<!-- Any section element inside of this container is displayed as a slide -->
+	<div class="reveal">
 	<div class="slides">
 		<section id="intro">
 				<!-- <img src="img/ropensci_main.png" alt="ropensci" /> -->
@@ -55,6 +53,7 @@
 				<br><br><br>
 				<p class="grey">Scott Chamberlain (@ropensci)
 					<p class="grey">UC Berkeley / rOpenSci
+				<br><br>
 				<center>Supported by:</center>
 				<img src="img/sloan_logo2.png" alt="sloan" />
 		</section>
@@ -91,7 +90,7 @@
 
 		<section id="apis2">
 			<br><br>
-			<h2> <font color="red">Reproducibly</font> plug data from the web into research workflows</h2>
+			<h2> <font color="blue">Reproducibly</font> plug data from the web into research workflows</h2>
 		</section>
 
 		<section id="ropensci">
@@ -112,30 +111,31 @@
 			<br><br>
 			<ul>
 				<li><h2>Use cases for Solr in R</h2></li>
-				<li><h2>Demo the solr R client</h2></li>
+				<li><h2>solr R client - Search</h2></li>
+				<li><h2>solr R client - Server management</h2></li>
 			</ul>
 		</section>
 
 		<section id="solr5">
 			<h1>Solr v5</h1>
 			<br>
-			<h2>We're developing against Solv v5</h2>
+			<h2>We're developing against Solr <code>v5</code></h2>
 			<br>
-			<h2>So some things may not work with Solr V4 and less</h2>
+			<h2>So some things may not work with older versions</h2>
 		</section>
 
 		<section id="usecase_search1">
-			<h1>Use case: Data exploration</h1>
+			<h2>Use case: Data exploration</h2>
 			<br>
-			<h2>R has all the tools you'll need for <strong>data manipulation</strong>, <strong>vizualization</strong>, and <strong>statistics</strong></h2>
+			<h3>R has all the tools you'll need for <strong>data manipulation</strong>, <strong>vizualization</strong>, and <strong>statistics</strong></h3>
 			<br>
-			<h2>Access to infinite data via Solr makes this a powerful combination</h2>
+			<h3>Access to infinite data via Solr makes this a powerful combination</h3>
 		</section>
 
 		<section id="usecase_search2">
-			<h1>Use case: Data exploration</h1>
+			<h2>Use case: Data exploration</h2>
 			<br>
-			<h2>The <strong>data.frame</strong> is the most common data structure in R, and the easiest to work with</h2>
+			<h3>The <strong>data.frame</strong> is the most common data structure in R, and the easiest to work with</h3>
 			<br>
 			<center>
 				<font color="red" size="12"><i class="fa fa-table fa-5x">&nbsp;</i></font>
@@ -143,11 +143,11 @@
 		</section>
 
 		<section id="usecase_search3">
-			<h1>Use case: Data exploration</h1>
+			<h2>Use case: Data exploration</h2>
 			<br>
-			<h2>in the <code>solr</code> R client, we make the <strong>data.frame</strong> the default output from search</h2>
+			<h3>in the <code>solr</code> R client, we make the <strong>data.frame</strong> the default output from search</h3>
 			<br>
-			<h2>easy downstream use for vizualization, statistics, modelling</h2>
+			<h3>easy downstream use for vizualization, statistics, modelling</h3>
 		</section>
 
 		<section data-markdown id="usecase_search4">
@@ -177,24 +177,43 @@
 			</script>
 		</section>
 
-		<section id="usecase_server_man1">
-			<h1>Use case: Solr Server Management</h1>
+		<section id="usecase_quickstart1">
+			<h2>Use case: Easy R client libraries</h2>
 			<br>
-			<h2>You probably don't want to do all your server management from R, but most things e.g.,</h2>
+			<h3>Many public web APIs use Solr - creating an R client is super easy with the <code>solr</code> R client</h3>
+		</section>
+
+		<section id="usecase_quickstart2">
+			<h2>Use case: Easy R client libraries</h2>
+			<br>
+			<h3>Examples:</h3>
+			<br>
+			<h3>
+				<ul>
+					<li><code>rbison</code>: USGS BISON web services</li>
+					<li><code>rbison</code>: USGS BISON web services</li>
+				</ul>
+			</h3>
+		</section>
+
+		<section id="usecase_server_man1">
+			<h2>Use case: Solr Server Management</h2>
+			<br>
+			<h3>Probably don't want to do all server mngt. in R, but e.g.,</h3>
 			<br><br>
 			<ul>
-				<li><h2>create/delete a collection/core</h2></li>
-				<li><h2>add/delete/update documents from files, and R objects</h2></li>
+				<li><h3>create/delete a collection/core</h3></li>
+				<li><h3>add/delete/update documents from files, and R objects</h3></li>
 			</ul>
 			<br><br>
-			<h2>are, or will be, easy in <code>solr</code> R client</h2>
+			<h3>are, or will be, easy in <code>solr</code> R client</h3>
 		</section>
 
 		<section data-markdown id="connection">
 			<script type="text/template">
-			## First, how do we connect - <font color="red">solr_connect()</font>
+			## First, let's connect - <font color="blue">solr_connect()</font>
 			<br>
-			### By default connects to port `8983` on `localhost`
+			### By default connects to port <font color="blue">8983</font> on <font color="green">localhost</font>
 
 			```r
 			library("solr")
@@ -216,9 +235,19 @@
 			#>   verbose: TRUE
 			#>   proxy:
 			```
-
-			### You can also toggle error verbosity, whether URLs are printed, and use a proxy
 			</script>
+		</section>
+
+		<section id="connection2">
+			<h2>First, let's connect - <font color="blue">solr_connect()</font><h2>
+			<br>
+			You can also toggle:
+			<br><br>
+			<ul>
+				<li>error verbosity</li>
+				<li>whether URLs are printed</li>
+				<li>use a proxy</li>
+			</ul>
 		</section>
 
 		<section id="search">
@@ -227,16 +256,15 @@
 
 		<section data-markdown id="solr_search">
 			<script type="text/template">
-			## Basic search - <font color="red">solr_search()</font>
+			## Basic search - <font color="blue">solr_search()</font>
 			<br>
 			### Search for words "sports" and "alcohol" within 7 words of each other
-
+			<br>
 			```r
-			solr_connect('http://api.plos.org/search')
 			solr_search(q = 'everything:"sports alcohol"~7',
 				fl = c('alm_twitterCount', 'id'), rows = 3)
 			```
-
+			<br>
 			```r
 			#> Source: local data frame [3 x 2]
 #>
@@ -250,7 +278,7 @@
 
 		<section data-markdown id="solr_all">
 			<script type="text/template">
-			## Search with all options - <font color="red">solr_all()</font>
+			## Search with all options - <font color="blue">solr_all()</font>
 			<br>
 			### Wild-card search, faceting on the field `journal`
 
@@ -283,7 +311,7 @@
 
 		<section data-markdown id="solr_facet">
 			<script type="text/template">
-			## Facet search - <font color="red">solr_facet()</font>
+			## Facet search - <font color="blue">solr_facet()</font>
 			<br>
 			### Facet search, faceting on publication date, given start date/end and gap
 
@@ -325,64 +353,153 @@
 			<h1>Server management functions</h1>
 			<br>
 			<ul>
-				<li><h2><strong>collection_*()</strong> - manage collections</h2></li>
 				<li><h2><strong>core_*()</strong> - manage cores</h2></li>
+				<li><h2><strong>collection_*()</strong> - manage collections</h2></li>
 				<li><h2><strong>add_*()</strong> - add documents from R objects</h2></li>
+				<li><h2><strong>solr_get()</strong> - get documents by id</h2></li>
 				<li><h2><strong>update_*()</strong> - add documents from files</h2></li>
+				<li><h2><strong>delete_*()</strong> - delete documents by id or query</h2></li>
 			</ul>
 		</section>
 
-		<section data-markdown id="collection">
+		<section data-markdown id="core_create">
 			<script type="text/template">
-			## Create collection - <font color="red">collection_create()</font>
+			## Create core - <font color="blue">core_create()</font>
 			<br>
-			### xxx
+			### a bit painful right now
 
 			```r
-			collection_create(...)
+			path <- "~/solr-5.2.1/server/solr/newcore/conf"
+			dir.create(path, recursive = TRUE)
+			files <- list.files("~/solr-5.2.1/server/solr/configsets/data_driven_schema_configs/conf/",
+			full.names = TRUE)
+			file.copy(files, path, recursive = TRUE)
+			core_create(name = "newcore", instanceDir = "newcore", configSet = "basic_configs")
 			```
 
 			```
-			"result"
+			$responseHeader
+			$responseHeader$status
+			[1] 0
+
+			$responseHeader$QTime
+			[1] 410
+
+
+			$core
+			[1] "newcore"
 			```
 			</script>
 		</section>
 
-		<section data-markdown id="core">
+		<section data-markdown id="collection_create">
 			<script type="text/template">
-			## Create core - <font color="red">core_create()</font>
+			## Create collection - <font color="blue">collection_create()</font>
 			<br>
-			### xxx
+			### Less painful than core creation
 
 			```r
-			core_create(...)
+			collection_create(name = "foobar")
 			```
 
 			```
-			"result"
+			$responseHeader
+			$responseHeader$status
+			[1] 0
+
+			$responseHeader$QTime
+			[1] 2347
+
+
+			$success
+
+			...
 			```
 			</script>
 		</section>
 
 		<section data-markdown id="add">
 			<script type="text/template">
-			## Add documents from R objects - <font color="red">add()</font>
+			## Add documents from R objects - <font color="blue">add()</font>
 			<br>
-			### xxx
+			### From a list
 
 			```r
-			add(...)
+			items <- list(list(id = 1, price = 100), list(id = 2, price = 500))
+			add(items, name = "books")
 			```
 
+			```r
+			$responseHeader
+			$responseHeader$status
+			[1] 0
+
+			$responseHeader$QTime
+			[1] 191
 			```
-			"result"
+
+			### From a data.frame
+
+			```r
+			df <- data.frame(id = c(67, 68), price = c(1000, 500000000))
+			add(df, name = "books")
+			```
+
+			```r
+			$responseHeader
+			$responseHeader$status
+			[1] 0
+
+			$responseHeader$QTime
+			[1] 191
 			```
 			</script>
 		</section>
 
+		<section data-markdown id="solr_get">
+			<script type="text/template">
+			## Get documents by id - <font color="blue">solr_get()</font>
+			<br>
+			```r
+			ss <- list(list(id = 1, price = 100), list(id = 2, price = 500))
+			add(ss, name = "gettingstarted")
+			solr_get(c(1, 2), name = "gettingstarted")
+			```
+
+			```
+			$response
+			$response$numFound
+			[1] 2
+
+			$response$start
+			[1] 0
+
+			$response$docs
+			  id price   _version_
+			1  1   100 1.50998e+18
+			2  2   500 1.50998e+18
+			```
+			</script>
+		</section>
+
+		<section id="update2">
+		<h2>Three <code>update_*()</code> fxns:</h2>
+		<br>
+		<h3>
+		<ul>
+			<li><code>update_json()</code></li>
+			<li><code>update_xml()</code></li>
+			<li><code>update_csv()</code></li>
+		</ul>
+		</h3>
+		<br><br>
+		<h3>- Input: files</h3>
+		<h3>- JSON and XML versions can include <code>add</code> &amp; <code>delete</code> for specific documents</h3>
+		</section>
+
 		<section data-markdown id="update">
 			<script type="text/template">
-			## Add documents from files - <font color="red">update_*()</font>
+			## Add documents from files - <font color="blue">update_*()</font>
 			<br>
 			### xxx
 
@@ -396,12 +513,38 @@
 			</script>
 		</section>
 
+		<section id="intheworks">
+			<h2>In the works...</h2>
+			<br>
+			<h2>
+				<ul>
+					<li>Inspect configuration</li>
+					<br>
+					<li>Write configuration</li>
+					<br>
+					<li>Compatibilty with older Solr versions</li>
+					<br>
+					<li>Support spatial search</li>
+					<br>
+					<li>Plugin handler (if possible)</li>
+				</ul>
+			</h2>
+		</section>
+
 		<section id="in_closing">
 			<h1>In closing...</h1>
 			<br>
 			<h2>Would love your feedback <br> kick the tires <br> let me know what could be better</h2>
 			<br><br><br>
 			<h3>solr R client on GitHub: <a href="https://github.com/ropensci/solr">github.com/ropensci/solr</a> </h3>
+		</section>
+
+		<section id="talk">
+			<h2>let's talk</h2>
+			<br>
+			<font color="blue" size="12"><i class="fa fa-comments-o fa-5x">&nbsp;</i></font>
+			<br><br>
+			<h3>I'll be around tomorrow if you want to meet</h3>
 		</section>
 
 		<section id="end">
