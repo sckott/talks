@@ -217,14 +217,14 @@
 			```
 
 			```r
-			Source: local data frame [16 x 2]
-
-			   carrier     mean
-			1       HA 283.2500
-			2       F9 203.6667
-			3       FL 191.2460
-			4       VX 187.6771
-			5       DL 186.9031
+			#> Source: local data frame [16 x 2]
+			#>
+			#>    carrier     mean
+			#> 1       HA 283.2500
+			#> 2       F9 203.6667
+			#> 3       FL 191.2460
+			#> 4       VX 187.6771
+			#> 5       DL 186.9031
 			```
 			</script>
 		</section>
@@ -427,14 +427,14 @@
 
 		<section id="server_fxns">
 			<h1>Server management functions</h1>
-			<br>
 			<ul>
 				<li><h2><strong>core_*()</strong> - manage cores</h2></li>
 				<li><h2><strong>collection_*()</strong> - manage collections</h2></li>
 				<li><h2><strong>add_*()</strong> - add documents from R objects</h2></li>
 				<li><h2><strong>solr_get()</strong> - get documents by id</h2></li>
 				<li><h2><strong>update_*()</strong> - add documents from files</h2></li>
-				<li><h2><strong>delete_*()</strong> - delete documents by id or query</h2></li>
+				<li><h2><strong>delete_*()</strong> - delete documents</h2></li>
+				<li><h2><strong>config_*()</strong> - set/unset config params</h2></li>
 			</ul>
 		</section>
 
@@ -573,8 +573,6 @@
 			<script type="text/template">
 			## Add documents from files - <font color="blue">update_*()</font>
 			<br>
-			### xxx
-
 			```r
 			file <- system.file("examples", "books2.json", package = "solr")
 			cat(readLines(file), sep = "\n")
