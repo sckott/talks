@@ -242,6 +242,10 @@
 					<li><a href="https://github.com/ropensci/rplos">rplos</a>: Public Libary of Science search API</li>
 					<br>
 					<li><a href="https://github.com/ropensci/rdatacite">rdatacite</a>: Datacite search API</li>
+					<br>
+					<li><a href="https://github.com/ropensci/rdryad">rdryad</a>: Dryad search API</li>
+					<br>
+					<li><a href="https://github.com/ropensci/rorcid">rorcid</a>: Orcid search API</li>
 				</ul>
 			</h3>
 		</section>
@@ -252,8 +256,8 @@
 			<br>
 			```r
 			dc_search <- function(..., callopts=list()) {
-				solr_connect("http://search.datacite.org/api")
-				solr_search(..., callopts = callopts)
+				solr::solr_connect("http://search.datacite.org/api")
+				solr::solr_search(..., callopts = callopts)
 			}
 			```
 			<br>
@@ -351,10 +355,10 @@
 
 			```r
 			res <- solr_all(q='*:*', rows=1, fl='id', facet="true", facet.field="journal")
-			res$response$docs
 			```
 
 			```r
+			res$response$docs
 			#> [[1]]
 			#> [[1]]$id
 			#> [1] "10.1371/journal.pone.0123754/title"
@@ -444,17 +448,16 @@
 			core_create(name = "newcore", instanceDir = "newcore", configSet = "basic_configs")
 			```
 
-			```
-			$responseHeader
-			$responseHeader$status
-			[1] 0
-
-			$responseHeader$QTime
-			[1] 410
-
-
-			$core
-			[1] "newcore"
+			```r
+			#> $responseHeader
+			#> $responseHeader$status
+			#> [1] 0
+			#>
+			#> $responseHeader$QTime
+			#> [1] 410
+			#>
+			#> $core
+			#> [1] "newcore"
 			```
 			</script>
 		</section>
@@ -467,20 +470,17 @@
 
 			```r
 			collection_create(name = "foobar")
-			```
-
-			```
-			$responseHeader
-			$responseHeader$status
-			[1] 0
-
-			$responseHeader$QTime
-			[1] 2347
-
-
-			$success
-
-			...
+			#> $responseHeader
+			#> $responseHeader$status
+			#> [1] 0
+			#>
+			#> $responseHeader$QTime
+			#> [1] 2347
+			#>
+			#>
+			#> $success
+			#>
+			#> ...
 			```
 			</script>
 		</section>
@@ -497,12 +497,12 @@
 			```
 
 			```r
-			$responseHeader
-			$responseHeader$status
-			[1] 0
-
-			$responseHeader$QTime
-			[1] 191
+			#> $responseHeader
+			#> $responseHeader$status
+			#> [1] 0
+			#>
+			#> $responseHeader$QTime
+			#> [1] 191
 			```
 
 			### From a data.frame
@@ -513,12 +513,12 @@
 			```
 
 			```r
-			$responseHeader
-			$responseHeader$status
-			[1] 0
-
-			$responseHeader$QTime
-			[1] 191
+			#> $responseHeader
+			#> $responseHeader$status
+			#> [1] 0
+			#>
+			#> $responseHeader$QTime
+			#> [1] 191
 			```
 			</script>
 		</section>
@@ -533,23 +533,23 @@
 			solr_get(c(1, 2), name = "gettingstarted")
 			```
 
-			```
-			$response
-			$response$numFound
-			[1] 2
-
-			$response$start
-			[1] 0
-
-			$response$docs
-			  id price   _version_
-			1  1   100 1.50998e+18
-			2  2   500 1.50998e+18
+			```r
+			#> $response
+			#> $response$numFound
+			#> [1] 2
+			#>
+			#> $response$start
+			#> [1] 0
+			#>
+			#> $response$docs
+			#>   id price   _version_
+			#> 1  1   100 1.50998e+18
+			#> 2  2   500 1.50998e+18
 			```
 			</script>
 		</section>
 
-		<section id="update2">
+		<section id="update">
 		<h2>Three <code>update_*()</code> fxns:</h2>
 		<br>
 		<h3>
@@ -564,18 +564,34 @@
 		<h3>- JSON and XML versions can include <code>add</code> &amp; <code>delete</code> for specific documents</h3>
 		</section>
 
-		<section data-markdown id="update">
+		<section data-markdown id="update2">
 			<script type="text/template">
 			## Add documents from files - <font color="blue">update_*()</font>
 			<br>
 			### xxx
 
 			```r
-			update_json(...)
+			file <- system.file("examples", "books2.json", package = "solr")
+			cat(readLines(file), sep = "\n")
+			#> [
+			#>   {
+			#>     "id" : "343334534545",
+			#>     "cat" : ["book","hardcover"],
+			#>     "name" : "Bears, lions",
+			#>     "author" : "Foo bar",
+			#>     ...
+			#>   }
+			#>   ...
 			```
 
-			```
-			"result"
+			```r
+			update_json(file, "books")
+			#> $responseHeader
+			#> $responseHeader$status
+			#> [1] 0
+			#>
+			#> $responseHeader$QTime
+			#> [1] 209
 			```
 			</script>
 		</section>
