@@ -1,0 +1,29 @@
+```{r, cache=TRUE}
+library(rplos)
+plot_throughtime(list("reproducible science"), 500)
+```
+
+```{r rgbif, message=FALSE, warning=FALSE, fig.align='center', out.width='700px', out.height='500px', cache=TRUE}
+library(rgbif)
+key <- name_backbone(name='Danaus plexippus', kingdom='animals')$speciesKey
+out <- occ_search(taxonKey=key, limit=300, return='data')
+gbifmap(out)
+```
+
+```{r rWBclimate, tidy=FALSE, message=FALSE, warning=FALSE, fig.align='center', out.width='700px', out.height='400px', cache=TRUE}
+library(rWBclimate)
+country_dat <- get_historical_temp(c("USA", "MEX", "CAN", "BLZ"), "year")
+ggplot(country_dat, aes(x = year, y = data, group = locator)) + 
+  theme_bw(base_size=18) + geom_point() + geom_path() + labs(y="Average annual temperature of Canada", x="Year") + 
+  stat_smooth(se = F, colour = "black") + facet_wrap(~locator, scale = "free")
+```
+
+```{r spocc, message=FALSE, warning=FALSE, cache=TRUE}
+library(spocc); library(rCharts)
+spnames <- c('Accipiter striatus', 'Setophaga caerulescens', 'Spinus tristis')
+out <- occ(query=spnames, from=c('gbif','bison'), gbifopts=list(georeferenced=TRUE))
+head(out$gbif$`Accipiter striatus`$data)
+dat <-ldply(out$gbif, "[[", "data")
+maprcharts(dat)
+```
+
