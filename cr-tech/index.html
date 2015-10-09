@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>CR clients</title>
+		<meta name="description" content="R meetup">
+		<meta name="author" content="Scott Chamberlain">
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<link rel="stylesheet" href="css/reveal.min.css">
+		<link rel="stylesheet" href="css/theme/solarized.css" id="theme">
+		<link rel="stylesheet" href="css/style.css">
+
+		<link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro' rel='stylesheet' type='text/css'>
+
+		<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.css">
+		<link rel="stylesheet" href="lib/css/font-awesome-4.2.0/css/font-awesome.css">
+
+		<!-- For syntax highlighting -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- If the query includes 'print-pdf', use the PDF print sheet -->
+		<script>
+			document.write( '<link rel="stylesheet" href="css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+		</script>
+
+		<style type="text/css">
+			#rotate_text {
+				-webkit-transform: rotate(-90deg);
+				-moz-transform: rotate(-90deg);
+				transform: rotate(-90deg);
+				position: absolute;
+				vertical-align: middle;
+				filter:progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+			}
+
+			ul.a {list-style-type: circle; margin: 0; padding: 0;}
+			ul.b {list-style-type: square; margin-left: 0; padding-left: 0;}
+		</style>
+	</head>
+
+	<body>
+
+	<div class="reveal">
+	<div class="slides">
+		<section id="intro">
+				<h1><font color="#B8172F">Crossref clients - R, Python, Ruby</font></h1>
+				<br><br><br>
+				<p class="grey">Scott Chamberlain (@recology_)
+					<p class="grey">UC Berkeley / rOpenSci
+		</section>
+
+		<section id="link">
+			<h2> This talk on the web: <br><br><a href="http://recology.info/talks/cr-tech">recology.info/talks/cr-tech</a> </h2>
+		</section>
+
+		<section id="clients-yay">
+			<h2>Why clients?</h2>
+			<br><br>
+			<ul>
+				<li><h3>Easier (when N > a few)</h3></li>
+				<li><h3>Reproducible</h3></li>
+				<li><h3>Facilitater</h3></li>
+			</ul>
+		</section>
+
+		<section id="client-users">
+			<h2>Users?</h2>
+			<br><br>
+			<ul>
+				<li><h3>R: academics, journalists</h3></li>
+				<li><h3>Python: academics, web developers</h3></li>
+				<li><h3>Ruby: web developers</h3></li>
+			</ul>
+		</section>
+
+		<section data-markdown id="install-clients">
+			<script type="text/template">
+			## Installation
+
+			### R
+			```r
+			# in R
+			install.packages("rcrossref")
+			library("rcrossref")
+			```
+
+			### Python
+			```python
+			pip install habanero # shell
+			import habanero # python repl
+			```
+
+			### Ruby
+			```ruby
+			gem install serrano # shell
+			require 'serrano' # ruby repl
+			```
+			</script>
+		</section>
+
+		<section id="end">
+			<br>
+			<h3> This talk on the web: <a href="http://recology.info/talks/cr-tech">recology.info/talks/cr-tech</a> </h3>
+			<br><br><br><br><br><br>
+			<h3>Made w/ <a href="https://github.com/hakimel/reveal.js">reveal.js</a></h3>
+			<br>
+			<h3>Icons by: <a href="http://fortawesome.github.io/Font-Awesome/">FontAwesome v4.4.0</a></h3>
+		</section>
+
+			</div>
+
+	<!-- End slides -->
+
+
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.min.js"></script>
+
+		<script>
+		// Full list of configuration options available here:
+		// https://github.com/hakimel/reveal.js#configuration
+		Reveal.initialize({
+			controls: false,
+			progress: true,
+			history: true,
+			center: false,
+			slideNumber: true,
+			keyboard: true,
+			touch: true,
+
+			width: 1400,
+			height: 900,
+
+			theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+			transition: Reveal.getQueryHash().transition || 'none', // default/cube/page/concave/zoom/linear/fade/none
+
+			// Parallax scrolling
+			// parallaxBackgroundImage: 'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg',
+			// parallaxBackgroundSize: '2100px 900px',
+
+			// Optional libraries used to extend on reveal.js
+			dependencies: [
+				{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+				{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+				{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+				{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+				{ src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+				{ src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+			]
+		});
+		</script>
+
+	</body>
+</html>
