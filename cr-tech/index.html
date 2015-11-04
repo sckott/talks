@@ -11,9 +11,12 @@
 		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
+		<link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico">
+
 		<link rel="stylesheet" href="css/reveal.min.css">
 		<link rel="stylesheet" href="css/theme/solarized.css" id="theme">
 		<link rel="stylesheet" href="css/style.css">
+		<link rel="stylesheet" href="css/bootstrap/bootstrap.css">
 
 		<link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro' rel='stylesheet' type='text/css'>
 
@@ -51,11 +54,17 @@
 				<h1><font color="#B8172F">Crossref clients - R, Python, Ruby</font></h1>
 				<br><br><br>
 				<p class="grey">Scott Chamberlain (@recology_/@ropensci)
-					<p class="grey">UC Berkeley / rOpenSci
+					<p class="grey">rOpenSci / UC Berkeley
+					<br><br>
+				<center>Supported by:</center>
+				<img src="img/sloan_logo2.png" alt="sloan" />
 		</section>
 
 		<section id="link">
-			<h2> This talk on the web: <br><br><a href="http://recology.info/talks/cr-tech">recology.info/talks/cr-tech</a> </h2>
+			<!-- <h2> This talk on the web:  -->
+			<i class="fa fa-external-link fa-5x"></i>
+			<br><br>
+			<h2><a href="http://recology.info/talks/cr-tech">recology.info/talks/cr-tech</a> </h2>
 		</section>
 
 		<section id="clients-yay">
@@ -64,18 +73,52 @@
 			<ul>
 				<li><h3>Easier (when N > a few)</h3></li>
 				<li><h3>Reproducible</h3></li>
-				<li><h3>Facilitater</h3></li>
+				<li><h3>Less error prone</h3></li>
+				<li><h3>Scalable</h3></li>
 			</ul>
 		</section>
 
 		<section id="client-users">
-			<h2>Users? <small>my guesses</small></h2>
+			<h2>Users? <small>&lt;my guesses&gt;</small></h2>
 			<br><br>
+			<center>
+			<table style="font-size:54px" border="0" cellpadding="0" cellspacing="50" width="900">
+		    <tr>
+		    	<th>Language</th>
+	        <th>Academic</th>
+	        <th>Journalist</th>
+	        <th>Govt.</th>
+	        <th>App/Web Devs</th>
+		    </tr>
+		    <tr>
+	        <td>R</td>
+	        <td><strong>X</strong></td>
+	        <td><strong>X</strong></td>
+	        <td><strong>X</strong></td>
+	        <td><strong>--</strong></td>
+		    </tr>
+		    <tr>
+	        <td>Python</td>
+	        <td><strong>X</strong></td>
+	        <td><strong>--</strong></td>
+	        <td><strong>--</strong></td>
+	        <td><strong>X</strong></td>
+		    </tr>
+		    <tr>
+	        <td>Ruby</td>
+	        <td><strong>--</strong></td>
+	        <td><strong>--</strong></td>
+	        <td><strong>--</strong></td>
+	        <td><strong>X</strong></td>
+		    </tr>
+			</table>
+			</center>
+<!-- 			<br><br>
 			<ul>
 				<li><h3>R: academics, journalists, government</h3></li>
 				<li><h3>Python: academics, application/web developers</h3></li>
 				<li><h3>Ruby: application/web developers</h3></li>
-			</ul>
+			</ul> -->
 		</section>
 
 		<section id="use-cases">
@@ -83,8 +126,12 @@
 			<br><br>
 			<ul>
 				<li><h3>Text mining</h3></li>
-				<li><h3>xxx</h3></li>
-				<li><h3>xxx</h3></li>
+				<li><h3>Get/Mine supplementary material (<a href="https://github.com/ropensci/fulltext/issues/3#issuecomment-150662435">e.g.</a>)</h3></li>
+				<li><h3>Metadata: references, citations, author disambiguation</h3></li>
+				<li><h3>Extract identifiers (e.g., DOIs) in full text</h3></li>
+				<li><h3>Content negotiation</h3></li>
+				<li><h3>Crosswalk identifiers</h3></li>
+				<li><h3>Who knows? <span class="label label-success">if you build it they will come</span> </h3></li>
 			</ul>
 		</section>
 
@@ -113,11 +160,137 @@
 			</script>
 		</section>
 
+		<section>
+			<h2>API similar across clients</h2>
+			<br>
+			<h3>Functions in each client match these routes</h3>
+			<br><br>
+			<ul>
+				<li><h3><code>/works</code></h3></li>
+				<li><h3><code>/members</code></h3></li>
+				<li><h3><code>/funders</code></h3></li>
+				<li><h3><code>/journals</code></h3></li>
+				<li><h3><code>/types</code></h3></li>
+				<li><h3><code>/licenses</code></h3></li>
+			</ul>
+			<br><br>
+			<h3>And other functions...</h3>
+		</section>
+
+		<section data-markdown id="r-example">
+			<script type="text/template">
+				## R - rcrossref
+
+				### Get ORCIDs across many papers
+				```r
+				library("rcrossref")
+				res <- cr_works(filter=c(has_orcid=TRUE), limit = 10)
+				orcids <- unlist(lapply(res$data$author, function(z) z$ORCID))
+				Filter(function(x) !is.na(x), orcids)
+				```
+
+				```r
+				#> [1] "http://orcid.org/0000-0003-4087-8021" "http://orcid.org/0000-0002-2076-5452"
+				#> [3] "http://orcid.org/0000-0003-4087-8021" "http://orcid.org/0000-0002-2076-5452"
+				#> [5] "http://orcid.org/0000-0003-1710-1580" "http://orcid.org/0000-0003-1710-1580"
+				#> [7] "http://orcid.org/0000-0003-4637-238X" "http://orcid.org/0000-0003-4637-238X"
+				#> [9] "http://orcid.org/0000-0003-4637-238X" "http://orcid.org/0000-0003-4637-238X"
+				#> [11] "http://orcid.org/0000-0003-4637-238X" "http://orcid.org/0000-0003-2510-4271"
+				```
+			</script>
+		</section>
+
+		<section data-markdown id="mining-example">
+			<script type="text/template">
+				## Mining example
+
+				### R e.g., but easy in other clients
+				```r
+				library("fulltext")
+				res <- ft_search(query='*:*', from='plos', limit=5,
+				  plosopts=list(
+				    fq = c('doc_type:full',"article_type:\"research article\"")
+				  )
+				)
+				full_text <- ft_get(res, from="plos")
+				perm <- full_text %>% chunks("permissions")
+				perm$plos$`10.1371/journal.pone.0028748`
+				```
+
+				```r
+				$permissions
+				$permissions$`copyright-year`
+				[1] "2011"
+
+				$permissions$`copyright-holder`
+				[1] "Carrascal et al"
+
+				$permissions$license
+				[1] "This is an open-access article distributed under the terms of the Creative Commons Attribution License, which permits unrestricted use, distribution, and reproduction in any medium, provided the original author and source are credited."
+
+				$permissions$license_url
+				[1] NA
+				```
+			</script>
+		</section>
+
+		<section data-markdown id="ruby-example">
+			<script type="text/template">
+				## Ruby - serrano
+				<br>
+				### Get DOI minting agency
+				```ruby
+				require 'serrano'
+				Serrano.agency(ids: ['10.1007/12080.1874-1746','10.1007/10452.1573-5125'])
+				#> [{"status"=>"ok",
+				#>   "message-type"=>"work-agency",
+				#>   "message-version"=>"1.0.0",
+				#>   "message"=>
+				#>    {"DOI"=>"10.1007/12080.1874-1746",
+				#>     "agency"=>{"id"=>"crossref", "label"=>"CrossRef"}}},
+				#>  {"status"=>"ok",
+				#>   "message-type"=>"work-agency",
+				#>   "message-version"=>"1.0.0",
+				#>   "message"=>
+				#>    {"DOI"=>"10.1007/10452.1573-5125",
+				#>     "agency"=>{"id"=>"crossref", "label"=>"CrossRef"}}}]
+				```
+			</script>
+		</section>
+
+		<section data-markdown id="python-example">
+			<script type="text/template">
+				## Python - habanero
+				<br>
+
+				### Journal titles for each work
+				```python
+				from habanero import Habanero
+				hb = Habanero()
+				x = hb.works(query = "ecology", filter = {'has_full_text': True}, limit = 5)
+				[ z['container-title'] for z in x.result['message']['items'] ]
+				#> [[u'Urban Ecology'],
+				#>  [u'Fungal Ecology'],
+				#>  [u'Urban Ecology'],
+				#>  [u'Urban Ecology'],
+				#>  [u'Urban Ecology']]
+				```
+			</script>
+		</section>
+
+		<section id="live-coding">
+			<h2>Live coding ...</h2>
+		</section>
+
 		<section id="end">
 			<br>
-			<h3> This talk on the web: <a href="http://recology.info/talks/cr-tech">recology.info/talks/cr-tech</a> </h3>
-			<br><br><br><br><br><br>
-			<h3>Made w/ <a href="https://github.com/hakimel/reveal.js">reveal.js</a></h3>
+			<i class="fa fa-external-link fa-5x"></i>
+			<br><br>
+			<h3><a href="http://recology.info/talks/cr-tech">recology.info/talks/cr-tech</a></h3>
+			<br><br><br><br>
+			<h3>Made w/: <a href="https://github.com/hakimel/reveal.js">reveal.js v2.6.1</a></h3>
+			<br>
+			<h3>Some Styling: <a href="http://getbootstrap.com/">Bootstrap v3.3.5</a></h3>
 			<br>
 			<h3>Icons by: <a href="http://fortawesome.github.io/Font-Awesome/">FontAwesome v4.4.0</a></h3>
 		</section>
