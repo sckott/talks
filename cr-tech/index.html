@@ -111,6 +111,13 @@
 	        <td><strong>--</strong></td>
 	        <td><strong>X</strong></td>
 		    </tr>
+		    <tr>
+	        <td>Command Line</td>
+	        <td><strong>ish</strong></td>
+	        <td><strong>--</strong></td>
+	        <td><strong>--</strong></td>
+	        <td><strong>X</strong></td>
+		    </tr>
 			</table>
 			</center>
 <!-- 			<br><br>
@@ -156,6 +163,12 @@
 			```ruby
 			gem install serrano # shell
 			require 'serrano' # ruby repl
+			```
+
+			### Command line
+			```sh
+			gem install serrano # shell
+			serrano ... # shell
 			```
 			</script>
 		</section>
@@ -278,8 +291,90 @@
 			</script>
 		</section>
 
+		<section data-markdown id="cli-example1">
+			<script type="text/template">
+				## Command line - via serrano
+				<br><br>
+
+				```sh
+				serrano
+				```
+
+				```sh
+				Commands:
+				  serrano help [COMMAND]           # Describe available commands or one speci...
+				  serrano members [IDs]            # Get members by id
+				  serrano prefixes [DOI prefixes]  # Search for prefixes by DOI prefix
+				  serrano version                  # Get serrano version
+				  serrano works [DOIs]             # Get works by DOIs
+				```
+			</script>
+		</section>
+
+		<section data-markdown id="cli-example2">
+			<script type="text/template">
+				## Command line - via serrano
+				### Get brief summaries
+				#### Records for prefixes
+				```sh
+				serrano prefixes 10.1016 10.1371
+				```
+				<br>
+				```sh
+				member: http://id.crossref.org/member/78
+				name: Elsevier BV
+				prefix: http://id.crossref.org/prefix/10.1016
+
+				member: http://id.crossref.org/member/340
+				...
+				```
+				<br><br>
+				#### Records for works
+				```sh
+				serrano works 10.1007/12080.1874-1746
+				```
+				<br>
+				```sh
+				DOI: 10.1007/12080.1874-1746
+				type: journal
+				title: Theoretical Ecology
+				```
+
+				[jq]: https://stedolan.github.io/jq/manual/
+			</script>
+		</section>
+
+		<section data-markdown id="cli-example3">
+			<script type="text/template">
+				## Command line - via serrano
+				### Pipe JSON to [jq][jq]
+				#### Get number of references per work
+				```sh
+				serrano members 98 --works=true --json=true | \
+					jq .[].message.items[].\"reference-count\"
+				```
+				<br>
+				```sh
+				24 7 45 31 22 67 72 17 53 75 0 68 12 16 50 79 40 18 40 195
+				```
+				<br><br>
+				#### Get publisher/member ID/URL
+				```sh
+				serrano works 10.1371/journal.pone.0033693 10.1007/12080.1874-1746 \
+				   --json=true | jq .[].message.member
+				```
+				<br>
+				```sh
+				"http://id.crossref.org/member/340"
+				"http://id.crossref.org/member/297"
+				```
+
+				[jq]: https://stedolan.github.io/jq/manual/
+			</script>
+		</section>
+
 		<section id="live-coding">
-			<h2>Live coding ...</h2>
+			<h2>Live coding?</h2>
 		</section>
 
 		<section id="end">
