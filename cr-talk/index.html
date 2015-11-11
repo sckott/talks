@@ -14,12 +14,14 @@
 		<link rel="stylesheet" href="css/reveal.min.css">
 		<link rel="stylesheet" href="css/theme/solarized.css" id="theme">
 		<link rel="stylesheet" href="css/style.css">
+		<link rel="stylesheet" href="css/bootstrap/bootstrap.css">
+
+		<link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico">
 
 		<link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro' rel='stylesheet' type='text/css'>
 
 		<!-- <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css"> -->
-		<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.css">
-		<link rel="stylesheet" href="lib/css/font-awesome-4.2.0/css/font-awesome.css">
+		<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.css">
 
 		<!-- For syntax highlighting -->
 		<link rel="stylesheet" href="lib/css/zenburn.css">
@@ -42,6 +44,9 @@
 				transform: rotate(-90deg);
 				position: absolute;
 				vertical-align: middle;
+				position: absolute;
+    		top: 500px;
+    		left: -50px;
 				filter:progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
 			}
 
@@ -59,124 +64,83 @@
 	 - https://www.youtube.com/watch?v=YuhsHFrkIHE&feature=youtu.be
 	 - She basically said, we need APIs
 	 - Timing - servers often down, etc.
-	-->
+	 - Then talked about impactstory, that's it-->
+	<!--  talk 2013
+	 - https://www.youtube.com/watch?v=YuhsHFrkIHE&feature=youtu.be
+	 - She basically said, we need APIs
+	 - Timing - servers often down, etc.
+	 - Then talked about impactstory, that's it-->
 
-	<!-- Any section element inside of this container is displayed as a slide -->
 	<div class="slides">
+
+		<!--
+		title: Thinking programmatically
+		synopsis: Many scholarly use cases are made possible or facilitated
+		by programmatic access to academic and publishing industry
+		infrastructure. However, support for programmatic ways of interacting
+		with scholarly infrastructure haven't been given the attention they
+		deserve. I'll discuss how infrastructure facilitates research and
+		share my thoughts on how we can do better.
+		-->
+
+		<!-- links
+		http://slides.com/keziamanlove/digitalsilence#/14
+		http://ciddgsa.com/2015/06/09/why-arent-there-more-women-in-ecological-computing/
+		http://htmlpreview.github.io/?https://gist.githubusercontent.com/benmarwick/6bc3c6d0f09e3699eed9/raw/c44a2b7ac1a728196753cd49144756b64cf05398/cran-gender.html
+		-->
+
 		<section id="intro">
-				<img src="img/ropensci_main.png" alt="ropensci" />
-				<h2><font color="#B8172F">Open and machine readable</font></h2><br>
-				<p class="grey">Scott Chamberlain (@recology_/@ropensci)
+				<!-- <img src="img/ropensci_main.png" alt="ropensci" /> -->
+				<h1><font color="#B8172F">Thinking programmatically</font></h1><br>
+				<p class="grey">Scott Chamberlain (<a href="https://twitter.com/recology_">@recology_</a>/<a href="@ropensci">@ropensci</a>)
 					<p class="grey">UC Berkeley / rOpenSci
-				<!-- <p class="grey">recology.info/talks/sfustats<br><br> --><br><br>
+					<p class="grey">ORCID: <a href="http://orcid.org/0000-0003-1444-9135">0000-0003-1444-9135</a>
+				<!-- <p class="grey">recology.info/talks/sfustats<br><br> -->
+				<br><br><br>
 				<center>Supported by:</center>
-				<img src="img/sloan_logo2.png" alt="sloan" />
+				<span><img src="img/sloan_logo2.png" alt="sloan" /></span>
 		</section>
 
 		<section id="link">
-			<h2> This talk on the web: <br><br><a href="http://recology.info/talks/cr-talk">recology.info/talks/cr-talk</a> </h2>
+			<i class="fa fa-external-link fa-5x"></i>
+			<br><br>
+			<h2><a href="http://recology.info/talks/cr-talk">recology.info/talks/cr-talk</a> </h2>
 		</section>
 
 		<section id="license">
 			<br>
-<h2>License: <strong>CC-BY 4.0</strong> - You are free to copy, share, adapt, or remix, photograph, film, or broadcast, blog, live-blog, or post video of this presentation, provided that you attribute the work to its author and respect the rights and licenses associated with its components.</h2>
-		<br><br><br>
-		<a href="https://creativecommons.org/licenses/by/4.0/">CC-BY 4.0</a>
+<!-- <h2>License: <strong>CC-BY 4.0</strong> - You are free to copy, share, adapt, or remix, photograph, film, or broadcast, blog, live-blog, or post video of this presentation, provided that you attribute the work to its author and respect the rights and licenses associated with its components.</h2>
+		<br><br><br> -->
+		<h1>LICENSE: <a href="https://creativecommons.org/licenses/by/4.0/">CC-BY 4.0</a></h1>
 		</section>
 
-		<section>
-			<h1>Some stories from the trenches:</h1>
-			<br><br>
-			<ul>
-				<li>Scholarly Metadata</li>
-				<li>Text Mining</li>
-			</ul>
+		<section id="infrastructure">
+			<h1>infrastructure</h1>
+			<br><br><br><br>
+			<h3>
+			Bilder <a href="https://www.youtube.com/watch?v=CAbAq1RbSEc">talked about text and data mining last year</a>
+			</h3>
 		</section>
 
-		<section>
-			<h1>Scholarly Metadata, e.g., 1</h1>
-			<h2>example...</h2>
+		<section id="infrastructure-impt">
+			<h1>infrastructure!!!</h1>
+			<img src="img/doge.jpeg" width="55%">
+			<!-- <i class="fa fa-heart fa-5x" style="color:#b22d28"></i> -->
+			<!-- it enables awesome things,  a one stop shop for metadata makes so many things possible -->
+			<!-- To make it a good thing,  we need some improvements  of course . -->
 		</section>
 
-		<section>
-			<h1>Scholarly Metadata, e.g., 2</h1>
-			<h2>example...</h2>
+		<section id="build-on-top">
+			<h1>infrastructure - <br><br><br>necessary building blocks for awesome science</h1>
+			<!-- To build on top of infrastructure, it needs to be good -->
+			<!-- in addition, barriers can't be too high -->
 		</section>
 
-		<section>
-			<h1>Text mining, e.g., 1</h1>
-			<h2>example...</h2>
+		<section id="good-bad">
+			<h1>First, good, then the could be better</h1>
 		</section>
 
-		<section>
-			<h1>Text mining, e.g., 2</h1>
-			<h2>example...</h2>
-		</section>
-
-		<section>
-			<h1>Lessons</h1>
-		</section>
-
-		<section>
-			<h1>Crossref TDM: we need moar</h1>
-			<p>not many publishers are depositing links</p>
-			<p>please, please, please</p>
-			<p>I can generate links manually, but that is bad, fragile software</p>
-
-			<p>sumarise coverage of full text links from that gist...</p>
-		</section>
-
-		<section>
-			<h1>Link rot (or maybe always rotten?)</h1>
-			<p>Many TDM links don't work</p>
-		</section>
-
-		<section>
-			<h1>Reproducibility is a huge problem</h1>
-			<p>I think we can agree we all want it</p>
-
-			<p>if we can't share products that make our work reproducible, then ?????</p>
-		</section>
-
-		<section>
-			<h1>Documentation, documentation, documentation</h1>
-			<p>If you have APIs, they are often poorly documented</p>
-			<p>I'm not a shining eg of great documentation, but anyway...</p>
-
-			<p>please write good documentation, myself included</p>
-		</section>
-
-		<section>
-			<h1>Support client libraries to work with your web services</h1>
-		</section>
-
-		<section>
-			<h1>Make developers a firt class citizen on your landing page</h1>
-
-			<p>screenshots of good and bad</p>
-		</section>
-
-		<section>
-			<h1>Please don't check IP addresses, it's a huge huge pain</h1>
-		</section>
-
-		<!-- older slides, re-assess these -->
-		<section id="notes">
-			<center><img src="img/notesfromnature.png" width="1100"></center>
-		</section>
-
-		<section id="sensors">
-			<center><img src="img/sensors.png" width="1100"></center>
-		</section>
-
-		<section id="manual_data">
-			<center><img src="img/ropensci_data.png" width="1100"></center>
-		</section>
-
-		<section id="messy_data">
-			<center><img src="img/esa_archives.png" width="1200"></center>
-		</section>
-
+		<!-- ropensci -->
 		<section id="data_hard">
 			<h1 align="left">Huge amount of open data!</h1>
 			<h2><i class="fa fa-database fa-5x" style="color:#008000"></i></h2>
@@ -190,37 +154,6 @@
 				</div></center>
 		</section>
 
-		<section id="why_reproducible_selfish">
-			<font color="blue"><i class="fa fa-refresh fa-3x">&nbsp;Why Reproducible?</i> </font>
-			<br><br><br><br>
-			<h2>For yourself!</h2>
-			<br><br>
-			<i class="fa fa-user fa-5x"></i>
-			<!-- <h2 style="float:left;"> <i class="fa fa-code"></i> for others (if reproducible, more confidence in results) </h2> -->
-		</section>
-
-		<section id="why_reproducible_mistakes">
-			<font color="blue"><i class="fa fa-refresh fa-3x">&nbsp;Why Reproducible?</i> </font>
-			<br><br><br>
-			<h2>To avoid mistakes</h2>
-			<br><br>
-			<table cellpadding="40" cellspacing="40">
-			<tr>
-			<td>&nbsp;&nbsp;</td>
-				<td>		<center><p>Reinhart-Rogoff<img src="img/excel.png" width="500"><br>
-				<a href="http://www.nytimes.com/2013/04/19/opinion/krugman-the-excel-depression.html?_r=0">NYTimes</a></center></td>
-			<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-				<td>		<center><p>Amgen Reproduciblity Study<br><br><i class="fa fa-flask fa-5x"></i></center><br>
-				<a href="http://www.reuters.com/article/2012/03/28/us-science-cancer-idUSBRE82R12P20120328" style="float:left;">Reuters</a>&nbsp;--&nbsp;
-				<a href="http://www.economist.com/news/briefing/21588057-scientists-think-science-self-correcting-alarming-degree-it-not-trouble">The Economist</a></td>
-			</tr>
-			</table>
-		</section>
-
-		<!-- <section id="easier">
-			<font size="52"><h1 align="left">Or maybe you just want science to be easier</h1></font>
-		</section> -->
-
 		<section id="whats_needed">
 			<font size="52"><h1 align="left">What's needed?</h1></font>
 		</section>
@@ -228,61 +161,6 @@
 		<section id="toolset">
 			<br>
 			<img src="img/tools.png" alt="toolset" width="1200" />
-		</section>
-
-		<section id="reproducible_workflow">
-			<font size="52"><h1 align="left"><i class="fa fa-arrow-circle-right"></i>&nbsp;A reproducible workflow</h1></font>
-		</section>
-
-		<section id="these">
-			<center><h2>These!</h2></center>
-			<img src="img/opentools.png" width="1000">
-		</section>
-
-		<section id="learning_curve">
-			<center><h2>There's a learning curve, but...</h2></center>
-			<img src="img/tasks.jpg" width="1000">
-			<a href="http://www.globalnerdy.com/2012/04/24/geeks-and-repetitive-tasks/">link</a>
-		</section>
-
-		<section id="workflows">
-		<center><h2> Workflows side by side</h2></center>
-			<table cellpadding="40" cellspacing="20">
-				<tr>
-	<td>&nbsp;&nbsp;</td>
-		<td width="50%"> <h3>Our workflow now</h3>
-				<ul>
-				<font size="8">
-					<li>Browser</li>
-					<li>Excel</li>
-					<li>SAS</li>
-					<li>SigmaPlot</li>
-					<li>Word</li>
-					<li>Endnote</li>
-				</font>
-				</ul> </td>
-		<td>&nbsp;&nbsp;</td>
-
-		 <td width="50%">	<h3>What it could be</h3>
-			<ul>
-				<font size="8">
-				<li>R (or Python)</li>
-				<li>+ a few open source things (<a href="http://daringfireball.net/projects/markdown/">Markdown</a>, or <a href="http://www.latex-project.org/">LaTeX</a> )</li></ul></td>
-			</font>
-	<td>&nbsp;&nbsp;</td>
-		</tr>
-		<tr>
-<td>&nbsp;&nbsp;</td>
-				<td><font size="8"> <i class="fa fa-money"></i> Cost = $$$$$$$<br>
-					<p> <i class="fa fa-unlock"></i> Open? = Nope
-					<p> <i class="fa fa-refresh"></i> Reproducible? = Nope</font></td>
-<td>&nbsp;&nbsp;</td>
-				<td><font size="8"> <i class="fa fa-money"></i> Cost = 0<br>
-					<p> <i class="fa fa-unlock"></i> Open? = Yes!
-					<p> <i class="fa fa-refresh"></i> Reproducible? = Yep</font></td>
-
-		</tr>
-	</table>
 		</section>
 
 		<section id="perfect">
@@ -321,13 +199,11 @@
 			<center><img src="img/sloan_logo2.png"></center>
 		</section>
 
-		<section id="ropensci_team">
-			<h2>How rOpenSci got started</h2>
-			    <div>
-			    <img src="img/core_team.png" width="100%">
-			    </div>
-					<br><br>
-			    <h3>formed from ad-hoc conversation over Twitter. Now a worldwide community of researchers <br><br> <a href="http://ropensci.org/community/#community" title="rOpenSci Community" target="_blank">http://ropensci.org/community</a></h3>
+		<section id="ropensci-community">
+			<h1>rOpenSci Community</h1>
+			<br><br>
+	    <h3>ad-hoc conversation over Twitter in 2010 -> Now a worldwide community of developers/researchers <br><br> <a href="http://ropensci.org/community/#community" title="rOpenSci Community" target="_blank">http://ropensci.org/community</a>
+	    </h3>
 		</section>
 
 		<section id="cranpkgs">
@@ -340,10 +216,6 @@
 			ggplot(df, aes(date, pkgs)) + geom_line(size=3) + theme_grey(base_size = 26) -->
 			<img src="img/rpkgs.png" width="90%">
 		</section>
-
-		<!-- <section id="ropensci_does">
-
-		</section> -->
 
 		<section id="workflow">
 			<br><br><br>
@@ -382,231 +254,93 @@
 
 		<section id="packages">
 			<h2>rOpenSci packages</h2>
-
 			<h3><a href="http://ropensci.org/packages/">ropensci.org/packages</a> </h3>
-
 			<table cellpadding="20" cellspacing="20">
 				<tr>
-	<!-- <td>&nbsp;</td> -->
-		<td>	<h3> <font color="red"> <i class="fa fa-flask">&nbsp;Biology</i> </font> </h3>
-			<br>
-				<ul>
-					<li> <h3><a href="https://github.com/ropensci/taxize">taxize</a></h3> </li>
-					<li> <h3><a href="https://github.com/ropensci/rgbif">rgbif</a></h3> </li>
-					<li> <h3><a href="https://github.com/ropensci/rbison">rbison</a></h3> </li>
-					<li> <h3><a href="https://github.com/ropensci/treebase">treebase</a></h3> </li>
-					<li> <h3><a href="https://github.com/ropensci/rfishbase">rfishbase</a></h3> </li>
-					<li> <h3><a href="https://github.com/ropensci/RNeXML">RNeXML</a></h3> </li>
-				</ul>
-		</td>
-		<td>&nbsp;</td>
-		<td>&nbsp;</td>
-		<td>&nbsp;</td>
-		<td>&nbsp;</td>
-		<td>
-				<h3> <font color="blue"><i class="fa fa-book">&nbsp;Literature</font></i> </h3>
-				<br>
-				<ul>
-					<li> <h3><a href="https://github.com/ropensci/rplos">rplos</a></h3> </li>
-					<li> <h3><a href="https://github.com/ropensci/rmetadata">rmetadata</a></h3> </li>
-					<li> <h3><a href="https://github.com/ropensci/rentrez">rentrez</a></h3> </li>
-					<li> <h3><a href="https://github.com/ropensci/fulltext">fulltext</a></h3> </li>
-					<li> <h3><a href="https://github.com/ropensci/bmc">bmc</a></h3> </li>
-					<li> <h3><a href="https://github.com/ropensci/elife">eLife</a></h3> </li>
-					<li> <h3><a href="https://github.com/ropensci/rcrossref">rcrossref</a></h3> </li>
-				</ul>
-		</td>
-		<td>&nbsp;</td>
-		<td>&nbsp;</td>
-		<td>&nbsp;</td>
-			<td>
-					<h3><font color="green"><i class="fa fa-bars">&nbsp;Publishing</font></i></h3>
+				<td>	<h3> <font color="red"> <i class="fa fa-flask">&nbsp;Biology</i> </font> </h3>
 					<br>
-					<ul>
-						<li> <h3><a href="https://github.com/ropensci/rfigshare">rfighsare</a></h3> </li>
-						<li> <h3><a href="https://github.com/ropensci/EML">EML</a></h3> </li>
-						<li> <h3><a href="https://github.com/ropensci/zenodo">zenodo</a></h3> </li>
-						<li> <h3><a href="https://github.com/ropensci/dvn">dvn</a></h3> </li>
-						<li> <h3><a href="https://github.com/ropensci/aRxiv">aRxiv</a></h3> </li>
-					</ul>
-			</td>
+						<ul>
+							<li> <h3><a href="https://github.com/ropensci/taxize">taxize</a></h3> </li>
+							<li> <h3><a href="https://github.com/ropensci/rgbif">rgbif</a></h3> </li>
+							<li> <h3><a href="https://github.com/ropensci/rbison">rbison</a></h3> </li>
+							<li> <h3><a href="https://github.com/ropensci/treebase">treebase</a></h3> </li>
+							<li> <h3><a href="https://github.com/ropensci/rfishbase">rfishbase</a></h3> </li>
+							<li> <h3><a href="https://github.com/ropensci/RNeXML">RNeXML</a></h3> </li>
+						</ul>
+				</td>
+				<td>&nbsp;</td>
+				<td>&nbsp;</td>
+				<td>&nbsp;</td>
+				<td>&nbsp;</td>
+				<td>
+						<h3> <font color="blue"><i class="fa fa-book">&nbsp;Literature</font></i> </h3>
+						<br>
+						<ul>
+							<li> <h3><a href="https://github.com/ropensci/rplos">rplos</a></h3> </li>
+							<li> <h3><a href="https://github.com/ropensci/rmetadata">rmetadata</a></h3> </li>
+							<li> <h3><a href="https://github.com/ropensci/rentrez">rentrez</a></h3> </li>
+							<li> <h3><a href="https://github.com/ropensci/fulltext">fulltext</a></h3> </li>
+							<li> <h3><a href="https://github.com/ropensci/bmc">bmc</a></h3> </li>
+							<li> <h3><a href="https://github.com/ropensci/elife">eLife</a></h3> </li>
+							<li> <h3><a href="https://github.com/ropensci/rcrossref">rcrossref</a></h3> </li>
+						</ul>
+				</td>
+				<td>&nbsp;</td>
+				<td>&nbsp;</td>
+				<td>&nbsp;</td>
+					<td>
+							<h3><font color="green"><i class="fa fa-bars">&nbsp;Publishing</font></i></h3>
+							<br>
+							<ul>
+								<li> <h3><a href="https://github.com/ropensci/rfigshare">rfighsare</a></h3> </li>
+								<li> <h3><a href="https://github.com/ropensci/EML">EML</a></h3> </li>
+								<li> <h3><a href="https://github.com/ropensci/zenodo">zenodo</a></h3> </li>
+								<li> <h3><a href="https://github.com/ropensci/dvn">dvn</a></h3> </li>
+								<li> <h3><a href="https://github.com/ropensci/aRxiv">aRxiv</a></h3> </li>
+							</ul>
+					</td>
 			</table>
 		</section>
 
 		<section id="other_fields">
 			<h2>rOpenSci packages</h2>
-
 			<h3><a href="http://ropensci.org/packages/">ropensci.org/packages</a> </h3>
-
 			<table cellpadding="20" cellspacing="20">
 				<tr>
-	<!-- <td>&nbsp;</td> -->
-		<td>	<h3> <font color="orange"> <i class="fa fa-history">&nbsp;History</i> </font> </h3>
-			<br>
-				<ul>
-					<li> <h3><a href="https://github.com/ropensci/rdpla">rdpla</a></h3> </li>
-					<li> <h3><a href="https://github.com/ropensci/reuropeana">reuropeana</a></h3> </li>
-					<li> <h3><a href="https://github.com/ropensci/gender">gender</a></h3> </li>
-					<li> <h3><a href="https://github.com/ropensci/historydata">historydata</a></h3> </li>
-					<li> <h3><a href="https://github.com/ropensci/usboundaries">usboundaries</a></h3> </li>
-				</ul>
-		</td>
-		<td>&nbsp;</td>
-		<td>
-				<h3> <font color="purple"><i class="fa fa-university">&nbsp;Archeology</font></i> </h3>
-				<br>
-				<ul>
-					<li> <h3><a href="https://github.com/ropensci/pleiades">pleiades</a></h3> </li>
-				</ul>
-	</td>
-	<td>&nbsp;</td>
-		<td>
-		<h3> <font color="black"><i class="fa fa-bar-chart-o">&nbsp;Altmetrics</font></i> </h3>
-				<br>
-				<ul>
-					<li> <h3><a href="https://github.com/ropensci/alm">alm</a></h3> </li>
-					<li> <h3><a href="https://github.com/ropensci/rAltmetric">rAltmetric</a></h3> </li>
-				</ul>
-		</td>
+				<td>	<h3> <font color="orange"> <i class="fa fa-history">&nbsp;History</i> </font> </h3>
+					<br>
+						<ul>
+							<li> <h3><a href="https://github.com/ropensci/rdpla">rdpla</a></h3> </li>
+							<li> <h3><a href="https://github.com/ropensci/reuropeana">reuropeana</a></h3> </li>
+							<li> <h3><a href="https://github.com/ropensci/gender">gender</a></h3> </li>
+							<li> <h3><a href="https://github.com/ropensci/historydata">historydata</a></h3> </li>
+							<li> <h3><a href="https://github.com/ropensci/usboundaries">usboundaries</a></h3> </li>
+						</ul>
+				</td>
+				<td>&nbsp;</td>
+				<td>
+						<h3> <font color="purple"><i class="fa fa-university">&nbsp;Archeology</font></i> </h3>
+						<br>
+						<ul>
+							<li> <h3><a href="https://github.com/ropensci/pleiades">pleiades</a></h3> </li>
+						</ul>
+			</td>
+			<td>&nbsp;</td>
+				<td>
+				<h3> <font color="black"><i class="fa fa-bar-chart-o">&nbsp;Altmetrics</font></i> </h3>
+						<br>
+						<ul>
+							<li> <h3><a href="https://github.com/ropensci/alm">alm</a></h3> </li>
+							<li> <h3><a href="https://github.com/ropensci/rAltmetric">rAltmetric</a></h3> </li>
+						</ul>
+				</td>
 			</table>
 		</section>
 
-		<section id="data_growth">
-			<h2>Some numbers for amount of the data</h2>
-			<table class="table table-bordered table-striped">
-			 <thead>
-			  <tr>
-			   <th style="text-align:left;"> source </th>
-			   <th style="text-align:right;"> value </th>
-			   <th style="text-align:left;"> type </th>
-			  </tr>
-			 </thead>
-			<tbody>
-			  <tr>
-			   <td style="text-align:left;"> GBIF </td>
-			   <td style="text-align:right;"> 420222471 </td>
-			   <td style="text-align:left;"> Species occurrence records </td>
-			  </tr>
-			  <tr>
-			   <td style="text-align:left;"> BHL </td>
-			   <td style="text-align:right;"> 155891133 </td>
-			   <td style="text-align:left;"> Names </td>
-			  </tr>
-			  <tr>
-			   <td style="text-align:left;"> BHL </td>
-			   <td style="text-align:right;"> 43968949 </td>
-			   <td style="text-align:left;"> Pages </td>
-			  </tr>
-			  <tr>
-			   <td style="text-align:left;"> DataCite </td>
-			   <td style="text-align:right;"> 3618096 </td>
-			   <td style="text-align:left;"> Data records </td>
-			  </tr>
-			  <tr>
-			   <td style="text-align:left;"> eBird </td>
-			   <td style="text-align:right;"> 2923886 </td>
-			   <td style="text-align:left;"> Observations </td>
-			  </tr>
-			  <tr>
-			   <td style="text-align:left;"> NPN </td>
-			   <td style="text-align:right;"> 2537095 </td>
-			   <td style="text-align:left;"> Phenology records </td>
-			  </tr>
-			  <tr>
-			   <td style="text-align:left;"> Neotoma </td>
-			   <td style="text-align:right;"> 2200221 </td>
-			   <td style="text-align:left;"> Data records </td>
-			  </tr>
-			  <tr>
-			   <td style="text-align:left;"> OpenSNP </td>
-			   <td style="text-align:right;"> 2140939 </td>
-			   <td style="text-align:left;"> SNPs </td>
-			  </tr>
-			  <tr>
-			   <td style="text-align:left;"> COL </td>
-			   <td style="text-align:right;"> 1352112 </td>
-			   <td style="text-align:left;"> Taxonomic names </td>
-			  </tr>
-			  <tr>
-			   <td style="text-align:left;"> ITIS </td>
-			   <td style="text-align:right;"> 624282 </td>
-			   <td style="text-align:left;"> Taxonomic names </td>
-			  </tr>
-			  <tr>
-			   <td style="text-align:left;"> eBird </td>
-			   <td style="text-align:right;"> 205970 </td>
-			   <td style="text-align:left;"> Checklist records </td>
-			  </tr>
-			  <tr>
-			   <td style="text-align:left;"> BHL </td>
-			   <td style="text-align:right;"> 139561 </td>
-			   <td style="text-align:left;"> Items </td>
-			  </tr>
-			  <tr>
-			   <td style="text-align:left;"> PLOS </td>
-			   <td style="text-align:right;"> 136330 </td>
-			   <td style="text-align:left;"> Articles </td>
-			  </tr>
-			  <tr>
-			   <td style="text-align:left;"> BHL </td>
-			   <td style="text-align:right;"> 77258 </td>
-			   <td style="text-align:left;"> Titles </td>
-			  </tr>
-			</tbody>
-			</table>
-		</section>
-
-		<section id="demos">
-			<h1>Code demos</h1>
-			<br><br>
-			<ul>
-				<h2>The diversity of projects</h2>
-				<h2>How easy it is</h2>
-				<h2>Imagine these examples at scale</h2>
-			</ul>
-		</section>
-
-		<!-- ## literature section -->
-		<section id="start_literature">
+		<!-- text mining -->
+		<section id="text-mining">
 			<br><br><br>
-			<h1><font color="blue"><i class="fa fa-book">&nbsp;Literature</font></i></h1>
-		</section>
-
-		<section data-markdown id="rplos">
-			<script type="text/template">
-			## Public Library of Science full text - <font color="red">rplos</font>
-
-			```r
-			library(rplos)
-			plot_throughtime(list("reproducible science"), 500) +
-				theme_grey(base_size = 20)
-			```
-
-			<img src="code/figure/rplos_fig.png" alt="rplos_fig" width="1100" />
-			</script>
-		</section>
-
-		<section data-markdown id="rentrez_lit">
-			<script type="text/template">
-			## Search for articles with keyword _bioinformatics_ - <font color="red">rentrez</font>
-
-			```r
-			library('rentrez')
-			res <- entrez_search(db = "pmc", term="bioinformatics")
-			out <- entrez_summary(db = "pmc", id=res$ids)
-			unlist(sapply(out, "[[", "DOI"))
-			```
-<br><br>
-			```
-			[1] "10.1186/1471-2164-15-772"            "10.1186/1471-2164-15-770"            "10.1186/0717-6287-47-39"
-			[4] "10.1186/s12916-014-0166-6"           "10.1186/s40478-014-0093-y"           "10.1158/1541-7786.MCR-11-0421"
-			[7] "10.1002/path.4294"                   "10.3978/j.issn.2218-676X.2014.06.03" "10.1186/1471-2164-15-755"
-			[10] "10.1186/1471-2164-15-713"            "10.4046/trd.2014.77.2.49"            "10.4084/MJHID.2014.062"
-			[13] "10.1007/s11032-014-0095-2"           "10.1186/1471-2164-15-747"            "10.1186/1471-2164-15-756"
-			[16] "10.1186/1471-2164-15-733"            "10.1186/1471-2164-15-746"            "10.1186/1471-2164-15-729"
-			[19] "10.1186/1471-2164-15-727"
-			```
-			</script>
+			<h1><font color="blue"><i class="fa fa-book">&nbsp;Text mining</font></i></h1>
 		</section>
 
 		<section data-markdown id="fulltext_1">
@@ -667,24 +401,82 @@
 			</script>
 		</section>
 
-		<!-- ## pushing data up -->
+		<!-- metadata start -->
+		<section id="metadata">
+			<br><br><br>
+			<h1><font color="orange"><i class="fa fa-book">&nbsp;Metadata</font></i></h1>
+		</section>
 
+		<section data-markdown id="rcrossref">
+			<script type="text/template">
+			## <font color="red">rcrossref</font>
+
+			```r
+			library('rcrossref')
+			```
+			Get works funded by the NSF
+
+			```r
+			cr_works(filter = c(award_funder = 100000179))
+			```
+
+			Get works from PeerJ
+
+			```r
+			cr_members(member_ids = 4443, works = TRUE)
+			```
+
+			Get ORCIDs from works
+
+			```r
+			cr_works(filter = c(has_orcid=TRUE), limit = 10)$data$author %>%
+			    lapply(., "[[", "ORCID") %>%
+			    unlist %>%
+			    Filter(function(x) !is.na(x), .)
+			```
+			</script>
+		</section>
+
+		<!-- use cases -->
+		<section id="usecases">
+			<br><br><br>
+			<h1><font color="green"><i class="fa fa-book">&nbsp;Use Cases</font></i></h1>
+		</section>
+
+		<section id="usecases-eg1">
+			<!-- about: no. authors per paper increased through time -->
+			<h2>use cases: Author inflation (<font style="color:blue">rplos</font>)</h2>
+			<img src="img/usecases/author_inflation1.png" alt="author_inflation" width="70%"/>
+			<br>
+			<small>From: <a href="https://benjaminlmoore.wordpress.com/2014/04/06/author-inflation-in-academic-literature/">Benjamin Moore's blog</a></small>
+		</section>
+
+		<section id="usecases-eg2">
+			<!-- about: no. papers about open science increases -->
+			<h2>use cases: Open science papers (<font style="color:blue">rentrez</font>)</h2>
+			<span id="rotate_text">papers published about open science</span>
+			<img src="img/usecases/open_science_papers.png" alt="open_science_papers" width="60%"/>
+			<br>
+			<small>From: <a href="http://dx.doi.org/10.1890/ES14-00402.1">The Tao of open science for ecology, DOI:10.1890/ES14-00402.1</a></small>
+		</section>
+
+		<section id="usecases-eg3">
+			<!-- about: xxx -->
+			<h2>use cases: xx (<font style="color:blue">rentrez</font>)</h2>
+			<!-- <img src="img/usecases/open_science_papers.png" alt="open_science_papers" width="60%"/> -->
+			<br>
+			<small>From: <a href="xx">xxx</a></small>
+		</section>
+
+		<!-- ## pushing data up -->
 		<section id="start_publish">
 			<br><br><br>
 			<h1><font color="green"><i class="fa fa-bars">&nbsp;Publishing</font></i></h1>
 		</section>
 
-		<!-- <section id="r_publish">
-			<br><br><br><br>
-			<h1>R <i class="fa fa-plus"></i> data publishing <i class="fa fa-table"></i></h1>
-		</section> -->
-
-		<section id="eml1">
+		<section id="eml">
 			<img src="img/carl.jpg" alt="carl" width="10%" style="float: right;" />
 			<h1>EML</h1>
-			<!-- <blockquote>EML (Jones et al., 2001) is a comprehensive standard that
-			has been adopted by a sector of the larger international ecological research community.
-			</blockquote> -->
 			<br>
 			<blockquote><h2>EML provides a common structure for data, to better enable ecologists to document,
 			share, and interpret ecological data</h2></blockquote>
@@ -694,92 +486,157 @@
 			<a href="https://knb.ecoinformatics.org/#external//emlparser/docs/index.html">Read more about EML</a>
 		</section>
 
-		<section data-markdown id="eml_eg">
-			<script type="text/template">
-			## Valid EML
-
-```html
-<?xml version="1.0"?>
-<eml:eml xmlns:eml="eml://ecoinformatics.org/eml-2.1.1"
-	xmlns:ds="eml://ecoinformatics.org/dataset-2.1.1"
-	xmlns:xs="http://www.w3.org/2001/XMLSchema"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xmlns:stmml="http://www.xml-cml.org/schema/stmml-1.1"
-	packageId="reml_3794487.58997023" system="reml">
-	<dataset>
-	<title>reml example</title>
-	<creator>
-		<individualName>
-			<givenName>Karthik</givenName>
-			<surName>Ram</surName>
-		</individualName>
-		<electronicMailAddress>karthik.ram@gmail.com</electronicMailAddress>
-	</creator>
-	...
-```
-			</script>
+		<section id="write-apis">
+			<h2>Why can't we write to your APIs?</h2>
+			<br><br>
+			<h1><i class="fa fa-edit fa-4x"></i></h1>
 		</section>
 
-		<section id="publishing_methods">
-			<h1>Publishing outlets</h1><br><br>
-			<ul>
-				<li><h2>Figshare</h2></li>
-				<li><h2>Zenodo</h2></li>
-				<li><h2>Dataone</h2></li>
-				<li><h2>Various journals</h2></li>
-				<li><h2>More...</h2></li>
-			</ul>
+		<section id="write-apis-please">
+			<br><br>
+			<h1><i class="fa fa-refresh fa-4x"></i></h1>
 		</section>
 		<!-- end publishing section -->
 
-		<!-- altmetrics section -->
-		<section id="start_altmetrics">
-			<br><br><br>
-			<h1><font color="black"><i class="fa fa-bar-chart-o">&nbsp;Altmetrics</font></i></h1>
+		<!-- now the bad -->
+		<section id="lessons">
+			<h1>Lessons / Observations</h1>
 		</section>
 
-		<section id="what_altmetrics">
-			<h1>article-level metrics</h1>
-
-			<h2>There are a lot of altmetrics out there</h2>
-
-			<img src="img/56indicatorsofimpact.png" alt="lotsalts" />
-			<br>
-			<a href="http://altmetrics.org/manifesto/">Canonical altmetrics document</a>
-		</section>
-
-		<section id="open_altmetrics">
-			<h1>altmetrics data often open</h1>
+		<section id="tdm-number">
+			<h1>Crossref TDM: Very few links available</h1>
 			<br><br>
-			<h2><font color="green"><i class="fa fa-unlock fa-5x"></i></font></h2>
+			<h1>5563</h1>
+			<br><br>
+			<h1>publishers w/o any full text links</h1>
 		</section>
 
-		<section data-markdown id="alm">
-			<script type="text/template">
-			## alm - analyze article metrics
-
-			```r
-			library('alm'); library('rplos'); library('plyr')
-			dois <- searchplos(q='*:*', fl="id", fq=list('doc_type:full', '-article_type:correction'), limit=25)$data$id
-			alm <- alm_ids(doi=dois, total_details=TRUE)
-			df <- ldply(alm$data, data.frame)
-			plot_density(df, source=c("counter_total","crossref_total","twitter_total","wos_total"))
-			```
-
-			<img src="img/almplot.png" alt="alm_plot" width="900" />
-			</script>
+		<section id="tdm-fig">
+			<h1>Crossref TDM: few links</h1>
+			<br>
+			<h2>removing zeros...</h2>
+			<br>
+			<img src="img/coverage.png">
 		</section>
-		<!-- end altmetrics section -->
+
+		<section id="tdm-moar">
+			<h1>Crossref TDM: fragile</h1>
+			<h3>Manually generated links -> fragile software</h3>
+			<h2><i class="fa fa-unlink fa-5x" style="color:red"></i></h2>
+		</section>
+
+		<section id="table">
+			<h1>Crossref TDM: Some don't resolve</h1>
+			<center>
+			<table cellpadding="200">
+			 <thead>
+			  <tr>
+			   <th style="text-align:left;"> Publisher </th>
+			   <th style="text-align:right;"> % That Resolve </th>
+			  </tr>
+			 </thead>
+			<tbody>
+			  <tr>
+			   <td style="text-align:left;"> 311 </td>
+			   <td style="text-align:right;"> 0 </td>
+			  </tr>
+			  <tr>
+			   <td style="text-align:left;"> 78 </td>
+			   <td style="text-align:right;"> 100 </td>
+			  </tr>
+			  <tr>
+			   <td style="text-align:left;"> 316 </td>
+			   <td style="text-align:right;"> 100 </td>
+			  </tr>
+			  <tr>
+			   <td style="text-align:left;"> 301 </td>
+			   <td style="text-align:right;"> 100 </td>
+			  </tr>
+			  <tr>
+			   <td style="text-align:left;"> 286 </td>
+			   <td style="text-align:right;"> 100 </td>
+			  </tr>
+			  <tr>
+			   <td style="text-align:left;"> 276 </td>
+			   <td style="text-align:right;"> 80 </td>
+			  </tr>
+			  <tr>
+			   <td style="text-align:left;"> 179 </td>
+			   <td style="text-align:right;"> 100 </td>
+			  </tr>
+			  <tr>
+			   <td style="text-align:left;"> 263 </td>
+			   <td style="text-align:right;"> 100 </td>
+			  </tr>
+			  <tr>
+			   <td style="text-align:left;"> 4374 </td>
+			   <td style="text-align:right;"> 100 </td>
+			  </tr>
+			  <tr>
+			   <td style="text-align:left;"> 4443 </td>
+			   <td style="text-align:right;"> 100 </td>
+			  </tr>
+			</tbody>
+			</table>
+			</center>
+		</section>
+
+		<section id="broken">
+			<h1>Link rot / Broken links</h1>
+			<!-- <p>Many TDM links don't work</p> -->
+			<br><br>
+			<h2><i class="fa fa-unlink fa-5x" style="color:red"></i></h2>
+		</section>
+
+		<section id="reprod">
+			<!-- maybe remove this one -->
+			<h1>Reproducibility is a huge problem</h1>
+			<!-- <p>I think we can agree we all want it</p> -->
+			<h2><i class="fa fa-refresh fa-5x"></i></h2>
+			<!-- <p>if we can't share products that make our work reproducible, then ?????</p> -->
+		</section>
+
+		<section id="docs">
+			<h1>Documentation, documentation, documentation</h1>
+			<br><br>
+			<h2><i class="fa fa-book fa-5x"></i></h2>
+		</section>
+
+		<section id="firstclass">
+			<h1>Make developers a first class citizen on your landing page</h1>
+			<br><br>
+			<img src="img/github_footer.png">
+		</section>
+
+		<section id="clients">
+			<h1>Support client libraries to work with your web services</h1>
+			<br><br>
+			<h2><i class="fa fa-code fa-5x" style="color:#008000"></i></h2>
+		</section>
+
+		<section id="address">
+			<h1>Checking IP addresses<br><br>Please Don't</h1>
+			<br><br>
+			<h1>Auth - API keys / OAuth should be plenty</h1>
+		</section>
+
+		<!-- hopeful note -->
+		<section id="but">
+			<!-- <h1>We can do better</h1> -->
+			<img src="img/doge_end.png" width="60%">
+			<!-- <h2><i class="fa fa- fa-5x"></i></h2> -->
+		</section>
 
 		<section id="end">
-			<br>
-			<h3>rOpenSci on the web: <a href="http://ropensci.org/">ropensci.org</a> </h3>
+			<i class="fa fa-external-link fa-5x"></i>
 			<br><br>
-			<h3> This talk on the web: <a href="http://recology.info/talks/cr-talk">recology.info/talks/cr-talk</a> </h3>
-			<br><br><br><br><br><br>
-			<h3>Made w/ <a href="https://github.com/hakimel/reveal.js">reveal.js</a></h3>
+			<h3><a href="http://recology.info/talks/cr-talk">recology.info/talks/cr-talk</a></h3>
+			<br><br><br><br>
+			<h3>Made w/: <a href="https://github.com/hakimel/reveal.js">reveal.js v2.6.1</a></h3>
 			<br>
-			<h3>Icons by: <a href="http://fortawesome.github.io/Font-Awesome/">FontAwesome v4.2.0</a></h3>
+			<h3>Some Styling: <a href="http://getbootstrap.com/">Bootstrap v3.3.5</a></h3>
+			<br>
+			<h3>Icons by: <a href="http://fortawesome.github.io/Font-Awesome/">FontAwesome v4.4.0</a></h3>
 		</section>
 
 			</div>
