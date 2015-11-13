@@ -5,37 +5,39 @@
 		<meta charset="utf-8">
 
 		<title>CR Talk</title>
-		<meta name="description" content="SFU Talk">
-		<meta name="author" content="Scott Chamberlain">
-		<meta name="apple-mobile-web-app-capable" content="yes" />
-		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-		<link rel="stylesheet" href="css/reveal.min.css">
+		<meta name="description" content="Crossref Keynote">
+		<meta name="author" content="Scott Chamberlain">
+
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+		<link rel="stylesheet" href="css/reveal.css">
 		<link rel="stylesheet" href="css/theme/solarized.css" id="theme">
-		<link rel="stylesheet" href="css/style.css">
 		<link rel="stylesheet" href="css/bootstrap/bootstrap.css">
 
-		<link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico">
-
+		<!-- use google font -->
 		<link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro' rel='stylesheet' type='text/css'>
 
-		<!-- <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css"> -->
+		<!-- favicon -->
+		<link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico">
+
+		<!-- icons -->
 		<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.css">
 
-		<!-- For syntax highlighting -->
+		<!-- Code syntax highlighting -->
 		<link rel="stylesheet" href="lib/css/zenburn.css">
-		<!-- <link rel="stylesheet" href="lib/css/foundation.css"> -->
-		<!-- <link rel="stylesheet" href="lib/css/font-awesome.min.css"> -->
 
-		<!-- If the query includes 'print-pdf', use the PDF print sheet -->
+		<!-- Printing and PDF exports -->
 		<script>
-			document.write( '<link rel="stylesheet" href="css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
 		</script>
-
-		<!--[if lt IE 9]>
-		<script src="lib/js/html5shiv.js"></script>
-		<![endif]-->
 
 		<style type="text/css">
 			#rotate_text {
@@ -52,26 +54,21 @@
 
 			ul.a {list-style-type: circle; margin: 0; padding: 0;}
 			ul.b {list-style-type: square; margin-left: 0; padding-left: 0;}
+
+			img {border: none;}
 		</style>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
 	</head>
 
 	<body>
 
 		<div class="reveal">
 
-	<!-- Notes:  -->
-	<!-- Heather's talk 2013
-	 - https://www.youtube.com/watch?v=YuhsHFrkIHE&feature=youtu.be
-	 - She basically said, we need APIs
-	 - Timing - servers often down, etc.
-	 - Then talked about impactstory, that's it-->
-	<!--  talk 2013
-	 - https://www.youtube.com/watch?v=YuhsHFrkIHE&feature=youtu.be
-	 - She basically said, we need APIs
-	 - Timing - servers often down, etc.
-	 - Then talked about impactstory, that's it-->
-
-	<div class="slides">
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
 
 		<!--
 		title: Thinking programmatically
@@ -90,15 +87,14 @@
 		-->
 
 		<section id="intro">
-				<!-- <img src="img/ropensci_main.png" alt="ropensci" /> -->
-				<h1><font color="#B8172F">Thinking programmatically</font></h1><br>
-				<p class="grey">Scott Chamberlain (<a href="https://twitter.com/recology_">@recology_</a>/<a href="@ropensci">@ropensci</a>)
-					<p class="grey">UC Berkeley / rOpenSci
-					<p class="grey">ORCID: <a href="http://orcid.org/0000-0003-1444-9135">0000-0003-1444-9135</a>
-				<!-- <p class="grey">recology.info/talks/sfustats<br><br> -->
-				<br><br><br>
-				<center>Supported by:</center>
-				<span><img src="img/sloan_logo2.png" alt="sloan" /></span>
+			<!-- <img src="img/ropensci_main.png" alt="ropensci" /> -->
+			<h1><font color="#B8172F">Thinking programmatically</font></h1><br>
+			<p class="grey">Scott Chamberlain (<a href="https://twitter.com/recology_">@recology_</a>/<a href="@ropensci">@ropensci</a>)
+				<p class="grey">UC Berkeley / rOpenSci
+				<p class="grey">ORCID: <a href="http://orcid.org/0000-0003-1444-9135">0000-0003-1444-9135</a>
+			<br><br><br>
+			<center>Supported by:</center>
+			<span><img src="img/sloan_logo2.png" alt="sloan" /></span>
 		</section>
 
 		<section id="link">
@@ -109,9 +105,7 @@
 
 		<section id="license">
 			<br>
-<!-- <h2>License: <strong>CC-BY 4.0</strong> - You are free to copy, share, adapt, or remix, photograph, film, or broadcast, blog, live-blog, or post video of this presentation, provided that you attribute the work to its author and respect the rights and licenses associated with its components.</h2>
-		<br><br><br> -->
-		<h1>LICENSE: <a href="https://creativecommons.org/licenses/by/4.0/">CC-BY 4.0</a></h1>
+			<h1>LICENSE: <a href="https://creativecommons.org/licenses/by/4.0/">CC-BY 4.0</a></h1>
 		</section>
 
 		<section id="infrastructure">
@@ -478,9 +472,8 @@
 			<img src="img/carl.jpg" alt="carl" width="10%" style="float: right;" />
 			<h1>EML</h1>
 			<br>
-			<blockquote><h2>EML provides a common structure for data, to better enable ecologists to document,
-			share, and interpret ecological data</h2></blockquote>
-			<br><br>
+			<blockquote><h2>EML provides a common data structure, to better enable ecologists to document, share, and interpret ecological data</h2></blockquote>
+			<br>
 			<blockquote><h2>EML standard enables data integration at the machine level (with little or no human intervention).</h2></blockquote>
 <br>
 			<a href="https://knb.ecoinformatics.org/#external//emlparser/docs/index.html">Read more about EML</a>
@@ -505,9 +498,9 @@
 
 		<section id="tdm-number">
 			<h1>Crossref TDM: Very few links available</h1>
-			<br><br>
+			<br>
 			<h1>5563</h1>
-			<br><br>
+			<br>
 			<h1>publishers w/o any full text links</h1>
 		</section>
 
@@ -629,58 +622,53 @@
 
 		<section id="end">
 			<i class="fa fa-external-link fa-5x"></i>
+			<br>
+			<h2><a href="http://recology.info/talks/cr-talk">recology.info/talks/cr-talk</a></h2>
 			<br><br>
-			<h3><a href="http://recology.info/talks/cr-talk">recology.info/talks/cr-talk</a></h3>
-			<br><br><br><br>
-			<h3>Made w/: <a href="https://github.com/hakimel/reveal.js">reveal.js v2.6.1</a></h3>
+			<h2>Made w/: <a href="https://github.com/hakimel/reveal.js">reveal.js v3.2.0</a></h2>
 			<br>
-			<h3>Some Styling: <a href="http://getbootstrap.com/">Bootstrap v3.3.5</a></h3>
+			<h2>Some Styling: <a href="http://getbootstrap.com/">Bootstrap v3.3.5</a></h2>
 			<br>
-			<h3>Icons by: <a href="http://fortawesome.github.io/Font-Awesome/">FontAwesome v4.4.0</a></h3>
+			<h2>Icons by: <a href="http://fortawesome.github.io/Font-Awesome/">FontAwesome v4.4.0</a></h2>
 		</section>
 
 			</div>
 
-	<!-- End slides -->
-
-
 		</div>
 
 		<script src="lib/js/head.min.js"></script>
-		<script src="js/reveal.min.js"></script>
+		<script src="js/reveal.js"></script>
 
 		<script>
-		// Full list of configuration options available here:
-		// https://github.com/hakimel/reveal.js#configuration
-		Reveal.initialize({
-			controls: false,
-			progress: true,
-			history: true,
-			center: false,
-			slideNumber: true,
-			keyboard: true,
-			touch: true,
 
-			width: 1400,
-			height: 900,
+			// Full list of configuration options available at:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: false,
+				slideNumber: true,
+				keyboard: true,
+				touch: true,
 
-			theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
-			transition: Reveal.getQueryHash().transition || 'none', // default/cube/page/concave/zoom/linear/fade/none
+				width: 1400,
+				height: 900,
 
-			// Parallax scrolling
-			// parallaxBackgroundImage: 'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg',
-			// parallaxBackgroundSize: '2100px 900px',
+				// transition: 'slide', // none/fade/slide/convex/concave/zoom
+				transition: Reveal.getQueryHash().transition || 'none', // default/cube/page/concave/zoom/linear/fade/none
 
-			// Optional libraries used to extend on reveal.js
-			dependencies: [
-				{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
-				{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-				{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-				{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
-				{ src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
-				{ src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
-			]
-		});
+				// Optional reveal.js plugins
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true },
+					{ src: 'plugin/notes/notes.js', async: true }
+				]
+			});
+
 		</script>
 
 	</body>
