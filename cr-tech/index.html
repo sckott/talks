@@ -4,31 +4,39 @@
 	<head>
 		<meta charset="utf-8">
 
-		<title>CR clients</title>
-		<meta name="description" content="R meetup">
+		<title>CR Talk</title>
+
+		<meta name="description" content="Crossref Keynote">
 		<meta name="author" content="Scott Chamberlain">
-		<meta name="apple-mobile-web-app-capable" content="yes" />
-		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-		<link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 
-		<link rel="stylesheet" href="css/reveal.min.css">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+		<link rel="stylesheet" href="css/reveal.css">
 		<link rel="stylesheet" href="css/theme/solarized.css" id="theme">
-		<link rel="stylesheet" href="css/style.css">
 		<link rel="stylesheet" href="css/bootstrap/bootstrap.css">
 
+		<!-- use google font -->
 		<link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro' rel='stylesheet' type='text/css'>
 
-		<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.css">
-		<link rel="stylesheet" href="lib/css/font-awesome-4.2.0/css/font-awesome.css">
+		<!-- favicon -->
+		<link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico">
 
-		<!-- For syntax highlighting -->
+		<!-- icons -->
+		<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.css">
+
+		<!-- Code syntax highlighting -->
 		<link rel="stylesheet" href="lib/css/zenburn.css">
 
-		<!-- If the query includes 'print-pdf', use the PDF print sheet -->
+		<!-- Printing and PDF exports -->
 		<script>
-			document.write( '<link rel="stylesheet" href="css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
 		</script>
 
 		<style type="text/css">
@@ -38,24 +46,35 @@
 				transform: rotate(-90deg);
 				position: absolute;
 				vertical-align: middle;
+				position: absolute;
+    		top: 500px;
+    		left: -50px;
 				filter:progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
 			}
 
 			ul.a {list-style-type: circle; margin: 0; padding: 0;}
 			ul.b {list-style-type: square; margin-left: 0; padding-left: 0;}
+
+			img {border: none;}
 		</style>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
 	</head>
 
 	<body>
 
-	<div class="reveal">
-	<div class="slides">
-		<section id="intro">
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+				<section id="intro">
 				<h1><font color="#B8172F">Crossref clients - R, Python, Ruby</font></h1>
 				<br><br><br>
-				<p class="grey">Scott Chamberlain (@recology_/@ropensci)
-					<p class="grey">rOpenSci / UC Berkeley
-					<br><br>
+				<p class="grey">Scott Chamberlain (<a href="https://twitter.com/recology_">@recology_</a>/<a href="@ropensci">@ropensci</a>)
+				<p class="grey">UC Berkeley / rOpenSci
+				<p class="grey">ORCID: <a href="http://orcid.org/0000-0003-1444-9135">0000-0003-1444-9135</a>
 				<center>Supported by:</center>
 				<img src="img/sloan_logo2.png" alt="sloan" />
 		</section>
@@ -91,32 +110,39 @@
 	        <th>App/Web Devs</th>
 		    </tr>
 		    <tr>
-	        <td>R</td>
+	        <td><a href="https://cran.rstudio.com/web/packages/rcrossref/">R</a></td>
 	        <td><strong>X</strong></td>
 	        <td><strong>X</strong></td>
 	        <td><strong>X</strong></td>
 	        <td><strong>--</strong></td>
 		    </tr>
 		    <tr>
-	        <td>Python</td>
+	        <td><a href="https://pypi.python.org/pypi/pygbif/0.1.1">Python</a></td>
 	        <td><strong>X</strong></td>
 	        <td><strong>--</strong></td>
 	        <td><strong>--</strong></td>
 	        <td><strong>X</strong></td>
 		    </tr>
 		    <tr>
-	        <td>Ruby</td>
+	        <td><a href="https://rubygems.org/gems/serrano">Ruby</a></td>
 	        <td><strong>--</strong></td>
 	        <td><strong>--</strong></td>
 	        <td><strong>--</strong></td>
 	        <td><strong>X</strong></td>
 		    </tr>
 		    <tr>
-	        <td>Command Line</td>
+			    <td><a href="https://rubygems.org/gems/serrano">Command Line</a></td>
 	        <td><strong>ish</strong></td>
 	        <td><strong>--</strong></td>
 	        <td><strong>--</strong></td>
 	        <td><strong>X</strong></td>
+		    </tr>
+		    <tr>
+	        <td><a href="https://www.npmjs.com/package/crossref">Javascript</a></td>
+	        <td><strong>ish</strong></td>
+	        <td><strong>?</strong></td>
+	        <td><strong>?</strong></td>
+	        <td><strong>most def</strong></td>
 		    </tr>
 			</table>
 			</center>
@@ -389,49 +415,43 @@
 			<br>
 			<h3>Icons by: <a href="http://fortawesome.github.io/Font-Awesome/">FontAwesome v4.4.0</a></h3>
 		</section>
-
 			</div>
-
-	<!-- End slides -->
-
 
 		</div>
 
 		<script src="lib/js/head.min.js"></script>
-		<script src="js/reveal.min.js"></script>
+		<script src="js/reveal.js"></script>
 
 		<script>
-		// Full list of configuration options available here:
-		// https://github.com/hakimel/reveal.js#configuration
-		Reveal.initialize({
-			controls: false,
-			progress: true,
-			history: true,
-			center: false,
-			slideNumber: true,
-			keyboard: true,
-			touch: true,
 
-			width: 1400,
-			height: 900,
+			// Full list of configuration options available at:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: false,
+				slideNumber: true,
+				keyboard: true,
+				touch: true,
 
-			theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
-			transition: Reveal.getQueryHash().transition || 'none', // default/cube/page/concave/zoom/linear/fade/none
+				width: 1400,
+				height: 900,
 
-			// Parallax scrolling
-			// parallaxBackgroundImage: 'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg',
-			// parallaxBackgroundSize: '2100px 900px',
+				// transition: 'slide', // none/fade/slide/convex/concave/zoom
+				transition: Reveal.getQueryHash().transition || 'none', // default/cube/page/concave/zoom/linear/fade/none
 
-			// Optional libraries used to extend on reveal.js
-			dependencies: [
-				{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
-				{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-				{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-				{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
-				{ src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
-				{ src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
-			]
-		});
+				// Optional reveal.js plugins
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true },
+					{ src: 'plugin/notes/notes.js', async: true }
+				]
+			});
+
 		</script>
 
 	</body>

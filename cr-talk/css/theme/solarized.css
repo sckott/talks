@@ -49,7 +49,7 @@ body {
   font-weight: normal;
   line-height: 0.9em;
   letter-spacing: 0.02em;
-  text-transform: uppercase;
+  text-transform: none;
   text-shadow: none;
   word-wrap: break-word; }
 
@@ -128,7 +128,7 @@ body {
 .reveal blockquote {
   display: block;
   position: relative;
-  width: 70%;
+  width: 80%;
   margin: 20px auto;
   padding: 5px;
   font-style: italic;
