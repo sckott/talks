@@ -4,7 +4,7 @@
 	<head>
 		<meta charset="utf-8">
 
-		<title>CR Talk</title>
+		<title>CR Keynote</title>
 
 		<meta name="description" content="Crossref Keynote">
 		<meta name="author" content="Scott Chamberlain">
@@ -20,6 +20,7 @@
 
 		<!-- use google font -->
 		<link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro' rel='stylesheet' type='text/css'>
+		<link rel="stylesheet" href="css/font-awesome/css/font-awesome.css">
 
 		<!-- favicon -->
 		<link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico">
@@ -110,10 +111,6 @@
 
 		<section id="infrastructure">
 			<h1>Infrastructure</h1>
-			<br><br><br><br>
-			<h3>
-			Bilder <a href="https://www.youtube.com/watch?v=CAbAq1RbSEc">talked about text and data mining last year</a>
-			</h3>
 		</section>
 
 		<section id="infrastructure-impt">
@@ -131,18 +128,24 @@
 		</section>
 
 		<section id="good-bad">
-			<h1>First, stories, what we're building on top of infrastructure, then things that could be better</h1>
+			<h1>
+			<ul>
+				<li>Stories</li>
+				<li>What infrastructure enables</li>
+				<li>Things that could be better</li>
+			</ul>
+			</h1>
 		</section>
 
-		<!-- use cases -->
-		<section id="usecases">
+		<!-- stories -->
+		<section id="stories">
 			<br><br><br>
-			<h1><font color="green"><i class="fa fa-book">&nbsp;Use Cases</font></i></h1>
+			<h1><font color="green"><i class="fa fa-book">&nbsp;Stories/Use Cases</font></i></h1>
 		</section>
 
 		<section id="usecases-eg1">
 			<!-- about: no. authors per paper increased through time -->
-			<h2>Use cases: Author inflation (<font style="color:blue">rplos</font>)</h2>
+			<h2>Use cases: Author inflation (<a href="https://github.com/ropensci/rplos">rplos</a>)</h2>
 			<img src="img/usecases/author_inflation1.png" alt="author_inflation" width="70%"/>
 			<br>
 			<small>From: <a href="https://benjaminlmoore.wordpress.com/2014/04/06/author-inflation-in-academic-literature/">Benjamin Moore's blog</a></small>
@@ -150,7 +153,7 @@
 
 		<section id="usecases-eg2">
 			<!-- about: no. papers about open science increases -->
-			<h2>Use cases: Open science papers (<font style="color:blue">rentrez</font>)</h2>
+			<h2>Use cases: Open science papers (<a href="https://github.com/ropensci/rentrez">rentrez</a>)</h2>
 			<span id="rotate_text">papers published about open science</span>
 			<img src="img/usecases/open_science_papers.png" alt="open_science_papers" width="60%"/>
 			<br>
@@ -158,19 +161,25 @@
 		</section>
 
 		<section id="usecases-eg3">
-			<!-- about: xxx -->
-			<h2>Use cases: xx (<font style="color:blue">rentrez</font>)</h2>
-			<!-- <img src="img/usecases/open_science_papers.png" alt="open_science_papers" width="60%"/> -->
+			<!-- about: prevalence of statistical reporting errors in psychology -->
+			<h2>Use cases: Statistical reporting errors (<a href="https://github.com/ropensci/rplos">rplos</a>)</h2>
+			<img src="img/usecases/stats_reporting.png" alt="stats_reporting" width="50%"/>
 			<br>
-			<small>From: <a href="xx">xxx</a></small>
+			<small>From: <a href="http://dx.doi.org/10.3758/s13428-015-0664-2">The prevalence of statistical reporting errors in psychology (1985–2013), DOI:10.3758/s13428-015-0664-2</a></small>
+		</section>
+
+		<section id="usecase-eg3-just-sayin">
+			<font size="34"><blockquote>
+				Via EBSCOhost we <strong>manually downloaded</strong> all articles in HTML from six ... journals ... Furthermore, we manually downloaded all articles ... from two journals in general psychology... Finally, we <strong>automatically downloaded</strong> all HTML articles with the subject “psychology” from the Public Library of Science (PLoS; 2000–2013), using the rplos R package.
+			</blockquote></font>
 		</section>
 
 		<section id="usecases-eg4">
-			<!-- about: xxx -->
-			<h2>Use cases: xx (<font style="color:blue">rentrez</font>)</h2>
-			<!-- <img src="img/usecases/open_science_papers.png" alt="open_science_papers" width="60%"/> -->
+			<!-- about: publication lag, from submit to published -->
+			<h2>Use cases: Do metadata predict publication lag (<a href="https://github.com/ropensci/rplos">rplos</a>)</h2>
+			<img src="img/usecases/plos_lag.png" alt="publication_lag" width="80%"/>
 			<br>
-			<small>From: <a href="xx">xxx</a></small>
+			<small>From: Publication cycle: A study of the Public Library of Science (PLOS) <a href="https://www.authorea.com/users/2013/articles/36067">https://www.authorea.com/users/2013/articles/36067</a></small>
 		</section>
 
 		<section id="usecases-eg5">
@@ -181,7 +190,11 @@
 			<small>From: <a href="xx">xxx</a></small>
 		</section>
 
-		<!-- ropensci -->
+		<!-- ropensci - what infrastructure enables -->
+		<section id="infrastructure-enables">
+			<h1>Infrastructure:<br>the enabler</h1>
+		</section>
+
 		<section id="data_hard">
 			<h1 align="left">Huge amount of open data!</h1>
 			<h2><i class="fa fa-database fa-5x" style="color:#008000"></i></h2>
@@ -203,23 +216,6 @@
 			<br>
 			<img src="img/tools.png" alt="toolset" width="1200" />
 		</section>
-
-		<section id="perfect">
-			<h1>A perfect combination</h1>
-			<br><br>
-			<center>
-				<font color="red" size="12"><i class="fa fa-refresh fa-5x">&nbsp;</i></font>
-				<font color="green" size="12"> <i class="fa fa-unlock fa-5x">&nbsp;</i></font>
-				<font color="blue" size="12" class="fragment"><i class="fa fa-cloud fa-5x">&nbsp;</i></font>
-			</center>
-			<br>
-			<h2 class="fragment">Data is increasingly on the web <font color="blue"><i class="fa fa-cloud"></i></font></h2>
-		</section>
-
-		<!-- <section id="dataweb">
-			<h2>Data is increasingly on the web <font color="blue"><i class="fa fa-cloud"></i></font></h2>
-			<img src="img/data.png" width="1000">
-		</section> -->
 
 		<section id="apis1">
 			<br><br>
@@ -243,25 +239,21 @@
 		<section id="ropensci-community">
 			<h1>rOpenSci Community</h1>
 			<br><br>
-	    <h3>ad-hoc conversation over Twitter in 2010 -> Now a worldwide community of developers/researchers <br><br> <a href="http://ropensci.org/community/#community" title="rOpenSci Community" target="_blank">http://ropensci.org/community</a>
+	    <h3>ad-hoc conversation over Twitter in 2010 <i class="fa fa-arrow-right"></i> Now a worldwide community of developers/researchers <br><br> <a href="http://ropensci.org/community/#community" title="rOpenSci Community" target="_blank">http://ropensci.org/community</a>
 	    </h3>
 		</section>
 
 		<section id="cranpkgs">
 			<h2>R has a lot of packages<br>(mostly data manip./viz & statistics)</h2>
 			<br>
-			<!-- library("ggplot2")
-			df <- data.frame(date = as.Date(c('2014-10-29','2013-11-08','2012-08-23','2011-05-12',
-			                                  '2009-10-04','2007-04-12','2004-10-01','2003-04-01')),
-			                 pkgs = c(6000, 5000, 4000, 3000, 2000, 1000, 500, 250))
-			ggplot(df, aes(date, pkgs)) + geom_line(size=3) + theme_grey(base_size = 26) -->
-			<img src="img/rpkgs.png" width="90%">
+			<p style="float:right;">Currently: ~7500</p>
+			<img src="img/rpkgs.png" width="80%">
 		</section>
 
 		<section id="workflow">
 			<br><br><br>
 			<center>
-				<h2>Data acquisition <i class="fa fa-cloud-download"></i> &nbsp;&nbsp;&nbsp; <i class="fa fa-plus"></i> <br><br> data manipulation/analysis/viz <i class="fa fa-bar-chart"></i> &nbsp;&nbsp;&nbsp; <i class="fa fa-plus"></i> <br><br> writing <i class="fa fa-pencil"></i> &nbsp;&nbsp;&nbsp; <i class="fa fa-plus"></i> <br><br> publish <i class="fa fa-cloud-upload"></i></h2>
+				<h2>Data acquisition <i class="fa fa-cloud-download"></i> &nbsp;&nbsp;&nbsp; <i class="fa fa-plus"></i> <br><br> data manipulation/analysis/viz <i class="fa fa-bar-chart"></i> &nbsp;&nbsp;&nbsp; <i class="fa fa-plus"></i> <br><br> writing  <i class="fa fa-pencil"></i>&nbsp;&nbsp;&nbsp; <i class="fa fa-plus"></i> <br><br> publish <i class="fa fa-cloud-upload"></i></h2>
 			</center>
 		</section>
 
@@ -275,7 +267,7 @@
 		<section id="workflow_manip">
 			<br><br><br>
 			<center>
-				<h2>Data acquisition <i class="fa fa-cloud-download"></i> &nbsp;&nbsp;&nbsp; <i class="fa fa-plus"></i> <br><br> <font color="blue"><strong>data manipulation/analysis/viz</strong> <i class="fa fa-bar-chart"></i></font> &nbsp;&nbsp;&nbsp; <i class="fa fa-plus"></i> <br><br> writing <i class="fa fa-pencil"></i> &nbsp;&nbsp;&nbsp; <i class="fa fa-plus"></i> <br><br> publish <i class="fa fa-cloud-upload"></i></h2>
+				<h2>Data acquisition <i class="fa fa-cloud-download"></i> &nbsp;&nbsp;&nbsp; <i class="fa fa-plus"></i> <br><br> <font color="blue"><strong>data manipulation/analysis/viz</strong> <i class="fa fa-bar-chart"></i></font> &nbsp;&nbsp;&nbsp; <i class="fa fa-plus"></i> <br><br> writing  <i class="fa fa-pencil"></i> &nbsp;&nbsp;&nbsp; <i class="fa fa-plus"></i> <br><br> publish <i class="fa fa-cloud-upload"></i></h2>
 			</center>
 		</section>
 
@@ -485,16 +477,16 @@
 		</section>
 
 		<section id="eml">
-			<img src="img/carl.jpg" alt="carl" width="10%" style="float: right;" />
+			<img src="img/carl.jpg" alt="carl" width="10%" style="float:right;" />
 			<h1>EML</h1>
 			<br>
 			<blockquote><h2>EML provides a common data structure, to enable scientists to document, share, and interpret ecological data</h2></blockquote>
-			<blockquote><h2>EML standard enables data integration at the machine level (with little or no human intervention).</h2></blockquote>
+			<br><br><br>
 			<a href="https://knb.ecoinformatics.org/#external//emlparser/docs/index.html">Read more about EML</a>
 		</section>
 
 		<section id="write-apis">
-			<h2>Let us write to your APIs <i class="fa fa-smile-o"></i></h2>
+			<h2>Write APIs? <i class="fa fa-smile-o"></i></h2>
 			<br><br>
 			<h1><i class="fa fa-edit fa-4x"></i></h1>
 		</section>
@@ -507,7 +499,8 @@
 
 		<!-- now the bad -->
 		<section id="lessons">
-			<h1>Lessons / Observations</h1>
+			<br><br><br>
+			<h1 align="left">Lessons / Observations</h1>
 		</section>
 
 		<section id="tdm-number">
@@ -515,7 +508,7 @@
 			<br>
 			<h1><code style="color:blue;">5563/5772 (&lt; 4%)</code></h1>
 			<br>
-			<h2>provide links</h2>
+			<h2>provide full text links</h2>
 		</section>
 
 		<section id="tdm-fig">
@@ -527,7 +520,8 @@
 
 		<section id="tdm-moar">
 			<h1>Crossref TDM: fragile</h1>
-			<h3>Manually generated links -> fragile software</h3>
+			<h3>Manually generated links <i class="fa fa-arrow-right"></i> fragile software</h3>
+			<br><br>
 			<h2><i class="fa fa-unlink fa-5x" style="color:red"></i></h2>
 		</section>
 
@@ -594,6 +588,14 @@
 			<h2><i class="fa fa-unlink fa-5x" style="color:red"></i></h2>
 		</section>
 
+		<section id="not-broken">
+			<h1>This</h1>
+			<h2><i class="fa fa-link fa-3x" style="color:green"></i></h2>
+			<br><br>
+			<h1>Not This</h1>
+			<h2><i class="fa fa-unlink fa-3x" style="color:red"></i></h2>
+		</section>
+
 		<section id="reprod">
 			<!-- maybe remove this one -->
 			<h1>Reproducibility is a huge problem</h1>
@@ -611,7 +613,7 @@
 		<section id="firstclass">
 			<h1>Make developers a first class citizen on your landing page</h1>
 			<br><br>
-			<img src="img/github_footer.png">
+			<img src="img/github_footer.png" width="120%">
 		</section>
 
 		<section id="clients">
@@ -626,6 +628,36 @@
 			<h1>API keys / OAuth is plenty</h1>
 		</section>
 
+		<section id="supplements">
+			<h1>Use open file formats</h1>
+			<br><br><br>
+			<div class="btn-group">
+				<a class="btn btn-default" href="#"><i class="fa fa-file-code-o fa-5x"></i></a>
+			  <a class="btn btn-default" href="#"><i class="fa fa-file-excel-o fa-5x"></i></a>
+			  <a class="btn btn-default" href="#"><i class="fa fa-file-pdf-o fa-5x"></i></a>
+			  <a class="btn btn-default" href="#"><i class="fa fa-file-word-o fa-5x"></i></a>
+			  <a class="btn btn-default" href="#"><i class="fa fa-file-image-o fa-5x"></i></a>
+			  <a class="btn btn-default" href="#"><i class="fa fa-file-video-o fa-5x"></i></a>
+			  <a class="btn btn-default" href="#"><i class="fa fa-file fa-5x"></i></a>
+			</div>
+			<br><br>
+			<i class="fa fa-frown-o fa-5x"></i>
+		</section>
+
+		<section id="supplements-hard">
+			<h1>Use open file formats</h1>
+			<br><br>
+			<h2>Hard problem</h2>
+			<br><br>
+			<h2>easy to share - hard to reuse</h2>
+		</section>
+
+		<section id="supplements-layer">
+			<h1>Though...</h1>
+			<br>
+			<h2>3rd party - convert to easily useable format?</h2>
+		</section>
+
 		<!-- hopeful note -->
 		<section id="but">
 			<!-- <h1>We can do better</h1> -->
@@ -635,9 +667,9 @@
 
 		<section id="end-js">
 			<h1>The end</h1>
-			<pre>
+			<pre style="box-shadow:none; font-size:0.90em;">
 			{<br>
-			&nbsp;&nbsp;&nbsp;&nbsp;"talk": "http://recology.info/talks/cr-talk",
+			&nbsp;&nbsp;&nbsp;&nbsp;"talk": "http://recology.info/talk
 			&nbsp;&nbsp;&nbsp;&nbsp;"made-with": {
 			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"name": "reveal.js",
 			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"url": "https://github.com/hakimel/reveal.js",
@@ -646,7 +678,7 @@
 			&nbsp;&nbsp;&nbsp;&nbsp;"styling": {
 			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"name": "bootstrap",
 			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"url": "http://getbootstrap.com/",
-			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"version": "v3.2.0"
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"version": "v3.3.5"
 			&nbsp;&nbsp;&nbsp;&nbsp;},
 			&nbsp;&nbsp;&nbsp;&nbsp;"icons": {
 			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"name": "font awesome",

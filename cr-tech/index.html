@@ -4,9 +4,9 @@
 	<head>
 		<meta charset="utf-8">
 
-		<title>CR Talk</title>
+		<title>CR Tech</title>
 
-		<meta name="description" content="Crossref Keynote">
+		<meta name="description" content="Crossref Tech Talk">
 		<meta name="author" content="Scott Chamberlain">
 
 		<meta name="apple-mobile-web-app-capable" content="yes">
@@ -26,6 +26,7 @@
 
 		<!-- icons -->
 		<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.css">
+		<link rel="stylesheet" href="css/font-awesome/css/font-awesome.css">
 
 		<!-- Code syntax highlighting -->
 		<link rel="stylesheet" href="lib/css/zenburn.css">
@@ -80,7 +81,6 @@
 		</section>
 
 		<section id="link">
-			<!-- <h2> This talk on the web:  -->
 			<i class="fa fa-external-link fa-5x"></i>
 			<br><br>
 			<h2><a href="http://recology.info/talks/cr-tech">recology.info/talks/cr-tech</a> </h2>
@@ -95,6 +95,17 @@
 				<li><h3>Less error prone</h3></li>
 				<li><h3>Scalable</h3></li>
 			</ul>
+		</section>
+
+		<section id="ideally">
+			<h1 align="left">All science should be done programatically</h1>
+		</section>
+
+		<section id="low-level">
+			<!-- build upon foundation -->
+			<h2>Low level</h2>
+			<br><br>
+			<img src="brick">brick image<img>
 		</section>
 
 		<section id="client-users">
@@ -138,7 +149,7 @@
 	        <td><strong>X</strong></td>
 		    </tr>
 		    <tr>
-	        <td><a href="https://www.npmjs.com/package/crossref">Javascript</a></td>
+	        <td><a href="https://www.npmjs.com/package/crossref">Javascript</a><small>scienceai</small></td>
 	        <td><strong>ish</strong></td>
 	        <td><strong>?</strong></td>
 	        <td><strong>?</strong></td>
@@ -166,6 +177,23 @@
 				<li><h3>Crosswalk identifiers</h3></li>
 				<li><h3>Who knows? <span class="label label-success">if you build it they will come</span> </h3></li>
 			</ul>
+		</section>
+
+		<section id="api">
+			<h2>API similar across clients</h2>
+			<br>
+			<h3>Functions in each client match these routes</h3>
+			<br><br>
+			<ul>
+				<li><h3><code>/works</code></h3></li>
+				<li><h3><code>/members</code></h3></li>
+				<li><h3><code>/funders</code></h3></li>
+				<li><h3><code>/journals</code></h3></li>
+				<li><h3><code>/types</code></h3></li>
+				<li><h3><code>/licenses</code></h3></li>
+			</ul>
+			<br><br>
+			<h3>And other functions...</h3>
 		</section>
 
 		<section data-markdown id="install-clients">
@@ -197,23 +225,6 @@
 			serrano ... # shell
 			```
 			</script>
-		</section>
-
-		<section>
-			<h2>API similar across clients</h2>
-			<br>
-			<h3>Functions in each client match these routes</h3>
-			<br><br>
-			<ul>
-				<li><h3><code>/works</code></h3></li>
-				<li><h3><code>/members</code></h3></li>
-				<li><h3><code>/funders</code></h3></li>
-				<li><h3><code>/journals</code></h3></li>
-				<li><h3><code>/types</code></h3></li>
-				<li><h3><code>/licenses</code></h3></li>
-			</ul>
-			<br><br>
-			<h3>And other functions...</h3>
 		</section>
 
 		<section data-markdown id="r-example">
@@ -275,7 +286,7 @@
 
 		<section data-markdown id="ruby-example">
 			<script type="text/template">
-				## Ruby - serrano
+				## Ruby - `serrano`
 				<br>
 				### Get DOI minting agency
 				```ruby
@@ -297,16 +308,16 @@
 			</script>
 		</section>
 
-		<section data-markdown id="python-example">
+		<section data-markdown id="python-journal-titles">
 			<script type="text/template">
-				## Python - habanero
+				## Python - `habanero`
 				<br>
 
 				### Journal titles for each work
 				```python
-				from habanero import Habanero
-				hb = Habanero()
-				x = hb.works(query = "ecology", filter = {'has_full_text': True}, limit = 5)
+				from habanero import Crossref
+				cr = Crossref()
+				x = cr.works(query = "ecology", filter = {'has_full_text': True}, limit = 5)
 				[ z['container-title'] for z in x.result['message']['items'] ]
 				#> [[u'Urban Ecology'],
 				#>  [u'Fungal Ecology'],
@@ -317,9 +328,23 @@
 			</script>
 		</section>
 
+		<section data-markdown id="python-content-negotiation">
+			<script type="text/template">
+				## Python - `habanero`
+				<br>
+
+				### Content negotiation
+				```python
+				from habanero import cn
+				cn.content_negotiation(ids = '10.1126/science.169.3946.635', format = "citeproc-json")
+				"FIX ME - INSERT OUTPUT"
+				```
+			</script>
+		</section>
+
 		<section data-markdown id="cli-example1">
 			<script type="text/template">
-				## Command line - via serrano
+				## Command line - via `serrano`
 				<br><br>
 
 				```sh
@@ -328,11 +353,15 @@
 
 				```sh
 				Commands:
-				  serrano help [COMMAND]           # Describe available commands or one speci...
-				  serrano members [IDs]            # Get members by id
-				  serrano prefixes [DOI prefixes]  # Search for prefixes by DOI prefix
-				  serrano version                  # Get serrano version
-				  serrano works [DOIs]             # Get works by DOIs
+				  serrano funders [funder IDs]      # Search for funders by DOI prefix
+				  serrano help [COMMAND]            # Describe available commands or one specific command
+				  serrano journals [journal ISSNs]  # Search for journals by ISSNs
+				  serrano licenses                  # Search for licenses by name
+				  serrano members [member IDs]      # Get members by id
+				  serrano prefixes [DOI prefixes]   # Search for prefixes by DOI prefix
+				  serrano types [type name]         # Search for types by name
+				  serrano version                   # Get serrano version
+				  serrano works [DOIs]              # Get works by DOIs
 				```
 			</script>
 		</section>
@@ -340,12 +369,12 @@
 		<section data-markdown id="cli-example2">
 			<script type="text/template">
 				## Command line - via serrano
-				### Get brief summaries
+				### Get brief summaries - [Citeproc YAML format][cyaml]
 				#### Records for prefixes
 				```sh
 				serrano prefixes 10.1016 10.1371
 				```
-				<br>
+
 				```sh
 				member: http://id.crossref.org/member/78
 				name: Elsevier BV
@@ -354,19 +383,19 @@
 				member: http://id.crossref.org/member/340
 				...
 				```
-				<br><br>
+
 				#### Records for works
 				```sh
 				serrano works 10.1007/12080.1874-1746
 				```
-				<br>
+
 				```sh
 				DOI: 10.1007/12080.1874-1746
 				type: journal
 				title: Theoretical Ecology
 				```
 
-				[jq]: https://stedolan.github.io/jq/manual/
+				[cyaml]: http://blog.martinfenner.org/2013/07/30/citeproc-yaml-for-bibliographies/
 			</script>
 		</section>
 
@@ -409,7 +438,7 @@
 			<br><br>
 			<h3><a href="http://recology.info/talks/cr-tech">recology.info/talks/cr-tech</a></h3>
 			<br><br><br><br>
-			<h3>Made w/: <a href="https://github.com/hakimel/reveal.js">reveal.js v2.6.1</a></h3>
+			<h3>Made w/: <a href="https://github.com/hakimel/reveal.js">reveal.js v3.2.0</a></h3>
 			<br>
 			<h3>Some Styling: <a href="http://getbootstrap.com/">Bootstrap v3.3.5</a></h3>
 			<br>
