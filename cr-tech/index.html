@@ -243,6 +243,27 @@
 			<h3>Feedback? Bugs? report at above locations</h3>
 		</section>
 
+		<section id="the-clients">
+			<h2>to the clients...</h2>
+			<a href="https://pypi.python.org/pypi/pygbif">https://pypi.python.org/pypi/pygbif</a><br>
+			<a href="https://rubygems.org/gems/serrano">https://rubygems.org/gems/serrano</a><br>
+			<a href="https://cran.rstudio.com/web/packages/rcrossref/">https://cran.rstudio.com/web/packages/rcrossref/</a>
+		</section>
+
+		<section id="higher-level-R">
+			<h2>Text mining<br><br><code>R - fulltext</code></h2>
+			<br><br><br>
+			<a href="https://github.com/ropensci/fulltext">ropensci/fulltext</a><br>
+			<a href="https://cran.rstudio.com/web/packages/fulltext/">cran/fulltext</a>
+		</section>
+
+		<section id="higher-level-Ruby">
+			<h2>Text mining<br><br><code>Ruby - textminer</code></h2>
+			<br><br><br>
+			<a href="https://github.com/sckott/textminer">sckott/textminer</a><br>
+			<a href="https://rubygems.org/gems/textminer">rubygems.org/textminer</a>
+		</section>
+
 		<section id="api">
 			<h2>API similar across clients</h2>
 			<br>
@@ -359,11 +380,20 @@
 			</script>
 		</section>
 
+		<section id="please-please">
+			<h2>Publishers:<br><br><br>please please please please please please please please please please please please please<br><br><br><br>please please please please please please please please please please</h2>
+		</section>
+
+		<section id="please-deposit">
+			<h2><br><br><br>deposit full text links</h2>
+		</section>
+
 		<section data-markdown id="mining-example-2">
 			<script type="text/template">
 				## Mining - get pdfs, extract text, mine
+				### 2258 = Pensoft
 				```r
-				library("fulltext")
+				library("fulltext")t
 				library("rcrossref")
 				res <- cr_members(member_ids = 2258, works = TRUE)
 				lapply(res$data$DOI[1:6], function(z) {
