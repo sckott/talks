@@ -86,26 +86,74 @@
 			<h2><a href="http://recology.info/talks/cr-tech">recology.info/talks/cr-tech</a> </h2>
 		</section>
 
+		<section id="license">
+			<br>
+			<h1>LICENSE: <a href="https://creativecommons.org/licenses/by/4.0/">CC-BY 4.0</a></h1>
+		</section>
+
 		<section id="clients-yay">
-			<h2>Why programmatic clients?</h2>
-			<br><br>
+			<h1>Why programmatic clients?</h1>
+			<!-- <br><br>
 			<ul>
 				<li><h3>Easier (when N > a few)</h3></li>
 				<li><h3>Reproducible</h3></li>
 				<li><h3>Less error prone</h3></li>
 				<li><h3>Scalable</h3></li>
-			</ul>
+			</ul> -->
+		</section>
+
+		<section id="clients-yay-easier">
+			<h1>Why programmatic clients?</h1>
+			<br><br>
+			<h2>Easier, when N > a few</h2>
+			<br><br>
+			<i class="fa fa-mouse-pointer fa-5x"></i>
+		</section>
+
+		<section id="clients-yay-reproducible">
+			<h1>Why programmatic clients?</h1>
+			<br><br>
+			<h2>Facilitate reproducibility</h2>
+			<br><br>
+			<i class="fa fa-refresh fa-5x"></i>
+		</section>
+
+		<section id="clients-yay-less-errors">
+			<h1>Why programmatic clients?</h1>
+			<br><br>
+			<h2>Perhaps less error prone</h2>
+			<br><br>
+			<i class="fa fa-life-saver fa-5x"></i>
+		</section>
+
+		<section id="clients-yay-scalable">
+			<h1>Why programmatic clients?</h1>
+			<br><br>
+			<h2>Scalable</h2>
 		</section>
 
 		<section id="ideally">
-			<h1 align="left">All science should be done programatically</h1>
+			<h1>Why programmatic clients?</h1>
+			<br><br>
+			<h2>All science should be done programatically</h2>
 		</section>
 
 		<section id="low-level">
 			<!-- build upon foundation -->
-			<h2>Low level</h2>
+			<h2>Low level ~ build a foundation</h2>
 			<br><br>
-			<img src="brick">brick image<img>
+			<img src="img/foundation.jpg" width="60%"><img>
+			<br>
+			<a href="https://www.flickr.com/photos/rberteig/7019775623/in/photolist-bGjbJc-5Qp9RD-7ci6p5-aFnEUm-bYraWd-61yCAb-bYraX9-nB4VWo-7dM1Nv-67VJEt-76QaUL-bBJqBD-5HzH4F-asoYtB-p6SuT6-6zwN4m-dKNrsh-8Hqwxz-9Ji7mk-asrqYQ-pBZdLb-nqdcqV-HpvTw-8hStSA-jrmr9t-97CWpn-4zncNF-4cDfpx-wVjQpH-8FWptH-nB4EyN-7h6NE4-oXCYUB-6zsGp4-6zwN2S-5fFShA-xmxwfU-75XUro-75V9S7-o6xstf-75FzxS-6vzYfe-bBDCvr-6zsGo4-6xmF4o-nVgbaB-6vzYeB-6zwN1W-76Q5fQ-76Lf6r">Flickr</a>
+		</section>
+
+		<section id="reinvent-the-wheel">
+			<!-- don't reinvent the wheel -->
+			<h2>Prevent wheel re-building</h2>
+			<br><br>
+			<img src="img/wheel.jpg" width="60%"><img>
+			<br>
+			<a href="https://www.flickr.com/photos/maugan22/3565229337/in/photolist-6r3Jtk-8hAALe-77LNTe-6XTvqs-8VGq4w-hk6gUB-8nTV9o-f46Lru-5aghrr-zihqpf-8nSi39-i5pojX-xAXzuD-su5Mv-b3f1SH-9UndEQ-zh2ix9-oDXzsF-9Undkq-9Ujq6P-6kqJHV-9UndFq-9oVHYn-pGqGCh-aiBU7C-9UjqvK-4bhnee-9oVJj2-7rrxg6-7tWKnn-7gZeX7-9pQKMG-6GqpEB-7kQtGj-hxtgQT-26wPsf-9Ujqkp-A5YZmc-93owCQ-dSccpJ-5YFKtj-9ecng-rbD43-qfjokf-9ScdP8-z9xTe5-mWTnyF-boHK1z-aBegkB-mjdCVA">Flickr</a>
 		</section>
 
 		<section id="client-users">
@@ -123,7 +171,7 @@
 		    <tr>
 	        <td><a href="https://cran.rstudio.com/web/packages/rcrossref/">R</a></td>
 	        <td><strong>X</strong></td>
-	        <td><strong>X</strong></td>
+	        <td><strong>ish</strong></td>
 	        <td><strong>X</strong></td>
 	        <td><strong>--</strong></td>
 		    </tr>
@@ -172,11 +220,27 @@
 				<li><h3>Text mining</h3></li>
 				<li><h3>Get/Mine supplementary material (<a href="https://github.com/ropensci/fulltext/issues/3#issuecomment-150662435">e.g.</a>)</h3></li>
 				<li><h3>Metadata: references, citations, author disambiguation</h3></li>
-				<li><h3>Extract identifiers (e.g., DOIs) in full text</h3></li>
-				<li><h3>Content negotiation</h3></li>
-				<li><h3>Crosswalk identifiers</h3></li>
-				<li><h3>Who knows? <span class="label label-success">if you build it they will come</span> </h3></li>
+				<li><h3>Extract identifiers (e.g., taxonomic IDs) in full text</h3></li>
+				<li><h3>Content negotiation - get refs in diff. formats</h3></li>
+				<li><h3>Crosswalk identifiers (e.g., DOI -> Pubmed ID)</h3></li>
+				<li><h3>Who knows? if you build it they will come</h3></li>
 			</ul>
+		</section>
+
+		<section id="what-i-been-doing">
+			<h1 align="left">what i've been doing</h1>
+		</section>
+
+		<section id="source">
+			<i class="fa fa-code fa-5x"></i>
+			<br><br>
+			<ul>
+				<li><h3><code>R</code> - <a href="https://github.com/ropensci/rcrossref">ropensci/rcrossref</a></h3></li>
+				<li><h3><code>Ruby/cli</code> - <a href="https://github.com/sckott/serrano">sckott/serrano</a></h3></li>
+				<li><h3><code>Python</code> - <a href="https://github.com/sckott/habanero">sckott/habanero</a></h3></li>
+			</ul>
+			<br><br>
+			<h3>Feedback? Bugs? report at above locations</h3>
 		</section>
 
 		<section id="api">
@@ -194,6 +258,17 @@
 			</ul>
 			<br><br>
 			<h3>And other functions...</h3>
+		</section>
+
+		<section id="cross-walk">
+			<h2>E.g.: Search members</h2>
+			<br><br>
+			<ul>
+				<li><h3><code>R - cr_members(98)</code></h3></li>
+				<li><h3><code>Ruby - Serrano.members(98)</code></h3></li>
+				<li><h3><code>Python - cr.members(98)</code></h3></li>
+				<li><h3><code>cli - serrano members 98</code></h3></li>
+			</ul>
 		</section>
 
 		<section data-markdown id="install-clients">
@@ -284,6 +359,62 @@
 			</script>
 		</section>
 
+		<section data-markdown id="mining-example-2">
+			<script type="text/template">
+				## Mining - get pdfs, extract text, mine
+				```r
+				library("fulltext")
+				library("rcrossref")
+				res <- cr_members(member_ids = 2258, works = TRUE)
+				lapply(res$data$DOI[1:6], function(z) {
+				  x <- cr_ft_links(z, "pdf")
+				  path <- cr_ft_text(x, type = "pdf", cache=TRUE, read = FALSE)
+				  res <- ft_extract_corpus(path[[1]])
+				  mat <- tm::TermDocumentMatrix(res$data)
+				  tm::findFreqTerms(mat, lowfreq = 20, highfreq = 30)
+				})
+				```
+
+				```r
+				[[1]]
+				 [1] "(table"     "al."        "are"        "doi:"       "feeding"    "foraging"
+				 [7] "one"        "restaurant" "these"      "this"       "urban"
+
+				[[2]]
+				[1] "for"         "sataraensis"
+
+				[[3]]
+				[1] "length"          "margin"          "new"             "not"
+				[5] "paracreptotrema" "that"            "width"           "with"
+
+				[[4]]
+				 [1] "1900"           "1914"           "after"          "ball-damerow"
+				 [5] "before"         "change"         "coenagrionidae" "collection"
+				 [9] "have"           "history"        "natural"        "occurrence"
+				[13] "over"           "records,"       "specimens"      "this"
+				[17] "time"           "unique"         "was"            "which"
+
+				[[5]]
+				 [1] "\freview"    "(2015)"      "1898..."     "1992:"       "482:"
+				 [6] "91–142"      "abdomen"     "acute"       "almost"      "also"
+				[11] "apophysis"   "black"       "brown"       "cetonia"     "clypeus"
+				[16] "concave"     "dark"        "deplanata"   "des"         "description"
+				[21] "disc"        "elaphinis"   "enlarged"    "exhibiting"  "female."
+				[26] "for"         "genus"       "holotype"    "horseshoe"   "less"
+				[31] "long"        "longer"      "male"        "margins"     "mesosternal"
+				[36] "metatibial"  "middle"      "new"         "one"         "only"
+				[41] "part"        "punctures"   "reborded"    "renzo"       "same"
+				[46] "schenkling"  "sébastien"   "setae"       "small"       "south"
+				[51] "specimens"   "spots"       "spurs"       "strongly"    "that"
+				[56] "transverse," "usually"     "ventral"     "very"        "zookeys"
+
+				[[6]]
+				 [1] "abdomen"    "al."        "body"       "china"      "genus"      "plate"
+				 [7] "pronotum"   "subgenital" "ventral"    "view"
+				```
+			</script>
+		</section>
+
 		<section data-markdown id="ruby-example">
 			<script type="text/template">
 				## Ruby - `serrano`
@@ -291,7 +422,7 @@
 				### Get DOI minting agency
 				```ruby
 				require 'serrano'
-				Serrano.agency(ids: ['10.1007/12080.1874-1746','10.1007/10452.1573-5125'])
+				Serrano.registration_agency(ids: ['10.1007/12080.1874-1746','10.1007/10452.1573-5125'])
 				#> [{"status"=>"ok",
 				#>   "message-type"=>"work-agency",
 				#>   "message-version"=>"1.0.0",
@@ -337,7 +468,19 @@
 				```python
 				from habanero import cn
 				cn.content_negotiation(ids = '10.1126/science.169.3946.635', format = "citeproc-json")
-				"FIX ME - INSERT OUTPUT"
+				```
+
+				```python
+				'{"indexed":{"date-parts":[[2015,9,18]],"date-time":"2015-
+					09-18T16:11:22Z","timestamp":1442592682239},"reference-count":0,
+					"publisher":"American Association for the Advancement of Science
+					(AAAS)","issue":"3946","DOI":"10.1126\\/science.169.3946.635",
+					"type":"journal-article","created":{"date-parts":[[2006,10,5]],
+					"date-time":"2006-10-05T12:56:56Z","timestamp":1160053016000},"page":"635-641",
+					"source":"CrossRef","title":"The Structure of Ordinary Water: New data and
+					interpretations are yielding new insights into this fascinating substance",
+					"prefix":"http:\\/\\/id.crossref.org\\/prefix\\/10.1126","volume":"169","author":[{"affiliation":[],"family":"Frank",
+					"given":"H. S."}],"member":"http:\\/\\/id.crossref.org\\/member\\/221","container-title":"Science","deposited":{"date-parts":[[2011,6,27]],"date-time":"2011-06-27T21:18:25Z","timestamp":1309209505000},"score":1.0,"subtitle":[],"issued":{"date-parts":[[1970,8,14]]},"URL":"http:\\/\\/dx.doi.org\\/10.1126\\/science.169.3946.635","ISSN":["0036-8075","1095-9203"]}'
 				```
 			</script>
 		</section>
@@ -362,6 +505,56 @@
 				  serrano types [type name]         # Search for types by name
 				  serrano version                   # Get serrano version
 				  serrano works [DOIs]              # Get works by DOIs
+				```
+			</script>
+		</section>
+
+		<section data-markdown id="cli-example-help">
+			<script type="text/template">
+				## Command line - via `serrano`
+				<br><br>
+
+				```sh
+				serrano help members
+				```
+
+				```sh
+				Usage:
+				  serrano members [member IDs]
+
+				Options:
+				  [--json], [--no-json]
+				  [--query=QUERY]
+				  [--limit=N]
+				  [--works], [--no-works]
+
+				Description:
+				  `serrano members` accepts one or more Crossref member IDs
+
+				  Toggle `json` to get simplified (summary) or complete output (JSON)
+
+				  $ serrano members 98
+
+				  id: 98
+				  title: Hindawi Publishing Corporation
+
+				  $ serrano members "98,340"
+
+				  id: 98
+				  title: Hindawi Publishing Corporation
+
+				  id: 340
+				  title: Public Library of Science (PLoS)
+
+				  $ serrano members "98,340,45,311,78" --json=true | jq
+				  .[].message.coverage."resource-links-current"
+
+				  1 0 0 0.8311812281608582 0.985091507434845
+
+				  $ serrano members 98 --works=true --json=true | jq
+				  .[].message.items[]."reference-count"
+
+				  24 7 45 31 22 67 72 17 53 75 0 68 12 16 50 79 40 18 40 195
 				```
 			</script>
 		</section>
@@ -427,6 +620,39 @@
 				[jq]: https://stedolan.github.io/jq/manual/
 			</script>
 		</section>
+
+		<!-- <section data-markdown id="cli-example4">
+			<script type="text/template">
+				## Command line - via serrano
+				### Pipe JSON to [jq][jq] to xx
+				#### xxx
+				```sh
+				serrano members 98 --works=true --json=true | \
+					jq .[].message.items[].\"reference-count\"
+				```
+				<br>
+				```sh
+				24 7 45 31 22 67 72 17 53 75 0 68 12 16 50 79 40 18 40 195
+				```
+				<br><br>
+				#### Get publisher/member ID/URL
+				```sh
+				serrano works 10.1371/journal.pone.0033693 10.1007/12080.1874-1746 \
+				   --json=true | jq .[].message.member
+				```
+				<br>
+				```sh
+				"http://id.crossref.org/member/340"
+				"http://id.crossref.org/member/297"
+				```
+
+				[jq]: https://stedolan.github.io/jq/manual/
+			</script>
+		</section> -->
+
+		<!-- <section id="problems">
+			<h1>we gots issues though</h1>
+		</section> -->
 
 		<section id="live-coding">
 			<h2>Live coding?</h2>
