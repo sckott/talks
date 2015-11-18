@@ -279,7 +279,7 @@
 		<section id="cranpkgs">
 			<h2>R has a lot of packages<br>(mostly data manip./viz & statistics)</h2>
 			<br>
-			<p style="float:right;">Currently: ~7500</p>
+			<p style="float:right;">Currently: 7501</p>
 			<img src="img/rpkgs.png" width="80%">
 		</section>
 
@@ -457,27 +457,48 @@
 			library('XML')
 			(res <- ft_search(query = 'ecology', from = c('entrez','plos')))
 			out <- ft_get(ids = res$plos$data$id[1], from = "plos")
-			text <- xmlParse(out$plos$data[[1]])
-			xpathSApply(text, "//permissions")
+			perm <- out %>% chunks("permissions")
+			perm$plos[[1]]
 			```
 <br>
 			```
-			[[1]]
-			<permissions>
-			  <copyright-year>2013</copyright-year>
-			  <copyright-holder>Carmel et al</copyright-holder>
-			  <license xlink:type="simple">
-			    <license-p>This is an open-access article distributed under the terms of the Creative Commons Attribution License, which permits unrestricted use, distribution, and reproduction in any medium, provided the original author and source are credited.</license-p>
-			  </license>
-			</permissions>
+			$permissions
+			$permissions$`copyright-year`
+			[1] "2011"
+
+			$permissions$`copyright-holder`
+			[1] "Carrascal et al"
+
+			$permissions$license
+			[1] "This is an open-access article distributed under the terms of the Creative Commons Attribution License, which permits unrestricted use, distribution, and reproduction in any medium, provided the original author and source are credited."
+
+			$permissions$license_url
+			[1] NA
 			```
 			</script>
+		</section>
+
+		<section id="text-mining-pain">
+			<h2>Still painful though</h2>
+			<br>
+			<h2>
+			<ul>
+				<li>Authentication, yikes</li>
+				<li>Figuring out URLs to full text</li>
+				<li>PDF text extraction</li>
+				<li>making text analysis simple</li>
+			</ul>
+			</h2>
 		</section>
 
 		<!-- metadata start -->
 		<section id="metadata">
 			<br><br><br>
 			<h1><font color="orange"><i class="fa fa-book">&nbsp;Metadata</font></i></h1>
+		</section>
+
+		<section id="tweet-metadata">
+			<blockquote class="twitter-tweet" lang="en"><p lang="en" dir="ltr">Does anyone know how to download article pubmed IDs from a list of authors? <a href="https://twitter.com/blahah404">@blahah404</a> <a href="https://twitter.com/rOpenSci">@rOpenSci</a> cc <a href="https://twitter.com/DanChitwood">@DanChitwood</a> <a href="https://twitter.com/JoseDinneny">@JoseDinneny</a> <a href="https://twitter.com/NoahFahlgren">@NoahFahlgren</a></p>&mdash; Rubén Rellán-Álvarez (@rrellanalvarez) <a href="https://twitter.com/rrellanalvarez/status/666832193734377472">November 18, 2015</a></blockquote>
 		</section>
 
 		<section data-markdown id="rcrossref">
@@ -798,6 +819,7 @@
 
 		<script src="lib/js/head.min.js"></script>
 		<script src="js/reveal.js"></script>
+		<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 		<script>
 
