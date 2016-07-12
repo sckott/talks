@@ -1,4 +1,10 @@
-Full and partial URLs
+## Load stuff
+
+```{r}
+library(request)
+```
+
+## Full and partial URLs
 
 ```{r}
 api('http://localhost:9200')
@@ -7,29 +13,38 @@ api(':9200')
 api('9200')
 ```
 
-Paths
+## Examine request
+
+```{r}
+api('api.github.com') %>%
+ api_path(orgs, ropensci, events) %>%
+    peep()
+```
+
+
+## Paths
 
 - Build up URL piece by piece
 
 ```{r}
-api_path(the, red, fox)
+api_path(api("stuff.com"), the, red, fox)
 # gives ‘the/red/fox’
 ```
 
-Path templating
+## Path templating
 
 ```{r}
 x <- list(user = 'a', repo = 'b')
 api_template('{{user}}/{{repo}}/', x)
 ```
 
-Query
+## Query
 
 ```{r}
-api_query(q = ecology, wt = json)
+api_query(api("stuff.com"), q = ecology, wt = json)
 ```
 
-Pipes 
+## Pipes 
  
  - It’s easy to use pipes or not
 
@@ -38,7 +53,7 @@ Pipes
 http(api('httpbin.org/get'))
 ```
 
-Evaluate on last pipe 
+## Evaluate on last pipe 
 
 We don’t perform http request if not piped 
 
@@ -51,7 +66,7 @@ api('httpbin.org/get')
 api('httpbin.org/get') %>% http()
 ```
 
-NSE & SE
+## NSE & SE
 
 ```{r}
 api('https://api.github.com') %>% 
@@ -61,26 +76,17 @@ api('https://api.github.com') %>%
     api_path_('repos', 'ropensci', 'rgbif')
 ```
 
-Automatic POST w/ body
+## Automatic POST w/ body
 
 ```{r}
-api('http://httpbin.org') %>% 
+api('http://httpbin.org/post') %>% 
     api_body(foo = 'bar')
 ```
 
-
-Write to disk helper
+## Write to disk helper
 
 ```{r}
 api('api.github.com') %>%
- api(orgs, ropensci, events) %>%
+ api_path(orgs, ropensci, events) %>%
     api_write(ff <- tempfile())
-```
-
-Examine request
-
-```{r}
-api('api.github.com') %>%
- api(orgs, ropensci, events) %>%
-    peep()
 ```
