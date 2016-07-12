@@ -80,13 +80,13 @@
 				<p class="grey">rOpenSci
 		</section>
 
-		<section id="link">
+		<section id="link" class="center">
 			<i class="fa fa-external-link fa-5x"></i>
 			<br><br>
 			<h2><a href="http://recology.info/talks/request">recology.info/talks/request</a> </h2>
 		</section>
 
-		<section id="license">
+		<section id="license" class="center">
 			<br>
 			<h1>LICENSE: <a href="https://creativecommons.org/licenses/by/4.0/">CC-BY 4.0</a></h1>
 		</section>
@@ -94,6 +94,7 @@
 		<section data-markdown id="hello-world">
 			<script type="text/template">
 				```r
+				library(request); library(dplyr); library(ggplot2)
 				x <- api('cranlogs.r-pkg.org') %>% api_path(trending)
 				x %>%
 				  mutate(increase = as.numeric(increase)) %>%
@@ -103,7 +104,7 @@
 				     geom_bar(stat = "identity")
 				```
 
-				<img src="img/hello-world.png" width="1000">
+				<img src="img/hello-world.png" width="800">
 			</script>
 		</section>
 
@@ -142,13 +143,13 @@
 
 		<section data-markdown id="how-it-works-now">
 			<script type="text/template">
-				# How it works now
+				# Easiest solution now
 
 				```r
 				library("httr")
 				```
 
-				Make request, check for bad status code, extract to text
+				`GET` request
 
 				```r
 				x <- GET("https://api.github.com/repos/hadley/dplyr/issues")
@@ -175,12 +176,20 @@
 			</script>
 		</section>
 
-		<section id="request">
+		<section id="request" class="center">
 			<h1>request</h1>
 			<br>
 			<h2>github -> <a href="https://github.com/sckott/request">sckott/request</a></h2>
 			<br>
 			<h2>cran -> <a href="https://cran.rstudio.com/web/packages/request/">request</a></h2>
+		</section>
+
+		<section id="httpie" class="center">
+			<h1>httpie</h1>
+			<br>
+			<a href="https://github.com/jkbrzt/httpie">httpie - http://httpie.org</a>
+			<br>
+			<img src="img/httpie.png" width="1000">
 		</section>
 
 		<section id="request-philosophy">
@@ -221,7 +230,7 @@
 			</script>
 		</section>
 
-		<section id="live-coding">
+		<section id="live-coding" class="center">
 			<h1>live coding</h1>
 		</section>
 
@@ -257,16 +266,6 @@
 				2  https://api.github.com/repos/ropensci/rgbif/issues/216 https://api.github.com/repos/ropensci/rgbif
 				3  https://api.github.com/repos/ropensci/rgbif/issues/215 https://api.github.com/repos/ropensci/rgbif
 				4  https://api.github.com/repos/ropensci/rgbif/issues/214 https://api.github.com/repos/ropensci/rgbif
-				5  https://api.github.com/repos/ropensci/rgbif/issues/200 https://api.github.com/repos/ropensci/rgbif
-				6  https://api.github.com/repos/ropensci/rgbif/issues/194 https://api.github.com/repos/ropensci/rgbif
-				7  https://api.github.com/repos/ropensci/rgbif/issues/193 https://api.github.com/repos/ropensci/rgbif
-				8  https://api.github.com/repos/ropensci/rgbif/issues/189 https://api.github.com/repos/ropensci/rgbif
-				9  https://api.github.com/repos/ropensci/rgbif/issues/187 https://api.github.com/repos/ropensci/rgbif
-				10 https://api.github.com/repos/ropensci/rgbif/issues/133 https://api.github.com/repos/ropensci/rgbif
-				11 https://api.github.com/repos/ropensci/rgbif/issues/111 https://api.github.com/repos/ropensci/rgbif
-				12 https://api.github.com/repos/ropensci/rgbif/issues/110 https://api.github.com/repos/ropensci/rgbif
-				# ... with 81 more variables: labels_url <chr>, comments_url <chr>, events_url <chr>, html_url <chr>, id <int>,
-				#   number <int>, title <chr>, labels <list>, state <chr>, locked <lgl>, assignees <list>, comments <int>,
 				```
 			</script>
 		</section>
