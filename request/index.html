@@ -91,6 +91,22 @@
 			<h1>LICENSE: <a href="https://creativecommons.org/licenses/by/4.0/">CC-BY 4.0</a></h1>
 		</section>
 
+		<section data-markdown id="hello-world">
+			<script type="text/template">
+				```r
+				x <- api('cranlogs.r-pkg.org') %>% api_path(trending)
+				x %>%
+				  mutate(increase = as.numeric(increase)) %>%
+				  arrange(desc(increase)) %>%
+				  top_n(10) %>%
+				  ggplot(aes(reorder(package, increase), increase)) +
+				     geom_bar(stat = "identity")
+				```
+
+				<img src="img/hello-world.png" width="1000">
+			</script>
+		</section>
+
 		<section id="api">
 			<h1>APIs</h1>
 			<p>Programmatic instructions for how to interact with a piece of software</p>
@@ -182,42 +198,25 @@
 
 		<section data-markdown id="request-hello-world">
 			<script type="text/template">
-				Install
+				# Installation
+
+				## CRAN
 
 				```r
-				devtools::install_github("sckott/request")
+				install.packages("request")
 				library("request")
 				```
 
-				Get stuff
+				## GitHub
 
 				```r
-				'httpbin.org' %>% api_path(get)
+				devtools::install_github("sckott/request")
 				```
 
+				## Load
+
 				```r
-				#> $args
-				#> named list()
-				#>
-				#> $headers
-				#> $headers$Accept
-				#> [1] "application/json, text/xml, application/xml, */*"
-				#>
-				#> $headers$`Accept-Encoding`
-				#> [1] "gzip, deflate"
-				#>
-				#> $headers$Host
-				#> [1] "httpbin.org"
-				#>
-				#> $headers$`User-Agent`
-				#> [1] "libcurl/7.43.0 r-curl/0.9.7 httr/1.2.0 request/0.1.3.9940"
-				#>
-				#>
-				#> $origin
-				#> [1] "71.63.223.113"
-				#>
-				#> $url
-				#> [1] "http://httpbin.org/get"
+				library("request")
 				```
 			</script>
 		</section>
@@ -227,7 +226,6 @@
 		</section>
 
 		<section data-markdown id="problem-last-pipe">
-			<!-- <h1></h1> -->
 			<script type="text/template">
 				# Problem: last pipe
 

@@ -1,0 +1,86 @@
+Full and partial URLs
+
+```{r}
+api('http://localhost:9200')
+api('localhost/9200')
+api(':9200')
+api('9200')
+```
+
+Paths
+
+- Build up URL piece by piece
+
+```{r}
+api_path(the, red, fox)
+# gives ‘the/red/fox’
+```
+
+Path templating
+
+```{r}
+x <- list(user = 'a', repo = 'b')
+api_template('{{user}}/{{repo}}/', x)
+```
+
+Query
+
+```{r}
+api_query(q = ecology, wt = json)
+```
+
+Pipes 
+ 
+ - It’s easy to use pipes or not
+
+```{r}
+'httpbin.org/get' %>% api()
+http(api('httpbin.org/get'))
+```
+
+Evaluate on last pipe 
+
+We don’t perform http request if not piped 
+
+```{r}
+# http request made
+'httpbin.org/get' %>% api()
+# http request NOT made
+api('httpbin.org/get')
+# call http explicitly
+api('httpbin.org/get') %>% http()
+```
+
+NSE & SE
+
+```{r}
+api('https://api.github.com') %>% 
+    api_path(repos, ropensci, rgbif)
+
+api('https://api.github.com') %>% 
+    api_path_('repos', 'ropensci', 'rgbif')
+```
+
+Automatic POST w/ body
+
+```{r}
+api('http://httpbin.org') %>% 
+    api_body(foo = 'bar')
+```
+
+
+Write to disk helper
+
+```{r}
+api('api.github.com') %>%
+ api(orgs, ropensci, events) %>%
+    api_write(ff <- tempfile())
+```
+
+Examine request
+
+```{r}
+api('api.github.com') %>%
+ api(orgs, ropensci, events) %>%
+    peep()
+```
