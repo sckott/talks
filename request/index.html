@@ -91,24 +91,72 @@
 			<h1>LICENSE: <a href="https://creativecommons.org/licenses/by/4.0/">CC-BY 4.0</a></h1>
 		</section>
 
+		<section id="api">
+			<h1>APIs</h1>
+			<p>Programmatic instructions for how to interact with a piece of software</p>
+			<br><br>
+			<h2>Can be the interface to:</h2>
+			<ul>
+				<li>A software package in R/Python/etc.</li>
+				<li>A public web API</li>
+				<li>A database</li>
+				<li>An operating system</li>
+			</ul>
+		</section>
+
 		<section id="http">
-			<h1>HTTP!!!</h1>
+			<h1>HTTP</h1>
+			<p>HyperText Transfer Protocol</p>
+			<br><br>
+			<h3>HTTP spec: <a href="https://tools.ietf.org/html/rfc7235">https://tools.ietf.org/html/rfc7235</a></h3>
+			<br><br>
+			<ul>
+				<li>Verbs for different actions</li>
+				<li>Authentication</li>
+				<li>Status codes</li>
+				<li>Request and response format</li>
+				<li>Most REST APIs use HTTP for data transfer</li>
+			</ul>
 		</section>
 
 		<section id="http-verbs">
 			<h1>HTTP Verbs</h1>
+			<img src="img/http_verbs.png">
 		</section>
 
-		<section id="patterns">
-			<h1>HTTP usage patterns</h1>
-		</section>
+		<section data-markdown id="how-it-works-now">
+			<script type="text/template">
+				# How it works now
 
-		<section id="can-be-easier">
-			<h1>easier</h1>
-		</section>
+				```r
+				library("httr")
+				```
 
-		<section id="can-be-easier">
-			<h1>easier</h1>
+				Make request, check for bad status code, extract to text
+
+				```r
+				x <- GET("https://api.github.com/repos/hadley/dplyr/issues")
+				```
+
+				Check for bad status code
+
+				```r
+				stop_for_status(x)
+				```
+
+				Extract to text
+
+				```r
+				res <- content(x, as = "text", encoding = "UTF-8")
+				```
+
+				Convert JSON to R object
+
+				```r
+				library("jsonlite")
+				fromJSON(res)
+				```
+			</script>
 		</section>
 
 		<section id="request">
@@ -178,12 +226,97 @@
 			<h1>live coding</h1>
 		</section>
 
+		<section data-markdown id="problem-last-pipe">
+			<!-- <h1></h1> -->
+			<script type="text/template">
+				# Problem: last pipe
+
+				```r
+				api('https://api.github.com/') %>%
+					api_path(repos, ropensci, rgbif, issues) %>%
+					tbl_df
+				```
+
+				```r
+				#> Error in as.data.frame.default(value, stringsAsFactors = FALSE, ...) :
+				#>	cannot coerce class ""req"" to a data.frame
+				```
+				<br>
+
+				Need to assign first, then pipe onwards...
+
+				```r
+				x <- api('https://api.github.com/') %>%
+					api_path(repos, ropensci, rgbif, issues)
+				x %>% tbl_df
+				```
+
+				```r
+				# A tibble: 12 x 83
+				                                                      url                              repository_url
+				*                                                   <chr>                                       <chr>
+				1  https://api.github.com/repos/ropensci/rgbif/issues/220 https://api.github.com/repos/ropensci/rgbif
+				2  https://api.github.com/repos/ropensci/rgbif/issues/216 https://api.github.com/repos/ropensci/rgbif
+				3  https://api.github.com/repos/ropensci/rgbif/issues/215 https://api.github.com/repos/ropensci/rgbif
+				4  https://api.github.com/repos/ropensci/rgbif/issues/214 https://api.github.com/repos/ropensci/rgbif
+				5  https://api.github.com/repos/ropensci/rgbif/issues/200 https://api.github.com/repos/ropensci/rgbif
+				6  https://api.github.com/repos/ropensci/rgbif/issues/194 https://api.github.com/repos/ropensci/rgbif
+				7  https://api.github.com/repos/ropensci/rgbif/issues/193 https://api.github.com/repos/ropensci/rgbif
+				8  https://api.github.com/repos/ropensci/rgbif/issues/189 https://api.github.com/repos/ropensci/rgbif
+				9  https://api.github.com/repos/ropensci/rgbif/issues/187 https://api.github.com/repos/ropensci/rgbif
+				10 https://api.github.com/repos/ropensci/rgbif/issues/133 https://api.github.com/repos/ropensci/rgbif
+				11 https://api.github.com/repos/ropensci/rgbif/issues/111 https://api.github.com/repos/ropensci/rgbif
+				12 https://api.github.com/repos/ropensci/rgbif/issues/110 https://api.github.com/repos/ropensci/rgbif
+				# ... with 81 more variables: labels_url <chr>, comments_url <chr>, events_url <chr>, html_url <chr>, id <int>,
+				#   number <int>, title <chr>, labels <list>, state <chr>, locked <lgl>, assignees <list>, comments <int>,
+				```
+			</script>
+		</section>
+
+		<section data-markdown id="todo-paging">
+			<script type="text/template">
+				# TODO: paging
+
+				```r
+				api('api.gbif.org/v1') %>%
+				  api_path(occurrence, search) %>%
+				  api_query(scientificName = Accipiter) %>%
+				  api_paging(limit(limit = 4), offset(offset = 2))
+				```
+				<br><br><br><br>
+				## Idea being that a few parameters can account for all paging situations
+			</script>
+		</section>
+
+		<section data-markdown id="todo-rate-limit">
+			<script type="text/template">
+				# TODO: rate limit
+
+				```r
+				qr <- api('https://api.github.com/') %>%
+						api_path(repos, ropensci, rgbif, issues) %>%
+						rate_limit(value = 5, period = "24 hrs")
+				```
+
+				```r
+				qr %>% rate_limit(value = 5, period = "24 hrs")
+				qr %>% rate_limit(value = 5000, period = "24 hrs")
+				qr %>% rate_limit(value = 10, period = "5 min")
+				qr %>% rate_limit(value = 10, period = "5 min", on_limit = with_wait(1))
+				```
+				<br><br><br><br>
+				## Idea being - flexible options for dealing with rate limits
+			</script>
+		</section>
+
 		<section id="end">
 			<br>
 			<i class="fa fa-external-link fa-5x"></i>
 			<br><br>
 			<h3><a href="http://recology.info/talks/request">recology.info/talks/request</a></h3>
 			<br><br><br><br>
+			<h3><a href="https://github.com/sckott/request">sckott/request</a></h3>
+			<br><br>
 			<h3>Made w/: <a href="https://github.com/hakimel/reveal.js">reveal.js v3.2.0</a></h3>
 			<br>
 			<h3>Some Styling: <a href="http://getbootstrap.com/">Bootstrap v3.3.5</a></h3>
