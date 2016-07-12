@@ -1,3 +1,36 @@
+```{r echo=FALSE}
+hook_output <- knitr::knit_hooks$get("output")
+knitr::knit_hooks$set(output = function(x, options) {
+   lines <- options$output.lines
+   if (is.null(lines)) {
+     return(hook_output(x, options))  # pass to default hook
+   }
+   x <- unlist(strsplit(x, "\n"))
+   more <- "..."
+   if (length(lines) == 1) {        # first n lines
+     if (length(x) > lines) {
+       # truncate the output, but add ....
+       x <- c(head(x, lines), more)
+     }
+   } else {
+     x <- c(if (abs(lines[1])>1) more else NULL,
+            x[lines],
+            if (length(x)>lines[abs(length(lines))]) more else NULL
+           )
+   }
+   # paste these lines together
+   x <- paste(c(x, ""), collapse = "\n")
+   hook_output(x, options)
+ })
+
+knitr::opts_chunk$set(
+  warning = FALSE,
+  message = FALSE,
+  comment = "#>"
+)
+```
+
+
 ## Load stuff
 
 ```{r}
@@ -44,8 +77,8 @@ api_template('{{user}}/{{repo}}/', x)
 api_query(api("stuff.com"), q = ecology, wt = json)
 ```
 
-## Pipes 
- 
+## Pipes
+
  - It’s easy to use pipes or not
 
 ```{r}
@@ -53,9 +86,9 @@ api_query(api("stuff.com"), q = ecology, wt = json)
 http(api('httpbin.org/get'))
 ```
 
-## Evaluate on last pipe 
+## Evaluate on last pipe
 
-We don’t perform http request if not piped 
+We don’t perform http request if not piped
 
 ```{r}
 # http request made
@@ -68,18 +101,24 @@ api('httpbin.org/get') %>% http()
 
 ## NSE & SE
 
-```{r}
-api('https://api.github.com') %>% 
-    api_path(repos, ropensci, rgbif)
+NSE
 
-api('https://api.github.com') %>% 
+```{r output.lines = 1:10}
+api('https://api.github.com') %>%
+    api_path(repos, ropensci, rgbif)
+```
+
+SE
+
+```{r output.lines = 1:10}
+api('https://api.github.com') %>%
     api_path_('repos', 'ropensci', 'rgbif')
 ```
 
 ## Automatic POST w/ body
 
 ```{r}
-api('http://httpbin.org/post') %>% 
+api('http://httpbin.org/post') %>%
     api_body(foo = 'bar')
 ```
 
