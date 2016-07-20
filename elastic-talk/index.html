@@ -237,6 +237,106 @@
 			</script>
 		</section>
 
+		<section id="elasticdsl" class="center">
+			<h1>elasticdsl</h1>
+		</section>
+
+		<section id="elasticdsl-intro-1">
+			<h2>following <code>elasticsearch-dsl-py</code></h2>
+			<br>
+			<h2>still not very usable...</h2>
+		</section>
+
+		<section data-markdown id="elasticdsl-intro-2">
+			<script type="text/template">
+				# elasticdsl
+
+				we can't follow the Python/Ruby/JS lead of `foo.bar.baz`, but we can use pipes
+
+				```r
+				elastic::connect()
+				library(elastic)
+				library(elasticdsl)
+				library(data.table)
+				library(dplyr)
+				library(ggplot2)
+				```
+
+				```r
+				res <- index("shakespeare") %>% query("prefix", speaker = "we") %>% size(50)
+				lapply(res$hits$hits, "[[", "_source") %>%
+				  data.table::rbindlist(.) %>%
+				  data.table::setDF %>%
+				  dplyr::tbl_df %>%
+				  dplyr::mutate(len = nchar(text_entry)) %>%
+				  dplyr::group_by(speech_number) %>%
+				  dplyr::summarise(avg_len = mean(len)) %>%
+				  ggplot(., aes(reorder(speech_number, avg_len), avg_len)) +
+				  	geom_bar(stat = "identity")
+				```
+			</script>
+		</section>
+
+		<section id="elasticdsl-intro-2-img" class="center">
+			<img src="/img/elasticdsl-eg.png">
+		</section>
+
+		<section id="elasticdsl-coming-soon" class="center">
+			<h1>hopefully useable <code>elasticdsl</code> package out soon ...</h1>
+		</section>
+
+		<section id="use-cases" class="center">
+			<h1>Use Cases</h1>
+		</section>
+
+		<section data-markdown id="use-case-r-data-structures">
+			<script type="text/template">
+				# use case: Load R data structure
+
+				bulk format file
+
+				```r
+				x <- system.file("examples", "plos_data.json", package = "elastic")
+				docs_bulk(x)
+				```
+
+				list
+
+				```r
+				docs_bulk(apply(iris, 1, as.list), index = "iris", type = "flowers")
+				```
+
+				data.frame
+
+				```r
+				library(ggplot2)
+				docs_bulk(diamonds, index = "diamonds")
+				```
+
+				> 55K rows in 8 sec
+			</script>
+		</section>
+
+		<section data-markdown id="use-case-dashboard">
+			<script type="text/template">
+				# use case: real time viz
+
+				flexdashboard + elastic
+
+				xxx
+
+				```r
+				library(flexdashboard)
+				```
+			</script>
+		</section>
+
+		<section id="to-do-clients">
+			<h1>to do</h1>
+			<br><br>
+			<h2>multiple clients per R session</h2>
+		</section>
+
 		<section id="end">
 			<br>
 			<i class="fa fa-external-link fa-5x"></i>
