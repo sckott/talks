@@ -1,0 +1,60 @@
+---
+title: "elastic dashboard"
+output: 
+  flexdashboard::flex_dashboard:
+    orientation: columns
+    social: menu
+    source_code: embed
+runtime: shiny
+---
+
+```{r setup, include=FALSE}
+library(ggplot2); library(elastic); library(data.table); library(shiny); library(flexdashboard)
+```
+
+```{r helper-fxns, include=FALSE}
+dat2df <- function(...) {
+  (x <- setDF(data.table::rbindlist(lapply(..., "[[", "_source"))))
+}
+```
+
+Inputs {.sidebar}
+-----------------------------------------------------------------------
+
+```{r}
+invisible(elastic::connect())
+if (!index_exists("mtcars")) {
+  invisible(docs_bulk(mtcars, "mtcars") )
+}
+one <- Search("mtcars", size = 1)$hits$hits[[1]]$`_source`
+sliderInput('sampleSize', 'Size', min = 1, max = 200,
+            value = min(100, NROW(mtcars)), step = 25, round = 0)
+selectInput('x', 'X', names(one))
+selectInput('y', 'Y', names(one), names(one)[[2]])
+```
+
+Outputs
+-----------------------------------------------------------------------
+
+### mtcars
+
+```{r}
+dataset <- reactivePoll(
+  2000, 
+  session,
+  checkFunc = function() {
+    count("mtcars")
+  },
+  valueFunc = function() {
+    dat2df(Search("mtcars", size = input$sampleSize)$hits$hits)
+  }
+)
+
+renderPlot({
+  p <- ggplot(dataset(), aes_string(x = input$x, y = input$y)) + 
+    geom_point(size = 4) +
+    theme_grey(base_size = 24)
+  
+  print(p)
+})
+```

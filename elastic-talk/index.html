@@ -82,7 +82,9 @@
 		</section>
 
 		<section id="ropensci" class="center">
-			<h1><p class="grey">rOpenSci <a href="https://ropensci.org">ropensci.org</a></h1>
+			<img src="/img/ropensci_main.png">
+			<br>
+			<h1><a href="https://ropensci.org">ropensci.org</a></h1>
 		</section>
 
 		<section id="link" class="center">
@@ -104,11 +106,14 @@
 			<h1>R</h1>
 			<br><br>
 			<h2>Strengths in:</h2>
-			<ul>
-				<li>Statistics</li>
-				<li>Data manipulation</li>
-				<li>Visualization</li>
-			</ul>
+			<br>
+			<h2>
+				<ul>
+					<li>Statistics</li>
+					<li>Data manipulation</li>
+					<li>Visualization</li>
+				</ul>
+			</h2>
 		</section>
 
 		<section id="r-data-science" class="center">
@@ -164,6 +169,11 @@
 			</script>
 		</section>
 
+		<section id="r-power" class="center">
+			<h1>ES + R =</h1>
+			<h2>powerful data manipulation/analysis w/ TONS of data</h2>
+		</section>
+
 		<section id="elasticsearch-in-r">
 			<h1>Elasticsearch in R</h1>
 			<br><br>
@@ -175,15 +185,34 @@
 			</ul>
 		</section>
 
+		<section id="elasticsearch-in-r-maturity">
+			<h1>Elasticsearch in R</h1>
+			<br><br>
+			<h2>Two clients</h2>
+			<br><br>
+			<ul>
+				<li><h3><code>elastic</code> - relatively mature <i class="fa fa-smile-o fa-2x"></i></h3></li>
+				<li><h3><code>elasticdsl</code> - immature <i class="fa fa-frown-o fa-2x"></i></h3></li>
+			</ul>
+		</section>
+
 		<section id="elastic-intro-1">
 			<h1>elastic R package</h1>
 			<br><br>
 			<h2>Github: <a href="https://github.com/ropensci/elastic">ropensci/elastic</a></h2>
 			<br><br>
-			<h2>CRAN: <a href="cran.rstudio.com/web/packages/elastic">https://cran.rstudio.com/web/packages/elastic</a></h2>
+			<h2>CRAN: <a href="https://cran.rstudio.com/web/packages/elastic">cran.rstudio.com/web/packages/elastic</a></h2>
 		</section>
 
-		<section id="elastic-intro-2">
+		<section id="elastic-es-status">
+			<h1>elastic R package</h1>
+			<br><br>
+			<h2>Tested and works with all <strong>1.0</strong> to <strong>2.x</strong> and older versions</h2>
+			<br><br>
+			<h2>Working on <strong>5.x</strong> compatibility</h2>
+		</section>
+
+		<section id="elastic-pkg-api">
 			<h1>elastic - package API</h1>
 			<br>
 			<ul>
@@ -237,6 +266,267 @@
 			</script>
 		</section>
 
+		<section data-markdown id="elastic-connect-client">
+			<script type="text/template">
+				# connect - client
+
+				Right now only one connection per R session
+
+				Future `elastic` version will initialize client explicitly
+
+				```r
+				cli1 <- connect()
+				cli2 <- connect(es_host = "10.1.2.3")
+				```
+
+				With one connection
+
+				```r
+				cli1$Search("shakespeare", size = 1000)
+				```
+
+				With the other connection
+
+				```r
+				cli2$Search("geonames", size = 1000)
+				```
+			</script>
+		</section>
+
+		<section data-markdown id="elastic-cat">
+			<script type="text/template">
+				# cat
+
+				```r
+				cat_()
+				#> =^.^=
+				#> /_cat/allocation
+				#> /_cat/shards
+				#> /_cat/shards/{index}
+				#> /_cat/master
+				#>  ...
+				```
+
+				```r
+				cat_aliases()
+				cat_allocation()
+				cat_count()
+				cat_fielddata()
+				cat_health()
+				cat_indices()
+				cat_master()
+				cat_nodeattrs()
+				cat_nodes()
+				cat_pending_tasks()
+				...
+				```
+			</script>
+		</section>
+
+		<section data-markdown id="elastic-search-structure">
+			<script type="text/template">
+				# search: structure
+
+				```r
+				(x <- Search(index="shakespeare"))
+				```
+
+				```r
+				names(x)
+				#> [1] "took"      "timed_out" "_shards"   "hits"
+				```
+
+				```r
+				names(x$hits)
+				#> [1] "total"     "max_score" "hits"
+				```
+
+				```r
+				names(x$hits$hits[[1]])
+				#> [1] "_index"  "_type"   "_id"     "_score"  "_source"
+				```
+
+				```r
+				x$hits$hits[[1]]$`_source`
+				#> $line_id
+				#> [1] 5
+				#>
+				#> $play_name
+				#> [1] "Henry IV"
+				#>
+				#> $speech_number
+				#>
+				#> ...
+				```
+			</script>
+		</section>
+
+		<section data-markdown id="elastic-search-body">
+			<script type="text/template">
+				# search: body
+
+				a list
+
+				```r
+				x <- aggs <- list(aggs = list(stats = list(terms = list(field = "text_entry"))))
+				```
+
+				pretty json
+
+				```r
+				x <- '{
+				    "aggs": {
+				        "stats" : {
+				            "terms" : {
+				                "field" : "text_entry"
+				            }
+				        }
+				    }
+				}'
+				```
+
+				compact json
+
+				```
+				x <- '{"aggs":{"stats":{"terms":{"field":"text_entry"}}}}'
+				```
+			</script>
+		</section>
+
+		<section data-markdown id="elastic-count">
+			<script type="text/template">
+				# count
+
+				count all docs
+
+				```r
+				count()
+				#> [1] 7409578
+				```
+
+				count docs in an index, or many
+
+				```r
+				count(index = 'shakespeare')
+				count(index = c('plos','shakespeare'))
+				```
+
+				count with query
+
+				```r
+				count(index = c('plos','shakespeare'), q = "a*")
+				```
+			</script>
+		</section>
+
+		<section data-markdown id="elastic-scroll">
+			<script type="text/template">
+				# scroll
+
+				when you want lots of data
+
+				```r
+				res <- Search(index = 'shakespeare', q="a*", scroll="5m", search_type = "scan")
+				out <- list()
+				hits <- 1
+				while(hits != 0){
+				  res <- scroll(scroll_id = res$`_scroll_id`)
+				  hits <- length(res$hits$hits)
+				  if(hits > 0)
+				    out <- c(out, res$hits$hits)
+				}
+				length(out)
+				unique(sapply(out, "[[", c('_source', 'speech_number')))
+				```
+
+				```r
+				#> [1] "1"   "2"   "4"   "5"   "7"   ""    "8"   "10"  "3"   "17"  "20"  "6"   "9"   "13"  "12"  "23"  "27"  "29"  "35"
+				#> [20] "39"  "45"  "47"  "52"  "53"  "11"  "15"  "30"  "33"  "16"  "21"  "24"  "25"  "31"  "50"  "51"  "19"  "26"  "28"
+				#> ...
+				```
+
+				> < 1 for ~ 3000 documents
+			</script>
+		</section>
+
+		<section data-markdown id="elastic-indices">
+			<script type="text/template">
+				# index operations
+
+				supports all / nearly all, for example:
+
+				get index settings/mappings/etc
+
+				```r
+				index_get(index = 'shakespeare')
+				```
+
+				does index exist
+
+				```r
+				index_exists(index = 'shakespeare')
+				```
+
+				create index
+
+				```r
+				index_create(index = 'twitter')
+				```
+
+				delete index
+
+				```r
+				index_delete(index = "twitter")
+				```
+			</script>
+		</section>
+
+		<section id="elastic-docs-1">
+			<h1>docs API</h1>
+			<br>
+			<h2>
+			<ul>
+				<li><code>docs_create</code></li>
+				<li><code>docs_delete</code></li>
+				<li><code>docs_get</code></li>
+				<li><code>docs_mget</code></li>
+				<li><code>docs_bulk</code></li>
+			</ul>
+			</h2>
+		</section>
+
+		<section data-markdown id="elastic-curl-options">
+			<script type="text/template">
+				# curl options
+
+				any curl option can be passed in to any method, e.g.:
+
+				verbose
+
+				```r
+				Search(config = verbose())
+				```
+
+				timeout
+
+				```r
+				Search(config = timeout(0.1))
+				```
+
+				progress
+
+				```r
+				Search(config = progress())
+				```
+
+				etc. ...
+			</script>
+		</section>
+
+		<section id="elastic-coding" class="center">
+			<h1><i class="fa fa-code"></i> live coding</h1>
+		</section>
+
 		<section id="elasticdsl" class="center">
 			<h1>elasticdsl</h1>
 		</section>
@@ -254,12 +544,12 @@
 				we can't follow the Python/Ruby/JS lead of `foo.bar.baz`, but we can use pipes
 
 				```r
-				elastic::connect()
 				library(elastic)
 				library(elasticdsl)
 				library(data.table)
 				library(dplyr)
 				library(ggplot2)
+				elastic::connect()
 				```
 
 				```r
@@ -272,7 +562,8 @@
 				  dplyr::group_by(speech_number) %>%
 				  dplyr::summarise(avg_len = mean(len)) %>%
 				  ggplot(., aes(reorder(speech_number, avg_len), avg_len)) +
-				  	geom_bar(stat = "identity")
+				  	geom_bar(stat = "identity") +
+				  	theme_grey(20)
 				```
 			</script>
 		</section>
@@ -317,18 +608,25 @@
 			</script>
 		</section>
 
-		<section data-markdown id="use-case-dashboard">
-			<script type="text/template">
-				# use case: real time viz
+		<section id="use-case-r-data-structures-2" class="center">
+			<h1>i.e., user doesn't need to know much about Elasticsearch</h1>
+		</section>
 
-				flexdashboard + elastic
+		<section id="use-case-dashboard">
+			<h1>use case: real time viz</h1>
+			<h3><i class="fa fa-external-link fa-3x"></i></h3>
+			<img src="/img/dashboard_eg.png" width="1000">
+		</section>
 
-				xxx
-
-				```r
-				library(flexdashboard)
-				```
-			</script>
+		<section id="use-case-dashboard-takehome">
+			<h1>use case: real time viz</h1>
+			<br><br>
+			<h2>take home:</h2>
+			<ul>
+				<li>Easily create interactive viz tools</li>
+				<li>Including those that respond to live changes</li>
+				<li>No knowledge of Javascript/CSS required</li>
+			</ul>
 		</section>
 
 		<section id="to-do-clients">
@@ -337,19 +635,29 @@
 			<h2>multiple clients per R session</h2>
 		</section>
 
+		<section id="to-do-compatibility">
+			<h1>to do</h1>
+			<br><br>
+			<h2>compatibility with Elasticsearch v5</h2>
+		</section>
+
 		<section id="end">
 			<br>
 			<i class="fa fa-external-link fa-5x"></i>
 			<br><br>
 			<h3><a href="http://recology.info/talks/elastic-talk">recology.info/talks/elastic-talk</a></h3>
-			<br><br><br><br>
-			<h3><a href="https://github.com/ropensci/elastic">ropensci/elastic</a></h3>
+			<br><br>
+			<h3><a href="https://github.com/ropensci/elastic">ropensci/elastic</a> - <a href="https://github.com/ropensci/elasticdsl">ropensci/elasticdsl</a></h3>
 			<br><br>
 			<h3>Made w/: <a href="https://github.com/hakimel/reveal.js">reveal.js v3.2.0</a></h3>
 			<br>
 			<h3>Some Styling: <a href="http://getbootstrap.com/">Bootstrap v3.3.5</a></h3>
 			<br>
 			<h3>Icons by: <a href="http://fortawesome.github.io/Font-Awesome/">FontAwesome v4.4.0</a></h3>
+		</section>
+
+		<section id="questions" class="center">
+			<h1>Questions?</h1>
 		</section>
 
 			</div>
