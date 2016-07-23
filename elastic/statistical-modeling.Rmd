@@ -1,0 +1,74 @@
+```{r}
+library(ggplot2)
+library(dplyr)
+library(broom)
+library(elastic)
+```
+
+## connect
+
+```{r}
+connect()
+```
+
+## get some data
+
+```{r eval=FALSE}
+# load data if not already
+res <- docs_bulk(diamonds, "diamonds")
+```
+
+```{r}
+res <- Search(index = 'diamonds', scroll = "5m", search_type = "scan", size = 10000L)
+out <- list()
+hits <- 1
+while (hits != 0) {
+  res <- scroll(scroll_id = res$`_scroll_id`)
+  hits <- length(res$hits$hits)
+  if (hits > 0) out <- c(out, res$hits$hits)
+}
+length(out)
+```
+
+> takes about 2 seconds
+
+## parse data to data.frame
+
+* -> parse data to data.frame
+*   -> filter, etc.
+*     -> statistical model on subsets
+*       -> plot
+
+make data.frame
+
+```{r}
+dat <- tbl_df(do.call("rbind.data.frame", lapply(out, "[[", "_source")))
+```
+
+filter, remove outlier
+
+```{r}
+dat <- dat %>% filter(cut != 'Fair', depth > 50)
+```
+
+group by
+
+```{r}
+(dat <- dat %>% group_by(color))
+```
+
+model each group 
+
+```{r}
+(res <- dat %>% do(glance(lm(price ~ carat, data = .))))
+```
+
+viz
+
+```{r}
+ggplot(dat, aes(carat, price)) + 
+  geom_point() + 
+  facet_wrap(~ color) + 
+  theme_grey(base_size = 18)
+```
+

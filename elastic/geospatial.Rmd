@@ -1,0 +1,113 @@
+```{r}
+library(elastic)
+library(dplyr)
+library(leaflet)
+```
+
+## connect
+
+```{r}
+connect()
+```
+
+## function to make leaflet viz
+
+```{r}
+make_viz <- function(x) {
+  leaflet() %>% 
+    addProviderTiles("Stamen.Toner") %>% 
+    addMarkers(data = x) 
+}
+```
+
+```{r}
+make_df <- function(x) {
+  tbl_df(do.call(rbind, lapply(x$hits$hits, function(x) data.frame(x$`_source`$location)))) 
+}
+```
+
+## all the data
+
+```{r}
+out <- Search('gbifgeopoint', size = 1000)
+out$hits$total
+(dat <- make_df(out))
+```
+
+visualize
+
+```{r}
+bbox <- '{"type":"FeatureCollection","features":[{"type":"Feature","properties":{"color":"blue"},"geometry":{"type":"Polygon","coordinates":[[[-4,31],[-4,69],[29,69],[29,31],[-4,31]]]}}]}'
+make_viz(dat) %>% addGeoJSON(geojson = bbox)
+```
+
+## Points within a bounding box
+
+```{r}
+body <- '{
+  "query":{
+    "bool" : {
+      "must" : {
+        "match_all" : {}
+      },
+      "filter":{
+         "geo_bounding_box" : {
+           "location" : {
+             "top_left" : {
+               "lat" : 60,
+               "lon" : 1
+             },
+             "bottom_right" : {
+               "lat" : 40,
+               "lon" : 14
+             }
+           }
+        }
+      }
+    }
+  }
+ }'
+out <- Search('gbifgeopoint', body = body, size = 500)
+out$hits$total
+dat <- make_df(out)
+```
+
+visualize
+
+```{r}
+bbox <- '{"type":"FeatureCollection","features":[{"type":"Feature","properties":{"color":"blue"},"geometry":{"type":"Polygon","coordinates":[[[1,40],[1,60],[14,60],[14,40],[1,40]]]}}]}'
+make_viz(dat) %>% addGeoJSON(geojson = bbox)
+```
+
+## Points within a polygon
+
+```{r}
+body <- '{
+ "query":{
+   "bool" : {
+     "must" : {
+       "match_all" : {}
+     },
+     "filter":{
+        "geo_polygon" : {
+          "location" : {
+             "points" : [
+               [ 0, 55 ], [ 13, 56 ], [ 17, 50 ], [ 7, 42 ], [ 0, 55 ]
+             ]
+           }
+         }
+       }
+     }
+   }
+}'
+out <- Search('gbifgeopoint', body = body, size = 500)
+out$hits$total
+(dat <- make_df(out))
+```
+
+visualize
+
+```{r}
+bounds <- '{"type":"FeatureCollection","features":[{"type":"Feature","properties":{"color":"blue"},"geometry":{"type":"Polygon","coordinates":[[[0,55],[13,56],[17,50],[7,42],[0,55]]]}}]}'
+make_viz(dat) %>% addGeoJSON(geojson = bounds)
+```
