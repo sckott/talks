@@ -1,0 +1,130 @@
+---
+title: "R & Elasticsearch: elasticdsl package"
+author: "Scott Chamberlain"
+date: "`r format(Sys.time(), '%d %B, %Y')`"
+output:
+  html_document:
+    toc: true
+    toc_float: true
+    theme: yeti
+---
+
+
+```{r echo=FALSE}
+hook_output <- knitr::knit_hooks$get("output")
+knitr::knit_hooks$set(output = function(x, options) {
+  lines <- options$output.lines
+  if (is.null(lines)) {
+    return(hook_output(x, options))  # pass to default hook
+  }
+  x <- unlist(strsplit(x, "\n"))
+  more <- "..."
+  if (length(lines) == 1) {        # first n lines
+    if (length(x) > lines) {
+      # truncate the output, but add ....
+      x <- c(head(x, lines), more)
+    }
+  } else {
+    x <- c(if (abs(lines[1])>1) more else NULL,
+           x[lines],
+           if (length(x)>lines[abs(length(lines))]) more else NULL
+    )
+  }
+  # paste these lines together
+  x <- paste(c(x, ""), collapse = "\n")
+  hook_output(x, options)
+})
+
+knitr::opts_chunk$set(
+  warning = FALSE,
+  message = FALSE,
+  comment = "#>"
+)
+```
+
+
+```{r}
+library(elasticdsl)
+```
+
+## Connect
+
+```{r}
+elastic::connect()
+```
+
+## list indices
+
+```{r}
+indices()
+```
+
+## get an index
+
+```{r}
+index("mtcars")
+index("omdb")
+index("shakespeare")
+index("shakespeare", "scene")
+```
+
+## basic query
+
+```{r}
+res <- index("shakespeare") %>% query("prefix", speaker = "we")
+vapply(res$hits$hits, "[[", "", c('_source', 'speaker'))
+```
+
+or use the function prefix
+
+```{r}
+res <- index("shakespeare") %>% prefix(speaker = "we")
+vapply(res$hits$hits, "[[", "", c('_source', 'speaker'))
+```
+
+`from()`, `size()`, `n()`
+
+```{r output.lines=1:10}
+index("shakespeare") %>% 
+  from(1) %>% 
+  size(5)
+```
+
+`n()`
+
+```{r}
+index("shakespeare") %>% 
+  size(5) %>% 
+  n()
+```
+
+## inspect query
+
+```{r}
+index("shakespeare") %>% 
+  prefix(speaker = "we") %>% 
+  describe()
+```
+
+## Access results
+
+Same as with `elastic` package
+
+## Parse
+
+Get hits directly
+
+```{r output.lines=1:10}
+index("shakespeare") %>% ids(1, 2, 150) %>% hits()
+```
+
+`tabl()` attempts to parse hits to a data.frame
+
+```{r}
+index("shakespeare") %>%
+  prefix(speaker = "we") %>%
+  size(50) %>% 
+  tabl()
+```
+
+> not all data will parse so easily to a data.frame

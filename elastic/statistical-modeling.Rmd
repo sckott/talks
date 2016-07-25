@@ -1,3 +1,15 @@
+---
+title: "R & Elasticsearch: statistical modeling"
+author: "Scott Chamberlain"
+date: "`r format(Sys.time(), '%d %B, %Y')`"
+output:
+  html_document:
+    toc: true
+    toc_float: true
+    theme: yeti
+---
+
+
 ```{r}
 library(ggplot2)
 library(dplyr)
@@ -8,7 +20,7 @@ library(elastic)
 ## connect
 
 ```{r}
-connect()
+elastic::connect()
 ```
 
 ## get some data
@@ -34,10 +46,12 @@ length(out)
 
 ## parse data to data.frame
 
-* -> parse data to data.frame
-*   -> filter, etc.
-*     -> statistical model on subsets
-*       -> plot
+```
+ -> parse data to data.frame
+   -> filter, etc.
+     -> statistical model on subsets
+       -> plot
+```
 
 make data.frame
 
@@ -48,7 +62,7 @@ dat <- tbl_df(do.call("rbind.data.frame", lapply(out, "[[", "_source")))
 filter, remove outlier
 
 ```{r}
-dat <- dat %>% filter(cut != 'Fair', depth > 50)
+dat <- dat %>% dplyr::filter(cut != 'Fair', depth > 50)
 ```
 
 group by

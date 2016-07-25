@@ -85,6 +85,8 @@
 			<img src="img/ropensci_main.png">
 			<br>
 			<h1><a href="https://ropensci.org">ropensci.org</a></h1>
+			<br><br>a
+			<img src="img/helmsley.png">
 		</section>
 
 		<section id="link" class="center">
@@ -109,8 +111,9 @@
 			<br>
 			<h2>
 				<ul>
-					<li>Statistics</li>
 					<li>Data manipulation</li>
+					<li>Statistics</li>
+					<li>Modeling</li>
 					<li>Visualization</li>
 				</ul>
 			</h2>
@@ -142,7 +145,7 @@
 
 				```r
 				dat %>%
-					ggplot(., aes(distance, air_time)) +
+					ggplot(., aes(x = distance, y = air_time)) +
 						geom_point() +
 						facet_wrap(~ carrier)
 				```
@@ -169,9 +172,26 @@
 			</script>
 		</section>
 
-		<section id="r-power" class="center">
-			<h1>ES + R =</h1>
-			<h2>powerful data manipulation/analysis w/ TONS of data</h2>
+		<section id="why-r-plus-es" class="center">
+			<h1>Why R + Elasticsearch?</h1>
+		</section>
+
+		<section id="r-plus-es-1">
+			<h1>Why R + Elasticsearch?</h1>
+			<br><br>
+			<h2>R (powerful data manipulation/analysis/modeling) <br><br>+ <br><br>Elasticsearch (TONS of data, etc.)</h2>
+		</section>
+
+		<section id="r-plus-es-2">
+			<h1>Why R + Elasticsearch?</h1>
+			<br><br>
+			<h2>R not great with huge data out of the box <br><br><strong>SOOOO</strong> <br><br>Elasticsearch to the rescue</h2>
+		</section>
+
+		<section id="r-plus-es-3">
+			<h1>Why R + Elasticsearch?</h1>
+			<br><br>
+			<h2>Easily communicate findings to others<br><br>e.g., rmarkdown/shiny/etc.</h2>
 		</section>
 
 		<section id="elasticsearch-in-r">
@@ -262,7 +282,7 @@
 
 				----------
 
-				* You can set base url, port, http vs. https, headers
+				* You can set base url, port, http vs. https, context path, headers
 			</script>
 		</section>
 
@@ -290,6 +310,12 @@
 				```r
 				cli2$Search("geonames", size = 1000)
 				```
+
+				--------
+				<br>
+
+				Haven't decided on methods on `R6` connection class object,
+				or pass in connection object to methods
 			</script>
 		</section>
 
@@ -367,13 +393,13 @@
 
 				a list
 
-				```r
-				x <- aggs <- list(aggs = list(stats = list(terms = list(field = "text_entry"))))
+				```
+				x <- list(aggs = list(stats = list(terms = list(field = "text_entry"))))
 				```
 
 				pretty json
 
-				```r
+				```
 				x <- '{
 				    "aggs": {
 				        "stats" : {
@@ -408,13 +434,16 @@
 
 				```r
 				count(index = 'shakespeare')
+				#> [1] 5000
 				count(index = c('plos','shakespeare'))
+				#> [1] 6000
 				```
 
 				count with query
 
 				```r
 				count(index = c('plos','shakespeare'), q = "a*")
+				#> [1] 3613
 				```
 			</script>
 		</section>
@@ -445,7 +474,7 @@
 				#> ...
 				```
 
-				> < 1 for ~ 3000 documents
+				> < 1 second for ~ 3000 documents
 			</script>
 		</section>
 
@@ -499,42 +528,56 @@
 			<script type="text/template">
 				# curl options
 
-				any curl option can be passed in to any method, e.g.:
+				any curl option can be passed in to any method, using `httr` e.g.:
 
 				verbose
 
 				```r
-				Search(config = verbose())
+				Search(config = httr::verbose())
 				```
 
 				timeout
 
 				```r
-				Search(config = timeout(0.1))
+				Search(config = httr::timeout(0.1))
 				```
 
 				progress
 
 				```r
-				Search(config = progress())
+				Search(config = httr::progress())
 				```
 
 				etc. ...
 			</script>
 		</section>
 
+		<section id="elastic-datasets" class="center">
+			<h1>Datasets ready for ES bulk API</h1>
+			<br>
+			<h1>GitHub: <a href="https://github.com/ropensci/elastic_data">ropensci/elastic_data</a></h1>
+		</section>
+
 		<section id="elastic-coding" class="center">
 			<h1><i class="fa fa-code"></i> live coding</h1>
+			<br><br>
+			<h4><a href="https://github.com/sckott/talks/blob/gh-pages/elastic/code.Rmd">code.Rmd</a></h4>
 		</section>
 
 		<section id="elasticdsl" class="center">
-			<h1>elasticdsl</h1>
+			<h1>elasticdsl R package</h1>
+			<br><br>
+			<h2>Github: <a href="https://github.com/ropensci/elasticdsl">ropensci/elasticdsl</a></h2>
+			<br><br>
+			<h2>CRAN: not yet</h2>
 		</section>
 
-		<section id="elasticdsl-intro-1">
-			<h2>following <code>elasticsearch-dsl-py</code></h2>
-			<br>
-			<h2>still not very usable...</h2>
+		<section id="elasticdsl-py" class="center">
+			<h1>following <br><br><code>elasticsearch-dsl-py</code></h1>
+		</section>
+
+		<section id="elasticdsl-beta" class="center">
+			<h1>sorta usable...</h1>
 		</section>
 
 		<section data-markdown id="elasticdsl-intro-2">
@@ -572,6 +615,59 @@
 			<img src="img/elasticdsl-eg.png">
 		</section>
 
+		<section id="elasticdsl-already-works">
+			<h1>stuff that already works</h1>
+			<br><br>
+			<h3>
+			<ul>
+				<li><code>query()</code></li>
+				<li><code>from()</code>/<code>size()</code></li>
+				<li><code>fields()</code></li>
+				<li><code>sort()</code></li>
+				<li><code>range()</code></li>
+				<li><code>describe()</code>/<code>hits()</code>/<code>n()</code></li>
+				<li><code>ids()</code></li>
+				<li><code>geoshape()</code></li>
+				<li><code>match_all()</code></li>
+				<li><code>prefix()</code></li>
+				<li><code>tabl()</code></li>
+			</ul>
+			</h3>
+		</section>
+
+		<section data-markdown id="elasticdsl-internal-str">
+			<script type="text/template">
+				# internal structure
+				<br>
+				* lazy evaluation
+				* escape hatch to use quoted variables for programming
+				* evaluate on last pipe
+
+				<br>
+
+				```r
+				sort <- function(.data=list(), ...){
+				  sort_(.data, .dots = lazyeval::lazy_dots(...))
+				}
+
+				sort_ <- function(.data=list(), ..., .dots){
+				  pipe_autoexec(toggle = TRUE)
+				  dots <- lazyeval::all_dots(.dots, ...)
+				  dots <- proc_sort(.dots)
+				  .data <- list(index = .data, query = list())
+				  .data$params <- as.list(c(.data$params, sort = dots))
+				  structure(.data, class = "esdsl")
+				}
+				```
+			</script>
+		</section>
+
+		<section id="elasticdsl-coding" class="center">
+			<h1><i class="fa fa-code"></i> live coding</h1>
+			<br><br>
+			<h4><a href="https://github.com/sckott/talks/blob/gh-pages/elastic/code-elasticdsl.Rmd">code-elasticdsl.Rmd</a></h4>
+		</section>
+
 		<section id="elasticdsl-coming-soon" class="center">
 			<h1>hopefully useable <code>elasticdsl</code> package out soon ...</h1>
 		</section>
@@ -582,7 +678,7 @@
 
 		<section data-markdown id="use-case-r-data-structures">
 			<script type="text/template">
-				# use case: Load R data structure
+				# use case: data structures
 
 				bulk format file
 
@@ -615,7 +711,9 @@
 		<section id="use-case-dashboard">
 			<h1>use case: real time viz</h1>
 			<h3><i class="fa fa-external-link fa-3x"></i></h3>
-			<img src="img/dashboard_eg.png" width="1000">
+			<img src="img/dashboard_eg.png" width="800">
+			<br><br>
+			<h4><a href="https://github.com/sckott/talks/blob/gh-pages/elastic/elastic-dashboard.Rmd">elastic-dashboard.Rmd</a></h4>
 		</section>
 
 		<section id="use-case-dashboard-takehome">
@@ -632,13 +730,17 @@
 		<section id="use-case-statistical-modeling">
 			<h1>use case: stats</h1>
 			<h3><i class="fa fa-external-link fa-3x"></i></h3>
-			<img src="img/diamonds-stats.png" width="800">
+			<img src="img/diamonds-stats.png" width="600">
+			<br><br>
+			<h4><a href="https://github.com/sckott/talks/blob/gh-pages/elastic/statistical-modeling.Rmd">statistical-modeling.Rmd</a></h4>
 		</section>
 
 		<section id="use-case-geospatial">
 			<h1>use case: geospatial</h1>
 			<h3><i class="fa fa-external-link fa-3x"></i></h3>
-			<img src="img/leaflet-map.png" width="800">
+			<img src="img/leaflet-map.png" width="600">
+			<br><br>
+			<h4><a href="https://github.com/sckott/talks/blob/gh-pages/elastic/geospatial.Rmd">geospatial.Rmd</a></h4>
 		</section>
 
 		<section id="to-do" class="center">
@@ -667,9 +769,9 @@
 			<br><br>
 			<h3>Made w/: <a href="https://github.com/hakimel/reveal.js">reveal.js v3.2.0</a></h3>
 			<br>
-			<h3>Some Styling: <a href="http://getbootstrap.com/">Bootstrap v3.3.5</a></h3>
+			<h3>Styling: <a href="http://getbootstrap.com/">Bootstrap v3.3.5</a></h3>
 			<br>
-			<h3>Icons by: <a href="http://fortawesome.github.io/Font-Awesome/">FontAwesome v4.4.0</a></h3>
+			<h3>Icons: <a href="http://fortawesome.github.io/Font-Awesome/">FontAwesome v4.4.0</a></h3>
 		</section>
 
 		<section id="questions" class="center">

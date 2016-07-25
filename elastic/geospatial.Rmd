@@ -1,3 +1,22 @@
+---
+title: "geospatial, R, and Elasticsearch"
+author: "Scott Chamberlain"
+date: "`r format(Sys.time(), '%d %B, %Y')`"
+output:
+  html_document:
+    toc: true
+    toc_float: true
+    theme: yeti
+---
+
+```{r echo=FALSE}
+knitr::opts_chunk$set(
+  warning = FALSE,
+  message = FALSE,
+  comment = "#>"
+)
+```
+
 ```{r}
 library(elastic)
 library(dplyr)
@@ -7,7 +26,7 @@ library(leaflet)
 ## connect
 
 ```{r}
-connect()
+elastic::connect()
 ```
 
 ## function to make leaflet viz
@@ -34,10 +53,23 @@ out$hits$total
 (dat <- make_df(out))
 ```
 
-visualize
+### visualize
+
+bounding box to define extent
 
 ```{r}
 bbox <- '{"type":"FeatureCollection","features":[{"type":"Feature","properties":{"color":"blue"},"geometry":{"type":"Polygon","coordinates":[[[-4,31],[-4,69],[29,69],[29,31],[-4,31]]]}}]}'
+```
+
+visualize just data
+
+```{r}
+make_viz(dat)
+```
+
+visualize data and bounding extent
+
+```{r}
 make_viz(dat) %>% addGeoJSON(geojson = bbox)
 ```
 
