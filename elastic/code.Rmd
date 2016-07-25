@@ -87,11 +87,11 @@ cat_indices()
 index_exists("shakespeare")
 ```
 
-```{r}
+```{r eval=FALSE}
 index_delete("shakespeare")
 ```
 
-```{r}
+```{r eval=FALSE}
 shakespeare <- system.file("examples", "shakespeare_data.json", package = "elastic")
 invisible(
   docs_bulk(shakespeare)
@@ -116,7 +116,7 @@ res$`_shards`
 
 hits
 
-```{r}
+```{r output.lines=1:20}
 res$hits
 ```
 
@@ -159,7 +159,7 @@ Search_uri(index="shakespeare", q='text_entry:"as hath"~5')$hits$total
 
 Fields
 
-```{r}
+```{r eval=FALSE}
 Search(index="shakespeare", fields=c('play_name','speaker'))$hits$hits[[1]]
 ```
 
