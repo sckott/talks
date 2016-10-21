@@ -82,7 +82,7 @@ res <- index("shakespeare") %>% prefix(speaker = "we")
 vapply(res$hits$hits, "[[", "", c('_source', 'speaker'))
 ```
 
-`from()`, `size()`, `n()`
+`from()`, `size()`
 
 ```{r output.lines=1:10}
 index("shakespeare") %>% 
@@ -128,3 +128,11 @@ index("shakespeare") %>%
 ```
 
 > not all data will parse so easily to a data.frame
+
+
+
+
+
+
+
+

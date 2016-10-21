@@ -67,8 +67,6 @@
 	<body>
 
 		<div class="reveal">
-
-			<!-- Any section element inside of this container is displayed as a slide -->
 			<div class="slides">
 
 		<section id="intro">
@@ -227,7 +225,7 @@
 		<section id="elastic-es-status">
 			<h1>elastic R package</h1>
 			<br><br>
-			<h2>Tested and works with all <strong>1.0</strong> to <strong>2.x</strong> and older versions</h2>
+			<h2>Tested and works with all <strong>1.0</strong> to <strong>2.x</strong> versions</h2>
 			<br><br>
 			<h2>Working on <strong>5.x</strong> compatibility</h2>
 		</section>
@@ -282,7 +280,7 @@
 
 				----------
 
-				* You can set base url, port, http vs. https, context path, headers
+				* You can set base host, port, transport, context path, headers
 			</script>
 		</section>
 
@@ -292,7 +290,7 @@
 
 				Right now only one connection per R session
 
-				Future `elastic` version will initialize client explicitly
+				Future `elastic` version will fix this
 
 				```r
 				cli1 <- connect()
@@ -587,10 +585,10 @@
 				we can't follow the Python/Ruby/JS lead of `foo.bar.baz`, but we can use pipes
 
 				```r
+				library(dplyr)
 				library(elastic)
 				library(elasticdsl)
 				library(data.table)
-				library(dplyr)
 				library(ggplot2)
 				elastic::connect()
 				```
@@ -599,8 +597,8 @@
 				res <- index("shakespeare") %>% query("prefix", speaker = "we") %>% size(50)
 				lapply(res$hits$hits, "[[", "_source") %>%
 				  data.table::rbindlist(.) %>%
-				  data.table::setDF %>%
-				  dplyr::tbl_df %>%
+				  data.table::setDF() %>%
+				  dplyr::tbl_df() %>%
 				  dplyr::mutate(len = nchar(text_entry)) %>%
 				  dplyr::group_by(speech_number) %>%
 				  dplyr::summarise(avg_len = mean(len)) %>%
@@ -720,11 +718,13 @@
 			<h1>use case: real time viz</h1>
 			<br><br>
 			<h2>take home:</h2>
+			<h3>
 			<ul>
 				<li>Easily create interactive viz tools</li>
 				<li>Including those that respond to live changes</li>
 				<li>No knowledge of Javascript/CSS required</li>
 			</ul>
+			<h3>
 		</section>
 
 		<section id="use-case-statistical-modeling">
