@@ -75,10 +75,7 @@
 	<body>
 
 		<div class="reveal">
-
-			<!-- Any section element inside of this container is displayed as a slide -->
 			<div class="slides">
-
 		<!--
 		title: Software and best practices to facilitate open science
 		abstract: One of the many facets of open science is software tools.
@@ -111,8 +108,12 @@
  			- asss
  		practice notes:
  			- how does ropensci connect to wider open science ecosystem
- 			- other lessons learned?
- 			- 2 e.g.'s of ropensci in the real world, see geospatial blog post egs?
+ 			- things needed for open science wrt software:
+ 				- training needed: software carpentry
+ 				- ideally training considered important in universities
+ 				- software needed for data, stats, viz, writing
+ 			- lessons learned section? (probably not)
+ 			- 2 e.g.'s of ropensci in the real world, see geospatial blog post egs, any papers published
 		-->
 
 		<section id="intro">
@@ -292,11 +293,37 @@
 		</section>
 
 
-		<!-- transition to ropensci -->
+		<!-- transition to ropensci via how we fit in ecosystem -->
+
+		<section id="ecosystem">
+			<h2>Open science ecosytsem</h2>
+			<br>
+			<!-- image of diff. players in open science and where we fit in
+				- researcher at center
+				- software like R/Python/etc.
+				- ropensci and similar: making software
+				- infrastructure: crossref, datacite, etc
+				- OA publishers
+				- ??
+			-->
+			<img src="img/openscienceecosystem.svg" width="1300" alt="open-science-ecosystem">
+		</section>
+
+
+
 		<!-- about ropensci -->
 		<section id="ropensci">
 			<br>
 			<span><img src="img/icon_lettering_color.svg" alt="rOpenSci" width="1200" /></span>
+		</section>
+
+		<section id="ropensci-does">
+			<h2>rOpenSci does:</h2>
+			<br><br>
+	    <i class="fa fa-users fa-5x" aria-hidden="true"></i>&nbsp;&nbsp;
+	    <i class="fa fa-code fa-5x" aria-hidden="true"></i>&nbsp;&nbsp;
+			<i class="fa fa-book fa-5x" aria-hidden="true"></i>&nbsp;&nbsp;
+			<i class="fa fa-check-square-o fa-5x" aria-hidden="true"></i>&nbsp;&nbsp;
 		</section>
 
 		<section id="ropensci-team">
@@ -389,7 +416,23 @@
 		</section>
 
 
+		<!-- use cases to demonstrate what can be done -->
+		<section id="use-case-1">
+			<h2>use case 1</h2>
+			<center><a href="https://doi.org/10.1126/science.aab0800">McGee, M. D., Borstein, S. R., Neches, R. Y., Buescher, H. H., Seehausen, O., &amp; Wainwright, P. C. (2015). A pharyngeal jaw evolutionary innovation facilitated extinction in Lake Victoria cichlids. Science, 350(6264), 1077–1079&nbsp;<i class="fa fa-external-link-square"></i></a></center>
+			<br>
+			<img src="img/mcgee.png" width="1300">
+		</section>
 
+		<section id="use-case-2">
+			<h2>use case 2</h2>
+			<center><a href="https://doi.org/10.1371/journal.pone.0143051">Serfass, D. G., &amp; Sherman, R. A. (2015). Situations in 140 Characters: Assessing Real-World Situations on Twitter. PLoS ONE, 10(11), e0143051&nbsp;<i class="fa fa-external-link-square"></i></a></center>
+			<br>
+			<img src="img/serfass.png" width="1300">
+		</section>
+
+
+		<!-- software best practices -->
 		<section id="software-best-practices">
 			<h2>Software Best Practices</h2>
 			<!-- how do we use best practices - promoting via software review part below -->
@@ -509,12 +552,18 @@
 
 
 		<!-- takeaway -->
-		<section class="wrap-up">
-			<h2>To Wrap Up</h2>
+		<section class="wrap-up-one">
+			<h2>Wrap Up</h2>
 			<ul class="b">
 				<li><h2 align="left">Software is important</h2></li>
 				<li><h2 align="left">But software not appreciated</h2></li>
 				<li><h2 align="left">Para-academics/rOpenSci model for long-term software sustainability</h2></li>
+			</ul>
+		</section>
+
+		<section class="wrap-up-two">
+			<h2>Wrap Up: rOpenSci</h2>
+			<ul class="b">
 				<li><h2 align="left">rOpenSci: software best practices, community based</h2></li>
 				<li><h2 align="left">Moving forward</h2></li>
 				<ul>
@@ -526,7 +575,7 @@
 
 
 		<!-- questions -->
-		<section class="questions">
+		<!-- <section class="questions">
 			<ul class="b">
 				<li><h2 align="left">What are barriers to using open source?</h2></li>
 				<li><h2 align="left">What is least reproducible part of your workflow? (which software part?)</h2></li>
@@ -535,7 +584,7 @@
 				<li><h2 align="left">xxx</h2></li>
 				<li><h2 align="left">xxx</h2></li>
 			</ul>
-		</section>
+		</section> -->
 
 
 
