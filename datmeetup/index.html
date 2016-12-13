@@ -1,0 +1,686 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>Dat meetup</title>
+
+		<meta name="description" content="Dat meetup">
+		<meta name="author" content="Scott Chamberlain">
+
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/solarized.css" id="theme">
+		<link rel="stylesheet" href="css/bootstrap/bootstrap.css">
+
+		<!-- use google font -->
+		<link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro' rel='stylesheet' type='text/css'>
+		<link rel="stylesheet" href="css/font-awesome/css/font-awesome.css">
+
+		<!-- favicon -->
+		<link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico">
+
+		<!-- icons -->
+		<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.css">
+
+		<!-- Code syntax highlighting -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+
+		<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+		<style type="text/css">
+			#rotate_text {
+				-webkit-transform: rotate(-90deg);
+				-moz-transform: rotate(-90deg);
+				transform: rotate(-90deg);
+				position: absolute;
+				vertical-align: middle;
+				position: absolute;
+    		top: 500px;
+    		left: -50px;
+				filter:progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+			}
+
+			ul.a {list-style-type: circle; margin: 0; padding: 0;}
+			ul.b {list-style-type: square; margin-left: 4; padding-left: 0;}
+
+			img {border: none;}
+
+			.center-block {
+			  display: block;
+			  margin-left: auto;
+			  margin-right: auto;
+			}
+		</style>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+		<div class="reveal">
+			<div class="slides">
+		<!--
+		notes
+		-->
+
+		<section id="intro">
+			<h1><font color="#B8172F">scientific software review</font></h1><br>
+			<p class="grey">Scott Chamberlain (<a href="https://twitter.com/sckottie">@sckottie</a>/<a href="https://twitter.com/ropensci">@ropensci</a>)
+				<p class="grey">UC Berkeley / rOpenSci
+			<br>
+			<span><img src="img/icon_lettering_color.svg" alt="rOpenSci" width="800" /></span>
+		</section>
+
+		<section id="thanks-helmsley" class="center">
+			<span><img src="img/helmsley.png" alt="hemlsley foundation" width="1000" /></span>
+		</section>
+
+		<section id="link" class="center">
+			<i class="fa fa-external-link fa-5x"></i>
+			<br><br>
+			<h2><a href="https://scotttalks.info/datmeetup">scotttalks.info/datmeetup</a> </h2>
+		</section>
+
+		<section id="license" class="center">
+			<br>
+			<h1>LICENSE: <a href="https://creativecommons.org/licenses/by/4.0/">CC-BY 4.0</a></h1>
+		</section>
+
+		<section id="software-tools">
+			<br><br><br>
+			<h1>software tools</h1>
+			<br>
+			<i class="fa fa-wrench fa-5x" style="color:blue"></i>
+		</section>
+
+		<section id="software-tools-are-important">
+			<!-- neil's survey data -->
+			<h2>Software tools are important</h2>
+			<center><a href="https://doi.org/10.6084/m9.figshare.1243288">Neil Chue Hong. 2014. We are the 92%&nbsp;<i class="fa fa-external-link-square"></i></a></center>
+			<br>
+			<h2>
+				<ul class="b">
+					<li>nearly all researchers use software</li>
+					<li>majority say research impossible without software</li>
+					<li>software is widespread even in less traditionally technical fields</li>
+					<li>software use is moving towards open source</li>
+					<li>most are self-trained coders</li>
+					<li>most researchers <strong>DO NOT</strong> stay in academia</li>
+				</ul>
+			</h2>
+		</section>
+
+		<!-- <section id="open-source-in-academia-history">
+			history of open source use in academia -->
+			<!-- haven't been able to find much yet -->
+			<!-- papers???????
+			<h2>Pseudo history of open source in academia</h2>
+			<br>
+			<h3>bla bla bla</h3>
+		</section> -->
+
+		<section id="open-source-citation-problem">
+			<!-- part of problem is software is not often cited: papers/HowisonBullard-SoftwareCitation-WorkingPaper.pdf -->
+			<h2>Software is not cited</h2>
+			<center><a href="http://www.scienceofsciencepolicy.net/sites/default/files/attachments/HowisonBullard-SoftwareCitation-WorkingPaper.pdf">Howison, J., &amp; Bullard, J. (2015). How is software visible in the scientific literature. Technical report, Univ. of Texas.&nbsp;<i class="fa fa-external-link-square"></i></a></center>
+			<br>
+			<ul class="b">
+				<li><h2 align="left">37% of mentions involve formal citations</h2></li>
+				<li><h2 align="left">28% provide any version information</h2></li>
+				<li><h2 align="left">20% of the software mentioned is inaccessible in any form</h2></li>
+				<li><h2 align="left">20% is available as source code form with permission to modify</h2></li>
+			</ul>
+		</section>
+
+		<section id="academia-incentives">
+			<!-- incentives are for papers only -->
+			<h2>Incentives are for:</h2>
+			<center>no citations needed</center>
+			<br>
+			<ul class="b">
+				<li><h2 align="left">Papers</h2></li>
+				<li><h2 align="left">Grants</h2></li>
+				<li><h2 align="left">More papers</h2></li>
+				<li><h2 align="left">And more papers</h2></li>
+				<li><h2 align="left">maybe teaching</h2></li>
+			</ul>
+			<br><br>
+			<h2>so, software is essentially not even on the list</h2>
+		</section>
+
+		<section id="academia-incentives-change" class="center">
+			<h2>how do we change incentives?</h2>
+			<br><br>
+			<h2>are there lessons from history?</h2>
+		</section>
+
+		<section id="resistant-to-change">
+			<!-- older academics are resistant to change  -->
+			<h2>Resistance to change</h2>
+			<!-- <center><a href="link">citation.&nbsp;<i class="fa fa-external-link-square"></i></a></center> -->
+			<br>
+			<ul class="b">
+				<li><h2 align="left">Some academics tend towards non-open tools (b/c what they know?)</h2></li>
+				<li><h2 align="left">Convincing PIs difficult b/c above, and they're busy</h2></li>
+				<li><h2 align="left">Reach out to graduate students -> they can change from below</h2></li>
+			</ul>
+		</section>
+
+		<section id="academia-software-cultural-differences">
+			<!-- open source software culture shares everything, while academia culture not used to this, and incentives dont align -->
+			<h2>culture clash: open source software vs. academic culture</h2>
+			<br>
+			<img src="img/levinleonelli.png" width="1100">
+		</section>
+
+		<section id="academia-software-cultural-differences-2" class="center">
+			<h2><blockquote>Despite the importance of software in the life sciences, many
+researchers still tend to regard the labor involved in producing software as a
+service or support activity, which though instrumental to the main goal of
+producing research claims, does not constitute a research contribution in
+itself</blockquote></h2>
+			<br>
+			<center><a href="https://doi.org/10.1177/0162243916672071">Levin, N., &amp; Leonelli, S. (2016). How Does One “Open” Science? Questions of Value in Biological Research. Science, Technology &amp; Human Values, 0162243916672071.&nbsp;<i class="fa fa-external-link-square"></i></a></center>
+		</section>
+
+		<section id="funding-sucks">
+			<!-- academia doesn't care about software: must be some stats on this -->
+			<h2>Gov't Funders: All the new are belong to us!</h2>
+			<br>
+			<ul class="b">
+				<li><h2 align="left">Funders want new findings - that is, new software</h2></li>
+				<li><h2 align="left">Few ways to fund infrastructure <strong>sustainably</strong></h2></li>
+				<li><h2 align="left">Universities don't want to pay salaries for software engineers</h2></li>
+			</ul>
+		</section>
+
+		<section id="non-profit-culture" class="center">
+			<h2 align="left">Evidence of above: vibrant non-profit culture surrounding academia funded by private foundations</h2>
+		</section>
+
+
+		<!-- turning towards positive signs -->
+
+		<section id="hopeful-signs" class="center">
+			<!-- para-academic folks building things -->
+			<h2>There are hopeful signs though ...</h2>
+		</section>
+
+		<section id="para-academics">
+			<!-- para-academics: a para academic class is emerging, outside the traditional incentive systems -->
+			<h2>Para-academic guild</h2>
+			<br>
+			<div>
+				<img src="img/icon_short_black.svg" class="img-responsive" alt="rOpenSci" width="300">
+				<img src="img/Impactstory-logo-2014.png" class="img-responsive" alt="ImpactStory" width="300">
+				<img src="img/jupyter.png" class="img-responsive" alt="jupyter" width="300">
+			</div>
+		</section>
+
+		<section id="open-source-is-gaining">
+			<h2>open source R/Python taking over</h2>
+			<div class="center-block">
+				<img src="img/oreilly_datascience_salary_survey.png" class="img-responsive" alt="rOpenSci" width="600">
+				<img src="img/pop_data_analysis_software.png" class="img-responsive" alt="ImpactStory" width="600">
+			</div>
+			<br><br><br>
+			<small>[^1]: <a href="http://pds21.egloos.com/pds/201401/21/81/stratasurvey.pdf">O'Reilly Data Science Salary Survey</a></small>
+			<br>
+			<small>[^2]: <a href="http://pds21.egloos.com/pds/201401/21/81/stratasurvey.pdf">Muenchen, R. A. (2012). The popularity of data analysis software. UR L http://r4stats. com/popularity.</a></small>
+		</section>
+
+		<!-- <section id="how-do-we-make-open-source-in-academia">
+			even with + signs, how do we make open source software in academia?
+			<h2>Even with positives, how do we make open source software for academics?</h2>
+			<br>
+			<ul class="b">
+				<li><h2 align="left">xxx</h2></li>
+				<li><h2 align="left">xxx</h2></li>
+				<li><h2 align="left">xxx</h2></li>
+				<li><h2 align="left">xxx</h2></li>
+			</ul>
+		</section> -->
+
+
+		<!-- open science is still hard -->
+			<!-- even with + signs, open science is still hard -->
+		<section id="reproducibilty-psychology">
+			<h2>We're taking a look at reproducibility<br>... it can be low</h2>
+			<center><a href="https://doi.org/10.1126/science.aac4716">Estimating the reproducibility of psychological science.&nbsp;<i class="fa fa-external-link-square"></i></a></center>
+			<br>
+			<img src="img/replication.jpg" width="800">
+		</section>
+
+		<section id="still-hard">
+			<h2>Open science can be done!<br> but still hard ...</h2>
+			<center><a href="https://ropensci.org/blog/blog/2015/06/03/baad">The challenge of combining 176 x #otherpeoplesdata to create the Biomass And Allometry Database.&nbsp;<i class="fa fa-external-link-square"></i></a></center>
+			<br>
+			<h2>... lessons learned:</h2>
+			<ul class="b">
+				<li><h2 align="left">Script everything / use source everything</h2></li>
+				<li><h2 align="left">Establish a data-processing pipeline</h2></li>
+				<li><h2 align="left">Version control (git) / code sharing site</h2></li>
+				<li><h2 align="left">Embrace openness</h2></li>
+			</ul>
+			<br>
+			<p>source code: <a href="https://github.com/dfalster/baad">dfalster/baad</a></p>
+		</section>
+
+
+		<!-- transition to ropensci via how we fit in ecosystem -->
+
+		<section id="ecosystem">
+			<h2>Open science ecosytsem</h2>
+			<br>
+			<!-- image of diff. players in open science and where we fit in
+				- researcher at center
+				- software like R/Python/etc.
+				- ropensci and similar: making software
+				- infrastructure: crossref, datacite, etc
+				- OA publishers
+				- ??
+			-->
+			<img src="img/openscienceecosystem.svg" width="1300" alt="open-science-ecosystem">
+		</section>
+
+
+
+		<!-- about ropensci -->
+		<section id="ropensci">
+			<br>
+			<span><img src="img/icon_lettering_color.svg" alt="rOpenSci" width="1200" /></span>
+		</section>
+
+		<section id="ropensci-does">
+			<h2>rOpenSci does:</h2>
+			<br><br>
+	    <i class="fa fa-users fa-5x" aria-hidden="true"></i>&nbsp;&nbsp;
+	    <i class="fa fa-code fa-5x" aria-hidden="true"></i>&nbsp;&nbsp;
+			<i class="fa fa-book fa-5x" aria-hidden="true"></i>&nbsp;&nbsp;
+			<i class="fa fa-check-square-o fa-5x" aria-hidden="true"></i>&nbsp;&nbsp;
+		</section>
+
+		<section id="ropensci-team">
+			<h2>rOpenSci origin</h2>
+			<br><br>
+	    <h3>formed from ad-hoc conversation over blogs/Twitter<br><br>by the need to make research easier/more reproducible<br><br>now worldwide community</h3>
+		</section>
+
+		<section id="ropensci-staff">
+			<h2>rOpenSci Staff</h2>
+			<a href="https://ropensci.org/about/#staff">ropensci.org/about/#staff</a>
+			<br>
+			<ul class="b">
+				<li><h2 align="left">4 full time</h2></li>
+				<li><h2 align="left">now including a community manager!</h2></li>
+				<li><h2 align="left">leadership team</h2></li>
+				<li><h2 align="left">advisory board</h2></li>
+			</ul>
+		</section>
+
+		<section id="ropensci-community">
+			<h2>rOpenSci Community</h2>
+			<a href="https://ropensci.org/community/#community">https://ropensci.org/community</a>
+			<br>
+			<img src="img/ropensci_community.png" alt="ropensci community" width="900"/>
+		</section>
+
+		<section id="community-size">
+			<h1>Community stats</h1><br><br>
+			<ul class="b">
+				<!-- update these! -->
+				<li><h2 align="left">250 code contributors</h2></li>
+				<li><h2 align="left">343 Github repositories</h2></li>
+				<li><h2 align="left">30,000 commits</h2></li>
+				<li><h2 align="left">a few pkgs with >1,000 commits</h2></li>
+				<li><h2 align="left">113 published R packages</h2></li>
+			</ul>
+		</section>
+
+		<!-- philosophy of ropensci tools -->
+		<section id="research-workflow" class="center">
+			<h1>the research workflow</h1>
+		</section>
+
+
+
+		<!-- start workflow -->
+		<section id="workflow">
+			<br><br><br>
+			<center>
+				<h2>Data acquisition <i class="fa fa-cloud-download"></i> &nbsp;&nbsp;&nbsp; <i class="fa fa-plus"></i> <br><br> data manipulation/analysis/viz <i class="fa fa-bar-chart"></i> &nbsp;&nbsp;&nbsp; <i class="fa fa-plus"></i> <br><br> writing <i class="fa fa-pencil"></i> &nbsp;&nbsp;&nbsp; <i class="fa fa-plus"></i> <br><br> publish <i class="fa fa-cloud-upload"></i></h2>
+			</center>
+		</section>
+
+		<section id="workflow_acquisition">
+			<br><br><br>
+			<center>
+				<h2><font color="blue"><strong>Data acquisition</strong> <i class="fa fa-cloud-download"></i></font> &nbsp;&nbsp;&nbsp; <i class="fa fa-plus"></i> <br><br> data manipulation/analysis/viz <i class="fa fa-bar-chart"></i> &nbsp;&nbsp;&nbsp; <i class="fa fa-plus"></i> <br><br> writing <i class="fa fa-pencil"></i> &nbsp;&nbsp;&nbsp; <i class="fa fa-plus"></i> <br><br> publish <i class="fa fa-cloud-upload"></i></h2>
+			</center>
+		</section>
+
+		<section id="workflow_manip">
+			<br><br><br>
+			<center>
+				<h2>Data acquisition <i class="fa fa-cloud-download"></i> &nbsp;&nbsp;&nbsp; <i class="fa fa-plus"></i> <br><br> <font color="blue"><strong>data manipulation/analysis/viz</strong> <i class="fa fa-bar-chart"></i></font> &nbsp;&nbsp;&nbsp; <i class="fa fa-plus"></i> <br><br> writing <i class="fa fa-pencil"></i> &nbsp;&nbsp;&nbsp; <i class="fa fa-plus"></i> <br><br> publish <i class="fa fa-cloud-upload"></i></h2>
+			</center>
+		</section>
+
+		<section id="workflow_writing">
+			<br><br><br>
+			<center>
+				<h2>Data acquisition <i class="fa fa-cloud-download"></i> &nbsp;&nbsp;&nbsp; <i class="fa fa-plus"></i> <br><br> data manipulation/analysis/viz <i class="fa fa-bar-chart"></i> &nbsp;&nbsp;&nbsp; <i class="fa fa-plus"></i> <br><br> <font color="blue"><strong>writing</strong> <i class="fa fa-pencil"></i></font> &nbsp;&nbsp;&nbsp; <i class="fa fa-plus"></i> <br><br> publish <i class="fa fa-cloud-upload"></i></h2>
+			</center>
+		</section>
+
+		<section id="workflow_publish">
+			<br><br><br>
+			<center>
+				<h2>Data acquisition <i class="fa fa-cloud-download"></i> &nbsp;&nbsp;&nbsp; <i class="fa fa-plus"></i> <br><br> data manipulation/analysis/viz <i class="fa fa-bar-chart"></i> &nbsp;&nbsp;&nbsp; <i class="fa fa-plus"></i> <br><br> writing <i class="fa fa-pencil"></i> &nbsp;&nbsp;&nbsp; <i class="fa fa-plus"></i> <br><br> <font color="blue"><strong>publish</strong> <i class="fa fa-cloud-upload"></i></font></h2>
+			</center>
+		</section>
+		<!-- end workflow -->
+
+
+		<section id="packages">
+			<h2>rOpenSci Tools</h2>
+			<a href="https://ropensci.org/packages/">https://ropensci.org/packages</a>
+			<br>
+			<img src="img/packages.png" width="900">
+		</section>
+
+
+		<!-- use cases to demonstrate what can be done -->
+		<section id="use-case-1">
+			<h2>use case 1</h2>
+			<center><a href="https://doi.org/10.1126/science.aab0800">McGee, M. D., Borstein, S. R., Neches, R. Y., Buescher, H. H., Seehausen, O., &amp; Wainwright, P. C. (2015). A pharyngeal jaw evolutionary innovation facilitated extinction in Lake Victoria cichlids. Science, 350(6264), 1077–1079&nbsp;<i class="fa fa-external-link-square"></i></a></center>
+			<br>
+			<img src="img/mcgee.png" width="1300">
+		</section>
+
+		<section id="fishbase" class="center">
+			<img src="img/fishbase.png", width="600">
+			<br>
+			<img src="img/rfishbase.png", width="600">
+		</section>
+
+		<section id="use-case-2">
+			<h2>use case 2</h2>
+			<center><a href="https://doi.org/10.1371/journal.pone.0143051">Serfass, D. G., &amp; Sherman, R. A. (2015). Situations in 140 Characters: Assessing Real-World Situations on Twitter. PLoS ONE, 10(11), e0143051&nbsp;<i class="fa fa-external-link-square"></i></a></center>
+			<br>
+			<img src="img/serfass.png" width="1300">
+		</section>
+
+		<section id="gender" class="center">
+			<img src="img/gender.png", width="600">
+			<br>
+			<img src="img/lincoln_mullen.jpeg", width="400">
+		</section>
+
+		<section id="use-case-3">
+			<h2>use case 3: OKMaps</h2>
+			<img src="img/okmaps.png" width="1400" alt="okmaps">
+		</section>
+
+
+		<!-- software best practices -->
+		<section id="software-best-practices">
+			<h2>Software Best Practices</h2>
+			<!-- how do we use best practices - promoting via software review part below -->
+			<ul class="b">
+				<li><h2 align="left">continuous integration</h2></li>
+				<li><h2 align="left">unit testing</h2></li>
+				<li><h2 align="left">consistent style (within reason)</h2></li>
+				<li><h2 align="left">thorough documentation (can always be better though)</h2></li>
+				<li><h2 align="left">DRY code</h2></li>
+				<br>
+				<li><h2 align="left">teach these to community</h2></li>
+			</ul>
+		</section>
+
+		<section id="many-small-projects">
+			<h2>best practices for many small pieces?</h2>
+			<!-- how to make the best software when it's lots of tiny pieces instead of 1 big app -->
+			<br>
+			<ul class="b">
+				<li><h2 align="left">a lot of practices around large projects</h2></li>
+				<li><h2 align="left">hard to keep track of all the projects</h2></li>
+				<li><h2 align="left">bigger chance of reinventing wheels</h2></li>
+				<li><h2 align="left">many small, makes easy for people to get involved</h2></li>
+			</ul>
+		</section>
+
+		<section id="resilient-contributor-base">
+			<h2>how to make a resilient contributor base?</h2>
+			<!-- how we are strivig to achieve resiliant contributor base -->
+			<br>
+			<ul class="b">
+				<li><h2 align="left">be really nice!!! <i class="fa fa-smile-o"></i></h2></li>
+				<li><h2 align="left">> 1 contributor <i class="fa fa-rocket"></i></h2></li>
+				<li><h2 align="left">direct access to dedicated contribs <i class="fa fa-code"></i></h2></li>
+				<li><h2 align="left">contributor diversity  <i class="fa fa-users"></i></h2></li>
+				<li><h2 align="left">turn users into contribs</h2></li>
+			</ul>
+		</section>
+
+		<!-- <section id="funding-software-development">
+			<h2>Open science software and funding closely linked</h2>
+			<br><br>
+			<i class="fa fa-unlock fa-5x" aria-hidden="true" style="color:blue"></i>&nbsp;&nbsp;
+			<i class="fa fa-usd fa-5x" aria-hidden="true" style="color:green"></i>
+			<br><br><br>
+			<h2>because lack of incentives in academia &amp; perhaps hard to get into software</h2>
+		</section> -->
+
+		<section id="software-easier-incentives">
+			<h2>Make software work easier: incentives</h2>
+			<br>
+			<ul class="b">
+				<li><h2 align="left">make software count for tenure/grad school</h2></li>
+				<li><h2 align="left">more funding opportunities</h2></li>
+				<li><h2 align="left">more jobs making software in academia</h2></li>
+			</ul>
+			<!-- - barriers to entry: x, y and z
+				- incentives: can be used as carrot
+				- tearing down barriers to make easier/more appealing -->
+		</section>
+
+		<section id="software-easier-barriers">
+			<h2>Make software work easier: remove barriers</h2>
+			<br>
+			<ul class="b">
+				<li><h2 align="left">make path academia to industry easy</h2></li>
+				<li><h2 align="left">provide software training</h2></li>
+			</ul>
+		</section>
+
+
+		<!-- software review -->
+		<section id="review" class="center">
+			<h2>rOpenSci Software Review</h2>
+		</section>
+
+		<section id="software-review-intro">
+			<h2>rOpenSci Software Review</h2>
+			<br>
+			<ul class="b">
+				<!-- update these! -->
+				<li><h2 align="left">Completely open source tools</h2></li>
+				<li><h2 align="left">Free to run</h2></li>
+				<li><h2 align="left">All reviews/conversations in the open</h2></li>
+				<li><h2 align="left">Reviews are/can be linked to code changes</h2></li>
+				<li><h2 align="left">Paired with submission to a journal - JOSS</h2></li>
+			</ul>
+		</section>
+
+		<section id="joss" class="center">
+			<a href="http://joss.theoj.org/">Journal of Open Source Software</a>
+			<br><br><br>
+			<img src="img/joss.png" width="1300">
+		</section>
+
+		<section id="software-review-rising-tide">
+			<h2>Software Review: Rising Tide Raises All Boats</h2>
+			<br><br>
+			<i class="fa fa-ship fa-5x" aria-hidden="true"></i>
+		</section>
+
+		<section id="software-review-people-like-it">
+			<h2>People really like software review</h2>
+			<img src="img/andysouth.png" width="600">
+			<br>
+			<img src="img/sparks.png" width="800">
+			<br>
+			<img src="img/perry.png" width="800">
+		</section>
+
+		<section id="software-review-looks-like">
+			<h2>what it looks like</h2>
+			<br>
+			<a href="https://github.com/ropensci/onboarding/issues/43">ropensci/onboarding#43</a>
+			<br>
+			<img src="img/review.png" width="1100">
+		</section>
+
+		<section id="review-credit">
+			<h2>incentives: getting credit for reviews</h2>
+			<a href="https://cran.rstudio.com/web/packages/opencage">opencage rOpenSci package</a>
+			<br><br>
+			<img src="img/cran-review.png" width="1400">
+			<br>
+			<h3>author: <a href="https://github.com/masalmon">Maëlle Salmon</a></h3>
+		</section>
+
+		<section id="software-review-export">
+			<h2>Software Review: Spread it Around</h2>
+			<br>
+			<h2>we're experimenting with how to package up the workflow and make it easy to deploy</h2>
+
+			<i class="fa fa-archive fa-5x"></i><i class="fa fa-share fa-5x"></i>
+
+			<h2>let us know if you have any feedback on the process</h2>
+		</section>
+
+		<!-- similar groups -->
+
+		<section id="similar-groups">
+			<h2>similar groups</h2>
+			<br><br>
+			<a href="http://ropengov.github.io/">rOpenGov</a>
+			<br>
+			<img src="img/ropengov.png" width="600" alt="ropengov">
+			<br>
+			<blockquote>Algorithms for Computational Social Science and Digital Humanities</blockquote>
+		</section>
+
+
+
+		<!-- takeaway -->
+		<section class="wrap-up-one">
+			<h2>Wrap Up</h2>
+			<ul class="b">
+				<li><h2 align="left">Software is important for (open) science</h2></li>
+				<li><h2 align="left">But software not appreciated</h2></li>
+				<li><h2 align="left">Para-academics/rOpenSci model for long-term software sustainability</h2></li>
+			</ul>
+		</section>
+
+		<section class="wrap-up-two">
+			<h2>Wrap Up: rOpenSci</h2>
+			<ul class="b">
+				<li><h2 align="left">rOpenSci: software best practices, community based</h2></li>
+				<li><h2 align="left">rOpenSci: software review</h2></li>
+				<li><h2 align="left">Moving forward</h2></li>
+				<ul>
+					<li><h2 align="left">rOpenSci: expand to more disciplines</h2></li>
+					<li><h2 align="left">use rOpenSci model in other disciplines</h2></li>
+				<ul>
+			</ul>
+		</section>
+
+
+		<!-- questions -->
+		<!-- <section class="questions">
+			<ul class="b">
+				<li><h2 align="left">What are barriers to using open source?</h2></li>
+				<li><h2 align="left">What is least reproducible part of your workflow? (which software part?)</h2></li>
+				<li><h2 align="left">Do you see change towards more open source in your world?</h2></li>
+				<li><h2 align="left">What can software people do better?</h2></li>
+				<li><h2 align="left">xxx</h2></li>
+				<li><h2 align="left">xxx</h2></li>
+			</ul>
+		</section> -->
+
+
+
+		<!-- end -->
+		<section id="end">
+			<i class="fa fa-external-link fa-5x"></i>
+			<br>
+			<h2><a href="https://scotttalks.info/phos16">scotttalks.info/phos16</a></h2>
+			<br><br>
+			<h2>Made w/: <a href="https://github.com/hakimel/reveal.js">reveal.js v3.2.0</a></h2>
+			<br>
+			<h2>Some Styling: <a href="http://getbootstrap.com/">Bootstrap v3.3.5</a></h2>
+			<br>
+			<h2>Icons by: <a href="http://fortawesome.github.io/Font-Awesome/">FontAwesome v4.4.0</a></h2>
+		</section>
+
+			</div>
+
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+
+			// Full list of configuration options available at:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: false,
+				slideNumber: true,
+				keyboard: true,
+				touch: true,
+
+				width: 1400,
+				height: 900,
+
+				// transition: 'slide', // none/fade/slide/convex/concave/zoom
+				transition: Reveal.getQueryHash().transition || 'none', // default/cube/page/concave/zoom/linear/fade/none
+
+				// Optional reveal.js plugins
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true },
+					{ src: 'plugin/notes/notes.js', async: true }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>
