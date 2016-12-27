@@ -1,0 +1,426 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>OSSPS</title>
+
+		<meta name="description" content="OSSPS">
+		<meta name="author" content="Scott Chamberlain">
+
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/solarized.css" id="theme">
+		<link rel="stylesheet" href="css/bootstrap/bootstrap.css">
+
+		<!-- use google font -->
+		<link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro' rel='stylesheet' type='text/css'>
+		<link rel="stylesheet" href="css/font-awesome/css/font-awesome.css">
+
+		<!-- favicon -->
+		<link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico">
+
+		<!-- icons -->
+		<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.css">
+
+		<!-- Code syntax highlighting -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+
+		<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+		<style type="text/css">
+			#rotate_text {
+				-webkit-transform: rotate(-90deg);
+				-moz-transform: rotate(-90deg);
+				transform: rotate(-90deg);
+				position: absolute;
+				vertical-align: middle;
+				position: absolute;
+    		top: 500px;
+    		left: -50px;
+				filter:progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+			}
+
+			ul.a {list-style-type: circle; margin: 0; padding: 0;}
+			ul.b {list-style-type: square; margin-left: 4; padding-left: 0;}
+
+			img {border: none;}
+
+			.center-block {
+			  display: block;
+			  margin-left: auto;
+			  margin-right: auto;
+			}
+		</style>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+		<div class="reveal">
+			<div class="slides">
+		<!--
+		title: Open science, R and Python
+		symposium link: http://www.nrm.se/english/researchandcollections/symposiumopensourcesystems/program.9003769.html
+		-->
+
+		<section id="intro">
+			<h1><font color="#B8172F">Open science, R Python, etc.</font></h1><br>
+			<p class="grey">Scott Chamberlain (<a href="https://twitter.com/sckottie">@sckottie</a>/<a href="https://twitter.com/ropensci">@ropensci</a>)
+				<p class="grey">UC Berkeley / rOpenSci
+			<br>
+			<span><img src="img/icon_lettering_color.svg" alt="rOpenSci" width="800" /></span>
+		</section>
+
+		<section id="thanks-helmsley" class="center">
+			<span><img src="img/helmsley.png" alt="hemlsley foundation" width="1000" /></span>
+		</section>
+
+		<section id="link" class="center">
+			<i class="fa fa-external-link fa-5x"></i>
+			<br><br>
+			<h2><a href="https://scotttalks.info/ossps">scotttalks.info/ossps</a> </h2>
+		</section>
+
+		<section id="license" class="center">
+			<br>
+			<h1>LICENSE: <a href="https://creativecommons.org/licenses/by/4.0/">CC-BY 4.0</a></h1>
+		</section>
+
+
+		<!-- actual stuff -->
+		<section id="open-science">
+			<br><br><br>
+			<h1>open science</h1>
+			<br>
+			<i class="fa fa-unlock fa-5x" style="color:blue"></i> <i class="fa fa-flask fa-5x" style="color:black"></i>
+		</section>
+
+
+		<!-- the need for open science -->
+		<section id="open-science-needed" class="center">
+			<h1>open science is badly needed</h1>
+		</section>
+
+		<section id="open-science-needed-retractions" class="center">
+			<h1>Retractions</h1>
+			<!-- example: paper retracted 1 -->
+			<img src="img/retraction_pottskant.png">
+			<br>
+			<center><a href="http://www.sciencemag.org/news/2016/09/whistleblower-sues-duke-claims-doctored-data-helped-win-200-million-grants"><i class="fa fa-link fa-3x"></i></a></center>
+		</section>
+
+			<!-- because of course you want your work to be reproducible -->
+			<!-- emergent findings come from open science: open data, open access papers for text mining -->
+
+		<section id="open-science-should-be-reproducible" class="center">
+			<h1>science should be reproducible!</h1>
+		</section>
+
+		<section id="open-science-emergent-findings">
+			<h1>Emergent findings</h1>
+			<br><br><br>
+			<h2>e.g., data</h2>
+			<i class="fa fa-table fa-5x"></i>
+			<!-- e.g., of this, hmmmmm -->
+		</section>
+
+
+		<!-- components of open science
+			- it's still hard to do
+			- but you can work on different parts of it - and some parts make science easier
+			- e.g., versioning code/text/data
+			- e.g., doing all work programatically
+		-->
+			<!-- open data -->
+			<!-- open access papers -->
+			<!-- versioning -->
+			<!-- open source software -->
+		<section id="open-science-toolbelt">
+			<h1>Open science as a toolbelt</h1>
+			<br>
+			<h2>open science may be hard to do</h2>
+			<br>
+			<h2>but - work on components</h2>
+			<br>
+			<h2>and - individual components are worth learning</h2>
+		</section>
+
+		<section id="versioning">
+			<h1>Versioning: code/data/text</h1>
+			<br>
+			<h2>failure proofs your work</h2>
+			<br>
+			<h2>experiment freely!</h2>
+		</section>
+
+		<section id="all-work-programatically">
+			<h1>Do all work programatically</h1>
+			<br>
+			<h3>Key to reproduciblity</h3>
+			<br>
+			<h3>Most important person that wants to reproduce your work is you!</h3>
+			<br>
+			<h3>you and yourself</h3>
+			<h3>one week from now</h3>
+			<h3>two months from now</h3>
+		</section>
+
+
+		<!-- programming languages important in open science -->
+
+		<section id="programming-languages-and-open-science" class="center">
+			<h2>important scientific programming languages</h2>
+			<img src="img/python.jpeg" width="600"><br><img src="img/r.png" width="400">
+		</section>
+
+		<section id="python-notebooks">
+			<h2>Jupyter Notebooks</h2>
+			<br>
+			<img src="img/notebook.png">
+		</section>
+
+		<section id="python-notebooks-open-science">
+			<!-- show example of reproducing a python notebook -->
+			<h2>reproducing a Jupyter notebook</h2>
+		</section>
+
+		<section id="r-language">
+			<h1>R language</h1>
+			<ul class="b">
+				<li><h2 align="left">used widely in biology, psychology, medicine, etc.</h2></li>
+				<li><h2 align="left">rapidly growing user base, companies surrounding it</h2></li>
+				<li><h2 align="left">includes all tools for open science workflow</h2></li>
+				<li><h2 align="left">though work to be done ...</h2></li>
+			</ul>
+		</section>
+
+
+		<!-- transition to ropensci via how we fit in ecosystem -->
+
+		<section id="ecosystem">
+			<h2>Open science ecosytsem</h2>
+			<br>
+			<!-- image of diff. players in open science and where we fit in
+				- researcher at center
+				- software like R/Python/etc.
+				- ropensci and similar: making software
+				- infrastructure: crossref, datacite, etc
+				- OA publishers
+				- ??
+			-->
+			<img src="img/openscienceecosystem.svg" width="1300" alt="open-science-ecosystem">
+		</section>
+
+
+
+
+
+		<!-- about ropensci -->
+		<section id="ropensci">
+			<br>
+			<span><img src="img/icon_lettering_color.svg" alt="rOpenSci" width="1200" /></span>
+		</section>
+
+		<section id="ropensci-does">
+			<h2>rOpenSci does:</h2>
+			<br><br>
+	    <i class="fa fa-users fa-5x" aria-hidden="true"></i>&nbsp;&nbsp;
+	    <i class="fa fa-code fa-5x" aria-hidden="true"></i>&nbsp;&nbsp;
+			<i class="fa fa-book fa-5x" aria-hidden="true"></i>&nbsp;&nbsp;
+			<i class="fa fa-check-square-o fa-5x" aria-hidden="true"></i>&nbsp;&nbsp;
+		</section>
+
+		<section id="ropensci-team">
+			<h2>rOpenSci origin</h2>
+			<br><br>
+	    <h3>formed from ad-hoc conversation over blogs/Twitter<br><br>by the need to make research easier/more reproducible<br><br>now worldwide community</h3>
+		</section>
+
+		<section id="ropensci-staff">
+			<h2>rOpenSci Staff</h2>
+			<a href="https://ropensci.org/about/#staff">ropensci.org/about/#staff</a>
+			<br>
+			<ul class="b">
+				<li><h2 align="left">4 full time</h2></li>
+				<li><h2 align="left">now including a community manager!</h2></li>
+				<li><h2 align="left">leadership team</h2></li>
+				<li><h2 align="left">advisory board</h2></li>
+			</ul>
+		</section>
+
+		<section id="ropensci-community">
+			<h2>rOpenSci Community</h2>
+			<a href="https://ropensci.org/community/#community">https://ropensci.org/community</a>
+			<br>
+			<img src="img/ropensci_community.png" alt="ropensci community" width="900"/>
+		</section>
+
+		<section id="community-size">
+			<h1>Community stats</h1><br><br>
+			<ul class="b">
+				<!-- update these! -->
+				<li><h2 align="left">250 code contributors</h2></li>
+				<li><h2 align="left">343 Github repositories</h2></li>
+				<li><h2 align="left">30,000 commits</h2></li>
+				<li><h2 align="left">a few pkgs with >1,000 commits</h2></li>
+				<li><h2 align="left">113 published R packages</h2></li>
+			</ul>
+		</section>
+
+		<!-- philosophy of ropensci tools -->
+		<section id="research-workflow" class="center">
+			<h1>the research workflow</h1>
+		</section>
+
+
+
+		<!-- start workflow -->
+		<section id="workflow">
+			<br><br><br>
+			<center>
+				<h2>Data acquisition <i class="fa fa-cloud-download"></i> &nbsp;&nbsp;&nbsp; <i class="fa fa-plus"></i> <br><br> data manipulation/analysis/viz <i class="fa fa-bar-chart"></i> &nbsp;&nbsp;&nbsp; <i class="fa fa-plus"></i> <br><br> writing <i class="fa fa-pencil"></i> &nbsp;&nbsp;&nbsp; <i class="fa fa-plus"></i> <br><br> publish <i class="fa fa-cloud-upload"></i></h2>
+			</center>
+		</section>
+
+		<section id="workflow_acquisition">
+			<br><br><br>
+			<center>
+				<h2><font color="blue"><strong>Data acquisition</strong> <i class="fa fa-cloud-download"></i></font> &nbsp;&nbsp;&nbsp; <i class="fa fa-plus"></i> <br><br> data manipulation/analysis/viz <i class="fa fa-bar-chart"></i> &nbsp;&nbsp;&nbsp; <i class="fa fa-plus"></i> <br><br> writing <i class="fa fa-pencil"></i> &nbsp;&nbsp;&nbsp; <i class="fa fa-plus"></i> <br><br> publish <i class="fa fa-cloud-upload"></i></h2>
+			</center>
+		</section>
+
+		<section id="workflow_manip">
+			<br><br><br>
+			<center>
+				<h2>Data acquisition <i class="fa fa-cloud-download"></i> &nbsp;&nbsp;&nbsp; <i class="fa fa-plus"></i> <br><br> <font color="blue"><strong>data manipulation/analysis/viz</strong> <i class="fa fa-bar-chart"></i></font> &nbsp;&nbsp;&nbsp; <i class="fa fa-plus"></i> <br><br> writing <i class="fa fa-pencil"></i> &nbsp;&nbsp;&nbsp; <i class="fa fa-plus"></i> <br><br> publish <i class="fa fa-cloud-upload"></i></h2>
+			</center>
+		</section>
+
+		<section id="workflow_writing">
+			<br><br><br>
+			<center>
+				<h2>Data acquisition <i class="fa fa-cloud-download"></i> &nbsp;&nbsp;&nbsp; <i class="fa fa-plus"></i> <br><br> data manipulation/analysis/viz <i class="fa fa-bar-chart"></i> &nbsp;&nbsp;&nbsp; <i class="fa fa-plus"></i> <br><br> <font color="blue"><strong>writing</strong> <i class="fa fa-pencil"></i></font> &nbsp;&nbsp;&nbsp; <i class="fa fa-plus"></i> <br><br> publish <i class="fa fa-cloud-upload"></i></h2>
+			</center>
+		</section>
+
+		<section id="workflow_publish">
+			<br><br><br>
+			<center>
+				<h2>Data acquisition <i class="fa fa-cloud-download"></i> &nbsp;&nbsp;&nbsp; <i class="fa fa-plus"></i> <br><br> data manipulation/analysis/viz <i class="fa fa-bar-chart"></i> &nbsp;&nbsp;&nbsp; <i class="fa fa-plus"></i> <br><br> writing <i class="fa fa-pencil"></i> &nbsp;&nbsp;&nbsp; <i class="fa fa-plus"></i> <br><br> <font color="blue"><strong>publish</strong> <i class="fa fa-cloud-upload"></i></font></h2>
+			</center>
+		</section>
+		<!-- end workflow -->
+
+
+		<section id="packages">
+			<h2>rOpenSci Tools</h2>
+			<a href="https://ropensci.org/packages/">https://ropensci.org/packages</a>
+			<br>
+			<img src="img/packages.png" width="900">
+		</section>
+
+
+		<!-- use cases to demonstrate what can be done -->
+		<section id="use-case-1">
+			<h2>use case 1</h2>
+			<center><a href="https://doi.org/10.1126/science.aab0800">McGee, M. D., Borstein, S. R., Neches, R. Y., Buescher, H. H., Seehausen, O., &amp; Wainwright, P. C. (2015). A pharyngeal jaw evolutionary innovation facilitated extinction in Lake Victoria cichlids. Science, 350(6264), 1077–1079&nbsp;<i class="fa fa-external-link-square"></i></a></center>
+			<br>
+			<img src="img/mcgee.png" width="1300">
+		</section>
+
+		<section id="fishbase" class="center">
+			<img src="img/fishbase.png", width="600">
+			<br>
+			<img src="img/rfishbase.png", width="600">
+		</section>
+
+		<section id="use-case-2">
+			<h2>use case 2</h2>
+			<center><a href="https://doi.org/10.1371/journal.pone.0143051">Serfass, D. G., &amp; Sherman, R. A. (2015). Situations in 140 Characters: Assessing Real-World Situations on Twitter. PLoS ONE, 10(11), e0143051&nbsp;<i class="fa fa-external-link-square"></i></a></center>
+			<br>
+			<img src="img/serfass.png" width="1300">
+		</section>
+
+		<section id="gender" class="center">
+			<img src="img/gender.png", width="600">
+			<br>
+			<img src="img/lincoln_mullen.jpeg", width="400">
+		</section>
+
+		<section id="use-case-3">
+			<h2>use case 3: OKMaps</h2>
+			<img src="img/okmaps.png" width="1400" alt="okmaps">
+		</section>
+
+		<!-- end -->
+		<section id="end">
+			<i class="fa fa-external-link fa-5x"></i>
+			<br>
+			<h2><a href="https://scotttalks.info/ossps">scotttalks.info/ossps</a></h2>
+			<br><br>
+			<h2>Made w/: <a href="https://github.com/hakimel/reveal.js">reveal.js v3.2.0</a></h2>
+			<br>
+			<h2>Some Styling: <a href="http://getbootstrap.com/">Bootstrap v3.3.5</a></h2>
+			<br>
+			<h2>Icons by: <a href="http://fortawesome.github.io/Font-Awesome/">FontAwesome v4.4.0</a></h2>
+		</section>
+
+			</div>
+
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+
+			// Full list of configuration options available at:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: false,
+				slideNumber: true,
+				keyboard: true,
+				touch: true,
+
+				width: 1400,
+				height: 900,
+
+				// transition: 'slide', // none/fade/slide/convex/concave/zoom
+				transition: Reveal.getQueryHash().transition || 'none', // default/cube/page/concave/zoom/linear/fade/none
+
+				// Optional reveal.js plugins
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true },
+					{ src: 'plugin/notes/notes.js', async: true }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>

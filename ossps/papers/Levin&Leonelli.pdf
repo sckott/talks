@@ -1,0 +1,1139 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html
+      xmlns="http://www.w3.org/1999/xhtml"
+      xml:lang="en"
+      lang="en">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+      <title>Sign In </title>
+      <meta name="googlebot" content="NOODP" />
+      <meta content="How Does One “Open” Science? Questions of Value in Biological Research"
+            name="og:title" />
+      <meta name="og:description" content="SAGE Publications" />
+      <meta content="Science, Technology &amp; Human Values" name="og:site_name" />
+      <meta name="og:type" content="article" />
+      <meta name="HW.ad-path" content="/cgi/content/reprint/0162243916672071v1" />
+      <link rel="stylesheet" type="text/css" media="all" href="/shared/css/hw-global.css" />
+      <link rel="stylesheet" type="text/css" media="print" href="/shared/css/hw-print.css" />
+      <link rel="stylesheet" type="text/css" media="all"
+            href="/shared/css/standard-designs/design2/main.css" />
+      <link rel="stylesheet" type="text/css" media="all"
+            href="/publisher/css/hw-publisher-global.css" />
+      <link rel="stylesheet" type="text/css" media="all"
+            href="/local/css/hw-local-global.css" />
+      <link rel="stylesheet" type="text/css" media="all"
+            href="/local/css/hw-local-sidebars.css" />
+      <link rel="stylesheet" type="text/css" media="all"
+            href="/site/misc/css/local_styles.css" />
+      <link rel="stylesheet" type="text/css" media="all"
+            href="/shared/css/hw-page-login.css" />
+      <link rel="stylesheet" type="text/css" media="all"
+            href="/shared/css/standard-designs/design2/login-page.css" />
+      <link rel="stylesheet" type="text/css" media="all"
+            href="/publisher/css/hw-sagepub-page-login.css" />
+      <link rel="stylesheet" type="text/css" media="all"
+            href="/publisher/css/hw-publisher-leaderboard.css" /><script type="text/javascript" id="session-d42476225e1">var callbackToken='516B58B1C4CCD87';</script><meta content="0" name="session-search-history-count" id="session-d42476225e3" />
+      <meta content="0" name="session-marked-citation-count" id="session-d42476225e4" />
+      <meta content="" name="session-marked-citations" id="session-d42476225e5" /><script type="text/javascript" src="/shared/js/jquery-min.js"></script><script type="text/javascript" src="/shared/js/fingerprint.js"></script><script type="text/javascript" src="/shared/js/hw-shared.js"></script><script type="text/javascript" src="/publisher/js/hw-sagepub-shared.js"></script><script type="text/javascript" src="/site/misc/js/hw-publisher-custom.js"></script><script type="text/javascript" src="/shared/js/gen/local-js-settings.js"></script><script type="text/javascript" src="/shared/js/date_utils.js"></script><script type="text/javascript" src="/shared/js/catalog_client.js"></script></head>
+   <body>
+      <noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-5M58KS" height="0" width="0"
+                 style="display:none;visibility:hidden"></iframe></noscript><script type="text/javascript">(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+		new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+		j=d.createElement(s),dl=l!='dataLayer'?'&amp;l='+l:'';j.async=true;j.src=
+		'//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+		})(window,document,'script','dataLayer','GTM-5M58KS');</script><div class="hw-gen-page pagetype-content" id="pageid-login"><script type="text/javascript">
+	var CM8Server = "sage.checkm8.com";
+	var CM8Cat = "social_science_humanities.science_society_studies.sth";
+	var CM8Profile="159.122.75.40";
+	</script><script type="text/javascript"
+                 src="http://sagedigital.checkm8.com/adam/cm8adam_1_call.js"></script><div class="ehs-leaderboard-ads" id="ehs-leaderboard-ads">
+            
+            <ul>
+               
+               <li>
+                  					<script type="text/javascript" language="javascript">CM8ShowAd("Leaderboard");
+</script>
+                  					<noscript>
+                     					  <a href="http://sage.checkm8.com/adam/ep/click/social_science_humanities.science_society_studies.sth/Top?cat=social_science_humanities.science_society_studies.sth">
+                        					<img src="http://sage.checkm8.com/adam/noscript?cat=social_science_humanities.science_society_studies.sth&amp;format=Leaderboard"
+                             nosend="1"
+                             border="0"
+                             align="left"
+                             alt="Advertisement" />
+                        					  </a>
+                     	
+                  </noscript>
+                  
+               </li>
+               
+            </ul>
+            
+         </div>
+         <div class="leaderboard-clear sb-div"></div>
+         <div id="header-initialNav">
+            
+            
+            <div id="header-authString">
+               
+               <div class="header-authStringImgLeft"></div>
+               
+               <div id="authstring">
+                  
+                  <ul>
+                     
+                     <li><a href="/login?uri=http://sth.sagepub.com/content/early/2016/10/03/0162243916672071.full.pdf">Sign In</a> to gain access to subscriptions and/or My Tools.
+                     </li>
+                     
+                  </ul>           
+                  
+               </div>
+               
+               <ul class="h-auth-list">
+                  
+                  
+                  <li class="first">
+                     <img height="13" width="12" alt="sign in icon" src="/publisher/icons/Signin_img.gif" />
+                     <a href="/login">Sign In</a>
+                     
+                  </li>
+                  
+                  <li class="normal">|</li>
+                  
+                  <li class="normal">
+                     <a href="http://online.sagepub.com/site/misc/tools.xhtml">My Tools</a>
+                     
+                  </li>
+                  
+                  
+                  <li class="normal">|</li>
+                  
+                  <li class="normal">
+                     <a href="/feedback">Contact Us</a>
+                     
+                  </li>
+                  
+                  <li class="normal">|</li>
+                  
+                  		
+                  <li class="last"><a href="/switch/help?fromid=pageid-login&amp;fromres=&amp;fromsite=Science%2C%20Technology%20%26%20Human%20Values&amp;is-sage-open=&amp;returnurl=http%3A%2F%2Fsth.sagepub.com%2Fcontent%2Fearly%2F2016%2F10%2F03%2F0162243916672071.full.pdf">HELP</a></li>
+                  
+               </ul>
+               
+               <div class="header-authStringImgRight"></div>
+               
+            </div>
+            
+            
+            <div id="header-SJO">
+               <a href="http://online.sagepub.com">
+                  <img alt="SJO banner" src="/publisher/icons/SJO_banner.gif" />
+                  </a>
+               
+            </div>
+            
+            <div id="header-search">
+               
+               <div>
+                  
+                  
+                  <div>
+                     
+                     <form action="http://online.sagepub.com/search/results" id="portal-qs-form"
+                           method="get">
+                        <label id="header-search-label" for="header-input">Search all journals</label>
+                        <input type="hidden" name="submit" value="yes" />
+                        <input type="hidden" name="src" value="hw" />
+                        <input type="hidden" name="andorexactfulltext" value="and" />
+                        <span class="sheader_l"></span>
+                        <span class="sheader">
+                           								<input type="text" id="header-input" name="fulltext" title="Search all journals"
+                                  value="" />
+                           </span>
+                        <span class="sheader_r">
+                           <input type="image" src="/publisher/icons/srch_r.gif" alt="Initiate Basic Search"
+                                  value="GO" />
+                           </span>
+                        
+                     </form>
+                     
+                  </div>
+                  
+                  <div id="header-browse">
+                     
+                     <ul>
+                        
+                        <li class="header-browseSpan headerFirst">
+                           <a href="http://online.sagepub.com/search">Advanced Search <img src="/publisher/icons/header-browseGo.gif" alt="Go" /></a>
+                           
+                        </li>
+                        
+                        <li class="header-browseSpan headerMiddle">
+                           <a href="http://online.sagepub.com/search/history ">Search History <img src="/publisher/icons/header-browseGo.gif" alt="Go" /></a>
+                           
+                        </li>
+                        
+                        
+                        <li class="header-browseSpan headerLast">
+                           <a href="http://online.sagepub.com/browse/by/title">Browse Journals <img src="/publisher/icons/header-browseGo.gif" alt="Go" /></a>
+                           
+                        </li>
+                        
+                     </ul>
+                     
+                  </div>
+                  
+               </div>
+               
+            </div>
+            
+            <div id="header-Sign">
+               
+            </div>
+            
+            
+            <div id="header-Uni">
+               		
+               
+            </div>
+            
+         </div>
+         <div id="header">
+            
+            <div id="main-logo"> </div>
+            
+            <p id="skip-link">
+               <a href="#content-block">Skip to main page content</a>
+               
+            </p>
+            
+            <ul class="button-list header-buttons">
+               
+               <li class="first"><a href="/" title="Home"><span>Home</span></a></li>
+               
+               
+               <li><a title="OnlineFirst" href="/content/early/recent"><span>OnlineFirst</span></a></li>
+               
+               <li><a href="/content" title="All Issues"><span>All Issues</span></a></li>
+               
+               
+               
+               <li><a href="/site/subscriptions/" title="Subscribe"><span>Subscribe</span></a></li>
+               
+               <li class="img-button"><a href="/rss" title="RSS "><span>RSS </span>
+                     
+                     <img src="/shared/img/common/rss.gif" alt="rss" /></a>
+                  
+                  
+                  
+               </li>
+               
+               <li class="last"><a href="/cgi/alerts" title="Email Alerts"><span>Email Alerts</span></a></li>
+               
+               
+               
+               
+               
+            </ul>
+            
+            
+            <div class="leaderboard-clear sb-div"></div>
+            
+            
+            <div class="banner-ads">
+               
+               <ul>
+                  			
+                  <li>
+                     					<script type="text/javascript" language="javascript">CM8ShowAd("title_half_banner");</script>
+                     					<noscript>
+                        					  <a href="http://sage.checkm8.com/adam/ep/click/social_science_humanities.science_society_studies.sth/Top?cat=social_science_humanities.science_society_studies.sth">
+                           					<img src="http://sage.checkm8.com/adam/noscript?cat=social_science_humanities.science_society_studies.sth&amp;format=Title_Half_Banner"
+                                nosend="1"
+                                border="0"
+                                align="left"
+                                alt="Advertisement" />
+                           					  </a>
+                        	
+                     </noscript>
+                     			
+                  </li>
+                  
+               </ul>
+               
+               
+            </div>
+            
+            <div class="leaderboard-clear sb-div"></div>
+            
+            
+            <div class="bar">
+               
+               
+               <div class="header-qs">
+                  
+                  <form id="journal-qs-form" class="searchbox" action="/search/results" method="get">
+                     
+                     <div id="headerSearch">
+                        <label for="header-qs-input" id="header-qs-search-label">Search this journal</label>
+                        <span class="sbox_l"></span>
+                        <span class="sbox">
+                           					<input type="text" id="header-qs-input" name="fulltext" title="Search this journal"
+                                  value="" />
+                           </span>
+                        <span class="sbox_r">
+                           					<input type="image" src="/publisher/icons/srch_r.gif" alt="Initiate Basic Search"
+                                  value="GO" />
+                           </span>
+                        <input type="hidden" name="submit" value="yes" />
+                        	<input value="spsth" type="hidden" name="journal_set" />
+                        <input type="hidden" name="src" value="selected" />
+                        <input type="hidden" name="andorexactfulltext" value="and" />
+                        
+                     </div>
+                     
+                  </form>
+                  
+                  <div class="adv-search-link"><a href="/search">Advanced Journal Search »</a></div>
+                  
+               </div>
+               
+               
+               <div class="bar-inner"></div>
+               
+            </div>
+            
+         </div>
+         <div id="blank-above-impact-factor"></div>
+         <div id="impact-factor">
+            			
+            <div id="impact-factor-row">
+               			
+               <div id="if-left"><span class="heading">Impact Factor:</span><span class="if-value">2.646 |  </span><span class="heading">Ranking:</span><span class="if-value">Social Issues 4 out of 41</span></div>
+               			
+               <div id="if-right"><span class="heading">Source:</span><span class="if-value">2016 Release of Journal Citation Reports with Source: 2015 Web of Science Data</span></div>
+               			<br style="clear:both;" />
+               		 
+            </div>
+            		
+         </div>
+         <div id="blank-below-impact-factor"></div><img src="/shared/img/pages/login/login_hit_hidden.gif?timestamp=2016-11-30T02:41:05.2-08:00"
+              id="hw-login-tracking-gif"
+              width="2"
+              height="2"
+              alt=" " /><div id="content-block">
+            <div id="hw-login-msg-box">
+               
+               
+               <div id="hw-login-msg-box-text">
+                  
+                  
+                  
+                  <div>
+                     <span>
+                        
+                        
+                        
+                        <p xmlns="">
+                           
+                           <strong>This item requires a subscription 
+                              
+                              to Science, Technology &amp; Human Values.
+                           </strong>
+                           
+                        </p>
+                        
+                        </span>
+                     
+                  </div>
+                  
+               </div> 
+               
+            </div>
+            <div id="hw-login-item-group">
+               
+               <div id="hw-login-content-item-group">
+                  
+                  
+                  <div id="hw-login-content-item"><span id="hw-login-item-view">Full Text (PDF)</span>
+                     
+                     
+                     <div class="cit is-early-release has-earlier-version">
+                        <div class="cit-metadata">
+                           <ul class="cit-first-element cit-auth-list">
+                              <li class="first-item"><span class="cit-auth cit-auth-type-author">Nadine Levin</span><span class="cit-sep cit-sep-two-item-separator"> and</span></li>
+                              <li class="last-item"><span class="cit-auth cit-auth-type-author">Sabina Leonelli</span></li>  
+                           </ul><span class="cit-title">How Does One “Open” Science? Questions of Value in Biological Research </span> <cite><span class="site-title">Science, Technology &amp; Human Values </span><span class="cit-elocation">0162243916672071</span><span class="cit-sep cit-sep-after-article-pages">, </span><span class="cit-ahead-of-print-date"><span class="cit-sep cit-sep-before-article-ahead-of-print-date">first published on </span>October 3, 2016 </span><span class="cit-doi"><span class="cit-sep cit-sep-before-article-doi">doi:</span>10.1177/0162243916672071 </span></cite>  
+                        </div>
+                        <div class="cit-extra">
+                           <ul class="cit-views">
+                              <li class="first-item"><a href="/content/early/2016/10/03/0162243916672071.abstract" rel="abstract">Abstract</a></li>
+                              <li><a href="/content/early/2016/10/03/0162243916672071.full.pdf+html"
+                                    rel="full-text.pdf">Full Text (PDF)</a></li>
+                              <li class="last-item"><a href="/content/early/2016/10/03/0162243916672071.refs" rel="references-only">References</a></li>
+                           </ul> <span class="cit-flags"><span></span> </span> 
+                        </div> 
+                     </div>
+                     
+                  </div>
+                  
+               </div>
+               
+               
+               
+            </div>
+            <div id="hw-login-instruction">To view this item, select one of the options below:</div>
+            <div id="hw-login-sign-in-group">
+               
+               <div id="hw-login-sign-in-header" class="hw-login-section-header">
+                  <img alt="*" width="9" height="15" src="/shared/img/pages/login/redtri.gif" /> 
+                  Sign In
+               </div>
+               <div class="hw-login-option-list hw-login-section-body"><strong>Already  an individual subscriber?</strong><br />
+                  If so, please sign in to Science, Technology &amp; Human Values with your User Name and Password.
+                  
+               </div>
+               
+               <div id="hw-login-sign-in-box">
+                  
+                  <form action="/content/early/2016/10/03/0162243916672071.full.pdf" method="post"
+                        class="hw-ac-standalone-form hw-login-form">
+                     
+                     
+                     <fieldset>
+                        <input value="http://sth.sagepub.com/content/early/2016/10/03/0162243916672071.full.pdf"
+                               type="hidden"
+                               name="login_referer" />
+                        
+                        <legend class="ext-legend">Sign In</legend>
+                        <span>
+                           <label for="username"> 
+                              User Name
+                              </label>
+                           <input type="text" name="username" value="" size="10" maxlength="150" tabindex="1"
+                                  id="username" />
+                           </span>
+                        
+                        <span>
+                           <label for="password">Password</label>
+                           <input type="password" name="code" value="" size="10" maxlength="25" tabindex="2"
+                                  id="password" />
+                           </span>
+                        <span class="login-submit">
+                           <input type="submit" name="signin" value="Sign In" tabindex="3" /></span>
+                        
+                        <span class="save-pwd">
+                           <input type="checkbox" name="storepwd" value="yes" id="savepwd" />
+                           <label for="savepwd">Remember my user name &amp; password.</label>
+                           </span>
+                        
+                     </fieldset>
+                     
+                     <div id="hw-login-forgot-pwd">
+                        <a href="http://online.sagepub.com/cgi/recnamepwd">Forgot</a>
+                        your user name or password?
+                        
+                     </div>
+                     
+                     <ul class="hw-login-option-list">
+                        
+                        
+                        
+                        <li>
+                           <a href="/help/subscriptions/privacy-policy#cookie-problems">Can't get past this page?</a> 
+                           
+                        </li>
+                        
+                        <li>
+                           <a href="/help/subscriptions/privacy-policy">Help with Cookies.</a> 
+                           
+                        </li>
+                        
+                        <li>
+                           <a href="/site/subscriptions">Need to Activate?</a> 
+                           
+                        </li>
+                        
+                        
+                        
+                     </ul>
+                     
+                  </form>
+                  
+               </div>
+               
+               
+               
+            </div>
+            <div id="hw-login-ppv-group" class="hw-login-extra-group">
+               
+               <div id="hw-login-ppv-header" class="hw-login-section-header"><img alt="*" width="9" height="15" src="/shared/img/pages/login/redtri.gif" /> 
+                  Purchase Short-Term Access
+               </div>
+               
+               
+               <ul id="hw-login-ppv-options" class="hw-login-option-list">
+                  
+                  <li id="hw-login-ppa-option"><a href="/cookietest?for=ppv&amp;uri=%2Fcgi%2Fsecure_ppv%3Fjcode%3Dspsth%26resource_id%3Dspsth%3B0162243916672071%26type%3Dppv%26ppv_type%3Darticle%26url%3Dhttp%253A%252F%252Fsth.sagepub.com%252Fcontent%252Fearly%252F2016%252F10%252F03%252F0162243916672071.full.pdf">Pay per Article
+                        </a> 
+                     - You may purchase <strong>this article</strong> for US$36.00. You must download your purchase, which is yours to keep, within  <span>24 hours</span>.
+                  </li>
+                  
+                  
+                  
+                  <li id="hw-login-ppv-regain-option"><a href="/cookietest?for=ppv&amp;uri=%2Fcgi%2Fsecure_ppvregain%3Furl%3Dhttp%253A%252F%252Fsth.sagepub.com%252Fcontent%252Fearly%252F2016%252F10%252F03%252F0162243916672071.full.pdf">Regain Access</a> - You can regain 
+                     access to a recent  Pay per Article purchase  if your access 
+                     period has not yet expired.
+                  </li>
+                  
+                  
+                  
+               </ul>
+               
+               
+               
+            </div>
+            <div id="hw-login-shib-athens-group" class="hw-login-extra-group">
+               
+               
+               <div id="hw-login-openathens-header" class="hw-login-section-header"><img alt="*" width="9" height="15" src="/shared/img/pages/login/redtri.gif" />
+                  OpenAthens Users
+                  
+               </div>
+               <ul class="hw-login-option-list hw-login-section-body">
+                  
+                  <li><a href="http://openathens.highwire.org/initiate-login?returnURL=http%3A%2F%2Fsth.sagepub.com%2Fcontent%2Fearly%2F2016%2F10%2F03%2F0162243916672071.full.pdf&amp;subcode=sagepub">
+                        	        Sign in via OpenAthens
+                        	    </a>: If your organization uses OpenAthens, you can log in using your OpenAthens username and password. Contact your library for
+                     more details.
+                  </li>
+                  
+                  <li><a href="http://auth.athensams.net/orglist.php">List of OpenAthens registered sites</a>, including contact details.
+                  </li>
+                  
+               </ul>
+               <div id="hw-login-shib-athens-group" class="hw-login-extra-group">
+                  	        
+                  <div id="hw-login-shib-only-header" class="hw-login-section-header">
+                     	            <img alt="*" width="9" height="15" src="/shared/img/pages/login/redtri.gif" />
+                     	            Login via Your Institution
+                     	        
+                  </div>
+                  	        
+                  <ul class="hw-login-option-list hw-login-section-body">
+                     	            
+                     <li>
+                        	                <a href="/login/shibboleth?uri=http%3A%2F%2Fsth.sagepub.com%2Fcontent%2Fearly%2F2016%2F10%2F03%2F0162243916672071.full.pdf&amp;subcode=sagepub&amp;env=prod">Login via your institution</a>
+                        	                : You may be able to gain access using your login credentials for your institution. Contact your library
+                        if you do not have a username and password.
+                        	            
+                     </li>
+                     	        
+                  </ul>
+                  
+               </div> 
+               
+            </div>
+            <div id="hw-login-sign-up-group" class="hw-login-extra-group">
+               
+               <div id="hw-login-sign-up-header" class="hw-login-section-header"><img alt="*" width="9" height="15" src="/shared/img/pages/login/redtri.gif" />
+                  Subscribe/Recommend
+               </div>
+               
+               <ul class="hw-login-option-list hw-login-section-body">
+                  
+                  <li><a href="/subscriptions">Click here</a> to subscribe to the print and/or online journal.
+                  </li>
+                  <li><a href="http://sagepub.checkboxonline.com/Survey.aspx?s=bd96efb628c54feaa7f2ab060f4165cb&amp;forcenew=true&amp;link=1dcfLqr&amp;cc=sj&amp;formtype=librec&amp;from=TO&amp;contact=bit.ly/lib_us&amp;product=Science%2C%20Technology%2C%20%26%20Human%20Values">Click here</a> to recommend to your library.
+                  </li>
+                  
+               </ul>
+               
+            </div>
+         </div>
+         <div id="col-2">
+            
+            
+            <div class="content-box" id="article-cb-main">
+               <div class="cb-contents">
+                  <h3 class="cb-contents-header"><span>This Article</span></h3>
+                  <div class="cb-section cb-slug">
+                     <ol>
+                        
+                        
+                        
+                        
+                        <li>
+                           <div id="slugline">
+                              
+                              
+                              <span class="slug-metadata-note ahead-of-print">
+                                 	
+                                 Published online before print
+                                 
+                                 <span class="slug-ahead-of-print-date">October 3, 2016</span>,
+                                 doi:
+                                 <span title="10.1177/0162243916672071" class="slug-doi">10.1177/0162243916672071
+                                    </span>
+                                 </span>
+                              
+                              <cite>
+                                 <abbr title="Science, Technology &amp; Human Values" class="slug-jnl-abbrev">
+                                    Science Technology Human Values</abbr><span class="slug-pub-date">
+                                    	    October 3, 2016 
+                                    </span>
+                                 <span class="slug-elocation">
+                                    0162243916672071
+                                    </span>
+                                 </cite>
+                              
+                              
+                              
+                           </div>
+                        </li>
+                        
+                        
+                        
+                     </ol>
+                  </div>
+                  <div class="cb-section cb-views">
+                     <ol>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <li><a href="/content/early/2016/10/03/0162243916672071.full.pdf"
+                              class="pdf-direct-link">Show PDF in full window</a></li>
+                        
+                        
+                        
+                        <li class="abstract-view-link primary"><a href="/content/early/2016/10/03/0162243916672071.abstract" rel="view-abstract">Abstract</a><span class="viewspecificaccesscheck spsth;0162243916672071v1 abstract"></span></li>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <li class="notice full-text-pdf-view-link primary"><span class="variant-indicator">» <span>Full Text (PDF)</span></span><span class="viewspecificaccesscheck spsth;0162243916672071v1 reprint"></span></li>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <div><span id="pap-all-versions-label">All Versions of this Article:</span><ol class="sagepub-all-version-list">
+                              <li class="current-li"><a href="/content/early/2016/10/13/0162243916672071">OnlineFirst Version of Record</a> - Oct 15, 2016
+                              </li>
+                              <li><span><img src="/shared/img/misc/rightchevron.gif" alt="current version image indicator" />OnlineFirst Version of Record</span> - Oct 3, 2016
+                              </li>
+                           </ol><span class="version-list-footer">
+                              
+                              <a xmlns="" href="http://online.sagepub.com/site/sphelp/vorhelp.xhtml">What's this?</a>
+                              </span></div>
+                        
+                        
+                        
+                        
+                        									
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <li><a href="/content/early/2016/10/03/0162243916672071.refs"
+                              rel="view-references-only">References</a><span class="viewspecificaccesscheck spsth;0162243916672071v1 refs"></span></li>
+                        
+                        
+                        
+                        
+                        
+                        
+                     </ol>
+                  </div>
+                  <div class="cb-section collapsible" id="cb-art-svcs">
+                     <h4 class="cb-section-header"><span>Services</span></h4>
+                     <ol>
+                        
+                        
+                        
+                        
+                        
+                        <li class="mail-a-friend-link icon-link"><a href="/email?gca=spsth%3B0162243916672071v1&amp;current-view-path=/content/early/2016/10/03/0162243916672071.full.pdf">
+                              Email this article to a colleague</a></li>
+                        
+                        
+                        
+                        <li class="alert-link icon-link"><a href="/cgi/alerts/ctalert?alertType=citedby&amp;addAlert=cited_by&amp;cited_by_criteria_resid=spsth%3B0162243916672071v1&amp;saveAlert=no&amp;return-type=article&amp;return_url=http://sth.sagepub.com/content/early/2016/10/03/0162243916672071.full.pdf">Alert me when this article is cited</a></li>
+                        <li class="alert-link icon-link"><a href="/cgi/alerts/ctalert?alertType=correction&amp;addAlert=correction&amp;correction_criteria_value=0162243916672071v1&amp;saveAlert=no&amp;return-type=article&amp;return_url=http://sth.sagepub.com/content/early/2016/10/03/0162243916672071.full.pdf">Alert me if a correction is posted</a></li>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <li class="similar-link"><a href="/search?qbe=spsth;0162243916672071&amp;citation=Levin%20and%20Leonelli&amp;src=selected&amp;journal_set=spsth&amp;submit=yes">Similar articles in this journal</a></li>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <li class="cit-man-link icon-link cite-link"><a href="/citmgr?gca=spsth%3B0162243916672071v1">Download to citation manager</a></li>
+                        
+                        
+                        
+                        
+                        <li><a class="request-permissions"
+                              href="https://s100.copyright.com/AppDispatchServlet?publisherName=sage&amp;publication=J239&amp;title=How%20Does%20One%20%E2%80%9COpen%E2%80%9D%20Science%3F%20Questions%20of%20Value%20in%20Biological%20Research%3A&amp;publicationDate=10%2F03%2F2016&amp;author=Nadine%20Levin%2C%20Sabina%20Leonelli&amp;startPage=&amp;contentID=10.1177%2F0162243916672071&amp;orderBeanReset=true&amp;publicationType=SS&amp;trimSize=5.5x8.5&amp;copyright=SAGE%20Publications&amp;isn=0162-2439&amp;endPage=&amp;volumeNum=&amp;issueNum=&amp;article_permission=yes"
+                              rel="external-nw">Request Permissions</a></li>
+                        
+                        
+                        
+                        
+                        
+                        
+                        <li><a href="http://www.sagepub.com/journalsReprints.nav">Request Reprints</a></li>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <li><a href="/content/early/2016/10/03/0162243916672071.full.pdf?patientinform-links=yes&amp;legid=spsth;0162243916672071v1#patientinform-links"
+                              id="cb-patientinform">Load <em>patient</em>INFORMation</a></li>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                     </ol>
+                  </div>
+                  <div class="cb-section collapsible" id="cb-art-cit">
+                     <h4 class="cb-section-header"><span>Citing Articles</span></h4>
+                     <ol>
+                        
+                        
+                        
+                        
+                        
+                        
+                        <li><a href="/content/early/2016/10/03/0162243916672071.full.pdf?cited-by=yes&amp;legid=spsth;0162243916672071v1#cited-by"
+                              id="cb-hw-citing-articles">Load citing article information</a></li>
+                        
+                        
+                        
+                        
+                        <li><a href="/scopus-links/spsth/early/2016/10/03/0162243916672071?access_num=/spsth/early/2016/10/03/0162243916672071"
+                              rel="external-nw"
+                              id="cb-scopus-citing-articles">Citing articles via Scopus</a></li>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                     </ol>
+                  </div>
+                  <div class="cb-section collapsible" id="cb-art-gs">
+                     <h4 class="cb-section-header"><span>Google Scholar</span></h4>
+                     <ol>
+                        
+                        
+                        
+                        <li><a href="http://scholar.google.com/scholar?q=%22author%3ALevin%20author%3AN.%22">Articles by  Levin, N.</a></li>
+                        <li><a href="http://scholar.google.com/scholar?q=%22author%3ALeonelli%20author%3AS.%22">Articles by  Leonelli, S.</a></li>
+                        
+                        
+                        
+                        
+                        <li><a href="/external-ref?access_num=http://sth.sagepub.com/content/early/2016/10/03/0162243916672071.abstract&amp;link_type=GOOGLESCHOLARRELATED">Search for related content</a></li>
+                        
+                        
+                        
+                     </ol>
+                  </div>
+                  <div class="cb-section collapsible" id="cb-art-rel">
+                     <h4 class="cb-section-header"><span>Related Content</span></h4>
+                     <ol>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <li><a href="/content/early/2016/10/03/0162243916672071.full.pdf?related-urls=yes&amp;legid=spsth;0162243916672071v1#related-urls"
+                              id="cb-related-urls">Load related web page information</a></li>
+                        
+                        
+                        
+                        
+                     </ol>
+                  </div>
+               </div>
+            </div>
+            
+            
+            
+         </div>
+         <div id="col-3">
+            
+            <div id="navPanel">
+               
+               <ol>
+                  
+                  <li class="top"><img src="/publisher/icons/sub-man.gif" alt="Submit a Manuscript" border="0" /><a href="http://www.sagepub.com/journals/Journal200858/manuscriptSubmission">Submit a Manuscript</a></li>
+                  
+                  
+                  <li class="norm"><img src="/publisher/icons/pdf.png" alt="Free Sample Copy" border="0" /><a href="/sample">Free Sample Copy</a></li>
+                  
+                  <li class="norm"><img src="/publisher/icons/eml-alt.gif" alt="Email Alerts" border="0" /><a href="/cgi/alerts">Email Alerts</a></li>
+                  
+                  <li class="norm"><img src="/publisher/icons/RSS-Fee.gif" alt="Rss Feeds" border="0" /><a href="/rss">RSS feed</a></li>
+                  
+                  
+               </ol>
+               
+            </div>
+            <div class="collapsible default-closed col-3expandMenu" id="nothing">
+               
+               <h4>More about this journal</h4>
+               
+               <ul class="button-list pub-links" id="menu1">
+                  
+                  <li class="first">
+                     <a href="http://www.sagepub.com/journals/Journal200858/title" title="about"
+                        alt="about"
+                        rel="external-nw">
+                        About the Journal</a>
+                     
+                  </li>
+                  
+                  <li><a href="http://www.sagepub.com/journals/Journal200858/boards" rel="external-nw"
+                        title="Editorial Board"><span>Editorial Board</span></a></li>
+                  
+                  <li><a href="http://www.sagepub.com/journals/Journal200858/manuscriptSubmission"
+                        rel="external-nw"
+                        title="Manuscript Submission"><span>Manuscript Submission</span></a></li>
+                  
+                  <li><a href="http://www.sagepub.com/journals/Journal200858/abstractIndexing"
+                        rel="external-nw"
+                        title="Abstracting/Indexing"><span>Abstracting/Indexing</span></a></li>
+                  
+                  <li><a href="http://www.sagepub.com/journals/Journal200858/subscribe"
+                        rel="external-nw"
+                        title="Subscribe"><span>Subscribe</span></a></li>
+                  
+                  <li><a href="/site/subscriptions" rel="external-nw" title="Account Manager"><span>Account Manager</span></a></li>
+                  
+                  
+                  <li><a href="http://sagepub.checkboxonline.com/Survey.aspx?s=bd96efb628c54feaa7f2ab060f4165cb&amp;forcenew=true&amp;link=1dcfLqr&amp;cc=sj&amp;formtype=librec&amp;from=TO&amp;contact=bit.ly/lib_us&amp;product=Science%2C%20Technology%2C%20%26%20Human%20Values"
+                        rel="external-nw"
+                        title="Recommend to Library"><span>Recommend to Library</span></a></li>
+                  
+                  <li><a href="http://www.sagepub.com/journalsProdAdv.nav?prodId=Journal200858"
+                        rel="external-nw"
+                        title="Advertising"><span>Advertising</span></a></li>
+                  
+                  <li><a href="http://www.sagepub.com/journalsReprints.nav" rel="external-nw"
+                        title="Reprints"><span>Reprints</span></a></li>
+                  
+                  <li class="last">
+                     <a title="permissions" alt="Permissions"
+                        href="http://www.sagepub.com/journalsPermissions.nav"
+                        rel="external-nw"> Permissions</a>
+                     
+                     
+                  </li>
+                  
+                  
+               </ul>
+               
+            </div>
+            <div class="sidebar-icon-group">
+               
+               <div id="societyImg">
+                  <ol>
+                     <li class="soc-image"><a href="http://4sonline.org/"><img alt="society image" src="/local/img/SSSS.gif" /></a></li>
+                     <li class="soc-link"><a href="http://4sonline.org/">Society for Social Studies of Science</a></li>
+                     <li class="soc-last-line"></li>
+                  </ol>
+               </div>
+               
+            </div>
+            <div class="col-3adverTower">
+               
+               <ul>
+                  
+                  
+                  <li>
+                     <script type="text/javascript" language="javascript">CM8ShowAd("skyscraper");</script>
+                     <noscript>
+                        <a href="http://sage.checkm8.com/adam/ep/click/social_science_humanities.science_society_studies.sth/Top?cat=social_science_humanities.science_society_studies.sth">
+                           <img src="http://sage.checkm8.com/adam/noscript?cat=social_science_humanities.science_society_studies.sth&amp;format=skyscraper"
+                                nosend="1"
+                                border="0"
+                                align="left"
+                                alt="Advertisement" />
+                           </a>
+                        
+                     </noscript>
+                     
+                  </li>
+                  
+                  <li>
+                     <script type="text/javascript" language="javascript">CM8ShowAd("column3_160x40");</script>
+                     <noscript>
+                        <a href="http://sage.checkm8.com/adam/ep/click/social_science_humanities.science_society_studies.sth/Top?cat=social_science_humanities.science_society_studies.sth">
+                           <img src="http://sage.checkm8.com/adam/noscript?cat=social_science_humanities.science_society_studies.sth&amp;format=column3_160x40"
+                                nosend="1"
+                                border="0"
+                                align="left"
+                                alt="Advertisement" />
+                           </a>
+                        
+                     </noscript>
+                     
+                  </li>
+                  
+                  <li>
+                     <script type="text/javascript" language="javascript">CM8ShowAd("column3_160x140_top");</script>
+                     <noscript>
+                        <a href="http://sage.checkm8.com/adam/ep/click/social_science_humanities.science_society_studies.sth/Top?cat=social_science_humanities.science_society_studies.sth">
+                           <img src="http://sage.checkm8.com/adam/noscript?cat=social_science_humanities.science_society_studies.sth&amp;format=column3_160x40_top"
+                                nosend="1"
+                                border="0"
+                                align="left"
+                                alt="Advertisement" />
+                           </a>
+                        
+                     </noscript>
+                     
+                  </li>
+                  
+                  <li>
+                     <script type="text/javascript" language="javascript">CM8ShowAd("column3_160x140_bottom");</script>
+                     <noscript>
+                        <a href="http://sage.checkm8.com/adam/ep/click/social_science_humanities.science_society_studies.sth/Top?cat=social_science_humanities.science_society_studies.sth">
+                           <img src="http://sage.checkm8.com/adam/noscript?cat=social_science_humanities.science_society_studies.sth&amp;format=column3_160x40_bottom"
+                                nosend="1"
+                                border="0"
+                                align="left"
+                                alt="Advertisement" />
+                           </a>
+                        
+                     </noscript>
+                     
+                  </li>
+                  
+               </ul>
+               
+               
+            </div>
+            <div class="most-links-box js-marker">
+               
+               <div class="most-header">
+                  
+                  <h3>Most</h3>
+                  
+               </div>
+               
+               <ul>
+                  
+                  <li class="most-cur-sel">
+                     <h4>Most Read</h4>
+                     
+                     
+                     <div class="most-list">
+                        
+                        <ol>
+                           
+                           <li class="first-item"><a href="http://sth.sagepub.com/cgi/content/short/40/6/883?rss=1&amp;ssource=mfr">An Illusory Consensus behind GMO Health Assessment</a></li>
+                           <li><a href="http://sth.sagepub.com/cgi/content/short/0162243916661633v3?rss=1&amp;ssource=mfr">Rethinking Value in the Bio-economy: Finance, Assetization, and the Management of Value</a></li>
+                           <li><a href="http://sth.sagepub.com/cgi/content/short/40/1/126?rss=1&amp;ssource=mfr">Configuring the Child Player</a></li>
+                           <li><a href="http://sth.sagepub.com/cgi/content/short/41/6/1088?rss=1&amp;ssource=mfr">Corporate Capitalism and the Growing Power of Big Data: Review Essay</a></li>
+                           <li class="last-item"><a href="http://sth.sagepub.com/cgi/content/short/38/4/492?rss=1&amp;ssource=mfr">Dying Bees and the Social Production of Ignorance</a></li>
+                           
+                        </ol>
+                        <a href="http://sth.sagepub.com/reports/mfr1.dtl" class="view-all">» View all Most Read articles</a>
+                        
+                     </div>
+                     
+                     
+                  </li>
+                  
+                  <li>
+                     <h4>Most Cited</h4>
+                     
+                     
+                     <div class="most-list">
+                        
+                        <ol>
+                           
+                           <li class="first-item"><a href="http://sth.sagepub.com/cgi/content/short/25/1/3?rss=1&amp;ssource=mfc">Public Participation Methods: A Framework for Evaluation</a></li>
+                           <li><a href="http://sth.sagepub.com/cgi/content/short/30/2/251?rss=1&amp;ssource=mfc">A Typology of Public Engagement Mechanisms</a></li>
+                           <li><a href="http://sth.sagepub.com/cgi/content/short/16/1/111?rss=1&amp;ssource=mfc">Knowledges in Context</a></li>
+                           <li><a href="http://sth.sagepub.com/cgi/content/short/15/2/226?rss=1&amp;ssource=mfc">Citizen Participation and Environmental Risk: A Survey of Institutional Mechanisms</a></li>
+                           <li class="last-item"><a href="http://sth.sagepub.com/cgi/content/short/33/2/262?rss=1&amp;ssource=mfc">"Opening Up" and "Closing Down": Power, Participation, and Pluralism in the Social Appraisal of Technology</a></li>
+                           
+                        </ol>
+                        <a href="http://sth.sagepub.com/reports/mfc1.dtl" class="view-all">» View all Most Cited articles</a>
+                        
+                     </div>
+                     
+                     
+                  </li>
+                  
+               </ul>
+               
+            </div>
+            
+            
+            
+         </div>
+         <div id="footer">
+            
+            <div class="bar">
+               
+               <div class="footer-group footer-col-left">
+                  
+                  <ul class="button-list footer-buttons">
+                     
+                     <li class="first"><a href="/" title="HOME"><span>HOME</span></a></li>
+                     
+                     
+                     <li><a href="/content" title="ALL ISSUES"><span>ALL ISSUES</span></a></li>
+                     
+                     <li><a href="/feedback" title="FEEDBACK"><span>FEEDBACK</span></a></li>
+                     
+                     <li><a href="/site/subscriptions/" title="SUBSCRIBE"><span>SUBSCRIBE</span></a></li>
+                     
+                     <li class="img-button"><a href="/rss" title="RSS "><span>RSS </span>
+                           
+                           <img src="/shared/img/common/rss.gif" alt="rss" /></a>
+                        
+                        
+                        
+                     </li>
+                     
+                     <li><a href="/cgi/alerts" title="EMAIL ALERTS"><span>EMAIL ALERTS</span></a></li>
+                     
+                     		
+                     <li class="last last"><a href="/switch/help?fromid=pageid-login&amp;fromres=&amp;fromsite=Science%2C%20Technology%20%26%20Human%20Values&amp;is-sage-open=&amp;returnurl=http%3A%2F%2Fsth.sagepub.com%2Fcontent%2Fearly%2F2016%2F10%2F03%2F0162243916672071.full.pdf">HELP</a></li>
+                     
+                  </ul>
+                  
+                  <div class="copyright">
+                     <a href="/site/misc/terms.xhtml">Copyright ©
+                        2016 by SAGE Publications</a>
+                     
+                  </div>
+                  
+               </div>
+               
+               <div class="footer-group footer-col-right">
+                  
+                  <ul class="issns">
+                     
+                     <li>
+                        <span>Print ISSN: </span>
+                        <span class="issn">0162-2439</span>
+                        
+                     </li>
+                     
+                     <li>
+                        <span>Online ISSN: </span>
+                        <span class="issn">1552-8251</span>
+                        
+                     </li>
+                     
+                  </ul>
+                  
+               </div>
+               
+            </div>
+            
+            
+            <div class="block-2 sb-div"></div>
+            <script type="text/javascript"> var gaJsHost = (("https:" == document.location.protocol) ?
+      "https://ssl." : "http://www."); document.write(unescape("%3Cscript src='" + gaJsHost +
+      "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E")); </script><script type="text/javascript"> try { var pageTrackerJournal = _gat._getTracker("UA-15451002-3"); pageTrackerJournal._trackPageview(); }
+      catch(err) {} </script><script type="text/javascript"> var gaJsHost = (("https:" == document.location.protocol) ?
+      "https://ssl." : "http://www."); document.write(unescape("%3Cscript src='" + gaJsHost +
+      "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E")); </script><script type="text/javascript"> try { 
+      var pageTracker = _gat._getTracker("UA-7865995-1");
+      pageTracker._trackPageview(); } catch(err) {} </script>
+            
+            	  
+            </div><script type="text/javascript">
+        var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+        document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+        </script><script type="text/javascript">
+        try {
+        var pageTracker = _gat._getTracker("UA-189672-26");
+        pageTracker._setDomainName(".sagepub.com");
+        pageTracker._trackPageview();
+        } catch(err) {}
+        </script></div>
+   </body>
+</html>
