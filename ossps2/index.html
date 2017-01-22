@@ -237,26 +237,6 @@
 			<img src="img/python.jpeg" width="400"><br><img src="img/r.png" width="200"><br><img src="img/julia-lang.png" width="200">
 		</section>
 
-		<section id="python-notebooks">
-			<h2>Jupyter Notebooks</h2>
-			<br>
-			<img src="img/notebook.png">
-		</section>
-
-		<section id="python-notebooks-open-science-1">
-			<!-- show example of reproducing a python notebook -->
-			<h2>reproducing a Jupyter notebook</h2>
-			<br>
-			<img src="img/ipynb1.png" width="1000">
-		</section>
-
-		<section id="python-notebooks-open-science-2">
-			<!-- show example of reproducing a python notebook -->
-			<h2>reproducing a Jupyter notebook</h2>
-			<br>
-			<img src="img/ipynb2.png" width="1300">
-		</section>
-
 		<section id="r-language">
 			<h1>R language</h1>
 			<ul class="b">
@@ -425,8 +405,12 @@
 			<img src="img/okmaps.png" width="1400" alt="okmaps">
 		</section>
 
+
+
+
+
 		<!-- ropensci tools dig in -->
-		<section id="ropensci-biodiversity-tools" class="center">
+		<section id="ropensci-biodiversity" class="center">
 			<h1>rOpenSci Biodiversity Tools</h1>
 		</section>
 
@@ -434,12 +418,222 @@
 			<h1>Taxonomy</h1>
 		</section>
 
+		<section id="ropensci-taxonomy-tools">
+			<h1>Taxonomy</h1>
+			<ul class="b">
+				<li><h3 align="left"><a href="https://github.com/ropensci/taxize">taxize</a> - Taxonomic toolbelt</h3></li>
+				<li><h3 align="left"><a href="https://github.com/ropensci/taxizesoap">taxizesoap</a> - Taxonomic toolbelt (SOAP)</h3></li>
+				<li><h3 align="left"><a href="https://github.com/ropensci/ritis">ritis</a> - ITIS client (avail. in taxize)</h3></li>
+				<li><h3 align="left"><a href="https://github.com/ropensci/taxizedb">taxizedb</a> - Access to SQL dumps</h3></li>
+				<li><h3 align="left"><a href="https://github.com/ropensci/wikitaxa">wikitaxa</a> - Taxonomy from Wiki-pedia/-species/-commons</h3></li>
+				<li><h3 align="left"><a href="https://github.com/ropensci/worrms">worrms</a> - WORMS client (avail. in taxize)</h3></li>
+				<li><h3 align="left"><a href="https://github.com/ropensci/natserv">natserv</a> - Natureserve client (avail. in taxize)</h3></li>
+				<li><h3 align="left"><a href="https://github.com/ropensci/taxa">taxa</a> - Taxonomic classes to be used by other pkgs (coming soon)</h3></li>
+			</ul>
+		</section>
+
+		<section data-markdown id="taxize-example">
+			<script type="text/template">
+				## Taxonomic hierarchies from NCBI/ITIS/COL/etc - <font color="red">taxize</font>
+
+				```r
+				library('taxize')
+				classification("Chironomus riparius", db = "ncbi")
+				```
+				<br>
+				```r
+				                name         rank
+				1 cellular organisms      no rank
+				2          Eukaryota superkingdom
+				3       Opisthokonta      no rank
+				4            Metazoa      kingdom
+				5          Eumetazoa      no rank
+				6          Bilateria      no rank
+				```
+			</script>
+		</section>
+
+		<section data-markdown id="taxa-example">
+			<script type="text/template">
+				## taxa classes - <font color="red">taxa</font>
+
+				```r
+				library('taxa')
+				taxon_name("Mammalia")
+				taxon_rank("class")
+				taxon_id(9681)
+
+				mammalia <- taxon(taxon_name("Mammalia"), taxon_rank("class"), taxon_id(9681))
+				<Taxon>
+				  name: Mammalia
+				  rank: class
+				  id: 9681
+				  authority: none
+
+				felidae <- taxon(taxon_name("Felidae"), taxon_rank("family"), taxon_id(9681))
+				panthera <- taxon(taxon_name("Panthera"), taxon_rank("genus"), taxon_id(146712))
+				tigris <- taxon(taxon_name("tigris"), taxon_rank("species"), taxon_id(9696))
+
+				tiger <- hierarchy(mammalia, felidae, panthera, tigris)
+				<Hierarchy>
+				  no. taxon's:  4
+				  Mammalia / class / 9681
+				  Felidae / family / 9681
+				  Panthera / genus / 146712
+				  tigris / species / 9696
+				```
+			</script>
+		</section>
+
 		<section id="tools-species-occurrence-data" class="center">
 			<h1>Species occurrence data</h1>
 		</section>
 
+		<section id="tools-species-occurrence-data-tools">
+			<h1>Species occurrence data</h1>
+			<ul class="b">
+				<li><h3 align="left"><a href="https://github.com/ropensci/spocc">spocc</a> - One client to rule them all</h3></li>
+				<li><h3 align="left"><a href="https://github.com/ropensci/rgbif">rgbif</a> - GBIF data (avail. in spocc)</h3></li>
+				<li><h3 align="left"><a href="https://github.com/ropensci/AntWeb">AntWeb</a> - AntWeb ant data (avail. in spocc)</h3></li>
+				<li><h3 align="left"><a href="https://github.com/ropensci/taxizedb">ecoengine</a> - Berekeley Ecoengine client (avail. in spocc)</h3></li>
+				<li><h3 align="left"><a href="https://github.com/ropensci/rinat">rinat</a> - iNaturalist client (avail. in spocc)</h3></li>
+				<li><h3 align="left"><a href="https://github.com/ropensci/rbison">rbison</a> - USGS BISON client (avail. in spocc)</h3></li>
+				<li><h3 align="left"><a href="https://github.com/ropensci/rebird">rebird</a> - eBird data (avail. in spocc)</h3></li>
+				<li><h3 align="left"><a href="https://github.com/ropensci/rvertnet">rvertnet</a> - VertNet data (avail. in spocc)</h3></li>
+				<li><h3 align="left"><a href="https://github.com/ropensci/rfishbase">rfishbase</a> - Fishbase.org data</h3></li>
+			</ul>
+		</section>
+
+		<section data-markdown id="rgbif">
+			<script type="text/template">
+			## Mapping biodiversity data - <font color="red">rgbif</font>
+
+			```r
+			library(rgbif)
+			key <- name_backbone(name='Danaus plexippus', kingdom='animals')$speciesKey
+			out <- occ_search(taxonKey=key, limit=300, return='data')
+			gbifmap(out)
+			```
+
+			<img src="img/rgbif.png" alt="rwbclimate" width="800" />
+			</script>
+		</section>
+
+		<section data-markdown id="spocc">
+			<script type="text/template">
+				## Unified species occurrence data - <font color="red">spocc</font>
+
+				```r
+				library(spocc)
+				spnames <- c('Accipiter striatus', 'Setophaga caerulescens', 'Spinus tristis')
+				(out <- occ(query = spnames, from = c('gbif', 'ebird')))
+				```
+				<br><br>
+				```
+				Summary of results - occurrences found for:
+				 gbif  : 75 records across 3 species
+				 bison :  0 records across 3 species
+				 inat  :  0 records across 3 species
+				 ebird :  75 records across 3 species
+				 ecoengine :  0 records across 3 species
+				 antweb :  0 records across 3 species
+				 idigbio :  0 records across 3 species
+				 obis :  0 records across 3 species
+				 ala :  0 records across 3 species
+				```
+			</script>
+		</section>
+
 		<section id="tools-data-cleaning" class="center">
 			<h1>Occurrence data cleaning</h1>
+		</section>
+
+		<section id="tools-data-cleaning-tools">
+			<h1>Occurrence data cleaning</h1>
+			<ul class="b">
+					<li><h3 align="left"><a href="https://github.com/ropensci/scrubr">scrubr</a> - general purpose cleaner</h3></li>
+					<li><h3 align="left"><a href="https://github.com/ropensci/rgeospatialquality">rgeospatialquality</a> - API wrapper for checking occ. data</h3></li>
+			</ul>
+		</section>
+
+		<section data-markdown id="scrubr">
+			<script type="text/template">
+				## Species occurrence data cleaning - <font color="red">scrubr</font>
+
+				```r
+				library(scrubr)
+				xx
+				```
+				<br><br>
+				```
+				xxx
+				```
+			</script>
+		</section>
+
+		<section id="tools-geospatial" class="center">
+			<h1>Geospatial</h1>
+		</section>
+
+		<section id="tools-geospatial-tools">
+			<h1>Geospatial</h1>
+			<ul class="b">
+					<li><h3 align="left"><a href="https://github.com/ropensci/geojson">geojson</a> - GeoJSON classes</h3></li>
+					<li><h3 align="left"><a href="https://github.com/ropensci/geojsonio">geojsonio</a> - GeoJSON/TopoJSON input/output</h3></li>
+					<li><h3 align="left"><a href="https://github.com/ropensci/geonames">geonames</a> - Geonames API client</h3></li>
+					<li><h3 align="left"><a href="https://github.com/ropensci/wicket">wicket</a> Well-Known Text tools</h3></li>
+					<li><h3 align="left"><a href="https://github.com/ropensci/wellknown">wellknown</a> - WKT from R objects - and convert to GeoJSON</h3></li>
+					<li><h3 align="left"><a href="https://github.com/ropensci/rnaturalearth">rnaturalearth</a> - NaturalEarth data</h3></li>
+					<li><h3 align="left"><a href="https://github.com/ropensci/osmplotr">osmplotr</a> - Open Street Maps tools</h3></li>
+					<li><h3 align="left"><a href="https://github.com/ropensci/opencage">opencage</a> - OpenCage geocoding API</h3></li>
+					<li><h3 align="left"><a href="https://github.com/ropensci/lawn">lawn</a> - Turf.js javascript geo client</h3></li>
+					<li><h3 align="left"><a href="https://github.com/ropensci/geojsonlint">geojsonlint</a> - lint GeoJSON</h3></li>
+			</ul>
+		</section>
+
+		<section data-markdown id="geonames">
+			<script type="text/template">
+				## Geospatial: Geonames data  - <font color="red">geonames</font>
+
+				```r
+				library(geonames)
+				xx
+				```
+				<br><br>
+				```
+				xxx
+				```
+			</script>
+		</section>
+
+		<section data-markdown id="geojsonio">
+			<script type="text/template">
+				## Geospatial: conversion between spatial data formats - <font color="red">geojsonio</font>
+
+				```r
+				library(geojsonio)
+				xx
+				```
+				<br><br>
+				```
+				xxx
+				```
+			</script>
+		</section>
+
+		<section data-markdown id="lawn">
+			<script type="text/template">
+				## Geospatial: Spatial operations w/ GeoJSON & without heavy dependencies - <font color="red">lawn</font>
+
+				```r
+				library(lawn)
+				xx
+				```
+				<br><br>
+				```
+				xxx
+				```
+			</script>
 		</section>
 
 		<!-- end -->
