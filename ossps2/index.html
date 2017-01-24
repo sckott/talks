@@ -308,11 +308,13 @@
 
 		<section id="questions">
 			<h1>What data do you use in your research?</h1>
-			<ul class="b">
-				<li><h2 align="left">...</h2></li>
-				<li><h2 align="left">...</h2></li>
-				<li><h2 align="left">...</h2></li>
-			</ul>
+			<br><br>
+			<i class="fa fa-question-circle fa-5x"></i>
+			<!-- <ul class="b">
+				<li><h2 align="left"></h2></li>
+				<li><h2 align="left"></h2></li>
+				<li><h2 align="left"></h2></li>
+			</ul> -->
 		</section>
 
 		<section id="walkthrough" class="center">
@@ -522,7 +524,16 @@
 				<li><h3 align="left"><a href="https://github.com/ropensci/rebird">rebird</a> - eBird data (avail. in spocc)</h3></li>
 				<li><h3 align="left"><a href="https://github.com/ropensci/rvertnet">rvertnet</a> - VertNet data (avail. in spocc)</h3></li>
 				<li><h3 align="left"><a href="https://github.com/ropensci/rfishbase">rfishbase</a> - Fishbase.org data</h3></li>
-				<li><h3 align="left"><a href="https://github.com/ropensci/finch">finch</a> - Parse Darwin Core archives</h3></li>
+				<li><h3 align="left"><a href="https://github.com/ropensci/rAvis">rAvis</a> - PreyectoAvis data</h3></li>
+			</ul>
+		</section>
+
+		<section id="tools-species-occurrence-data-tools">
+			<h1>Species occurrence data: other</h1>
+			<ul class="b">
+				<li><h3 align="left"><a href="https://github.com/AtlasOfLivingAustralia/ALA4R">ALA4R</a> - Atlas of Living Australia R
+				client</h3></li>
+				<li><h3 align="left"><a href="https://github.com/SeaAroundUs/rseaaroundus">rseaaroundus</a> - SeaAroundUs</h3></li>
 			</ul>
 		</section>
 
@@ -564,6 +575,20 @@
 				#>  ala :  0 records across 3 species
 				```
 			</script>
+		</section>
+
+		<section id="tools-other-data">
+			<h1>Biodiveristy related data</h1>
+			<ul class="b">
+				<li><h3 align="left"><a href="https://github.com/ropensci/finch">finch</a> - Parse Darwin Core archives</h3></li>
+				<li><h3 align="left"><a href="https://github.com/ropensci/rredlist">rredlist</a> - IUCN Red List</h3></li>
+				<li><h3 align="left"><a href="https://github.com/ropensci/Reol">Reol</a> - EOL client</h3></li>
+				<li><h3 align="left"><a href="https://github.com/ropensci/mregions">mregions</a> - Marineregions.org data</h3></li>
+				<li><h3 align="left"><a href="https://github.com/ropensci/natserv">natserv</a> - NatureServe data</h3></li>
+				<li><h3 align="left"><a href="https://github.com/ropensci/neotoma">neotoma</a> - Neotoma data</h3></li>
+				<li><h3 align="left"><a href="https://github.com/ropensci/pangaear">pangaear</a> - Pangaea <a href="https://www.pangaea.de/">www.pangaea.de</a></h3></li>
+				<li><h3 align="left"><a href="https://github.com/ropensci/natserv">natserv</a> - NatureServe data</h3></li>
+			</ul>
 		</section>
 
 		<section id="tools-data-cleaning" class="center">
@@ -610,6 +635,17 @@
 				#> # ... with 1,284 more rows
 				```
 			</script>
+		</section>
+
+		<section id="how-do-you-clean">
+			<h1>how do you clean your data?</h1>
+			<br><br>
+			<i class="fa fa-question-circle fa-5x"></i>
+			<!-- <ul class="b">
+				<li><h2 align="left"></h2></li>
+				<li><h2 align="left"></h2></li>
+				<li><h2 align="left"></h2></li>
+			</ul> -->
 		</section>
 
 		<section id="tools-geospatial" class="center">
@@ -735,14 +771,60 @@
 			</script>
 		</section>
 
+
+		<section id="tools-phylogenies-tools">
+			<h1>Phylogenies</h1>
+			<ul class="b">
+				<li><h3 align="left"><a href="https://github.com/ropensci/brranching">brranching</a> - Phylomatic</h3></li>
+				<li><h3 align="left"><a href="https://github.com/ropensci/phylocomr">phylocomr</a> - Phylocom client :)</h3></li>
+				<li><h3 align="left"><a href="https://github.com/ropensci/rotl">rotl</a> - Open Tree of Life</h3></li>
+				<li><h3 align="left"><a href="https://github.com/ropensci/treebase">treebase</a> - TreeBase</h3></li>
+			</ul>
+		</section>
+
+		<section data-markdown id="phylocomr">
+			<script type="text/template">
+			## Phylocom - <font color="red">phylocomr</font>
+			**Cross Platform Phylocom Client!!**
+
+			```r
+			library(phylocomr)
+			taxa_file <- system.file("examples/taxa", package = "phylocomr")
+			(taxa_str <- readLines(taxa_file))
+			[1] "campanulaceae/lobelia/lobelia_conferta"           "cyperaceae/mapania/mapania_africana"
+			[3] "amaryllidaceae/narcissus/narcissus_cuatrecasasii"
+			```
+
+			```r
+			phylo_file <- system.file("examples/phylo", package = "phylocomr")
+			(phylo_str <- readLines(phylo_file))
+			[1] "(((((eliea_articulata,homalanthus_populneus)malpighiales,rosa_willmottiae),((macrocentrum_neblinae,qualea_clavata),hibiscus_pohlii)malvids),(((lobelia_conferta,((millotia_depauperata,(layia_chrysanthemoides,layia_pentachaeta)layia),senecio_flanaganii)asteraceae)asterales,schwenkia_americana),tapinanthus_buntingii)),(narcissus_cuatrecasasii,mapania_africana))poales_to_asterales;"
+			```
+
+			```r
+			(tree <- ph_phylomatic(taxa = taxa_str, phylo = phylo_str))
+			[1] "(lobelia_conferta:5.000000,(mapania_africana:1.000000,narcissus_cuatrecasasii:1.000000):1.000000)poales_to_asterales;"
+			```
+
+			```r
+			library(phytools)
+			plot(read.newick(text = tree))
+			```
+
+			<img src="img/tree.png" width="800">
+			</script>
+		</section>
+
 		<!-- discussion -->
 		<section id="discussion">
 			<h1>What's too hard?</h1>
-			<ul class="b">
-				<li><h2 align="left">...</h2></li>
-				<li><h2 align="left">...</h2></li>
-				<li><h2 align="left">...</h2></li>
-			</ul>
+			<br><br>
+			<i class="fa fa-question-circle fa-5x"></i>
+			<!-- <ul class="b">
+				<li><h2 align="left"></h2></li>
+				<li><h2 align="left"></h2></li>
+				<li><h2 align="left"></h2></li>
+			</ul> -->
 		</section>
 
 
