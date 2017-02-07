@@ -1,0 +1,325 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>idiv</title>
+
+		<meta name="description" content="idiv">
+		<meta name="author" content="Scott Chamberlain">
+
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/solarized.css" id="theme">
+		<link rel="stylesheet" href="css/bootstrap/bootstrap.css">
+
+		<!-- use google font -->
+		<link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro' rel='stylesheet' type='text/css'>
+		<link rel="stylesheet" href="css/font-awesome/css/font-awesome.css">
+
+		<!-- favicon -->
+		<link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico">
+
+		<!-- icons -->
+		<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.css">
+
+		<!-- Code syntax highlighting -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+
+		<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+		<style type="text/css">
+			#rotate_text {
+				-webkit-transform: rotate(-90deg);
+				-moz-transform: rotate(-90deg);
+				transform: rotate(-90deg);
+				position: absolute;
+				vertical-align: middle;
+				position: absolute;
+    		top: 500px;
+    		left: -50px;
+				filter:progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+			}
+
+			ul.a {list-style-type: circle; margin: 0; padding: 0;}
+			ul.b {list-style-type: square; margin-left: 4; padding-left: 0;}
+
+			img {border: none;}
+
+			.center-block {
+			  display: block;
+			  margin-left: auto;
+			  margin-right: auto;
+			}
+		</style>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+		<div class="reveal">
+			<div class="slides">
+
+		<section id="intro">
+			<h1><font color="#B8172F">idiv: taxonomy &amp; climate</font></h1><br>
+			<p class="grey">Scott Chamberlain (<a href="https://twitter.com/sckottie">@sckottie</a>/<a href="https://twitter.com/ropensci">@ropensci</a>)
+				<p class="grey">UC Berkeley / rOpenSci
+			<br>
+			<span><img src="img/icon_lettering_color.svg" alt="rOpenSci" width="800" /></span>
+		</section>
+
+		<section id="link" class="center">
+			<i class="fa fa-external-link fa-5x"></i>
+			<br><br>
+			<h2><a href="https://scotttalks.info/idiv">scotttalks.info/idiv</a> </h2>
+		</section>
+
+
+		<!-- taxonomy data -->
+		<section id="taxonomy" class="center">
+			<h1>taxonomy: taxize</h1>
+		</section>
+
+		<section id="taxonomy-data-sources">
+			<h3>taxonomy data sources</h3>
+			<ul class="b">
+				<li>Encylopedia of Life</li>
+				<li>Taxonomic Name Resolution Service</li>
+				<li>Integrated Taxonomic Information Service</li>
+				<li>Global Names Resolver/Global Names Index</li>
+				<li>IUCN Red List</li>
+				<li>Tropicos</li>
+				<li>Theplantlist</li>
+				<li>Catalogue of Life</li>
+				<li>NCBI</li>
+				<li>International Plant Names Index (IPNI)</li>
+				<li>Barcode of Life Data Systems (BOLD)</li>
+				<li>National Biodiversity Network (UK)</li>
+				<li>Index Fungorum</li>
+				<li>EU BON</li>
+				<li>Index of Names (ION)</li>
+				<li>Open Tree of Life (TOL)</li>
+				<li>World Register of Marine Species (WoRMS)</li>
+				<li>NatureServe</li>
+			</ul>
+		</section>
+
+		<section data-markdown id="taxonomy-examples">
+			<script type="text/template">
+			# taxize
+
+			```r
+			library(taxize)
+			(id <- get_nbnid("Zootoca vivipara"))
+			#> [1] "NHMSYS0001706186"
+			#> ...
+
+			classification(id)
+			#> $NHMSYS0001706186
+			#>         name    rank               id
+			#> 1   Animalia kingdom NBNSYS0100001342
+			#> 2   Chordata  phylum NBNSYS0100002380
+			#> 3   Reptilia   class NHMSYS0000375236
+			#> 4   Squamata   order NBNSYS0000161047
+			#> 5 Lacertidae  family NBNSYS0000160260
+			#> 6    Zootoca   genus NHMSYS0001706185
+			```
+
+			OR
+
+			```r
+			children(id)
+			downstream(id)
+			upstream(id)
+			synonyms(id)
+			lowest_common(id)
+			sci2comm(id)/comm2sci(id)
+			```
+			</script>
+		</section>
+
+		<section id="taxonomy-databases" class="center">
+			<h1>taxizedb</h1>
+			<br><br>
+			<h2>when you want all the data</h2>
+			<br>
+			<p>but you need to know SQL <i class="fa fa-meh-o"></i></p>
+		</section>
+
+
+
+
+		<!-- climate data -->
+		<section id="climate-data-overview" class="center">
+			<h1>climate data overview</h1>
+			<br>
+			<i class="fa fa-tint fa-5x" style="color:blue"></i>
+		</section>
+
+		<section id="climate-packages">
+			<h1>climate packages</h1>
+			<ul class="b">
+				<li><h3><a href="https://github.com/ropensci/rnoaa">rnoaa</a> - lots of NOAA data</h3></li>
+		    <li><h3><a href="https://github.com/ropenscilabs/camsRad">camsRad</a> - CAMS radiation data</h3></li>
+		    <li><h3><a href="https://github.com/ropenscilabs/ccafs">ccafs</a> - CCAFS General Circ. Models</h3></li>
+		    <li><h3><a href="https://github.com/ropensci/rWBclimate">rWBclimate</a> - World Bank climate</h3></li>
+		    <li><h3><a href="https://github.com/ropensci/clifro">clifro</a> - New Zealand's National Climate Database</h3></li>
+		    <li><h3><a href="https://github.com/ropensci/riem">riem</a> - ASOS/Iowa Environment Mesonet</h3></li>
+		    <li><h3><a href="https://github.com/ropenscilabs/cmipr">cmipr</a> - Coupled Model Intercomparison Project</h3></li>
+		    <li><h3><a href="https://github.com/ropensci/GSODR">GSODR</a> - NOAA Global Surface Summary of the Day</h3></li>
+		    <li><h3><a href="https://github.com/adamhsparks/getCRUCLdata">getCRUCLdata</a> - Univ. East Anglia Clim. Res. Unit</h3></li>
+		    <li><h3><a href="https://github.com/ropensci/getlandsat">getlandsat</a> - Univ. East Anglia Clim. Res. Unit</h3></li>
+			</ul>
+		</section>
+
+		<section id="climate-packages-others">
+			<h1>climate packages: others</h1>
+			<ul class="b">
+		    <li><h3><a href="https://cran.rstudio.com/web/packages/RFc/">RFc</a> - FetchClimate client</h3></li>
+		    <li><h3><a href="https://cran.rstudio.com/web/packages/dismo/">dismo</a> - dismo, with bioclim</h3></li>
+			</ul>
+		</section>
+
+		<section id="climate-data-list">
+			<h1>data in <code style="color:red">rnoaa</code></h1>
+			<ul class="b">
+				<li>NOAA NCDC climate data</li>
+		    <li>Severe weather data</li>
+		    <li>Sea ice data</li>
+		    <li>NOAA buoy data</li>
+		    <li>ERDDAP data</li>
+		    <li>Tornadoes!</li>
+		    <li>HOMR - Historical Observing Metadata Repository</li>
+		    <li>Storm data - IBTrACS</li>
+		    <li>GHCND FTP data</li>
+		    <li>Global Ensemble Forecast System (GEFS) data</li>
+		    <li>Extended Reconstructed Sea Surface Temperature (ERSST) data</li>
+		    <li>Argo buoys</li>
+		    <li>NOAA CO-OPS - tides and currents data</li>
+		    <li><em>Climate Prediction Center (coming soon)</em></li>
+			</ul>
+		</section>
+
+		<section data-markdown id="example-1">
+			<script type="text/template">
+			# rnoaa
+
+			eg with ISD (Integrated Surface Database)
+
+			Search for stations
+
+			```r
+			library(rnoaa)
+			isd_stations_search(lat = 38.4, lon = -123, radius = 250)
+			#> # A tibble: 179 × 12
+      #>      usaf  wban                             station_name  ctry state  icao latitude longitude elev_m
+			#>     <chr> <chr>                                    <chr> <chr> <chr> <chr>    <dbl>     <dbl>  <dbl>
+			#> 1  724995 99999         BODEGA BAY COAST GUARD LIGHT STA    US               38.320  -123.050    3.0
+			#> 2  999999 93245                             BODEGA 6 WSW    US    CA         38.321  -123.075   19.2
+			#> 3  749175 99999                          GOAT ROCK BEACH    US    CA         38.433  -123.133   72.0
+			```
+
+			Get data by station and year
+
+			```r
+			(res <- isd(usaf="011490", wban="99999", year=1986))
+			#> # A tibble: 1,328 × 119
+			#>    total_chars usaf_station wban_station     date  time date_flag latitude longitude type_code
+			#>          <chr>        <chr>        <chr>    <chr> <chr>     <chr>    <chr>     <chr>     <chr>
+			#> 1         0050       011490        99999 19860101  0000         4   +66267   +013983     FM-12
+			#> 2         0123       011490        99999 19860101  0600         4   +66267   +013983     FM-12
+			#> 3         0050       011490        99999 19860101  1200         4   +66267   +013983     FM-12
+			#> 4         0094       011490        99999 19860101  1800         4   +66267   +013983     FM-12
+			```
+			</script>
+		</section>
+
+		<!-- gis layers -->
+		<section id="gis-layers">
+			<h1>gis layers</h1>
+			<ul class="b">
+				<li><h3><a href="https://cran.rstudio.com/web/packages/leaflet/">leaflet</a> - interactive maps</h3></li>
+		    <li><h3><a href="https://github.com/ropenscilabs/rnaturalearth">rnaturalearth</a> - NaturalEarth layers</h3></li>
+		    <li><h3><a href="https://github.com/ropensci/geonames">geonames</a> - Geonames: geocoding</h3></li>
+		    <li><h3><a href="https://cran.rstudio.com/web/views/Spatial.html">spatial task view</a></h3></li>
+			</ul>
+		</section>
+
+
+		<section id="make-stuff" class="center">
+			<h1>happy to make anything you need</h1>
+			<br>
+			<h1><i class="fa fa-wrench fa-5x"></i></h1>
+		</section>
+
+		<!-- end -->
+		<section id="end">
+			<i class="fa fa-external-link fa-5x"></i>
+			<br>
+			<h2><a href="https://scotttalks.info/idiv">scotttalks.info/idiv</a></h2>
+			<br><br>
+			<h2>Made w/: <a href="https://github.com/hakimel/reveal.js">reveal.js v3.2.0</a></h2>
+			<br>
+			<h2>Some Styling: <a href="http://getbootstrap.com/">Bootstrap v3.3.5</a></h2>
+			<br>
+			<h2>Icons by: <a href="http://fortawesome.github.io/Font-Awesome/">FontAwesome v4.4.0</a></h2>
+		</section>
+
+			</div>
+
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+
+			// Full list of configuration options available at:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: false,
+				slideNumber: true,
+				keyboard: true,
+				touch: true,
+
+				width: 1400,
+				height: 900,
+
+				// transition: 'slide', // none/fade/slide/convex/concave/zoom
+				transition: Reveal.getQueryHash().transition || 'none', // default/cube/page/concave/zoom/linear/fade/none
+
+				// Optional reveal.js plugins
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true },
+					{ src: 'plugin/notes/notes.js', async: true }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>
