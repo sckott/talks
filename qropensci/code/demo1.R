@@ -1,54 +1,19 @@
----
-title: "scraping in R: demo with Hoyt Arboretum data"
-author: "Scott Chamberlain"
-date: "`r Sys.Date()`"
-output: 
-  html_document:
-    toc: true
-    toc_float: true
-    theme: readable
----
+## ----eval=FALSE----------------------------------------------------------
+## install.packages(c("xml2", "crul", "jsonlite", "rvest"))
 
-Ported [Steven Bedrick's lesson](https://github.com/stevenbedrick) <https://github.com/stevenbedrick/march_datajamboree/blob/master/Arboretum%20Scraping.ipynb> 
-to R for scraping Portland's Hoyt Arboretum. See that python notebook for much 
-more detailed notes.
-
-## Setup
-
-we'll be using the following packages:
-
-- `crul`
-- `xml2`
-- `rvest`
-- `jsonlite`
-
-```{r eval=FALSE}
-install.packages(c("xml2", "crul", "jsonlite", "rvest"))
-```
-
-```{r}
+## ------------------------------------------------------------------------
 library("xml2")
 library("rvest")
 library("jsonlite")
 library("crul")
-```
 
-## Getting the list of letter-index page URLs
-
-Get vector of URL suffixes for individual pages
-
-```{r}
+## ------------------------------------------------------------------------
 (index <- xml2::read_html("https://hoytarboretum.gardenexplorer.org/taxalist.aspx"))
 res <- rvest::html_nodes(index, "div.content a")
 out <- html_attr(res, "href")
 out
-```
 
-## Processing a letter-index page
-
-Define function to get taxon names
-
-```{r}
+## ------------------------------------------------------------------------
 process_letter_index <- function(x) {
   url <- paste0("https://hoytarboretum.gardenexplorer.org/", x)
   cli <- crul::HttpClient$new(url = url)
@@ -59,23 +24,14 @@ process_letter_index <- function(x) {
     rvest::html_nodes(page, "ul.taxalist li span a b")
   )
 }
-```
 
-Do one at a time
-
-```{r}
+## ------------------------------------------------------------------------
 process_letter_index(out[1])[1:5]
-```
 
-Or do many
-
-```{r}
+## ------------------------------------------------------------------------
 lapply(out[1:2], function(z) process_letter_index(z)[1:5])
-```
 
-Define function to do more detailed scraping of name and url part.
-
-```{r}
+## ------------------------------------------------------------------------
 process_letter_index_detail <- function(x) {
   url <- paste0("https://hoytarboretum.gardenexplorer.org/", x)
   cli <- crul::HttpClient$new(url = url)
@@ -90,57 +46,28 @@ process_letter_index_detail <- function(x) {
                stringsAsFactors = FALSE)
   }))
 }
-```
 
-Do one at a time
-
-```{r}
+## ------------------------------------------------------------------------
 head(process_letter_index_detail(out[1]))
-```
 
-Or do many
-
-```{r}
+## ------------------------------------------------------------------------
 lapply(out[1:2], function(z) head(process_letter_index_detail(z)))
-```
 
-## Putting it all together
-
-Apply the function `process_letter_index_detail` across all 
-pages. Then make a single `data.frame` from the output./
-
-```{r}
+## ------------------------------------------------------------------------
 all_data <- lapply(out, process_letter_index_detail)
 all_data_df <- do.call("rbind.data.frame", all_data)
 head(all_data_df)
-```
 
-write to disk
-
-```{r}
+## ------------------------------------------------------------------------
 write.csv(all_data_df, "species_names.csv", row.names = FALSE)
-```
 
-## Output as JSON
-
-newline delimited JSON
-
-```{r}
+## ------------------------------------------------------------------------
 tfile <- tempfile(fileext = ".json")
 jsonlite::stream_out(all_data_df, file(tfile))
 readLines(tfile, n = 10)
 head( jsonlite::stream_in(file(tfile)) )
-```
 
-one big json object
-
-```{r}
+## ------------------------------------------------------------------------
 onebigfile <- "onebig.json"
 jsonlite::write_json(all_data_df, file(onebigfile))
-```
-
-
-
-
-
 
