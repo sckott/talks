@@ -4,8 +4,17 @@
 
 Plot number of references per article
 
+Install packages if you don't have them installed yet
+
 ```r
-install.packages("rplos")
+# install.packages("rplos")
+# install.packages("ggplot2")
+# install.packages("rmarkdown")
+```
+
+Load packages 
+
+```r
 library(rplos)
 library(ggplot2)
 
@@ -19,6 +28,13 @@ ggplot(df, aes(x = no_refs, y = Freq)) +
   geom_col() +
   labs(x = "Number of references", y = "Count") + 
   theme()
+```
+
+Save the above in a file. Render to .html
+
+```r
+library(rmarkdown)
+rmarkdown::render("file.Rmd")
 ```
 
 ### Your turn
@@ -44,6 +60,13 @@ ggplot(df, aes(x = auth_split, y = Freq)) +
 ```
 
 ![plot](img/rplos.png)
+
+Save the above in a file. Render to .html
+
+```r
+library(rmarkdown)
+rmarkdown::render("file.Rmd")
+```
 
 </p></details>
 
