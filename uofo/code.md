@@ -1,14 +1,38 @@
 ## Exercise 1
 
-```r
-# install.packages("rplos")
+### Example
 
+Plot x 
+
+```r
+install.packages("rplos")
+library(rplos)
+library(ggplot2)
+
+x <- searchplos(q='ecology', fl='reference', limit = 250)
+no_refs <- vapply(x$data$reference, function(z) {
+  length(strsplit(z, ";")[[1]])
+}, integer(1), USE.NAMES = FALSE)
+df <- data.frame(table(no_refs), stringsAsFactors = FALSE)
+
+ggplot(df, aes(x = no_refs, y = Freq)) +
+  geom_col() +
+  labs(x = "Title lengths", y = "Count") + 
+  theme()
+```
+
+### Your turn
+
+<details> <summary><strong>Click to expand/collapse</strong></summary><p>
+
+```r
+library(rplos)
 x <- searchplos(q='ecology', fl='author', limit = 1000)
 x
 x$data
 x$data$author
 auth_split <- vapply(x$data$author, function(x) {
-  length(strsplit(x, split = ",")[[1]])
+  length(strsplit(x, split = ";")[[1]])
 }, integer(1), USE.NAMES = FALSE)
 df <- data.frame(table(auth_split), stringsAsFactors = FALSE)
 
@@ -21,11 +45,13 @@ ggplot(df, aes(x = auth_split, y = Freq)) +
 
 ![plot](img/rplos.png)
 
+</p></details>
+
 ## Exercise 2
 
 ```r
-# install.packages("openadds")
-# install.packages("leaflet")
+install.packages("openadds")
+install.packages("leaflet")
 
 library(openadds)
 library(leaflet)

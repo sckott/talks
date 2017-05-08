@@ -5,7 +5,7 @@ x
 x$data
 x$data$author
 auth_split <- vapply(x$data$author, function(x) {
-  length(strsplit(x, split = ",")[[1]])
+  length(strsplit(x, split = ";")[[1]])
 }, integer(1), USE.NAMES = FALSE)
 df <- data.frame(table(auth_split), stringsAsFactors = FALSE)
 
