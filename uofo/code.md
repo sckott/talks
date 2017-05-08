@@ -2,7 +2,7 @@
 
 ### Example
 
-Plot x 
+Plot number of references per article
 
 ```r
 install.packages("rplos")
@@ -17,7 +17,7 @@ df <- data.frame(table(no_refs), stringsAsFactors = FALSE)
 
 ggplot(df, aes(x = no_refs, y = Freq)) +
   geom_col() +
-  labs(x = "Title lengths", y = "Count") + 
+  labs(x = "Number of references", y = "Count") + 
   theme()
 ```
 
@@ -49,6 +49,10 @@ ggplot(df, aes(x = auth_split, y = Freq)) +
 
 ## Exercise 2
 
+Make an interactive map of some addresses in Eugene
+
+<details> <summary><strong>Click to expand/collapse</strong></summary><p>
+
 ```r
 install.packages("openadds")
 install.packages("leaflet")
@@ -70,3 +74,5 @@ leaflet(x) %>%
 ```
 
 ![img](img/openadds.png)
+
+</p></details>
