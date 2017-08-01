@@ -1,0 +1,281 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>rOpenSci: ESA 2017</title>
+
+		<meta name="description" content="rOpenSci: ESA 2017">
+		<meta name="author" content="Scott Chamberlain">
+
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/solarized.css" id="theme">
+		<link rel="stylesheet" href="css/bootstrap/bootstrap.css">
+
+		<!-- use google font -->
+		<link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro' rel='stylesheet' type='text/css'>
+		<link rel="stylesheet" href="css/font-awesome/css/font-awesome.css">
+
+		<!-- favicon -->
+		<link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico">
+
+		<!-- icons -->
+		<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.css">
+
+		<!-- Code syntax highlighting -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+
+		<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+		<style type="text/css">
+			#rotate_text {
+				-webkit-transform: rotate(-90deg);
+				-moz-transform: rotate(-90deg);
+				transform: rotate(-90deg);
+				position: absolute;
+				vertical-align: middle;
+				position: absolute;
+    		top: 500px;
+    		left: -50px;
+				filter:progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+			}
+
+			ul.a {list-style-type: circle; margin: 0; padding: 0;}
+			ul.b {list-style-type: square; margin-left: 4; padding-left: 0;}
+
+			img {border: none;}
+
+			.center-block {
+			  display: block;
+			  margin-left: auto;
+			  margin-right: auto;
+			}
+		</style>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+		<div class="reveal">
+			<div class="slides">
+		<!--
+- So, I thikn the rOpenSci has done a good job at building a community around something that does not pay the people who participate directly.
+- Package contribution is voluntary &cetera.
+- But, at the same time, through support from people like yorself & helping people build skills and best practices through package onboarding, you've been able to build what seems to be a sustainable community around package construction
+- Plus the unconferences
+- So, I think what I'd like you to be able to focus on is what are the features that rOpenSci has as a data repository (in the sense that packages are data & they add value to existing data repositories) that have really helped build community, and how do we extend this?
+- What can be generalized?
+- It might also be interesting, if, from your perspective, you had a sense of what worked for organizations you've worked with, i'e', data organizations, what attributes have they had that made building R packages & package use successful?
+		-->
+
+		<!-- ropensci as go-between between data providers and users -->
+		<!-- what can data providers do to make data more useable/discoverable/etc -->
+		<!-- lessons learned that can maybe be used elsewhere -->
+		<!-- software review, onboarding people, nurturing software -->
+		<!-- incentives: how to nurture/grow community when only small core of people get paid? -->
+
+		<section id="intro">
+			<h1><font color="#B8172F">Cultivating Community around software and data</font></h1><br>
+			<p class="grey">Scott Chamberlain (<a href="https://twitter.com/sckottie">@sckottie</a>/<a href="https://twitter.com/ropensci">@ropensci</a>)
+				<p class="grey">UC Berkeley / rOpenSci
+			<br>
+			<span><img src="img/icon_lettering_color.svg" alt="rOpenSci" width="800" /></span>
+		</section>
+
+		<section id="thanks-helmsley" class="center">
+			<span><img src="img/helmsley.png" alt="hemlsley foundation" width="1000" /></span>
+		</section>
+
+		<section id="link" class="center">
+			<i class="fa fa-external-link fa-5x"></i>
+			<br><br>
+			<h2><a href="https://scotttalks.info/esa17">scotttalks.info/esa17</a> </h2>
+		</section>
+
+		<section id="license" class="center">
+			<br>
+			<h1>LICENSE: <a href="https://creativecommons.org/licenses/by/4.0/">CC-BY 4.0</a></h1>
+		</section>
+
+		<section id="ecosystem">
+			<h2>Open science ecosytsem</h2>
+			<br>
+			<!-- image of diff. players in open science and where we fit in
+				- researcher at center
+				- software like R/Python/etc.
+				- ropensci and similar: making software
+				- infrastructure: crossref, datacite, etc
+				- OA publishers
+				- ??
+			-->
+			<img src="img/openscienceecosystem.svg" width="1300" alt="open-science-ecosystem">
+		</section>
+
+		<!-- organizing idea/theme -->
+		<section id="community" class="center">
+			<h1>Community:</h1>
+			<br>
+			<h1>People</h1>
+			<h1>Software</h1>
+			<h1>Data</h1>
+		</section>
+
+		<section id="ropensci-location" class="center">
+			<h2>Data</h2>
+			<span><img src="img/icon_lettering_color.svg" alt="rOpenSci" width="800" /></span>
+
+			<h2 style="float: left">People</h2>
+			<h2 style="float: right">Software</h2>
+		</section>
+
+		<section id="ropensci-between-providers-and-users-1" class="center">
+			<h1>ropensci &amp;<br> data providers</h1>
+		</section>
+
+		<section id="ropensci-between-providers-and-users-lessons">
+			<ol class="b">
+				<h2><li>API first! GUI website after</li></h2>
+				<h2><li>see #1</li></h2>
+				<h2><li>Think about data size/use cases/how often updated/etc.</li></h2>
+				<h2><li>Clients, clients, clients - users may use website, but reproducbility should be paramount</li></h2>
+				<h2><li>Reach out to rOpenSci - we can help</li></h2>
+			</ol>
+		</section>
+
+		<!-- software review -->
+		<section id="review" class="center">
+			<h2>rOpenSci Software Review</h2>
+		</section>
+
+		<section id="software-review-intro">
+			<h2>rOpenSci Software Review</h2>
+			<br>
+			<ul class="b">
+				<!-- update these! -->
+				<li><h2 align="left">Completely open source tools</h2></li>
+				<li><h2 align="left">Free to run</h2></li>
+				<li><h2 align="left">All reviews/conversations in the open</h2></li>
+				<li><h2 align="left">Reviews are/can be linked to code changes</h2></li>
+				<li><h2 align="left">Paired with submission to a journal - JOSS</h2></li>
+			</ul>
+		</section>
+
+		<section id="software-review-rising-tide">
+			<h2>Software Review: Rising Tide Raises All Boats</h2>
+			<br><br>
+			<i class="fa fa-ship fa-5x" aria-hidden="true"></i>
+		</section>
+
+		<section id="software-review-looks-like">
+			<h2>what it looks like</h2>
+			<br>
+			<a href="https://github.com/ropensci/onboarding/issues/43">ropensci/onboarding#43</a>
+			<br>
+			<img src="img/review.png" width="1100">
+		</section>
+
+		<section id="resilient-contributor-base">
+			<h2>how to make a resilient contributor base?</h2>
+			<br>
+			<ul class="b">
+				<li><h2 align="left">be really nice!!! <i class="fa fa-smile-o"></i></h2></li>
+				<li><h2 align="left">> 1 contributor <i class="fa fa-rocket"></i></h2></li>
+				<li><h2 align="left">direct access to dedicated contribs <i class="fa fa-code"></i></h2></li>
+				<li><h2 align="left">contributor diversity  <i class="fa fa-users"></i></h2></li>
+				<li><h2 align="left">turn users into contribs</h2></li>
+			</ul>
+		</section>
+
+		<section id="software-easier-incentives">
+			<h2>Make software work easier: incentives</h2>
+			<br>
+			<ul class="b">
+				<li><h2 align="left">make software count for tenure/grad school</h2></li>
+				<li><h2 align="left">more funding opportunities</h2></li>
+				<li><h2 align="left">more jobs making software in academia</h2></li>
+			</ul>
+		</section>
+
+		<section id="software-easier-barriers">
+			<h2>Make software work easier: remove barriers</h2>
+			<br>
+			<ul class="b">
+				<li><h2 align="left">make path academia to industry easy</h2></li>
+				<li><h2 align="left">provide software training</h2></li>
+			</ul>
+		</section>
+
+
+
+		<!-- end -->
+		<section id="end">
+			<i class="fa fa-external-link fa-5x"></i>
+			<br>
+			<h2><a href="https://scotttalks.info/esa17">scotttalks.info/esa17</a></h2>
+			<br><br>
+			<h2>Made w/: <a href="https://github.com/hakimel/reveal.js">reveal.js v3.2.0</a></h2>
+			<br>
+			<h2>Some Styling: <a href="http://getbootstrap.com/">Bootstrap v3.3.5</a></h2>
+			<br>
+			<h2>Icons by: <a href="http://fortawesome.github.io/Font-Awesome/">FontAwesome v4.4.0</a></h2>
+		</section>
+
+			</div>
+
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+
+			// Full list of configuration options available at:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: false,
+				slideNumber: true,
+				keyboard: true,
+				touch: true,
+
+				width: 1400,
+				height: 900,
+
+				// transition: 'slide', // none/fade/slide/convex/concave/zoom
+				transition: Reveal.getQueryHash().transition || 'none', // default/cube/page/concave/zoom/linear/fade/none
+
+				// Optional reveal.js plugins
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true },
+					{ src: 'plugin/notes/notes.js', async: true }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>
