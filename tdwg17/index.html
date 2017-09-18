@@ -1,0 +1,327 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>TDWG 17</title>
+
+		<meta name="description" content="TDWG 17">
+		<meta name="author" content="Scott Chamberlain">
+
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/solarized.css" id="theme">
+		<link rel="stylesheet" href="css/bootstrap/bootstrap.css">
+
+		<!-- use google font -->
+		<link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro' rel='stylesheet' type='text/css'>
+		<link rel="stylesheet" href="css/font-awesome/css/font-awesome.css">
+
+		<!-- favicon -->
+		<link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico">
+
+		<!-- icons -->
+		<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.css">
+
+		<!-- Code syntax highlighting -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+
+		<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+		<style type="text/css">
+			#rotate_text {
+				-webkit-transform: rotate(-90deg);
+				-moz-transform: rotate(-90deg);
+				transform: rotate(-90deg);
+				position: absolute;
+				vertical-align: middle;
+				position: absolute;
+    		top: 500px;
+    		left: -50px;
+				filter:progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+			}
+
+			ul.a {list-style-type: circle; margin: 0; padding: 0;}
+			ul.b {list-style-type: square; margin-left: 4; padding-left: 0;}
+
+			img {border: none;}
+
+			.center-block {
+			  display: block;
+			  margin-left: auto;
+			  margin-right: auto;
+			}
+
+			.box_rotate {
+			     -moz-transform: rotate(-45deg);  /* FF3.5+ */
+			       -o-transform: rotate(-45deg);  /* Opera 10.5 */
+			  -webkit-transform: rotate(-45deg);  /* Saf3.1+, Chrome */
+			             filter:  progid:DXImageTransform.Microsoft.BasicImage(rotation=0.083);  /* IE6,IE7 */
+			         -ms-filter: "progid:DXImageTransform.Microsoft.BasicImage(rotation=0.083)"; /* IE8 */
+			         float: left;
+			}
+		</style>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+		<div class="reveal">
+			<div class="slides">
+
+		<section id="intro">
+			<h1><font color="#B8172F">The Taxonomic and Biodiversity Software Stack in R</font></h1><br>
+			<p class="grey">Scott Chamberlain
+				<p class="grey">UC Berkeley / rOpenSci
+			<br>
+			<span><img src="img/icon_lettering_color.svg" alt="rOpenSci" width="700" /></span>
+		</section>
+
+		<section id="thanks-helmsley" class="center">
+			<span><img src="img/helmsley.png" alt="hemlsley foundation" width="1000" /></span>
+		</section>
+
+		<section id="link" class="center">
+			<i class="fa fa-external-link fa-5x"></i>
+			<br><br>
+			<h2><a href="https://scotttalks.info/tdwg17">scotttalks.info/tdwg17</a> </h2>
+		</section>
+
+		<section id="license" class="center">
+			<br>
+			<h1>LICENSE: <a href="https://creativecommons.org/licenses/by/4.0/">CC-BY 4.0</a></h1>
+		</section>
+
+
+		<!-- actual stuff -->
+		<!-- r lang -->
+		<section id="r-lang">
+			<br><br><br>
+			<h1>the R programming language</h1>
+			<br>
+			<img src="img/rlogo.svg" width="400">
+		</section>
+
+		<section id="r-intro-1">
+			<h1>R intro</h1>
+			<ul>
+				<li><h3>written in C, Fortran, and R itself</h3></li>
+				<li><h3>growing in popularity</h3></li>
+				<li><h3>very widespread with biologists</h3></li>
+				<li><h3>interpreted language (like e.g., Ruby, Python)</h3></li>
+				<li><h3>supports functional and some object oriented programming</h3></li>
+				<li><h3>> 10K packages</h3></li>
+				<li><h3>nice interface to drop down to C++ for perf.</h3></li>
+			</ul>
+		</section>
+
+		<section id="r-intro-2">
+			<h1>a pitch for R</h1>
+			<br>
+			<h2>making biodiveristy and taxonomy software in R:</h2>
+			<br>
+			<ul>
+				<li><h3>meets scientists/etc. where they are, which: </h3></li>
+				<ul>
+					<li><h3>facilitates reproducible science</h3></li>
+					<li><h3>facilitates open science</h3></li>
+				</ul>
+			</ul>
+		</section>
+		<!-- end r lang -->
+
+
+
+
+		<!-- ropensci -->
+		<section id="ropensci" class="center">
+			<img src="img/icon_lettering_color.svg" alt="rOpenSci" width="1000" />
+		</section>
+
+		<section id="ropensci-intro">
+			<h1>rOpenSci?</h1>
+			<ul>
+				<li><h3>non-profit</h3></li>
+				<li><h3>make open-source software for R</h3></li>
+				<li><h3>large community developers/users</h3></li>
+				<li><h3>software review</h3></li>
+				<li><h3>target science use cases</h3></li>
+			</ul>
+		</section>
+		<!-- end ropensci -->
+
+
+
+
+		<!-- biodiversity R landscape -->
+		<section id="biodiversity-landscape-1" class="center">
+			<h1>the R biodiversity landscape</h1>
+		</section>
+
+		<section id="biodiversity-landscape-2">
+			<h2>the pkgs</h2>
+			<ul>
+				<li><h3><a href="https://github.com/ropensci/rbison">rbison</a> - BISON</h3></li>
+				<li><h3><a href="https://github.com/ropensci/rvertnet">rvertnet</a> - VertNet</h3></li>
+				<li><h3><a href="https://github.com/ropensci/rgbif">rgbif</a> - GBIF</h3></li>
+				<li><h3><a href="https://github.com/ropensci/rebird">rebird</a> - eBird</h3></li>
+				<li><h3><a href="https://github.com/ropensci/rinat">rinat</a> - iNaturalist</h3></li>
+				<li><h3><a href="https://github.com/ropensci/ecoengine">ecoengine</a> - Berkeley Ecoengine</h3></li>
+				<li><h3><a href="https://github.com/ropensci/AntWeb">AntWeb</a> - Antweb</h3></li>
+				<li><h3><a href="https://github.com/iDigBio/ridigbio">ridigbio</a> - iDigBio (they maintain)</h3></li>
+				<li><h3><a href="https://github.com/AtlasOfLivingAustralia/ALA4R">ALA4R</a> - Atlas of Living Australia (they maintain)</h3></li>
+				<li><h3><a href="https://github.com/iobis/robis">robis</a> - OBIS (they maintain)</h3></li>
+				<li><h3><a href="https://github.com/ropensci/spocc">spocc</a> - one stop shop</h3></li>
+			</ul>
+		</section>
+		<!-- end taxonomy R landscape -->
+
+		<!-- biodiversity: rgbif/pygbif/gbifrb -->
+		<section id="gbif">
+			<h1>gbif</h1>
+			<ul>
+				<li>rgbif</li>
+				<li>pygbif</li>
+				<li>gbifrb</li>
+			</ul>
+		</section>
+
+		<section id="gbif-usage">
+			<h1>gbif clients usage</h1>
+			<br>
+			<h2>XX citations</h2>
+			<br>
+			<h2>use cases: (maybe show one example use case)</h2>
+		</section>
+		<!-- end gbif -->
+
+
+		<!-- taxonomy R landscape -->
+		<section id="taxonomy-landscape-1" class="center">
+			<h1>the R taxonomy landscape</h1>
+		</section>
+
+		<section id="taxonomy-landscape-2">
+			<h2>the pkgs</h2>
+			<ul>
+				<li><h3><a href="https://github.com/ropensci/ritis">ritis</a> - ITIS API client</h3></li>
+				<li><h3><a href="https://github.com/ropensci/taxa">taxa</a> - taxonomic classes</h3></li>
+				<li><h3><a href="https://github.com/ropensci/taxize">taxize</a> - one stop shop</h3></li>
+				<li><h3><a href="https://github.com/ropensci/taxizedb">taxizedb</a> - database dumps</h3></li>
+				<li><h3><a href="https://github.com/ropensci/wikitaxa">wikitaxa</a> - Wikipedia taxonomy</h3></li>
+				<li><h3><a href="https://github.com/ropensci/worrms">worrms</a> - WoRMS API client</h3></li>
+			</ul>
+		</section>
+		<!-- end taxonomy R landscape -->
+
+
+		<!-- taxonomy: taxize -->
+		<section id="taxize">
+			<h1>taxize</h1>
+		</section>
+		<!-- end taxize -->
+
+
+		<!-- taxonomy: taxa -->
+		<section id="taxa">
+			<h1>taxa</h1>
+		</section>
+
+		<section id="taxa-1">
+			<h1>taxa 1</h1>
+		</section>
+
+		<section id="taxa-2">
+			<h1>taxa 2</h1>
+		</section>
+		<!-- end taxa -->
+
+
+		<!-- taxonomy: pegax -->
+		<section id="pegax">
+			<h1>pegax</h1>
+		</section>
+
+		<section id="pegax-1">
+			<h1>pegax 1</h1>
+		</section>
+
+		<section id="pegax-2">
+			<h1>pegax 2</h1>
+		</section>
+		<!-- end pegax -->
+
+
+
+		<section id="end">
+			<i class="fa fa-external-link fa-5x"></i>
+			<br>
+			<h2><a href="https://scotttalks.info/uofo">scotttalks.info/uofo</a></h2>
+			<br><br>
+			<h2>Made w/: <a href="https://github.com/hakimel/reveal.js">reveal.js v3.2.0</a></h2>
+			<br>
+			<h2>Some Styling: <a href="http://getbootstrap.com/">Bootstrap v3.3.5</a></h2>
+			<br>
+			<h2>Icons by: <a href="http://fortawesome.github.io/Font-Awesome/">FontAwesome v4.4.0</a></h2>
+		</section>
+		<!-- end actual stuff -->
+
+
+			</div>
+
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+
+			// Full list of configuration options available at:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: false,
+				slideNumber: true,
+				keyboard: true,
+				touch: true,
+
+				width: 1400,
+				height: 900,
+
+				// transition: 'slide', // none/fade/slide/convex/concave/zoom
+				transition: Reveal.getQueryHash().transition || 'none', // default/cube/page/concave/zoom/linear/fade/none
+
+				// Optional reveal.js plugins
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true },
+					{ src: 'plugin/notes/notes.js', async: true }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>
