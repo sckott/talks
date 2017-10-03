@@ -1,4 +1,4 @@
-<!doctype html>
+
 <html lang="en">
 
 	<head>
@@ -157,12 +157,13 @@
 
 		<section id="ropensci-intro">
 			<h1>rOpenSci?</h1>
+			<br>
 			<ul>
-				<li><h3>non-profit</h3></li>
-				<li><h3>make open-source software for R</h3></li>
-				<li><h3>large community developers/users</h3></li>
-				<li><h3>software review</h3></li>
-				<li><h3>target science use cases</h3></li>
+				<li><h2>non-profit</h2></li>
+				<li><h2>make open-source software for R</h2></li>
+				<li><h2>large community developers/users</h2></li>
+				<li><h2>software review</h2></li>
+				<li><h2>target science use cases</h2></li>
 			</ul>
 		</section>
 		<!-- end ropensci -->
@@ -171,11 +172,11 @@
 
 
 		<!-- biodiversity R landscape -->
-		<section id="biodiversity-landscape-1" class="center">
+		<section id="biodiversity-landscape" class="center">
 			<h1>the R biodiversity landscape</h1>
 		</section>
 
-		<section id="biodiversity-landscape-2">
+		<section id="biodiversity-landscape-1">
 			<h2>the pkgs</h2>
 			<ul>
 				<li><h3><a href="https://github.com/ropensci/rbison">rbison</a> - BISON</h3></li>
@@ -191,24 +192,31 @@
 				<li><h3><a href="https://github.com/ropensci/spocc">spocc</a> - one stop shop</h3></li>
 			</ul>
 		</section>
-		<!-- end taxonomy R landscape -->
+		<!-- end biodiversity R landscape -->
 
-		<!-- biodiversity: rgbif/pygbif/gbifrb -->
+
+		<!-- gbif: rgbif/pygbif/gbifrb -->
 		<section id="gbif">
 			<h1>gbif</h1>
-			<ul>
-				<li>rgbif</li>
-				<li>pygbif</li>
-				<li>gbifrb</li>
-			</ul>
+			<br>
+			<h2><a href="#">pre-print in PeerJ</a></h2>
+			<br>
+			<h2>R: <code>rgbif</code></h2>
+			<h2>Python: <code>pygbif</code></h2>
+			<h2>Ruby: <code>gbifrb</code></h2>
+			<br>
+			<h3>R/Python more for researchers, Python/Ruby more for web dev</h3>
 		</section>
 
 		<section id="gbif-usage">
-			<h1>gbif clients usage</h1>
+			<h1>rgbif</h1>
 			<br>
-			<h2>XX citations</h2>
+			<h2>~35 citations</h2>
 			<br>
-			<h2>use cases: (maybe show one example use case)</h2>
+			<h2>use case</h2>
+			<center>Cardoso <i>et al</i>. 2017. Amazon plant diversity revealed by a taxonomically verified species list. PNAS. <a href="https://doi.org/10.1073/pnas.1706756114" target="_blank">&nbsp;<i class="fa fa-external-link-square"></i></a></center>
+			<br>
+			<h2>retrieved all occurrunces for study with <code>rgbif</code></h2>
 		</section>
 		<!-- end gbif -->
 
@@ -220,51 +228,160 @@
 
 		<section id="taxonomy-landscape-2">
 			<h2>the pkgs</h2>
+			<br>
 			<ul>
 				<li><h3><a href="https://github.com/ropensci/ritis">ritis</a> - ITIS API client</h3></li>
 				<li><h3><a href="https://github.com/ropensci/taxa">taxa</a> - taxonomic classes</h3></li>
-				<li><h3><a href="https://github.com/ropensci/taxize">taxize</a> - one stop shop</h3></li>
-				<li><h3><a href="https://github.com/ropensci/taxizedb">taxizedb</a> - database dumps</h3></li>
+				<li><h3><a href="https://github.com/ropensci/taxize">taxize</a> - one stop shop for data</h3></li>
+				<li><h3><a href="https://github.com/ropensci/taxizedb">taxizedb</a> - work w/ database dumps</h3></li>
 				<li><h3><a href="https://github.com/ropensci/wikitaxa">wikitaxa</a> - Wikipedia taxonomy</h3></li>
 				<li><h3><a href="https://github.com/ropensci/worrms">worrms</a> - WoRMS API client</h3></li>
+				<li><h3><a href="https://github.com/ropenscilabs/pegax">pegax</a> - parse taxonomic names</h3></li>
 			</ul>
 		</section>
 		<!-- end taxonomy R landscape -->
 
 
 		<!-- taxonomy: taxize -->
-		<section id="taxize">
+		<section id="taxize" class="center">
+			<h1 style="font-size: 300px">taxize</h1>
+		</section>
+
+		<section id="taxize-overview">
 			<h1>taxize</h1>
+			<br>
+			<ul>
+				<li><h2>access to more than 20 data sources</h2></li>
+				<li><h2>consistent interfaces for tasks: search, get id, hierarchy, up/down-stream, children, synonyms, etc.</h2></li>
+				<li><h2>cited in at least 50 papers (that we know of)</h2></li>
+			</ul>
+		</section>
+
+		<section id="taxize-use-case">
+			<h2>taxize use case</h2>
+			<center>Leung et al. (2017). A quantitative-PCR based method to estimate ranavirus viral load following normalisation by reference to an ultraconserved vertebrate target. Journal of Virological Methods.<a href="https://doi.org/10.1016/j.jviromet.2017.08.016" target="_blank">&nbsp;<i class="fa fa-external-link-square"></i></a></center>
+			<br>
+			<blockquote style="font-size: 75px; color: #ADADAD">retrieve classification hierarchy from the Integrated Taxonomic Information System</blockquote>
 		</section>
 		<!-- end taxize -->
 
 
 		<!-- taxonomy: taxa -->
-		<section id="taxa">
-			<h1>taxa</h1>
+		<section id="taxa" class="center">
+			<h1 style="font-size: 300px">taxa</h1>
 		</section>
 
 		<section id="taxa-1">
-			<h1>taxa 1</h1>
+			<h1>taxa</h1>
+			<br>
+			<ul>
+				<li><h2>taxonomic classes for R: taxon IDs, names, ranks, data sources</h2></li>
+				<li><h2>taxonomic classes w/ &amp; w/o data</h2></li>
+				<li><h2>manipulate taxonomic classes: grow, prune, combine, calculate, etc.</h2></li>
+				<li><h2>manipulate taxonomic classes while maintaing link to data</h2></li>
+			</ul>
 		</section>
 
-		<section id="taxa-2">
-			<h1>taxa 2</h1>
+		<section data-markdown id="taxa-eg-1">
+			<script type="text/template">
+				# taxa
+
+				## construct taxon object
+
+				```r
+				x <- taxon(name = "Poa annua", rank = taxon_rank("species"),
+				  id = taxon_id(93036),
+				  authority = "Linnaeus"
+				)
+				hier <- hierarchy(x, ...)
+				```
+
+				## manipulate hierarchies
+
+				```r
+				# `pick()` - Pick out specific taxa, while others are dropped
+				pick(ex_hierarchy1, nms("Poaceae", "Poa"))
+
+				# `pop()` - Pop out taxa, that is, drop them
+				pop(ex_hierarchy1, ids(4479, 4544))
+
+				# `span()` - Select a range of taxa, either by two names, or relational operators
+				span(ex_hierarchy1, nms("Poaceae", "Poa"))
+				```
+			</script>
+		</section>
+
+		<section data-markdown id="taxa-eg-2">
+			<script type="text/template">
+				# taxa
+
+				## construct taxmap (taxonomy + data)
+
+				```r
+				my_taxmap <- taxmap(tiger, cat, mole, human, tomato, potato,
+                    data = list(info = info,
+                                phylopic_ids = phylopic_ids,
+                                foods = foods),
+                    funcs = list(reaction = reaction))
+				```
+
+				## subset all taxa w/ name starting with "t"
+
+				```r
+				filter_taxa(my_taxmap, startsWith(taxon_names, "t"))
+				```
+			</script>
 		</section>
 		<!-- end taxa -->
 
 
 		<!-- taxonomy: pegax -->
-		<section id="pegax">
-			<h1>pegax</h1>
+		<section id="pegax" class="center">
+			<h1 style="font-size: 300px">pegax</h1>
 		</section>
 
-		<section id="pegax-1">
-			<h1>pegax 1</h1>
+		<section id="pegax-peg">
+			<h1>PEG - Parsing Expression Grammar</h1>
+			<br>
+			<ul>
+				<li><h2>define rules (e.g., capture any digit)</h2></li>
+				<li><h2>combine rules to form a grammar</h2></li>
+				<li><h2>apply grammar to strings (e.g., taxonomic names)</h2></li>
+			</ul>
 		</section>
 
-		<section id="pegax-2">
-			<h1>pegax 2</h1>
+		<section id="gnparser">
+			<h1><a href="https://github.com/GlobalNamesArchitecture/gnparser">gnparser</a> exists</h1>
+			<br>
+			<h2>but, R and Java don't play nice</h2>
+			<h2>R and C++ do play nice</h2>
+			<h2>learning from gnparser to implement R/C++ parser</h2>
+		</section>
+
+		<section data-markdown id="pegax-examples">
+			<script type="text/template">
+				## Installation
+
+				```r
+				devtools::install_github("ropenscilabs/pegax")
+				library(pegax)
+				```
+
+				## Parse authorities
+
+				```r
+				x # 100,000 authority strings
+				# years
+				system.time(pgx_authority_years(x))
+				#> 0.34 sec
+
+				# names
+				system.time(pgx_authority_names(x))
+				#> 0.33 sec
+				```
+
+				speed should get better - though slower for full taxonomic names probably
+			</script>
 		</section>
 		<!-- end pegax -->
 
@@ -273,13 +390,17 @@
 		<section id="end">
 			<i class="fa fa-external-link fa-5x"></i>
 			<br>
-			<h2><a href="https://scotttalks.info/uofo">scotttalks.info/uofo</a></h2>
+			<h2><a href="https://scotttalks.info/tdwg17">scotttalks.info/tdwg17</a></h2>
 			<br><br>
 			<h2>Made w/: <a href="https://github.com/hakimel/reveal.js">reveal.js v3.2.0</a></h2>
 			<br>
 			<h2>Some Styling: <a href="http://getbootstrap.com/">Bootstrap v3.3.5</a></h2>
 			<br>
 			<h2>Icons by: <a href="http://fortawesome.github.io/Font-Awesome/">FontAwesome v4.4.0</a></h2>
+		</section>
+
+		<section class="center">
+			<h1 style="font-size: 300px">END</h1>
 		</section>
 		<!-- end actual stuff -->
 
