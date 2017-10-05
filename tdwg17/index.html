@@ -125,8 +125,8 @@
 				<li><h3>written in C, Fortran, and R itself</h3></li>
 				<li><h3>growing in popularity</h3></li>
 				<li><h3>very widespread with biologists</h3></li>
-				<li><h3>interpreted language (like e.g., Ruby, Python)</h3></li>
-				<li><h3>supports functional and some object oriented programming</h3></li>
+				<li><h3>similar to e.g., Ruby, Python</h3></li>
+				<li><h3>supports functional/some object oriented programming</h3></li>
 				<li><h3>> 10K packages</h3></li>
 				<li><h3>nice interface to drop down to C++ for perf.</h3></li>
 			</ul>
@@ -138,6 +138,7 @@
 			<h2>making biodiveristy and taxonomy software in R:</h2>
 			<br>
 			<ul>
+				<li><h3>R software means targeting users: may not be sexy for software makers, but ...</h3></li>
 				<li><h3>meets scientists/etc. where they are, which: </h3></li>
 				<ul>
 					<li><h3>facilitates reproducible science</h3></li>
@@ -177,19 +178,20 @@
 		</section>
 
 		<section id="biodiversity-landscape-1">
-			<h2>the pkgs</h2>
+			<h2>R packages</h2>
+			<h4><strong>*</strong> not rOpenSci</h4>
 			<ul>
-				<li><h3><a href="https://github.com/ropensci/rbison">rbison</a> - BISON</h3></li>
-				<li><h3><a href="https://github.com/ropensci/rvertnet">rvertnet</a> - VertNet</h3></li>
-				<li><h3><a href="https://github.com/ropensci/rgbif">rgbif</a> - GBIF</h3></li>
-				<li><h3><a href="https://github.com/ropensci/rebird">rebird</a> - eBird</h3></li>
-				<li><h3><a href="https://github.com/ropensci/rinat">rinat</a> - iNaturalist</h3></li>
-				<li><h3><a href="https://github.com/ropensci/ecoengine">ecoengine</a> - Berkeley Ecoengine</h3></li>
-				<li><h3><a href="https://github.com/ropensci/AntWeb">AntWeb</a> - Antweb</h3></li>
-				<li><h3><a href="https://github.com/iDigBio/ridigbio">ridigbio</a> - iDigBio (they maintain)</h3></li>
-				<li><h3><a href="https://github.com/AtlasOfLivingAustralia/ALA4R">ALA4R</a> - Atlas of Living Australia (they maintain)</h3></li>
-				<li><h3><a href="https://github.com/iobis/robis">robis</a> - OBIS (they maintain)</h3></li>
-				<li><h3><a href="https://github.com/ropensci/spocc">spocc</a> - one stop shop</h3></li>
+				<li><h3 style="font-size: 50px"><a href="https://github.com/ropensci/rgbif">rgbif</a> - GBIF</h3></li>
+				<li><h3 style="font-size: 50px"><a href="https://github.com/ropensci/rbison">rbison</a> - USGS's BISON</h3></li>
+				<li><h3 style="font-size: 50px"><a href="https://github.com/ropensci/rvertnet">rvertnet</a> - VertNet</h3></li>
+				<li><h3 style="font-size: 50px"><a href="https://github.com/ropensci/rebird">rebird</a> - eBird (see also <a href="https://github.com/CornellLabofOrnithology/auk">auk</a>)</h3></li>
+				<li><h3 style="font-size: 50px"><a href="https://github.com/ropensci/rinat">rinat</a> - iNaturalist</h3></li>
+				<li><h3 style="font-size: 50px"><a href="https://github.com/ropensci/ecoengine">ecoengine</a> - Berkeley Ecoengine</h3></li>
+				<li><h3 style="font-size: 50px"><a href="https://github.com/ropensci/AntWeb">AntWeb</a> - Antweb</h3></li>
+				<li><h3 style="font-size: 50px"><a href="https://github.com/iDigBio/ridigbio">ridigbio</a> - iDigBio (*)</h3></li>
+				<li><h3 style="font-size: 50px"><a href="https://github.com/AtlasOfLivingAustralia/ALA4R">ALA4R</a> - Atlas of Living Australia (*)</h3></li>
+				<li><h3 style="font-size: 50px"><a href="https://github.com/iobis/robis">robis</a> - OBIS (*)</h3></li>
+				<li><h3 style="font-size: 50px"><a href="https://github.com/ropensci/spocc">spocc</a> - one stop shop (of all above)</h3></li>
 			</ul>
 		</section>
 		<!-- end biodiversity R landscape -->
@@ -199,24 +201,27 @@
 		<section id="gbif">
 			<h1>gbif</h1>
 			<br>
-			<h2><a href="#">pre-print in PeerJ</a></h2>
+			<h2><a href="https://peerj.com/preprints/3304/">pre-print in PeerJ</a></h2>
 			<br>
-			<h2>R: <code>rgbif</code></h2>
-			<h2>Python: <code>pygbif</code></h2>
-			<h2>Ruby: <code>gbifrb</code></h2>
+			<h2>R: <a href="https://github.com/ropensci/rgbif">rgbif</a></h2>
+			<h2>Python: <a href="https://github.com/sckott/pygbif">pygbif</a></h2>
+			<h2>Ruby: <a href="https://github.com/sckott/gbifrb">gbifrb</a></h2>
 			<br>
-			<h3>R/Python more for researchers, Python/Ruby more for web dev</h3>
+			<h3>R/Python more for researchers, <br>Python/Ruby more for web dev</h3>
 		</section>
 
 		<section id="gbif-usage">
 			<h1>rgbif</h1>
 			<br>
-			<h2>~35 citations</h2>
-			<br>
-			<h2>use case</h2>
-			<center>Cardoso <i>et al</i>. 2017. Amazon plant diversity revealed by a taxonomically verified species list. PNAS. <a href="https://doi.org/10.1073/pnas.1706756114" target="_blank">&nbsp;<i class="fa fa-external-link-square"></i></a></center>
-			<br>
-			<h2>retrieved all occurrunces for study with <code>rgbif</code></h2>
+			<h2>> 35 citations, some e.g.'s</h2>
+			<ul>
+				<li><h4><a href="https://doi.org/10.1111/nph.13694">Niche dynamics of alien species do not differ among sexual and apomictic flowering plants</a></h4></li>
+				<li><h4><a href="https://doi.org/10.1111/jvs.12301">Climatological correlates of seed size in Amazonian forest trees</a></h4></li>
+				<li><h4><a href="https://doi.org/10.1073/pnas.1424030112">Evolutionary signals of symbiotic persistence in the legume–rhizobia mutualism</a></h4></li>
+				<li><h4><a href="https://doi.org/10.1126/science.aab1161">Global assessment of arbuscular mycorrhizal fungus diversity reveals very low endemism</a></h4></li>
+				<li><h4><a href="https://www.duo.uio.no/handle/10852/50041">Final Report of the Task Group on GBIF Data Fitness for Use in Agrobiodiversity</a></h4></li>
+				<li><h4><a href="https://doi.org/10.1371/journal.pone.0166407">Plant Distribution Data Show Broader Climatic Limits than Expert-Based Climatic Tolerance Estimates</a></h4></li>
+			</ul>
 		</section>
 		<!-- end gbif -->
 
@@ -227,7 +232,8 @@
 		</section>
 
 		<section id="taxonomy-landscape-2">
-			<h2>the pkgs</h2>
+			<h2>R packages</h2>
+			<h4><strong>*</strong> not rOpenSci</h4>
 			<br>
 			<ul>
 				<li><h3><a href="https://github.com/ropensci/ritis">ritis</a> - ITIS API client</h3></li>
@@ -237,6 +243,8 @@
 				<li><h3><a href="https://github.com/ropensci/wikitaxa">wikitaxa</a> - Wikipedia taxonomy</h3></li>
 				<li><h3><a href="https://github.com/ropensci/worrms">worrms</a> - WoRMS API client</h3></li>
 				<li><h3><a href="https://github.com/ropenscilabs/pegax">pegax</a> - parse taxonomic names</h3></li>
+				<li><h3 style="font-size: 50px"><a href="https://cran.rstudio.com/web/packages/Taxonstand/">Taxonstand</a> - Plant List access (*)</h3></li>
+				<li><h3 style="font-size: 50px"><a href="https://cran.rstudio.com/web/packages/defrostR/">defrostR</a> - amphibian taxonomy (*)</h3></li>
 			</ul>
 		</section>
 		<!-- end taxonomy R landscape -->
@@ -252,16 +260,40 @@
 			<br>
 			<ul>
 				<li><h2>access to more than 20 data sources</h2></li>
-				<li><h2>consistent interfaces for tasks: search, get id, hierarchy, up/down-stream, children, synonyms, etc.</h2></li>
-				<li><h2>cited in at least 50 papers (that we know of)</h2></li>
+				<li><h2>consistent interfaces for tasks:
+					<ul>
+						<li>search</li>
+						<li>get ids</li>
+						<li>hierarchy</li>
+						<li>up/down-stream</li>
+						<li>children</li>
+						<li>synonyms</li>
+					</ul>
+				</h2></li>
+			</ul>
+		</section>
+
+		<section id="taxize-citations">
+			<h1>taxize citations</h1>
+			<br>
+			<h2>with > 50 citations, some e.g.'s</h2>
+			<ul>
+				<li><a href="https://doi.org/10.1016/j.ecoinf.2015.05.004">Retrieving taxa names from large biodiversity data collections using a flexible matching workflow</a></li>
+				<li><a href="https://doi.org/10.1111/mec.13026">Comparative genomics in the Asteraceae reveals little evidence for parallel evolutionary change in invasive taxa</a></li>
+				<li><a href="https://doi.org/10.1002/ece3.1246">Are all species necessary to reveal ecologically important patterns?</a></li>
+				<li><a href="https://doi.org/10.1890/15-1397.1">Long-lasting effects of land use history on soil fungal communities in second-growth tropical rain forests</a></li>
+				<li><a href="https://doi.org/10.1111/nph.14077">Taxonomic similarity, more than contact opportunity, explains novel plant-pathogen associations between native and alien taxa</a></li>
+				<li><a href="http://www.diva-portal.org/smash/get/diva2:951404/FULLTEXT01.pdf">Diversity of ecosystems: Variation in network structure among food webs.</a></li>
+				<li><a href="https://doi.org/10.1111/2041-210x.12600">camtrapR: an R package for efficient camera trap data management</a></li>
+				<li><a href="https://doi.org/10.1101/065425">Genome size variation and species diversity in salamander families</a></li>
 			</ul>
 		</section>
 
 		<section id="taxize-use-case">
-			<h2>taxize use case</h2>
+			<h2>representative taxize use case</h2>
 			<center>Leung et al. (2017). A quantitative-PCR based method to estimate ranavirus viral load following normalisation by reference to an ultraconserved vertebrate target. Journal of Virological Methods.<a href="https://doi.org/10.1016/j.jviromet.2017.08.016" target="_blank">&nbsp;<i class="fa fa-external-link-square"></i></a></center>
 			<br>
-			<blockquote style="font-size: 75px; color: #ADADAD">retrieve classification hierarchy from the Integrated Taxonomic Information System</blockquote>
+			<blockquote style="font-size: 75px; color: #ADADAD">"retrieve classification hierarchy from the Integrated Taxonomic Information System"</blockquote>
 		</section>
 		<!-- end taxize -->
 
@@ -278,7 +310,7 @@
 				<li><h2>taxonomic classes for R: taxon IDs, names, ranks, data sources</h2></li>
 				<li><h2>taxonomic classes w/ &amp; w/o data</h2></li>
 				<li><h2>manipulate taxonomic classes: grow, prune, combine, calculate, etc.</h2></li>
-				<li><h2>manipulate taxonomic classes while maintaing link to data</h2></li>
+				<li><h2>manipulate taxonomic classes while maintaining link to data</h2></li>
 			</ul>
 		</section>
 
@@ -286,13 +318,13 @@
 			<script type="text/template">
 				# taxa
 
-				## construct taxon object
+				## construct taxon/hierarchy objects
 
 				```r
-				x <- taxon(name = "Poa annua", rank = taxon_rank("species"),
-				  id = taxon_id(93036),
+				x <- taxon(name = "Poa annua", rank = "species", id = 93036,
 				  authority = "Linnaeus"
 				)
+				# combine many of these into a hierarchy
 				hier <- hierarchy(x, ...)
 				```
 
@@ -300,13 +332,13 @@
 
 				```r
 				# `pick()` - Pick out specific taxa, while others are dropped
-				pick(ex_hierarchy1, nms("Poaceae", "Poa"))
+				pick(hier, nms("Poaceae", "Poa"))
 
 				# `pop()` - Pop out taxa, that is, drop them
-				pop(ex_hierarchy1, ids(4479, 4544))
+				pop(hier, ids(4479, 4544))
 
 				# `span()` - Select a range of taxa, either by two names, or relational operators
-				span(ex_hierarchy1, nms("Poaceae", "Poa"))
+				span(hier, nms("Poaceae", "Poa"))
 				```
 			</script>
 		</section>
@@ -319,16 +351,22 @@
 
 				```r
 				my_taxmap <- taxmap(tiger, cat, mole, human, tomato, potato,
-                    data = list(info = info,
-                                phylopic_ids = phylopic_ids,
-                                foods = foods),
-                    funcs = list(reaction = reaction))
+           data = list(info = info,
+                       phylopic_ids = phylopic_ids,
+                       foods = foods),
+           funcs = list(reaction = reaction))
 				```
-
+				<br>
 				## subset all taxa w/ name starting with "t"
 
 				```r
 				filter_taxa(my_taxmap, startsWith(taxon_names, "t"))
+				```
+
+				## add new columns
+
+				```r
+				mutate_obs(my_taxmap, "info", new_col = ..., newer_col = ...)
 				```
 			</script>
 		</section>
@@ -353,9 +391,45 @@
 		<section id="gnparser">
 			<h1><a href="https://github.com/GlobalNamesArchitecture/gnparser">gnparser</a> exists</h1>
 			<br>
-			<h2>but, R and Java don't play nice</h2>
+			<h2>thanks dmitry</h2>
+			<br>
+			<img src="img/dmitry.jpeg">
+		</section>
+
+		<section id="gnparser-but">
+			<h1>but ...</h1>
+			<br>
+			<h2>R and Java don't play nice</h2>
 			<h2>R and C++ do play nice</h2>
 			<h2>learning from gnparser to implement R/C++ parser</h2>
+		</section>
+
+		<section data-markdown id="pegax-rules">
+			<script type="text/template">
+				# pegax rules
+				<br>
+
+				```c++
+				# Capture any letter
+				struct name
+				  : plus< alpha >
+				{};
+				```
+
+				```c++
+				# Capture any digit
+				struct numbers
+				  : plus< digit >
+				{};
+				```
+
+				```c++
+				# Construct grammar
+				struct grammar
+				  : must< name, one< ',' >, space, numbers, eof >
+				{};
+				```
+			</script>
 		</section>
 
 		<section data-markdown id="pegax-examples">
@@ -400,7 +474,7 @@
 		</section>
 
 		<section class="center">
-			<h1 style="font-size: 300px">END</h1>
+			<h1 style="font-size: 300px">FIN</h1>
 		</section>
 		<!-- end actual stuff -->
 
