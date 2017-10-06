@@ -121,14 +121,12 @@
 
 		<section id="r-intro-1">
 			<h1>R intro</h1>
+			<br>
 			<ul>
-				<li><h3>written in C, Fortran, and R itself</h3></li>
-				<li><h3>growing in popularity</h3></li>
-				<li><h3>very widespread with biologists</h3></li>
-				<li><h3>similar to e.g., Ruby, Python</h3></li>
-				<li><h3>supports functional/some object oriented programming</h3></li>
-				<li><h3>> 10K packages</h3></li>
-				<li><h3>nice interface to drop down to C++ for perf.</h3></li>
+				<li><h2>growing in popularity</h2></li>
+				<li><h2>very widespread with biologists</h2></li>
+				<li><h2>similar to e.g., Ruby, Python, Julia</h2></li>
+				<li><h2>> 10K packages</h2></li>
 			</ul>
 		</section>
 
@@ -138,7 +136,7 @@
 			<h2>making biodiveristy and taxonomy software in R:</h2>
 			<br>
 			<ul>
-				<li><h3>R software means targeting users: may not be sexy for software makers, but ...</h3></li>
+				<li><h3>R software means targeting users</h3></li>
 				<li><h3>meets scientists/etc. where they are, which: </h3></li>
 				<ul>
 					<li><h3>facilitates reproducible science</h3></li>
@@ -163,8 +161,8 @@
 				<li><h2>non-profit</h2></li>
 				<li><h2>make open-source software for R</h2></li>
 				<li><h2>large community developers/users</h2></li>
-				<li><h2>software review</h2></li>
 				<li><h2>target science use cases</h2></li>
+				<li><h2>we often play role of communicating btw. scientists/data provders</h2></li>
 			</ul>
 		</section>
 		<!-- end ropensci -->
@@ -187,7 +185,6 @@
 		<section id="taxonomy-landscape-2">
 			<h2>R packages</h2>
 			<h4><strong>*</strong> not rOpenSci</h4>
-			<br>
 			<ul>
 				<li><h3><a href="https://github.com/ropensci/ritis">ritis</a> - ITIS API client</h3></li>
 				<li><h3><a href="https://github.com/ropensci/taxa">taxa</a> - taxonomic classes</h3></li>
@@ -197,9 +194,9 @@
 				<li><h3><a href="https://github.com/ropensci/worrms">worrms</a> - WoRMS API client</h3></li>
 				<li><h3><a href="https://github.com/ropenscilabs/pegax">pegax</a> - parse taxonomic names</h3></li>
 				<li><h3 style="font-size: 50px"><a href="https://cran.rstudio.com/web/packages/Taxonstand/">Taxonstand</a> - Plant List access (*)</h3></li>
-				<li><h3 style="font-size: 50px"><a href="https://cran.rstudio.com/web/packages/defrostR/">defrostR</a> - amphibian taxonomy (*)</h3></li>
 			</ul>
-			<h4>R taxonomy task view: <a href="https://github.com/ropensci/taxonomy" target="_blank">&nbsp;<i class="fa fa-external-link-square"></i></a></h4>
+			<br>
+			<h3>R taxonomy task view: <a href="https://github.com/ropensci/taxonomy" target="_blank">&nbsp;<i class="fa fa-external-link-square"></i></a></h3>
 		</section>
 		<!-- end taxonomy R landscape -->
 
@@ -217,11 +214,12 @@
 				<li><h2>consistent interfaces for tasks:
 					<ul>
 						<li>search</li>
-						<li>get ids</li>
+						<li>taxonomic ids</li>
 						<li>hierarchy</li>
 						<li>up/down-stream</li>
 						<li>children</li>
 						<li>synonyms</li>
+						<li>name resolution</li>
 					</ul>
 				</h2></li>
 			</ul>
@@ -285,23 +283,24 @@
 				## construct taxon/hierarchy objects
 
 				```r
-				x <- taxon(name = "Poa annua", rank = "species", id = 93036,
-				  authority = "Linnaeus"
-				)
-				# combine many of these into a hierarchy
+				sp <- taxon("Poa annua", rank = "species", id = 93036, authority = "Linnaeus")
+				gen <- taxon("Poa", rank = "genus", id = 4544)
+				fam <- taxon("Poaceae", rank = "family", id = 4479)
+
+				# combine into a hierarchy
 				hier <- hierarchy(x, ...)
 				```
 
 				## manipulate hierarchies
 
 				```r
-				# `pick()` - Pick out specific taxa, while others are dropped
+				# `pick()` - Pick out specific taxa
 				pick(hier, nms("Poaceae", "Poa"))
 
-				# `pop()` - Pop out taxa, that is, drop them
+				# `pop()` - Drop taxa
 				pop(hier, ids(4479, 4544))
 
-				# `span()` - Select a range of taxa, either by two names, or relational operators
+				# `span()` - Select a range of taxa
 				span(hier, nms("Poaceae", "Poa"))
 				```
 			</script>
@@ -405,32 +404,6 @@
 			</script>
 		</section>
 
-		<section data-markdown id="pegax-examples">
-			<script type="text/template">
-				## Installation
-
-				```r
-				devtools::install_github("ropenscilabs/pegax")
-				library(pegax)
-				```
-
-				## Parse authorities
-
-				```r
-				x # 100,000 authority strings
-				# years
-				system.time(pgx_authority_years(x))
-				#> 0.34 sec
-
-				# names
-				system.time(pgx_authority_names(x))
-				#> 0.33 sec
-				```
-
-				speed should get better - though slower for full taxonomic names probably
-			</script>
-		</section>
-
 		<section id="pegax-not-done">
 			<h1>pegax status</h1>
 			<br>
@@ -461,7 +434,6 @@
 				<li><h3 style="font-size: 40px"><a href="https://github.com/ropensci/rebird">rebird</a> - eBird (see also <a href="https://github.com/CornellLabofOrnithology/auk">auk</a>)</h3></li>
 				<li><h3 style="font-size: 40px"><a href="https://github.com/ropensci/rinat">rinat</a> - iNaturalist</h3></li>
 				<li><h3 style="font-size: 40px"><a href="https://github.com/ropensci/ecoengine">ecoengine</a> - Berkeley Ecoengine</h3></li>
-				<li><h3 style="font-size: 40px"><a href="https://github.com/ropensci/AntWeb">AntWeb</a> - Antweb</h3></li>
 				<li><h3 style="font-size: 40px"><a href="https://github.com/iDigBio/ridigbio">ridigbio</a> - iDigBio (*)</h3></li>
 				<li><h3 style="font-size: 40px"><a href="https://github.com/AtlasOfLivingAustralia/ALA4R">ALA4R</a> - Atlas of Living Australia (*)</h3></li>
 				<li><h3 style="font-size: 40px"><a href="https://github.com/iobis/robis">robis</a> - OBIS (*)</h3></li>
@@ -484,9 +456,9 @@
 
 		<!-- gbif: rgbif/pygbif/gbifrb -->
 		<section id="gbif">
-			<h1>gbif</h1>
+			<h1>GBIF</h1>
 			<br>
-			<h2><a href="https://peerj.com/preprints/3304/">pre-print in PeerJ</a></h2>
+			<h2>pre-print in PeerJ: <a href="https://doi.org/10.7287/peerj.preprints.3304v1">10.7287/peerj.preprints.3304v1</a></h2>
 			<br>
 			<h2>R: <a href="https://github.com/ropensci/rgbif">rgbif</a></h2>
 			<h2>Python: <a href="https://github.com/sckott/pygbif">pygbif</a></h2>
@@ -513,13 +485,17 @@
 			<h2>representative rgbif use case</h2>
 			<center>Ludt et al. (2017). A quantitative and statistical biological comparison of three semi-enclosed seas: the Red Sea, the Persian (Arabian) Gulf, and the Gulf of California. Marine Biodiversity<a href="https://doi.org/10.1007/s12526-017-0740-1" target="_blank">&nbsp;<i class="fa fa-external-link-square"></i></a></center>
 			<br>
-			<blockquote style="font-size: 75px; color: #ADADAD">"Individual-based macro (>0.5 mm) species occurrence data were gathered for major marine phyla ... from geo-referenced specimen data on [GBIF] ... using a polygon search area in the R package rgbif"</blockquote>
+			<blockquote style="font-size: 75px; color: #ADADAD">"... species occurrence data were gathered for major marine phyla ... from geo-referenced specimen data on [GBIF] ... using a polygon search area in ... rgbif"</blockquote>
 		</section>
 		<!-- end gbif -->
 
 		<!-- conclusion	 -->
 		<section id="conclusion" class="center">
 			<img src="img/pipeline1.png" width="1300"></img>
+			<br><br>
+			<h2>let us know:</h2>
+			<h2>what are we missing?</h2>
+			<h2>what problems do you have?</h2>
 		</section>
 		<!-- end conclusion -->
 
@@ -532,9 +508,9 @@
 			<br><br>
 			<h2>Made w/: <a href="https://github.com/hakimel/reveal.js">reveal.js v3.2.0</a></h2>
 			<br>
-			<h2>Some Styling: <a href="http://getbootstrap.com/">Bootstrap v3.3.5</a></h2>
+			<h2>Styling: <a href="http://getbootstrap.com/">Bootstrap v3.3.5</a></h2>
 			<br>
-			<h2>Icons by: <a href="http://fortawesome.github.io/Font-Awesome/">FontAwesome v4.4.0</a></h2>
+			<h2>Icons: <a href="http://fortawesome.github.io/Font-Awesome/">FontAwesome v4.4.0</a></h2>
 		</section>
 
 		<section class="center">
