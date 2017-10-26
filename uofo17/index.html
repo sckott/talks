@@ -96,7 +96,7 @@
 			<p class="grey">Scott Chamberlain
 				<p class="grey">UC Berkeley / rOpenSci
 			<br>
-			<span><img src="img/icon_lettering_color.svg" alt="rOpenSci" width="800" /></span>
+			<span><img src="img/icon_lettering_color.svg" alt="rOpenSci" width="720" /></span>
 		</section>
 
 		<section id="thanks-helmsley" class="center">
@@ -394,21 +394,6 @@
 			<img src="img/python.jpeg" width="400"><br><img src="img/r.png" width="200"><br><img src="img/julia-lang.png" width="200">
 		</section>
 
-		<!-- <section id="python-notebooks">
-			<h2>Jupyter Notebooks</h2>
-			<br>
-			<center><a href="http://jupyter.org/">link&nbsp;<i class="fa fa-external-link-square"></i></a></center>
-			<br>
-			<img src="img/notebook.png">
-		</section> -->
-
-		<!-- <section id="rmarkdown">
-			<h2>rmarkdown</h2>
-			<img src="img/rmarkdown.png" width="1100">
-			<br>
-			<center><a href="http://rmarkdown.rstudio.com/">rmarkdown.rstudio.com&nbsp;<i class="fa fa-external-link-square"></i></a></center>
-		</section> -->
-
 		<section id="r-language">
 			<h1>R language</h1>
 			<br>
@@ -551,14 +536,16 @@
 		<!-- notes:
 			- I think probably API’s, because the html parsing would probably be a bit advanced. But like I said, this is not an area I’m well versed in so I’ll leave it up to you. I’d love if you could do something interactive, if you’re up for it.
 			- anything social science related would probably be good. Maybe something like social media data? We have a lot of psych students, some business students, and some college of education students.
+			- link to resources where they can learn more about diff. pkgs, tutorials, etc.
+			- http://rforjournalists.com/2017/10/25/scraping-in-r-access-to-mortgage-petition/
 		-->
-		<section id="web-scraping-0" class="center">
-			<h1>Web Scraping</h1>
+		<section id="data-from-the-web" class="center">
+			<h1>Data from the Web</h1>
 			<br><br>
 		</section>
 
-		<section id="web-scraping-1">
-			<h1>Web Scraping: Types</h1>
+		<section id="data-from-the-web-1">
+			<h1>Getting data from the Web: Types</h1>
 			<br>
 			<ul>
 				<li><h2 align="left">Scraping html</h2></li>
@@ -575,43 +562,161 @@
 			<p>going up: increasing complexity for user (mostly)</p>
 		</section>
 
-		<section id="scraping-brief">
-			<h1>Scraping: brief intro</h1>
-			<p>to be done ...</p>
+		<section id="approaching-a-site">
+			<h1>Approaching a website wrt data</h1>
+			<ul>
+				<li><h2 align="left">Look at menu, header, footer</h2></li>
+				<li><h2 align="left">Look for key words: "API", "Data", "Developers", etc.</h2></li>
+				<li><h2 align="left">Contact a technical (or anyone) person</h2></li>
+				<li><h2 align="left">Browser developer tools are your friends</h2></li>
+				<li><h2 align="left">Scraping as a last resort</h2></li>
+			</ul>
 		</section>
 
+		<section id="scraping-brief">
+			<h1>Scraping: brief intro</h1>
+			<br>
+			<em><h2>n, def: extract useful bits out of a pile of (typically) html</h2></em>
+			<br>
+			<h2>see <a href="https://en.wikipedia.org/wiki/Web_scraping">Wikipedia's def.</a></h2>
+		</section>
+
+		<section data-markdown id="scraping-turn-this-that">
+			<script type="text/template">
+				# Turn this
+
+				```html
+				<!DOCTYPE html>
+				<html>
+				<head>
+					<title>Hello!</title>
+				</head>
+				<body>
+					<ul>
+						<li>one</li>
+						<li>two</li>
+						<li>three</li>
+					</ul>
+				</body>
+				</html>
+				```
+
+				# Into this
+
+				```r
+				c(one, two, three)
+				```
+			</script>
+		</section>
+
+		<section id="scraping-beware">
+			<h1>Scraping: beware</h1>
+			<ul>
+				<li><h2 align="left">Look on "terms" or related page for any legalese</h2></li>
+				<li><h2 align="left">Probably all good when simply exploring</h2></li>
+				<li><h2 align="left">Take precautions when doing lots of scraping</h2></li>
+				<li><h2 align="left">Look around: StackOverflow, just googling, talk to friends, etc.</h2></li>
+			</ul>
+		</section>
+
+
+		<!-- downloading files -->
 		<section id="downloading-files">
 			<h1>Downloading files: brief intro</h1>
-			<p>to be done ...</p>
+			<br>
+			<ul>
+				<li><h2 align="left">(includes web scraping, have to download the page to scrape it)</h2></li>
+				<li><h2 align="left">Can be easy - sometimes hard</h2></li>
+				<li><h2 align="left">Protocols: HTTP, FTP, etc. (mostly HTTP)</h2></li>
+				<li><h2 align="left">Authentication</h2></li>
+				<li><h2 align="left">File sizes! getting all the data, so ...</h2></li>
+				<li><h2 align="left">https: something to think about</h2></li>
+				<li><h2 align="left">Does your university/organization have a firewall?</h2></li>
+			</ul>
+		</section>
+
+		<section id="downloading-in-r">
+			<h1>Downloading files in R</h1>
+			<br>
+			<ul>
+				<li><h2 align="left">lots of ways to download files</h2></li>
+				<li><h2 align="left">many pkgs/fxns for file types also download</h2></li>
+				<li><h2 align="left"><a href="https://cran.rstudio.com/web/packages/curl/">curl::curl_download</a> - replaces <code>download.file</code></h2></li>
+			</ul>
 		</section>
 
 		<section id="exercise-downloading-1">
 			<h1>Downloading Exercise - 1</h1>
 			<br>
-			<p>to be done ...</p>
+			<h2>the file: <a href="#">file</a></h2>
+			<br>
+			<ol>
+				<h2 align="left"><li>Download the file XXXX in R</li></h2>
+				<h2 align="left"><li>Read the file in however you like</li></h2>
+			</ol>
 		</section>
 
 		<section id="downloading-files-more-info">
-			<h1>Downloading files: more info</h1>
-			<p>to be done ...</p>
+			<h1>Downloading files: advanced topics</h1>
+			<br>
+			<ul>
+				<li><h2 align="left">FTP</h2></li>
+				<li><h2 align="left">????????</h2></li>
+			</ul>
 		</section>
 
 		<section id="exercise-downloading-2">
 			<h1>Downloading Exercise - 2</h1>
 			<br>
-			<p>to be done ...</p>
+			<h1>hmmmm, not sure what to do yet</h1>
+			<ol>
+				<h2 align="left"><li>Download the file XXXX in R</li></h2>
+				<h2 align="left"><li>Read the file in however you like</li></h2>
+			</ol>
 		</section>
 
+
+		<!-- APIs -->
 		<section id="apis-intro">
 			<h1>APIs!</h1>
 			<br>
-			<p>to be done ...</p>
+			<ul>
+				<li><h2 align="left">API = Application Programming Interface</h2></li>
+				<li><h2 align="left">Rules about how machines/software talk to one another</h2></li>
+				<li><h2 align="left">Can be an API for: Android phone, Linux operating system, an R package, a web service</h2></li>
+			</ul>
+		</section>
+
+		<section id="apis-data">
+			<h1>APIs for data on the web</h1>
+			<br>
+			<ul>
+				<li><h2 align="left">Web APIs</h2></li>
+				<ul>
+					<li><h2 align="left">A server in cloud</h2></li>
+					<li><h2 align="left">Database w/ data</h2></li>
+					<li><h2 align="left">Rules about how to talk to that database</h2></li>
+				</ul>
+			</ul>
+		</section>
+
+		<section id="apis-standardized">
+			<h1>Standardized APIs</h1>
+			<h3>most APIs follow no standard, though loosely follow <a href="https://en.wikipedia.org/wiki/Representational_state_transfer">REST</a></h3>
+			<br>
+			<h3>but some standardized frameworks</h3>
+			<br>
+			<ul>
+				<li><h2 align="left">OAI-PMH</h2></li>
+				<li><h2 align="left">RSS</h2></li>
+				<li><h2 align="left">databases: Solr is common</h2></li>
+			</ul>
 		</section>
 
 		<section id="exercise-apis-1">
 			<h1>APIs Exercise - 1</h1>
 			<br>
-			<p>to be done ...</p>
+			<p>Data source: </p>
 			<!-- <ol>
 				<h3><li>Create a <code>.Rmd</code> file</li></h3>
 				<h3><li>Use <code>openadds</code> to get a data.frame of addresses, then <code>leaflet</code> to visualize the map</h3>
@@ -635,7 +740,18 @@
 				<h3><li>Render the <code>.Rmd</code> to <code>.html</code></li></h3>
 			</ol> -->
 		</section>
-		<!-- end web scraping -->
+
+
+		<!-- resources -->
+		<section id="resources">
+			<h1>Resources: software</h1>
+			<ul>
+				<li><h2 align="left">HTTP R pkgs: <a href="https://cran.rstudio.com/web/packages/curl">curl</a>, <a href="https://cran.rstudio.com/web/packages/crul">crul</a>, <a href="https://cran.rstudio.com/web/packages/httr">httr</a></h2></li>
+				<li><h2 align="left">Scraping pkgs: <a href="https://cran.rstudio.com/web/packages/xml2">xml2</a>, <a href="https://cran.rstudio.com/web/packages/rvest">rvest</a>, <a href="https://cran.rstudio.com/web/packages/RSelenium">RSelenium</a></h2></li>
+				<li><h2 align="left">Curated software discussion: <a href="https://cran.rstudio.com/web/views/WebTechnologies.html">Web Technologies TaskView</a>, <a href="https://github.com/ropensci/opendata">Open Data TaskView</a></h2></li>
+			</ul>
+		</section>
+		<!-- end data from the web -->
 
 		<section id="end">
 			<i class="fa fa-external-link fa-5x"></i>
