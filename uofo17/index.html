@@ -532,6 +532,10 @@
 			<i class="fa fa-cogs fa-5x"></i>
 		</section>
 
+
+
+
+
 		<!-- web scraping intro and exercises -->
 		<!-- notes:
 			- I think probably API’s, because the html parsing would probably be a bit advanced. But like I said, this is not an area I’m well versed in so I’ll leave it up to you. I’d love if you could do something interactive, if you’re up for it.
@@ -540,12 +544,12 @@
 			- http://rforjournalists.com/2017/10/25/scraping-in-r-access-to-mortgage-petition/
 		-->
 		<section id="data-from-the-web" class="center">
-			<h1>Data from the Web</h1>
+			<h1>Web Data</h1>
 			<br><br>
 		</section>
 
 		<section id="data-from-the-web-1">
-			<h1>Getting data from the Web: Types</h1>
+			<h1>Web Data: Types</h1>
 			<br>
 			<ul>
 				<li><h2 align="left">Scraping html</h2></li>
@@ -560,6 +564,16 @@
 			<br>
 			<p>going down: increasing organization and longevity</p>
 			<p>going up: increasing complexity for user (mostly)</p>
+		</section>
+
+		<section id="types-use-cases">
+			<h1>Web Data: Use Cases</h1>
+			<br>
+			<ul>
+				<li><h2 align="left">Scraping: specialized, one time problems</h2></li>
+				<li><h2 align="left">Download: when you want all the data</h2></li>
+				<li><h2 align="left">APIs: stable, medium sized data</h2></li>
+			</ul>
 		</section>
 
 		<section id="approaching-a-site">
@@ -713,32 +727,180 @@
 			</ul>
 		</section>
 
+		<section data-markdown id="apis-basics">
+			<script type="text/template">
+				# Working with APIs!
+				<br>
+				## Install and load `crul`
+
+				```r
+				install.packages("crul")
+				library(crul)
+				```
+
+				## Make connection object
+
+				```r
+				x <- HttpClient$new(url = "https://api.ed.gov")
+				```
+
+				## Make a request for data!
+
+				```r
+				res <- x$get("data/crdc_enrollment_2013-14", query = list(api_key = "DEMO_KEY1"))
+				```
+
+				## Get data
+
+				```r
+				jsonlite::fromJSON(res$parse("UTF-8"))
+				```
+			</script>
+		</section>
+
 		<section id="exercise-apis-1">
 			<h1>APIs Exercise - 1</h1>
 			<br>
-			<p>Data source: </p>
-			<!-- <ol>
-				<h3><li>Create a <code>.Rmd</code> file</li></h3>
-				<h3><li>Use <code>openadds</code> to get a data.frame of addresses, then <code>leaflet</code> to visualize the map</h3>
-				<h3><li>Render the <code>.Rmd</code> to <code>.html</code></li></h3>
-			</ol> -->
+			<p>Data source: <a href="https://usedgov.github.io/api/crdc.html">https://usedgov.github.io/api/crdc.html</a></p>
+			<br><br>
+			<h2>Make a request for data - any request</h2>
+			<br>
+			<h3>goal: make sure everything's working as expected</h3>
 		</section>
 
-		<section id="apis-more-info">
-			<h1>APIs! more ...</h1>
-			<br>
-			<p>to be done ...</p>
+		<section data-markdown id="apis-parsing">
+			<script type="text/template">
+				# Parsing data
+				<br>
+				```r
+				library(crul)
+				x <- HttpClient$new(url = "https://api.ed.gov")
+				res <- x$get("data/crdc_enrollment_2013-14", query = list(api_key = "DEMO_KEY1"))
+				```
+
+				## Raw content (sometimes you need it)
+
+				```r
+				res$content
+				```
+
+				## Parse raw data to text
+
+				```r
+				res$parse(encoding = "UTF-8")
+				```
+
+				## Parse plain text
+
+				```r
+				## JSON
+				jsonlite:fromJSON()
+				## HTML/XML
+				xml2:read_html() / xml2:read_xml()
+				```
+			</script>
 		</section>
 
 		<section id="exercise-apis-2">
 			<h1>APIs Exercise - 2</h1>
 			<br>
-			<p>to be done ...</p>
-			<!-- <ol>
-				<h3><li>Create a <code>.Rmd</code> file</li></h3>
-				<h3><li>Use <code>openadds</code> to get a data.frame of addresses, then <code>leaflet</code> to visualize the map</h3>
-				<h3><li>Render the <code>.Rmd</code> to <code>.html</code></li></h3>
-			</ol> -->
+			<p>Data source: <a href="https://usedgov.github.io/api/crdc.html">https://usedgov.github.io/api/crdc.html</a></p>
+			<ol>
+				<h3><li>Make a request for data</li></h3>
+				<h3><li>Parse data to a list with <code>resources</code> as a <code>data.frame</code></li></h3>
+				<h3><li>Pull out all the data for the <code>TOT_ENR_F</code> and <code>TOT_ENR_M</code> fields</h3>
+			</ol>
+		</section>
+
+		<section data-markdown id="apis-advanced-topics-headers">
+			<script type="text/template">
+				# Headers
+				## "Passing" headers
+
+				```r
+				library(crul)
+				x <- HttpClient$new(url = "https://api.ed.gov", headers = list(hello = "world")
+				res <- x$get("data/crdc_enrollment_2013-14", query = list(api_key = "DEMO_KEY1"))
+				```
+
+				## Get Request headers
+
+				```r
+				res$request_headers
+				```
+
+				## Get Response headers
+
+				```r
+				res$response_headers
+				```
+			</script>
+		</section>
+
+		<section id="exercise-apis-3">
+			<h1>APIs Exercise - 3</h1>
+			<br>
+			<p>Data source: <a href="https://usedgov.github.io/api/crdc.html">https://usedgov.github.io/api/crdc.html</a></p>
+			<ol>
+				<h3><li>Make a request for data w/ headers</li></h3>
+				<h3><li>Get the request headers</li></h3>
+				<h3><li>Get the response headers</li></h3>
+				<h3><li>Pick a response header and google it/wikipedia it, find out what it is</li></h3>
+			</ol>
+		</section>
+
+		<section data-markdown id="apis-advanced-topics-curl-options">
+			<script type="text/template">
+				# Curl options
+				## "Passing" curl options
+
+				```r
+				library(crul)
+				x <- HttpClient$new(url = "https://httpbin.org", opts = list(verbose = TRUE))
+				res <- x$get("get")
+				```
+
+				```sh
+				* Connection 2 seems to be dead!
+				* Closing connection 2
+				*   Trying 23.23.209.130...
+				* TCP_NODELAY set
+				* Connected to httpbin.org (23.23.209.130) port 443 (#3)
+				* TLS 1.2 connection using TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
+				* Server certificate: httpbin.org
+				* Server certificate: Let's Encrypt Authority X3
+				* Server certificate: DST Root CA X3
+				> GET /get HTTP/1.1
+				Host: httpbin.org
+				User-Agent: libcurl/7.54.0 r-curl/3.0 crul/0.4.0
+				Accept-Encoding: gzip, deflate
+				Accept: application/json, text/xml, application/xml, */*
+
+				< HTTP/1.1 200 OK
+				< Connection: keep-alive
+				< Server: meinheld/0.6.1
+				< Date: Thu, 26 Oct 2017 18:54:13 GMT
+				< Content-Type: application/json
+				< Access-Control-Allow-Origin: *
+				< Access-Control-Allow-Credentials: true
+				< X-Powered-By: Flask
+				< X-Processed-Time: 0.000729084014893
+				< Content-Length: 326
+				< Via: 1.1 vegur
+				<
+				* Connection #3 to host httpbin.org left intact
+				```
+			</script>
+		</section>
+
+		<section id="exercise-apis-4">
+			<h1>APIs Exercise - 4</h1>
+			<br>
+			<p>Data source: <a href="https://httpbin.org/">https://httpbin.org/</a></p>
+			<ol>
+				<h3><li>Look up curl options (see <code>curl::curl_options()</code>), check a few out to see what they do</li></h3>
+				<h3><li>Make a few requests for data w/ a different curl option specified for each</li></h3>
+			</ol>
 		</section>
 
 
