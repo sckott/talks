@@ -161,10 +161,28 @@
 
 
 		<!-- barriers -->
+		<section id="barriers">
+			<h1>Barriers</h1>
+			<br><br>
+			<ul>
+				<h2>Technical</h2>
+				<h2>Cultural</h2>
+			</ul>
+		</section>
+
+		<section id="barriers-bold">
+			<h1>Barriers</h1>
+			<br><br>
+			<ul style="text-align: center;">
+				<h2>Technical</h2>
+				<h2 style="font-size:120px"><strong>Cultural</strong></h2>
+			</ul>
+		</section>
+
 		<section id="cultural_barriers">
 			<h1>Cultural barriers</h1>
 			<br><br>
-			<ul style="float:left;">
+			<ul style="text-align: center;">
 				<h2>Lack of incentives (carrots)</h2>
 				<h2>Lack of pressure (sticks)</h2>
 				<h2>Getting scooped (<i class="fa fa-spoon"></i>)</h2>
@@ -229,7 +247,7 @@
 					<li>Include data with publications</li>
 					<li>Data specific repositories</li>
 					<li>Code sharing sites: e.g., GitHub</li>
-					<li>so-called Institutional Repositories (IRs)</li>
+					<li>so-called Institutional Repositories (IRs) (UO's <a href="https://scholarsbank.uoregon.edu/xmlui/">Scholars Bank</a>)</li>
 				</ul>
 			</h2>
 		</section>
@@ -254,10 +272,9 @@
 			<h2>Preprints increasingly allowed by publishers</h2>
 			<br>
 			<h2>++ preprint outlets</h2>
-			<h2><a href="https://www.ssrn.com/en/index.cfm">SSRN<sup>*</sup></a>, <a href="https://osf.io/preprints/socarxiv">SocArXiv</a>, <a href="https://osf.io/preprints/psyarxiv">PsyArXiv</a></h2>
+			<h2><a href="https://osf.io/preprints/socarxiv">SocArXiv</a>, <a href="https://psyarxiv.com/">PsyArXiv</a></h2>
 			<br>
 			<h2>talk to your librarians!</h2>
-			<p>*: think twice maybe</p>
 		</section>
 
 		<section id="open-access-green">
@@ -590,7 +607,7 @@
 		<section id="scraping-brief">
 			<h1>Scraping: brief intro</h1>
 			<br>
-			<em><h2>n, def: extract useful bits out of a pile of (typically) html</h2></em>
+			<em><h2>n, def: extract useful bits out of a pile of (typically) html <small>(me, today)</small></h2></em>
 			<br>
 			<h2>see <a href="https://en.wikipedia.org/wiki/Web_scraping">Wikipedia's def.</a></h2>
 		</section>
@@ -623,6 +640,52 @@
 			</script>
 		</section>
 
+		<section data-markdown id="scraping-rvest-simple">
+			<script type="text/template">
+				# One option: `rvest`
+
+				```r
+				install.packages("rvest")
+				library(rvest)
+				library(xml2)
+				```
+
+				## Fetch a web page
+
+				```r
+				page <- read_html("https://someurl.com/foo/bar")
+				```
+
+				## Extract parts using xpath/css
+				### here: xpath
+
+				```r
+				html_nodes
+				html_attrs
+				html_table
+				```
+			</script>
+		</section>
+
+		<section id="exercise-scraping">
+			<h1>Scraping Exercise</h1>
+			<br>
+			<h2>navigate to: <a href="http://www.goducks.com/cumestats.aspx?path=wsoc">http://www.goducks.com/cumestats.aspx?path=wsoc</a></h2>
+			<br>
+			<ol>
+				<h2 align="left"><li>Install and load <code>rvest</code> library</li></h2>
+				<h2 align="left"><li>Fetch the contents of the URL above</li></h2>
+				<h2 align="left"><li>Pull out the results table</li></h2>
+			</ol>
+			<details>
+				<code>
+				url <- "http://www.goducks.com/cumestats.aspx?path=wsoc"<br>
+				x <- xml2::read_html(url)<br>
+				rvest::html_table(x)[[6]]
+				</code>
+			</details>
+		</section>
+
 		<section id="scraping-beware">
 			<h1>Scraping: beware</h1>
 			<ul>
@@ -636,16 +699,15 @@
 
 		<!-- downloading files -->
 		<section id="downloading-files">
-			<h1>Downloading files: brief intro</h1>
+			<h1>Downloading files: intro</h1>
 			<br>
 			<ul>
-				<li><h2 align="left">(includes web scraping, have to download the page to scrape it)</h2></li>
+				<li><h2 align="left">(includes web scraping, have to download page to scrape it)</h2></li>
 				<li><h2 align="left">Can be easy - sometimes hard</h2></li>
 				<li><h2 align="left">Protocols: HTTP, FTP, etc. (mostly HTTP)</h2></li>
-				<li><h2 align="left">Authentication</h2></li>
-				<li><h2 align="left">File sizes! getting all the data, so ...</h2></li>
-				<li><h2 align="left">https: something to think about</h2></li>
-				<li><h2 align="left">Does your university/organization have a firewall?</h2></li>
+				<li><h2 align="left">Authentication sometimes</h2></li>
+				<li><h2 align="left">File sizes can be very large</h2></li>
+				<li><h2 align="left">Does UO have a firewall?</h2></li>
 			</ul>
 		</section>
 
@@ -654,39 +716,67 @@
 			<br>
 			<ul>
 				<li><h2 align="left">lots of ways to download files</h2></li>
-				<li><h2 align="left">many pkgs/fxns for file types also download</h2></li>
-				<li><h2 align="left"><a href="https://cran.rstudio.com/web/packages/curl/">curl::curl_download</a> - replaces <code>download.file</code></h2></li>
+				<li><h2 align="left">many pkgs/fxns for certain file types also download the file for you</h2></li>
+				<li><h2 align="left">recommendation: <a href="https://cran.rstudio.com/web/packages/curl/">curl::curl_download</a> - replaces <code>download.file</code> in base R</h2></li>
+				<li><h2 align="left">think about where you're putting files!</h2></li>
 			</ul>
 		</section>
 
 		<section id="exercise-downloading-1">
 			<h1>Downloading Exercise - 1</h1>
 			<br>
-			<h2>the file: <a href="#">file</a></h2>
+			<h2>the file: <a href="https://raw.githubusercontent.com/sckott/soylocs/gh-pages/data.csv">file</a></h2>
 			<br>
 			<ol>
-				<h2 align="left"><li>Download the file XXXX in R</li></h2>
+				<h2 align="left"><li>Download the file using <code>curl::curl_download</code></li></h2>
 				<h2 align="left"><li>Read the file in however you like</li></h2>
 			</ol>
+			<details>
+				<code>
+				url <- "https://raw.githubusercontent.com/sckott/soylocs/gh-pages/data.csv"<br>
+				x <- curl::curl_download(url, (f <- tempfile(fileext = ".csv")))<br>
+				readr::read_csv(x)
+				</code>
+			</details>
 		</section>
 
-		<section id="downloading-files-more-info">
-			<h1>Downloading files: advanced topics</h1>
+		<section id="downloading-files-misc-topics">
+			<h1>Downloading files: misc. topics</h1>
 			<br>
 			<ul>
-				<li><h2 align="left">FTP</h2></li>
-				<li><h2 align="left">????????</h2></li>
+				<li><h2 align="left">Compressed files</h2></li>
+				<li><h2 align="left">Asynchronous downloads can help - check out <a href="https://cran.rstudio.com/web/packages/crul/vignettes/async.html">crul's async vignette</a></h2></li>
 			</ul>
 		</section>
 
 		<section id="exercise-downloading-2">
 			<h1>Downloading Exercise - 2</h1>
 			<br>
-			<h1>hmmmm, not sure what to do yet</h1>
+			<h3>Compressed files</h3>
+			<br>
+			<h2>US Dept. Education <a href="https://www2.ed.gov/about/data/list.html?queries%5Bsearch%5D=Academic+Libraries+Survey">Academic Libraries Survey 2012</a></h2>
 			<ol>
-				<h2 align="left"><li>Download the file XXXX in R</li></h2>
-				<h2 align="left"><li>Read the file in however you like</li></h2>
+				<h2 align="left"><li>Download the <code>.zip</code> file <a href="https://nces.ed.gov/pubs2006/data/ALS2002_ASCII.zip">Academic Libraries Survey 2002</a></li></h2>
+				<h2 align="left"><li>Uncompress the file</li></h2>
+				<h2 align="left"><li>Read in the <code>.txt</code> file</li></h2>
 			</ol>
+		</section>
+
+		<section id="exercise-downloading-2">
+			<h1>Downloading Exercise - 2</h1>
+			<br>
+			<h3>Compressed files</h3>
+			<br>
+			<h2>Answer</h2>
+			<details>
+				<code>
+				url <- "https://nces.ed.gov/pubs2006/data/ALS2002_ASCII.zip"<br>
+				x <- curl::curl_download(url, (f <- tempfile(fileext = ".zip")))<br>
+				mydir <- file.path(tempdir(), "mydir")<br>
+				unzip(f, exdir = mydir)<br>
+				readr::read_tsv(list.files(mydir, full.names=TRUE))
+				</code>
+			</details>
 		</section>
 
 
@@ -715,16 +805,23 @@
 		</section>
 
 		<section id="apis-standardized">
-			<h1>Standardized APIs</h1>
+			<h1>Standardized APIs?</h1>
 			<h3>most APIs follow no standard, though loosely follow <a href="https://en.wikipedia.org/wiki/Representational_state_transfer">REST</a></h3>
 			<br>
 			<h3>but some standardized frameworks</h3>
 			<br>
 			<ul>
-				<li><h2 align="left">OAI-PMH</h2></li>
-				<li><h2 align="left">RSS</h2></li>
-				<li><h2 align="left">databases: Solr is common</h2></li>
+				<li><h2 align="left"><a href="https://en.wikipedia.org/wiki/Protocol_for_Metadata_Harvesting">OAI-PMH</a></h2></li>
+				<li><h2 align="left"><a href="https://en.wikipedia.org/wiki/RSS">RSS</a></h2></li>
+				<li><h2 align="left">databases: <a href="https://lucene.apache.org/solr/">Solr</a> is common</h2></li>
+				<li><h2 align="left"><a href="http://jsonapi.org/">JSON API</a> closest thing<br>to standard for REST</h2></li>
 			</ul>
+		</section>
+
+		<section id="apis-standardized-nope" class="center">
+			<h1>Lack of Standardization in APIs </h1>
+			<br><br>
+			<h1>Makes Consuming them Tough</h1>
 		</section>
 
 		<section data-markdown id="apis-basics">
@@ -819,7 +916,7 @@
 
 				```r
 				library(crul)
-				x <- HttpClient$new(url = "https://api.ed.gov", headers = list(hello = "world")
+				x <- HttpClient$new(url = "https://api.ed.gov", headers = list(hello = "world"))
 				res <- x$get("data/crdc_enrollment_2013-14", query = list(api_key = "DEMO_KEY1"))
 				```
 
@@ -904,6 +1001,16 @@
 		</section>
 
 
+		<!-- look for wrappers -->
+		<section id="look-for-api-wrappers">
+			<h1>Look <i class="fa fa-binoculars"></i> for API Wrappers</h1>
+			<br><br>
+			<h2>Don't reinvent the wheel</h2>
+			<br><br>
+			<h2>Check <a href="https://cran.rstudio.com/web/packages/">CRAN</a>, <a href="https://github.com/search?q=language%3AR&ref=opensearch">GitHub</a>, etc.</h2>
+		</section>
+
+
 		<!-- resources -->
 		<section id="resources">
 			<h1>Resources: software</h1>
@@ -911,6 +1018,7 @@
 				<li><h2 align="left">HTTP R pkgs: <a href="https://cran.rstudio.com/web/packages/curl">curl</a>, <a href="https://cran.rstudio.com/web/packages/crul">crul</a>, <a href="https://cran.rstudio.com/web/packages/httr">httr</a></h2></li>
 				<li><h2 align="left">Scraping pkgs: <a href="https://cran.rstudio.com/web/packages/xml2">xml2</a>, <a href="https://cran.rstudio.com/web/packages/rvest">rvest</a>, <a href="https://cran.rstudio.com/web/packages/RSelenium">RSelenium</a></h2></li>
 				<li><h2 align="left">Curated software discussion: <a href="https://cran.rstudio.com/web/views/WebTechnologies.html">Web Technologies TaskView</a>, <a href="https://github.com/ropensci/opendata">Open Data TaskView</a></h2></li>
+				<li><h2 align="left">useR 2016 Workshop: <a href="https://github.com/ropensci/user2016-tutorial">Extracting Data from the Web</a></h2></li>
 			</ul>
 		</section>
 		<!-- end data from the web -->
