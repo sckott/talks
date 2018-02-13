@@ -77,8 +77,17 @@
 		<!-- 
 		- overview of ropensci pkgs (do more fine grained than is there now)
 		- they do air dispersion modeling, mentioned rnoaa, readisd, FedData
-		- mention: omics libraries (rentrez, biomartr), spatial libraries (geojsonio, geojson, etc.)
+		- mention: 
+			- omics libraries (rentrez, biomartr)
+			- spatial libraries (geojsonio, geojson, etc.)
 		- mention: unconf
+
+		- 1130-1
+		- 1 hr talk
+		- 15 min discussion
+		- their feedback
+		    - how to make R apis 
+		    - how to wrap many up into one
 		-->
 
 		<div class="reveal">
@@ -108,9 +117,15 @@
 
 
 		<!-- actual stuff -->
-		<section id="open-science">
+
+		<!-- INTRO 
+			Emphasize that here i'm introducing the inspiration for the work ropensci does, and 
+			not necessarily to convince people to do open science (though if you're work gets 
+			more open that's great).
+		-->
+		<section id="open-science-research">
 			<br><br><br>
-			<h1>open science</h1>
+			<h1>open science/research</h1>
 			<br>
 			<i class="fa fa-unlock fa-5x" style="color:blue"></i> <i class="fa fa-flask fa-5x" style="color:black"></i>
 		</section>
@@ -134,7 +149,7 @@
 		<section id="open-data">
 			<h1>Open Data</h1>
 			<br>
-			<h2>make your data open</h2>
+			<h2>(at least within your organization)</h2>
 			<br>
 			<h2>funders/journals often requiring this anyway</h2>
 			<br>
@@ -144,7 +159,8 @@
 		<section id="versioning-xkcd">
 			<h1>Versioning: code/data/text</h1>
 			<br>
-			<img src="https://imgs.xkcd.com/comics/git.png" width="400">
+			<a href="https://xkcd.com/1597/">xkcd.com/1597</a><br>
+			<img src="https://imgs.xkcd.com/comics/git.png" width="350">
 		</section>
 
 		<section id="versioning">
@@ -153,11 +169,13 @@
 			<h2>failure proofs your work</h2>
 			<br>
 			<h2>experiment freely!</h2>
+			<br>
+			<h2>makes collaboration easier</h2>
 		</section>
 
 		<section id="all-work-programatically-graph">
-			<h1>Do all work programatically</h1>
-			<img src="img/geekvsnongeek.png" width="700">
+			<h2>Do all work programatically</h2>
+			<img src="img/geekvsnongeek.png" width="900">
 			<br><br>
 			<small>from <a href="https://www.geeksaresexy.net/2012/01/05/geeks-vs-non-geeks-picture/" target="_blank">geeksaresexy.net/2012/01/05/geeks-vs-non-geeks-picture</a></small>
 		</section>
@@ -223,7 +241,7 @@
 		</section>
 
 		<section id="ropensci-does">
-			<h2>rOpenSci does:</h2>
+			<h1>rOpenSci Does</h1>
 			<br><br>
 	    <i class="fa fa-users fa-5x" aria-hidden="true"></i>&nbsp;&nbsp;
 	    <i class="fa fa-code fa-5x" aria-hidden="true"></i>&nbsp;&nbsp;
@@ -232,11 +250,12 @@
 		</section>
 
 		<section id="ropensci-staff">
-			<h2>rOpenSci Staff</h2>
+			<h1>rOpenSci Staff</h1>
+			<br>
 			<a href="https://ropensci.org/about/#team">ropensci.org/about/#team</a>
 			<br><br>
 			<ul class="b">
-				<li><h2 align="left">5 full time</h2></li>
+				<li><h2 align="left">~5 full time</h2></li>
 				<li><h2 align="left">leadership team</h2></li>
 				<li><h2 align="left">advisory board</h2></li>
 			</ul>
@@ -249,7 +268,7 @@
 				<li><h2 align="left">~ 400 code contributors</h2></li>
 				<li><h2 align="left">~ 490 Github repositories (most are R packages)</h2></li>
 				<li><h2 align="left">~ 45,000  commits</h2></li>
-				<li><h2 align="left">~ 160 published R packages on CRAN (another ~100 not yet on CRAN)</h2></li>
+				<li><h2 align="left">~ 160 published R packages on CRAN (another ~100 not on CRAN)</h2></li>
 			</ul>
 		</section>
 
@@ -258,12 +277,12 @@
 			<br>
 			<a href="http://unconf18.ropensci.org/">unconf18.ropensci.org</a>
 			<br>
-			<p>Nominations (including self) close Feb. 25th</p>
+			<p>Nominations (including self) close Mar. 8th</p>
 			<br>
 			<a href="http://unconf18.ropensci.org/"><img src="img/unconf18.png" width="1000"></img></a>
 		</section>
 
-		<section id="questions">
+		<section id="question-data-in-research">
 			<h1>What data do you use in your research?</h1>
 			<br><br>
 			<i class="fa fa-question-circle fa-5x"></i>
@@ -315,13 +334,23 @@
 
 		<section id="packages">
 			<h2>rOpenSci Tools</h2>
-			<a href="https://ropensci.org/packages/">https://ropensci.org/packages</a>
+			<a href="https://ropensci.org/packages/">ropensci.org/packages</a>
 			<br>
 			<img src="img/packages.png" width="900">
 		</section>
 
 
+
 		<!-- use cases to demonstrate what can be done -->
+		<!-- REPLACE WITH CDC RELAVANT PAPERS, OR REMOVE IF CAN'T FIND ANY 
+		ideas:
+		1. 
+		2. 
+		3. 
+		4. 
+		-->
+
+
 		<section id="stories-1" class="center">
 			<h1>We make data driven stories easier to tell</h1>
 		</section>
@@ -369,14 +398,16 @@
 		<section id="ropensci-omics-tools">
 			<h1>Taxonomy</h1>
 			<ul class="b">
-				<li><h3 align="left"><a href="https://github.com/ropensci/taxize">taxize</a> - Taxonomic toolbelt</h3></li>
+				<li><h3 align="left"><a href="https://github.com/ropensci/taxa">taxa</a> - Taxonomic classes and taxonomically aware data manipulation</h3></li>
+				<li><h3 align="left"><a href="https://github.com/ropensci/taxize">taxize</a> - Taxonomic "toolbelt" - work w/ taxonomy web APIs</h3></li>
+				<li><h3 align="left"><a href="https://github.com/ropensci/taxize">taxizedb</a> - taxize, but with local SQL databases</h3></li>
 				<li><h3 align="left"><a href="https://github.com/ropensci/rentrez">rentrez</a> - NCBI's Entrez services</h3></li>
 				<li><h3 align="left"><a href="https://github.com/ropensci/biomartr">biomartr</a> - Biomart R client</h3></li>
-				<li><h3 align="left"><a href="https://bioconductor.org/packages/release/bioc/html/genbankr.html">genbankr</a> - Parsing GenBank files into semantically useful objects</h3></li>
+				<li><h3 align="left"><a href="https://bioconductor.org/packages/release/bioc/html/genbankr.html">genbankr</a> - Parse GenBank files into useful objects</h3></li>
 				<li><h3 align="left"><a href="https://github.com/ropensci/rsnps">rsnps</a> - SNPs data retrieval</h3></li>
 			</ul>
 			<br>
-			<p>of course most omics R stuff is in <a href="https://www.bioconductor.org/">Bioconductor</a></p>
+			<p>though most omics R packages are in <a href="https://www.bioconductor.org/">Bioconductor</a></p>
 		</section>
 
 		<section data-markdown id="taxize-example">
@@ -455,18 +486,20 @@
 		</section>
 
 		<section id="tools-spatial-pkgs">
-			<h1>Spatial</h1>
+			<h2>Spatial</h2>
 			<ul class="b">
 				<li><h3 align="left"><a href="https://github.com/ropensci/geojson">geojson</a> - GeoJSON classes</h3></li>
 				<li><h3 align="left"><a href="https://github.com/ropensci/geojsonio">geojsonio</a> - GeoJSON/TopoJSON input/output</h3></li>
-				<li><h3 align="left"><a href="https://github.com/ropensci/geonames">geonames</a> - Geonames API client</h3></li>
-				<li><h3 align="left"><a href="https://github.com/ropensci/wicket">wicket</a> Well-Known Text tools</h3></li>
-				<li><h3 align="left"><a href="https://github.com/ropensci/wellknown">wellknown</a> - WKT from R objects - and convert to GeoJSON</h3></li>
-				<li><h3 align="left"><a href="https://github.com/ropensci/rnaturalearth">rnaturalearth</a> - NaturalEarth data</h3></li>
-				<li><h3 align="left"><a href="https://github.com/ropensci/osmplotr">osmplotr</a> - Open Street Maps tools</h3></li>
-				<li><h3 align="left"><a href="https://github.com/ropensci/opencage">opencage</a> - OpenCage geocoding API</h3></li>
-				<li><h3 align="left"><a href="https://github.com/ropensci/lawn">lawn</a> - Turf.js javascript geo client</h3></li>
 				<li><h3 align="left"><a href="https://github.com/ropensci/geojsonlint">geojsonlint</a> - lint GeoJSON</h3></li>
+				<li><h3 align="left"><a href="https://github.com/ropenscilabs/geoops">geoops</a> - fast C++ based GeoJSON operations</h3></li>
+				<li><h3 align="left"><a href="https://github.com/ropensci/geonames">geonames</a> - <a href="http://www.geonames.org/">Geonames</a> API client</h3></li>
+				<li><h3 align="left"><a href="https://github.com/ropensci/lawn">lawn</a> - Turf.js javascript GeoJSON operations</h3></li>
+				<li><h3 align="left"><a href="https://github.com/ropensci/wicket">wicket</a> - <a href="https://en.wikipedia.org/wiki/Well-known_text">Well-Known Text</a> tools</h3></li>
+				<li><h3 align="left"><a href="https://github.com/ropensci/wellknown">wellknown</a> - WKT <-> R objects</h3></li>
+				<li><h3 align="left"><a href="https://github.com/ropensci/rnaturalearth">rnaturalearth</a> - NaturalEarth data</h3></li>
+				<li><h3 align="left"><a href="https://github.com/ropensci/osmplotr">osmplotr</a> - Open Street Maps plots</h3></li>
+				<li><h3 align="left"><a href="https://github.com/ropensci/osmdata">osmdata</a> - Open Street Maps data</h3></li>
+				<li><h3 align="left"><a href="https://github.com/ropensci/opencage">opencage</a> - OpenCage geocoding API</h3></li>
 			</ul>
 		</section>
 
@@ -536,6 +569,108 @@
 		</section>
 
 
+		<!-- wrapping web apis -->
+		<section id="wrapping-web-apis">
+			<h1>Wrapping web APIs</h1>
+			<br><br>
+			<i class="fa fa-wrench fa-5x"></i>
+		</section>
+
+		<section id="high-level-concepts">
+			<h2>Wrapping web APIs:<br>High level concepts</h2>
+			<br>
+			<ul>
+				<li><h3 align="left">Each pkg is a snowflake: every web API is different</h3></li>
+				<li><h3 align="left">Try to cater to both beginners and power users</h3></li>
+				<li><h3 align="left">Fail fast and fail well: APIs may not do it for you</h3></li>
+				<li><h3 align="left">Pass on curl options! Allows users to:</h3></li>
+				<ul>
+					<li><h3 align="left">investigate problems</h3></li>
+					<li><h3 align="left">set proxy options</h3></li>
+					<li><h3 align="left">and more</h3></li>
+				</ul>
+			</ul>
+		</section>
+
+		<section id="defensive-programming">
+			<h2>Defensive programming</h2>
+			<br>
+			<ul>
+				<li><h3 align="left">Fail fast</h3></li>
+				<li><h3 align="left">Defend against many things</h3></li>
+				<li><h3 align="left">Give users good errors</h3></li>
+			</ul>
+			<br>
+			<p>Check out my <a href="https://romantic-banach-71aac8.netlify.com/defensive-programming.html">defensive programming chapter</a></p>
+		</section>
+
+		<section data-markdown id="basic-structure">
+			<script type="text/template">
+				## Basic structure of functions
+
+				```r
+				get_foo <- function(query, ...) {
+				   cli <- crul::HttpClient$new(url = "https://foobar.com", opts = list(...))
+				   res <- cli$get("/hello-world", query = list(query = query))
+				   res$raise_for_status()
+				   if (res$response_headers$`content-type` != "application/json") stop("message")
+				   jsonlite::fromJSON(res$parse("UTF-8"))
+				}
+				```
+
+				```r
+				#' @export
+				#' @param query (character) Query terms
+				#' @param ... curl options, see `curl::curl_options` for help
+				#' @examples 
+				#' foo_bar("cellular")
+				foo_bar <- function(query, ...) get_foo(query = query, ...)
+				```
+			</script>
+		</section>
+
+
+
+		<!-- wrapping many sources into one package -->
+		<section id="many-sources-into-one">
+			<h1>Combining many sources into one package</h1>
+			<br><br>
+			<i class="fa fa-wrench fa-5x"></i><i class="fa fa-wrench fa-5x"></i><i class="fa fa-wrench fa-5x"></i>
+		</section>
+
+		<section id="many-into-one-considerations">
+			<h1>Many into one considerations</h1>
+			<br>
+			<ul class="b">
+				<li><h3 align="left">Is it really a good idea?</h3></li>
+				<li><h3 align="left">Inputs:</h3></li>
+				<ul>
+					<li><h3>What parameters can be unified across sources?</h3></li>
+					<li><h3>Allow users to fiddle with sources specific options</h3></li>
+					<li><h3>Fail consistently across sources if possible</h3></li>
+				</ul>
+				<li><h3 align="left">Outputs:</h3></li>
+				<ul>
+					<li><h3>What if any outputs can be combined</h3></li>
+				</ul>
+			</ul>
+		</section>
+
+		<section id="many-into-one-example">
+			<h1>Many into one e.g.: <a href="https://github.com/ropensci/spocc">spocc</a></h1>
+			<br>
+			<ul class="b">
+				<li><h3 align="left">All 10 sources share common input: taxonomic names</h3></li>
+				<li><h3 align="left">Pagination is similar-ish across sources (requires some source specific variable mapping)</h3></li>
+				<li><h3 align="left">Geospatial search: WKT and bounding boxes then map to what source requires</h3></li>
+				<li><h3 align="left">Most can toggle whether to return records that have coordinates or not</h3></li>
+				<li><h3 align="left">Outputs: combine the minimum set of similar fields</h3></li>
+			</ul>
+		</section>
+
+
+
+
 		<!-- software review -->
 		<section id="review">
 			<h1>Software Review</h1>
@@ -556,6 +691,8 @@
 				<li><h3 align="left">A number of e.g.'s of pkgs from government agencies (including Canada)</h3></li>
 			</ul>
 		</section>
+
+
 
 		<!-- discussion -->
 		<section id="discussion">
