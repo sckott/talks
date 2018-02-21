@@ -115,6 +115,12 @@
 			<h1>LICENSE: <a href="https://creativecommons.org/licenses/by/4.0/">CC-BY 4.0</a></h1>
 		</section>
 
+		<section id="keyboard-shortcuts" class="center">
+			<h2>Keyboard shortcuts: press <code>?</code></h2>
+			<br>
+			<img src="img/keyboard-shortcuts.png" width="600">
+		</section>
+
 
 		<!-- actual stuff -->
 
@@ -406,13 +412,15 @@
 				<li><h3 align="left"><a href="https://bioconductor.org/packages/release/bioc/html/genbankr.html">genbankr</a> - Parse GenBank files into useful objects</h3></li>
 				<li><h3 align="left"><a href="https://github.com/ropensci/rsnps">rsnps</a> - SNPs data retrieval</h3></li>
 			</ul>
-			<br>
-			<p>though most omics R packages are in <a href="https://www.bioconductor.org/">Bioconductor</a></p>
+		</section>
+
+		<section id="ropensci-more-omics-tools" class="center">
+			<h3>(though most omics R packages are in <a href="https://www.bioconductor.org/">Bioconductor</a><br>rOpenSci is open to submissions!)</h3>
 		</section>
 
 		<section data-markdown id="taxize-example">
 			<script type="text/template">
-				## Taxonomic data from 20 sources - <font color="red">taxize</font>
+				## Taxonomic data from 20 sources - <a href="https://github.com/ropensci/taxize">taxize</a>
 				<br>
 				### Taxonomic hierarchies from NCBI/ITIS/COL/etc
 
@@ -449,30 +457,63 @@
 
 		<section data-markdown id="rentrez-example">
 			<script type="text/template">
-				## xxxx - <font color="red">rentrez</font>
+				## ENTREZ in R - <a href="https://github.com/ropensci/rentrez">rentrez</a>
+
+				Retrieve datasets from a particular organism
 
 				```r
-				xxxx
+				library(rentrez)
+				x <- entrez_search(db = "popset", term = "Latrodectus katipo[Organism]")
+				x_summs <- entrez_summary(db = "popset", id = x$ids)
+				titles <- extract_from_esummary(x_summs, "title")
+				COI_ids <- x$ids[c(2,6)]
+				COI <- entrez_fetch(db = "popset", id = COI_ids, rettype = "fasta")
+				substr(COI, 1, 500)
+				#> [1] ">AY383604.1 Latrodectus katipo isolate 1 tRNA-Leu (trnL) gene, 
+				#> partial sequence; and NADH dehydrogenase subunit 1 (ND1) gene, 
+				#> partial cds; mitochondrial
+				#> ATTACCTAAATTATATCAATAATTATTAATTCAGTTATCCCTATAATCTCTCTCCTAATCAGAGTCTCGT
+				#> TTTACACTATCTTAGAACGAAAAATTTTAAGTTATATCCAAATTCGTAAAGGGCCTAATAAAGTGGGTTT
+				#> CCTTGGTATTCTCCAACCCTTTAGAGACGCAATTAAACTTTTCAACAAAAATCTTATTAAACCTTTCTCT
+				#> TCTAATTTTTTAATTTTCTACATCTCCCCCGCCTTATCTTTAACTCTTGCTCTCCTTATTTCTTCAATCA
+				#> TTCCTTTCTTTTACTTTTCTCCTTATGATAACAAACATAATATCTTGATATTCTTAATCTTAT"
 				```
 			</script>
 		</section>
 
-		<section data-markdown id="biomartr-example">
-			<script type="text/template">
-				## xxxx - <font color="red">biomartr</font>
-
-				```r
-				xxxx
-				```
-			</script>
+		<section id="biomartr">
+			<h2>Genomic Data Retrieval - <a href="https://github.com/ropensci/biomartr">biomartr</a> Interfaces to:</h2>
+			<br>
+			<ul class="b">
+				<li><h3 align="left"><a href="http://www.ncbi.nlm.nih.gov/">NCBI</a></h3></li>
+				<li><h3 align="left"><a href="http://www.ensembl.org/index.html">ENSEMBL</a></h3></li>
+				<li><h3 align="left"><a href="http://ensemblgenomes.org/">ENSEMBLGENOMES</a></h3></li>
+				<li><h3 align="left"><a href="http://ensemblgenomes.org/info/access/biomart">Ensembl Biomart</a></h3></li>
+				<li><h3 align="left"><a href="http://geneontology.org/">Gene Ontology</a></h3></li>
+			</ul>
 		</section>
 
 		<section data-markdown id="genbankr-example">
 			<script type="text/template">
-				## xxxx - <font color="red">genbankr</font>
+				## Parsing GenBank files into semantically useful objects - <a href="https://bioconductor.org/packages/release/bioc/html/genbankr.html">genbankr</a>
 
 				```r
-				xxxx
+				library(genbankr)
+				x <- system.file("sample.gbk", package="genbankr")
+				gb <- readGenBank(x)
+				#> GenBank Annotations
+				#> Human herpesvirus 5 strain VR1814, complete genome. 
+				#> Accession: GU179289
+				#> 1 Sequence(s) with total length length: 235233
+				#> 174 genes
+				#> 170 transcripts
+				#> 191 exons/cds elements
+				#> 61 variations
+				#> 24 other features
+				genes(gb)
+				cds(gb)
+				exons(gb)
+				transcripts(gb)
 				```
 			</script>
 		</section>
@@ -583,10 +624,10 @@
 				<li><h3 align="left">Each pkg is a snowflake: every web API is different</h3></li>
 				<li><h3 align="left">Try to cater to both beginners and power users</h3></li>
 				<li><h3 align="left">Fail fast and fail well: APIs may not do it for you</h3></li>
-				<li><h3 align="left">Pass on curl options! Allows users to:</h3></li>
+				<li><h3 align="left">Pass on curl options! empower your users to:</h3></li>
 				<ul>
-					<li><h3 align="left">investigate problems</h3></li>
-					<li><h3 align="left">set proxy options</h3></li>
+					<li><h3 align="left">investigate http request problems</h3></li>
+					<li><h3 align="left">set proxy options (IT often blocks certain sites/ports)</h3></li>
 					<li><h3 align="left">and more</h3></li>
 				</ul>
 			</ul>
@@ -608,6 +649,8 @@
 			<script type="text/template">
 				## Basic structure of functions
 
+				DRY - don't repeat yourself
+
 				```r
 				get_foo <- function(query, ...) {
 				   cli <- crul::HttpClient$new(url = "https://foobar.com", opts = list(...))
@@ -627,6 +670,27 @@
 				foo_bar <- function(query, ...) get_foo(query = query, ...)
 				```
 			</script>
+		</section>
+
+		<section id="web-api-example-pkg">
+			<h2>Example pkg wrapping web API</h2>
+			<br>
+			<h2><a href="https://github.com/ropensci/ritis">ritis</a>: client for ITIS taxonomic data</h2>
+			<br>
+			<a href="https://github.com/ropensci/ritis" target="_blank"><i class="fa fa-external-link fa-5x"></i></a>
+		</section>
+
+		<section id="ritis-structure">
+			<h2>ritis: notes/thoughts</h2>
+			<br><br>
+			<ul class="b">
+				<li><h3 align="left">imports: solrium, crul, jsonlite, data.table, tibble</h3></li>
+				<li><h3 align="left">package API: fxns for REST API and Solr API</h3></li>
+				<li><h3 align="left">a downside of this package possibly: a lot of functions</h3></li>
+				<li><h3 align="left">return tibbles from all functions</h3></li>
+				<li><h3 align="left">but <code>raw</code> JSON/XML output for those that want it</h3></li>
+				<li><h3 align="left">Solr queries handled by <a href="https://github.com/ropensci/solrium">solrium</a> package</h3></li>
+			</ul>
 		</section>
 
 
@@ -654,6 +718,12 @@
 					<li><h3>What if any outputs can be combined</h3></li>
 				</ul>
 			</ul>
+		</section>
+
+		<section id="many-into-one-spocc">
+			<h1>Many into one e.g.: spocc</h1>
+			<br>
+			<a href="https://github.com/ropensci/spocc" target="_blank"><i class="fa fa-external-link fa-5x"></i></a>
 		</section>
 
 		<section id="many-into-one-example">
@@ -690,6 +760,14 @@
 				<li><h3 align="left">After approval, pkg moved to rOpenSci</h3></li>
 				<li><h3 align="left">A number of e.g.'s of pkgs from government agencies (including Canada)</h3></li>
 			</ul>
+		</section>
+
+		<section id="pre-submission-inquiry">
+			<h1>not sure?</h1>
+			<br>
+			<h2>pre-submission inquiry!</h2>
+			<br><br>
+			<h3>checkout prior <a href="https://github.com/ropensci/onboarding/issues?q=label%3A0%2Fpresubmission+is%3Aclosed">presub inquiries</a></h3>
 		</section>
 
 
