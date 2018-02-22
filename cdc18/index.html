@@ -93,7 +93,7 @@
 		<div class="reveal">
 			<div class="slides">
 		<section id="intro">
-			<h1><font color="#B8172F">rOpenSci &amp; R </font></h1><br>
+			<h1><font color="#B8172F">Open Science / Research w/ R featuring rOpenSci</font></h1><br>
 			<p class="grey">Scott Chamberlain (<a href="https://twitter.com/sckottie">@sckottie</a>/<a href="https://twitter.com/ropensci">@ropensci</a>)
 				<p class="grey">UC Berkeley / rOpenSci
 			<br>
@@ -125,7 +125,7 @@
 		<!-- actual stuff -->
 
 		<!-- INTRO 
-			Emphasize that here i'm introducing the inspiration for the work ropensci does, and 
+			Emphasize here i'm introducing the inspiration for the work ropensci does, and 
 			not necessarily to convince people to do open science (though if you're work gets 
 			more open that's great).
 		-->
@@ -214,7 +214,7 @@
 		<!-- programming languages important in open science -->
 
 		<section id="programming-languages-and-open-science" class="center">
-			<h2>important scientific programming languages</h2>
+			<h2>important (higher level) scientific programming languages</h2>
 			<img src="img/python.jpeg" width="400"><br><img src="img/r.png" width="200"><br><img src="img/julia-lang.png" width="200">
 		</section>
 
@@ -345,51 +345,56 @@
 			<img src="img/packages.png" width="900">
 		</section>
 
-
-
-		<!-- use cases to demonstrate what can be done -->
-		<!-- REPLACE WITH CDC RELAVANT PAPERS, OR REMOVE IF CAN'T FIND ANY 
-		ideas:
-		1. 
-		2. 
-		3. 
-		4. 
-		-->
-
-
-		<section id="stories-1" class="center">
-			<h1>We make data driven stories easier to tell</h1>
+		<section id="reduce-redundant-small-tools">
+			<h2>rOpenSci Software: some of the benefits</h2>
+			<br>
+			<ul class="b">
+				<li><h3 align="left">reduce redundant small software efforts</h3></li>
+				<li><h3 align="left">funnel effort into sustainable, well-maintained software (see lack of support for software MAINTANENCE in academia)</h3></li>
+				<li><h3 align="left">bring maintainers into a community</h3></li>
+				<li><h3 align="left">give otherwise isolated projects a louder voice</h3></li>
+				<li><h3 align="left">hopefully we make each piece of software more sustainable</h3></li>
+			</ul>
 		</section>
 
-		<section id="stories-2" class="center">
-			<h1>here are some stories ...</h1>
+		<section id="sustainability">
+			<h2>but, software sustainability is hard</h2>
+			<h3>each panel is a pakage, each dot a person</h3>
+			<img src="img/gitcommits.png">
+		</section>
+
+		<section id="ropensci-uses-1">
+			<h1>rOpenSci software used in</h1>
+			<br>
+			<h2>research<br>within companies<br>fun side projects<br>journalism<br>and more</h2>
+		</section>
+
+		<section id="ropensci-uses-2" class="center">
+			<h1>here are some of the academic research uses <br><br> ... usually found in methods section of papers</h1>
 		</section>
 
 		<section id="use-case-1">
 			<h2>use case 1</h2>
-			<center><a href="https://doi.org/10.1126/science.aab0800">McGee, M. D., Borstein, S. R., Neches, R. Y., Buescher, H. H., Seehausen, O., &amp; Wainwright, P. C. (2015). A pharyngeal jaw evolutionary innovation facilitated extinction in Lake Victoria cichlids. Science, 350(6264), 1077–1079&nbsp;<i class="fa fa-external-link-square"></i></a></center>
+			<center><a href="https://doi.org/10.1101/260398">Claypool, K., &amp; Patel, C. J. (2018). A transcript-wide association study in physical activity intervention implicates molecular pathways in chronic disease. BioRxiv&nbsp;<i class="fa fa-external-link-square"></i></a></center>
 			<br>
-			<img src="img/mcgee.png" width="1300">
-		</section>
-
-		<section id="fishbase" class="center">
-			<img src="img/fishbase.png", width="600">
-			<br>
-			<img src="img/rfishbase.png", width="600">
+			<blockquote style="font-size: 70px">We used the <strong>rentrez</strong> R package to execute the query on GEO [Gene Expression Omnibus] ...</blockquote>
 		</section>
 
 		<section id="use-case-2">
 			<h2>use case 2</h2>
-			<center><a href="https://doi.org/10.1002/ece3.1599">Turner et al. (2015). Adaptive plasticity and niche expansion in an invasive thistle. Ecology and Evolution&nbsp;<i class="fa fa-external-link-square"></i></a></center>
+			<center><a href="https://doi.org/10.1111/ele.12909">Emer, C., et al. (2018). Seed-dispersal interactions in fragmented landscapes - a metanetwork approach. Ecology Letters&nbsp;<i class="fa fa-external-link-square"></i></a></center>
 			<br>
-			<img src="img/turner.png" width="1300">
+			<img src="img/emer.png" width="500">
+			<br>
+			<blockquote style="font-size: 60px">We compiled 16 studies of BSD [bird seed dispersal]-interactions in fragments of the SE Brazilian Atlantic Forest ... We updated species names with <strong>taxize</strong> package (Chamberlain &amp; Szocs 2013).</blockquote>
 		</section>
 
 		<section id="use-case-3">
 			<h2>use case 3</h2>
-			<center><a href="https://doi.org/10.1111/rec.12381">Butterfield et al. (2016). Prestoration: using species in restoration that will persist now and into the future. Restoration Ecology.&nbsp;<i class="fa fa-external-link-square"></i></a></center>
+			<center><a href="https://doi.org/10.1371/journal.pone.0159184">Harsch, M. A., &amp; HilleRisLambers, J. (2016). Climate Warming and Seasonal Precipitation Change Interact to Limit Species Distribution Shifts across Western North America. PLOS ONE.&nbsp;<i class="fa fa-external-link-square"></i></a></center>
+			<img src="img/harsch.png" width="250">
 			<br>
-			<img src="img/butterfield.png" width="1300">
+			<blockquote style="font-size: 50px">To fill in missing elevation records and correct elevation records ... we estimated altitude ... using the GNsrtm3 function within the <strong>geonames</strong> package ... </blockquote>
 		</section>
 
 
@@ -415,12 +420,12 @@
 		</section>
 
 		<section id="ropensci-more-omics-tools" class="center">
-			<h3>(though most omics R packages are in <a href="https://www.bioconductor.org/">Bioconductor</a><br>rOpenSci is open to submissions!)</h3>
+			<h3>(although most omics R packages are in <a href="https://www.bioconductor.org/">Bioconductor</a>,<br>rOpenSci is open to submissions!)</h3>
 		</section>
 
 		<section data-markdown id="taxize-example">
 			<script type="text/template">
-				## Taxonomic data from 20 sources - <a href="https://github.com/ropensci/taxize">taxize</a>
+				## Taxonomic data from >20 sources - <a href="https://github.com/ropensci/taxize">taxize</a>
 				<br>
 				### Taxonomic hierarchies from NCBI/ITIS/COL/etc
 
@@ -459,8 +464,8 @@
 			<script type="text/template">
 				## ENTREZ in R - <a href="https://github.com/ropensci/rentrez">rentrez</a>
 
-				Retrieve datasets from a particular organism
-
+				### Retrieve datasets from a particular organism
+				<br>
 				```r
 				library(rentrez)
 				x <- entrez_search(db = "popset", term = "Latrodectus katipo[Organism]")
@@ -517,8 +522,6 @@
 				```
 			</script>
 		</section>
-
-
 
 
 		<!-- spatial tools -->
@@ -608,6 +611,101 @@
 				<img src="img/lawneg.png" width="800">
 			</script>
 		</section>
+
+
+
+		<!-- climate data tools -->
+		<section id="tools-climate" class="center">
+			<h1>Climate data tools</h1>
+		</section>
+
+		<section id="tools-climate-pkgs">
+			<h2>Climate data</h2>
+			<ul class="b">
+				<li><h3 align="left"><a href="https://github.com/ropensci/rnoaa">rnoaa</a> - NOAA climate data</h3></li>
+				<li><h3 align="left"><a href="https://github.com/ropensci/isdparser">isdparser</a> - parse NOAA Integrated Surface Data Files</h3></li>
+				<li><h3 align="left"><a href="https://github.com/ropensci/FedData">FedData</a> - various US federal datasets (DEM's, hydrography, soil survey, climate, etc.)</h3></li>
+				<li><h3 align="left"><a href="https://github.com/ropensci/weathercan">weathercan</a> - <a href="http://climate.weather.gc.ca/historical_data/search_historic_data_e.html">Environment and Climate Canada</a> data</h3></li>
+				<li><h3 align="left"><a href="https://github.com/ropensci/getCRUCLdata">getCRUCLdata</a> - CRU CL v. 2.0 Climatology Elements</h3></li>
+				<li><h3 align="left"><a href="https://github.com/ropensci/GSODR">GSODR</a> - Global Summary Daily Weather Data</h3></li>
+			</ul>
+		</section>
+
+		<section id="rnoaa-overview">
+			<h2>NOAA climate data - <a href="https://github.com/ropensci/rnoaa">rnoaa</a></h2>
+			<br>
+			<li><h4 align="left">NCDC API</h4></li>
+            <li><h4 align="left">Severe weather data</h4></li>
+            <li><h4 align="left">Sea ice data</h4></li>
+            <li><h4 align="left">NOAA buoy data</h4></li>
+            <li><h4 align="left">Tornadoes</h4></li>
+            <li><h4 align="left">HOMR - Historical Observing Metadata Repository</h4></li>
+            <li><h4 align="left">Storm data</h4></li>
+            <li><h4 align="left">GHCND FTP data</h4></li>
+            <li><h4 align="left">Global Ensemble Forecast System (GEFS) data</h4></li>
+            <li><h4 align="left">Extended Reconstructed Sea Surface Temperature (ERSST) data</h4></li>
+            <li><h4 align="left">Argo buoys data</h4></li>
+            <li><h4 align="left">NOAA CO-OPS - tides and currents data</h4></li>
+            <li><h4 align="left">NOAA Climate Prediction Center (CPC)</h4></li>
+            <li><h4 align="left">Africa Rainfall Climatology version 2</h4></li>
+		</section>
+
+		<section data-markdown id="rnoaa-examples">
+			<script type="text/template">
+				## <a href="https://github.com/ropensci/rnoaa">rnoaa</a> - example
+
+				NCDC API
+
+				```r
+				library(rnoaa)
+				ncdc(datasetid = 'PRECIP_HLY', locationid = 'ZIP:28801', 
+					datatypeid = 'HPCP', limit = 5, token =  "<YOUR_TOKEN>")
+				```
+
+				GHCND FTP data
+
+				```r
+				ids <- c("ASN00003003", "ASM00094299", "ASM00094995", "ASM00094998")
+				meteo_pull_monitors(ids)
+				```
+
+				Tides and Currents data from COOPS
+
+				```r
+				ops_search(station_name = 9063053, begin_date = 20150927, end_date = 20150928,
+					product = "daily_mean", datum = "stnd", time_zone = "lst")
+				```
+
+				Local Climatalogical Data
+
+				```r
+				lcd(station = "01338099999", year = "2017")
+				```
+			</script>
+		</section>
+
+		<section data-markdown id="feddata">
+			<script type="text/template">
+				## various federal datasets - <a href="https://github.com/ropensci/FedData">FedData</a>
+
+				plot the National Hydrography Dataset for a study area
+
+				```r
+				library(FedData)
+				vepPolygon <- polygon_from_extent(
+					raster::extent(672800, 740000, 4102000, 4170000),
+				    	proj4string = "+proj=utm +datum=NAD83 +zone=12")
+				NED <- get_ned(template = vepPolygon, label = "VEPIIN")
+				NHD <- get_nhd(template = vepPolygon, label = "VEPIIN")
+				raster::plot(NED)
+				NHD %>% lapply(sp::plot, col = 'black', add = TRUE)
+				```
+
+				<img src="img/feddata.png" width="700">
+			</script>
+		</section>
+
+
 
 
 		<!-- wrapping web apis -->
