@@ -26,7 +26,8 @@
 		<link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico">
 
 		<!-- icons -->
-		<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.css">
+		<!-- <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.css"> -->
+		<link href="https://use.fontawesome.com/releases/v5.0.8/css/all.css" rel="stylesheet">
 
 		<!-- Code syntax highlighting -->
 		<link rel="stylesheet" href="lib/css/zenburn.css">
@@ -83,14 +84,10 @@
 			<span><img src="img/icon_lettering_color.svg" alt="rOpenSci" width="800" /></span>
 		</section>
 
-		<!-- <section id="thanks-helmsley" class="center">
-			<span><img src="img/helmsley.png" alt="hemlsley foundation" width="1000" /></span>
-		</section> -->
-
 		<section id="link" class="center">
 			<!-- <i class="fa fa-external-link fa-5x"></i> -->
 			<br>
-			<h1><a href="https://scotttalks.info/cdc18">scotttalks.info/cdc18</a> </h1>
+			<h1><a href="https://scotttalks.info/scholtext">scotttalks.info/scholtext</a> </h1>
 			<br><br>
 			<h2>LICENSE: <a href="https://creativecommons.org/licenses/by/4.0/">CC-BY 4.0</a></h2>
 		</section>
@@ -101,96 +98,107 @@
 		</section>
 
 		<section id="questions">
-			<h2>What kinds of questions can you ask?</h2>
+			<h2>What kinds of questions can we ask?</h2>
 			<br>
 			<ul>
 				<li><h3 align="left">Has the number of authors per article increased through time?</h3></li>
 				<li><h3 align="left">Do p-values on average differ by impact factor?</h3></li>
 				<li><h3 align="left">How do length of methods sections change through time?</h3></li>
-				<li><h3 align="left">xxx?</h3></li>
-				<li><h3 align="left">xxx?</h3></li>
+				<li><h3 align="left">How does the use of the word ___ vary through time?</h3></li>
+				<li><h3 align="left">How does code sharing vary by journal/discipline/etc.?</h3></li>
 			</ul>
 		</section>
 
 		<section id="tools">
 			<h1>rOpenSci Tools</h1>
-			<ul>
-				<li><h3 align="left">xxx</h3></li>
-				<li><h3 align="left">xxx</h3></li>
-				<li><h3 align="left">xxx</h3></li>
-				<li><h3 align="left">xxx</h3></li>
-				<li><h3 align="left">xxx</h3></li>
-			</ul>
+			<br>
+			<h3>data source specific: <a href="https://github.com/ropensci/rcrossref">rcrossref</a>, <a href="https://github.com/ropensci/rdatacite">rdatacite</a>, <a href="https://github.com/ropensci/rorcid">rorcid</a>, <a href="https://github.com/ropensci/microdemic">microdemic</a>, <a href="https://github.com/ropensci/rplos">rplos</a>, <a href="https://github.com/ropensci/europepmc">europepmc</a>, <a href="https://github.com/ropensci/entrez">entrez</a>, <a href="https://github.com/ropensci/aRxiv">aRxiv</a></h3>
+			<br>
+			<h3>full text tools: <a href="https://github.com/ropensci/fulltext">fulltext</a>, <a href="https://github.com/ropensci/crminer">crminer</a></h3>
+			<br>
+			<h3>extraction tools: <a href="https://github.com/ropensci/pdftools">pdftools</a>, <a href="https://github.com/ropensci/unrtf">unrtf</a>, <a href="https://github.com/ropensci/tabulizer">tabulizer</a>, <a href="https://github.com/ropensci/pubchunks">pubchunks</a>, <a href="https://github.com/ropensci/antiword">antiword</a></h3>
+			<br><br>
+			<a href="https://ropensci.org/packages/"><i class="fa fa-external-link-square-alt"></i>&nbsp;&nbsp;ropensci.org/packages</a>
 		</section>
 
-		<section id="rcrossref-eg">
-			<h1>rcrossref example</h1>
+		<section data-markdown id="fulltext-eg">
+			<script type="text/template">
+				## fulltext example
+
+				```r
+				library(fulltext)
+				x <- ft_search("cellular", from = 'plos', limit = 300)
+				y <- ft_get(x) 
+				z <- ft_collect(y) 
+				chunks <- ft_chunks(z, "authors")
+				freqs <- vapply(chunks$plos, function(z) length(z$authors), 1)
+				hist(freqs)
+				```
+
+				![image](img/fulltext.png)
+			</script>
 		</section>
 
-		<section id="rorcid-eg">
-			<h1>rorcid example</h1>
+		<section data-markdown  id="rcrossref-eg">
+			<script type="text/template">
+				## rcrossref example
+
+				get citations in lots of different styles
+
+				```r
+				library(rcrossref)
+				doi <- cr_r(1)
+				cr_cn(doi, style = "oikos")
+				```
+
+				```r
+				@article{Kruman_1984,
+					doi = {10.2307/1899861},
+					url = {https://doi.org/10.2307%2F1899861},
+					year = 1984,
+					month = {jun},
+					publisher = {Oxford University Press ({OUP})},
+					volume = {71},
+					number = {1},
+					pages = {123},
+					author = {Marc W. Kruman and William J. Cooper},
+					title = {Liberty and Slavery: Southern Politics to 1860},
+					journal = {The Journal of American History}
+				```
+
+				<br>
+
+				```r
+				cr_cn(doi, style = "apa")
+				cr_cn(doi, style = "heredity")
+				```
+			</script>
 		</section>
 
-		<section id="fulltext-eg">
-			<h1>fulltext example</h1>
+		<section id="tabulizer-eg">
+			<h1>tabulizer example</h1>
+			<img src="http://i.imgur.com/USTyQl7.gif">
 		</section>
 
 		<section id="get-in-touch" class="center">
 			<h1>Get in touch!</h1>
 			<br><br>
-			<i class="fa fa-bullhorn fa-5x"></i>
+			<i class="fa fa-keyboard fa-5x"></i>
 			<br><br><br>
 			<h2><a href="https://discuss.ropensci.org">discuss.ropensci.org</a></h2>
 		</section>
 
-		<!-- <section data-markdown id="feddata">
-			<script type="text/template">
-				## various federal datasets - <a href="https://github.com/ropensci/FedData">FedData</a>
-
-				plot the National Hydrography Dataset for a study area
-
-				```r
-				library(FedData)
-				vepPolygon <- polygon_from_extent(
-					raster::extent(672800, 740000, 4102000, 4170000),
-				    	proj4string = "+proj=utm +datum=NAD83 +zone=12")
-				NED <- get_ned(template = vepPolygon, label = "VEPIIN")
-				NHD <- get_nhd(template = vepPolygon, label = "VEPIIN")
-				raster::plot(NED)
-				NHD %>% lapply(sp::plot, col = 'black', add = TRUE)
-				```
-
-				<img src="img/feddata.png" width="700">
-			</script>
-		</section> -->
-
-		<!-- <section id="high-level-concepts">
-			<h2>Wrapping web APIs:<br>High level concepts</h2>
-			<br>
-			<ul>
-				<li><h3 align="left">Each pkg is a snowflake: every web API is different</h3></li>
-				<li><h3 align="left">Try to cater to both beginners and power users</h3></li>
-				<li><h3 align="left">Fail fast and fail well: APIs may not do it for you</h3></li>
-				<li><h3 align="left">Pass on curl options! empower your users to:</h3></li>
-				<ul>
-					<li><h3 align="left">investigate http request problems</h3></li>
-					<li><h3 align="left">set proxy options (IT often blocks certain sites/ports)</h3></li>
-					<li><h3 align="left">and more</h3></li>
-				</ul>
-			</ul>
-		</section> -->
-
 		<!-- end -->
 		<section id="end">
-			<i class="fa fa-external-link fa-5x"></i>
+			<i class="fa fa-external-link-square-alt fa-5x"></i>
 			<br>
 			<h2><a href="https://scotttalks.info/scholtext">scotttalks.info/scholtext</a></h2>
 			<br><br>
 			<h2>Made w/: <a href="https://github.com/hakimel/reveal.js">reveal.js v3.2.0</a></h2>
 			<br>
-			<h2>Some Styling: <a href="http://getbootstrap.com/">Bootstrap v3.3.5</a></h2>
+			<h2>Styling: <a href="http://getbootstrap.com/">Bootstrap v3.3.5</a></h2>
 			<br>
-			<h2>Icons by: <a href="http://fortawesome.github.io/Font-Awesome/">FontAwesome v4.4.0</a></h2>
+			<h2>Icons: <a href="http://fortawesome.github.io/Font-Awesome/">FontAwesome v5.0.8</a></h2>
 		</section>
 
 			</div>
