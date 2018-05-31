@@ -76,8 +76,8 @@
 		<div class="reveal">
 			<div class="slides">
 		<section id="intro">
-			<h1><font color="#B8172F">Biodiversity and Taxonomy Software Tools in R</font></h1><br>
-			<p class="grey">Scott Chamberlain (<a href="https://twitter.com/sckottie">@sckottie</a>/<a href="https://twitter.com/ropensci">@ropensci</a>)
+			<h1><font color="#B8172F">Biodiversity &amp; Taxonomy Software Tools in R</font></h1><br>
+			<p class="grey">Scott Chamberlain (<i class="fa fa-twitter"></i> <a href="https://twitter.com/sckottie">@sckottie</a>/<a href="https://twitter.com/ropensci">@ropensci</a>)
 				<p class="grey">UC Berkeley / rOpenSci
 			<br>
 			<span><img src="img/icon_lettering_color.svg" alt="rOpenSci" width="800" /></span>
@@ -94,6 +94,8 @@
 			<br><br>
 			<h2><a href="https://scotttalks.info/bocc/slides_960-720.pdf">pdf slides 960x720</a></h2>
 			<h2><a href="https://scotttalks.info/bocc/slides_1280-720.pdf">pdf slides 1280x720</a></h2>
+			<br>
+			<h2><a href="https://github.com/hakimel/reveal.js/wiki/Keyboard-Shortcuts">Keyboard shortcuts</a>: press <code>?</code></h2>
 		</section>
 
 		<section id="license" class="center">
@@ -101,46 +103,74 @@
 			<h1>LICENSE: <a href="https://creativecommons.org/licenses/by/4.0/">CC-BY 4.0</a></h1>
 		</section>
 
-		<section id="keyboard-shortcuts" class="center">
-			<h2>Keyboard shortcuts: press <code>?</code></h2>
-			<br>
-			<img src="img/keyboard-shortcuts.png" width="600">
-		</section>
-
-
 		<!-- actual stuff -->
 		<!-- about ropensci -->
 		<section id="ropensci">
 			<br>
 			<span><img src="img/icon_lettering_color.svg" alt="rOpenSci" width="1200" /></span>
 			<br>
-			<center><a href="https://ropensci.org/">ropensci.org &nbsp;<i class="fa fa-external-link-square"></i></a></center>
+			<center><h3><a href="https://ropensci.org/">ropensci.org &nbsp;<i class="fa fa-external-link-square"></i></a></h3></center>
 		</section>
 
 		<section id="ropensci-does">
 			<h1>rOpenSci Does</h1>
 			<br><br>
-	    <i class="fa fa-users fa-5x" aria-hidden="true"></i>&nbsp;&nbsp;
-	    <i class="fa fa-code fa-5x" aria-hidden="true"></i>&nbsp;&nbsp;
+		    <i class="fa fa-users fa-5x" aria-hidden="true"></i>&nbsp;&nbsp;
+		    <i class="fa fa-code fa-5x" aria-hidden="true"></i>&nbsp;&nbsp;
 			<i class="fa fa-book fa-5x" aria-hidden="true"></i>&nbsp;&nbsp;
 			<i class="fa fa-check-square-o fa-5x" aria-hidden="true"></i>&nbsp;&nbsp;
 		</section>
 
-		<section id="ropensci-staff">
-			<h1>rOpenSci Staff</h1>
-			<br>
-			<a href="https://ropensci.org/about/#team">ropensci.org/about/#team</a>
-			<br><br>
-			<ul class="b">
-				<li><h2 align="left">~5 full time</h2></li>
-				<li><h2 align="left">leadership team</h2></li>
-				<li><h2 align="left">advisory board</h2></li>
-			</ul>
-		</section>
-
 	
 		<!-- describe problem space -->
-		<!-- FIXME: make slides -->
+		<section id="questions">
+			<h2>Sampling of papers</h2>
+			<img src="img/questions.png" width="1050px">
+		</section>
+
+		<section id="citations">
+			<h2>Citations of rOpenSci Biodiv Software</h2>
+			<br>
+			<div style="text-align: left; float: left; margin-left: 200px">
+				<h3>Taxonomy</h3>
+				<br>
+				  <table>
+				  <thead>
+				    <tr>
+				      <th>package</th>
+				      <th>citations</th>
+				    </tr>
+				  </thead>
+				  <tr><td>taxize</td><td>71</td></tr>
+				  <tr><td>rentrez</td><td>13</td></tr>
+				  <tr><td>ritis</td><td> 1</td></tr>
+				  <tr><td>taxa</td><td> 1</td></tr>
+				  <tr><td>worrms</td><td> 1</td></tr>
+				</table>
+			</div>
+
+		  	<div style="text-align: right; float: right; margin-right: 200px">
+		  		<h3>Occurrences</h3>
+				<br>
+		    	 <table>
+				  <thead>
+				    <tr>
+				      <th>package</th>
+				      <th>citations</th>
+				    </tr>
+				  </thead>
+				  <tr><td>rgbif</td><td>51</td></tr>
+				  <tr><td>rfishbase</td><td>24</td></tr>
+				  <tr><td>spocc</td><td> 8</td></tr>
+				  <tr><td>rfisheries</td><td> 2</td></tr>
+				  <tr><td>rredlist</td><td> 2</td></tr>
+				  <tr><td>rvertnet</td><td> 2</td></tr>
+				  <tr><td>AntWeb</td><td> 1</td></tr>
+				  <tr><td>pangaear</td><td> 1</td></tr>
+				  <tr><td>rotl</td><td> 8</td></tr>
+				</table>
+			</div>
+		</section>
 		
 		<!-- discuss current tooling in R -->
 		<!-- taxonomy tools -->
@@ -149,11 +179,8 @@
 			<ul class="b">
 				<li><h3 align="left"><a href="https://github.com/ropensci/taxa">taxa</a> - Taxonomic classes and taxonomically aware data manipulation</h3></li>
 				<li><h3 align="left"><a href="https://github.com/ropensci/taxize">taxize</a> - Taxonomic "toolbelt" - work w/ taxonomy web APIs</h3></li>
-				<li><h3 align="left"><a href="https://github.com/ropensci/taxize">taxizedb</a> - taxize, but with local SQL databases</h3></li>
-				<li><h3 align="left"><a href="https://github.com/ropensci/rentrez">rentrez</a> - NCBI's Entrez services</h3></li>
-				<li><h3 align="left"><a href="https://github.com/ropensci/biomartr">biomartr</a> - Biomart R client</h3></li>
-				<li><h3 align="left"><a href="https://bioconductor.org/packages/release/bioc/html/genbankr.html">genbankr</a> - Parse GenBank files into useful objects</h3></li>
-				<li><h3 align="left"><a href="https://github.com/ropensci/rsnps">rsnps</a> - SNPs data retrieval</h3></li>
+				<li><h3 align="left"><a href="https://github.com/ropensci/taxizedb">taxizedb</a> - taxize, but with local SQL databases</h3></li>
+				<li><h3 align="left"><a href="https://github.com/ropensci/rentrez">rentrez</a> - NCBI's Entrez, including taxonomy</h3></li>
 			</ul>
 		</section>
 
@@ -197,6 +224,7 @@
 		<section data-markdown id="rentrez-example">
 			<script type="text/template">
 				## ENTREZ in R - <a href="https://github.com/ropensci/rentrez">rentrez</a>
+				## FIXME: use a more taxonomic example
 
 				### Retrieve datasets from a particular organism
 				<br>
@@ -225,17 +253,17 @@
 		<section id="occurrence-tools">
 			<h1>Occurrence data</h1>
 			<ul class="b">
-				<li><h3 style="font-size: 40px"><a href="https://github.com/ropensci/rgbif">rgbif</a> - GBIF</h3></li>
-				<li><h3 style="font-size: 40px"><a href="https://github.com/ropensci/rbison">rbison</a> - USGS's BISON</h3></li>
-				<li><h3 style="font-size: 40px"><a href="https://github.com/ropensci/rvertnet">rvertnet</a> - VertNet</h3></li>
-				<li><h3 style="font-size: 40px"><a href="https://github.com/ropensci/rebird">rebird</a> - eBird (see also <a href="https://github.com/CornellLabofOrnithology/auk">auk</a>)</h3></li>
-				<li><h3 style="font-size: 40px"><a href="https://github.com/ropensci/rinat">rinat</a> - iNaturalist</h3></li>
-				<li><h3 style="font-size: 40px"><a href="https://github.com/ropensci/spocc">spocc</a> - one stop shop (of all above)</h3></li>
-				<li><h3 style="font-size: 40px"><a href="https://github.com/ropensci/finch">finch</a> - parse GBIF bulk data</h3></li>
+				<li><h3 align="left"><a href="https://github.com/ropensci/rgbif">rgbif</a> - GBIF</h3></li>
+				<li><h3 align="left"><a href="https://github.com/ropensci/rbison">rbison</a> - USGS's BISON</h3></li>
+				<li><h3 align="left"><a href="https://github.com/ropensci/rvertnet">rvertnet</a> - VertNet</h3></li>
+				<li><h3 align="left"><a href="https://github.com/ropensci/rebird">rebird</a> - eBird (see also <a href="https://github.com/CornellLabofOrnithology/auk">auk</a>)</h3></li>
+				<li><h3 align="left"><a href="https://github.com/ropensci/rinat">rinat</a> - iNaturalist</h3></li>
+				<li><h3 align="left"><a href="https://github.com/ropensci/spocc">spocc</a> - one stop shop (of all above)</h3></li>
+				<li><h3 align="left"><a href="https://github.com/ropensci/finch">finch</a> - parse GBIF bulk data</h3></li>
 				<ul>
-					<li><h3 style="font-size: 40px"><a href="https://cran.rstudio.com/web/packages/EML">EML</a> - read and create EML</h3></li>
+					<li><h3 align="left"><a href="https://cran.rstudio.com/web/packages/EML">EML</a> - read and create EML</h3></li>
 				</ul>
-				<li><h3 style="font-size: 40px"><a href="https://github.com/iDigBio/ridigbio">ridigbio</a>&nbsp;<a href="https://github.com/AtlasOfLivingAustralia/ALA4R">ALA4R</a>&nbsp;<a href="https://github.com/iobis/robis">robis</a> *</h3></li>
+				<li><h3 align="left"><a href="https://github.com/iDigBio/ridigbio">ridigbio</a>&nbsp;<a href="https://github.com/AtlasOfLivingAustralia/ALA4R">ALA4R</a>&nbsp;<a href="https://github.com/iobis/robis">robis</a> *</h3></li>
 			</ul>
 		</section>
 
@@ -252,8 +280,49 @@
 			</script>
 		</section>
 
+
+
 		<!-- tools in development and other unsolved problems -->
-		<!-- FIXME: make slides -->
+		<section id="the-future" class="center">
+			<h1>future work/hard problems</h1>
+		</section>
+
+		<section id="taxonomy-tools-future">
+			<h1>taxonomy tools</h1>
+			<br>
+			<ul>
+				<li><h3>taxonomic name parsing: <em>fast &amp; platform independent for other R tool builders</em> (see <a href="https://scotttalks.info/berkeley2018poster/index.html"><code>pegax</code> poster</a>)</h3></li>
+				<li><h3>package <a href="https://github.com/ropensci/taxa">taxa</a>: needs more user testing - feedback plz!</h3></li>
+				<li><h3>package <a href="https://github.com/ropenscilabs/taxadc">taxadc</a>: serialize R taxonomic data to Darwin Core</h3></li>
+				<li><h3>package <a href="https://github.com/ropensci/taxizedb">taxizedb</a> - like <code>taxize</code>, but w/ local SQL DB's</h3></li>
+			</ul>
+		</section>
+
+		<section id="occurrence-tools-future">
+			<h2>occurrence tools: in the works</h2>
+			<br>
+			<ul>
+				<li><h3>taking the pain out of GBIF downloads: <a href="https://github.com/ropensci/rgbif/issues/266">ropensci/rgbif#266</a>: queuing tool for GBIF downloads - <em>hard problem</em></h3></li>
+				<li><h3>occurrence cleaning in R: <em>hard problem!</em> A few efforts:</h3></li>
+				<ul>
+					<li><h3>package <a href="https://github.com/ropensci/scrubr">scrubr</a></h3></li>
+					<li><h3>package <a href="https://github.com/ropensci/onboarding/issues/210">CoordinateCleaner</a></h3></li>
+					<li><h3>deduplication badly needed: aggregation up the data provider ladder</h3></li>
+				</ul>
+			</ul>
+		</section>
+
+		<section id="occurrence-tools-questions">
+			<h2>occurrence tools: questions</h2>
+			<br>
+			<ul>
+				<li><h3>DOIs for GBIF search service (and other services)?</h3></li>
+				<li><h3>related to above: Sharing dataset associated with paper</h3></li>
+				<li><h3>Visualzing huge occurrence datasets? (GBIF map API now in dev ver of <code>rgbif</code>)</h3></li>
+				<li><h3>XXX</h3></li>
+				<li><h3>XXX</h3></li>
+			</ul>
+		</section>
 
 
 
@@ -263,8 +332,9 @@
 			<h1>talk to us <i class="fa fa-bullhorn"></i></h1>
 			<br>
 			<h2>what would you like to see?</h2>
-			<h2>what open data is too hard to get?</h2>
+			<br>
 			<h2>discussion forum: <a href="https://discuss.ropensci.org/">discuss.ropensci.org</a></h2>
+			<br>
 			<h2>submit a package/review a package: <a href="https://github.com/ropensci/onboarding">github.com/ropensci/onboarding</a></h2>
 		</section>
 
