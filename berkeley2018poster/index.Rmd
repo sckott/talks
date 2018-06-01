@@ -16,10 +16,10 @@ output:
   }
 
   code.r{
-    font-size: 11.5px;
+    font-size: 12px;
   }
   pre {
-    font-size: 12px
+    font-size: 11px
   }
 </style>
 
@@ -43,12 +43,11 @@ output:
   <td style="font-size: 14px"><center>**Scott Chamberlain** <br> **rOpenSci / UC Berkeley** <i class="fas fa-bicycle"></i></center></td>
 </tr>
 </table> 
+<br>
 
 ## Body row {data-height=93}
 
 ### 
-
-#### **Introduction**
 
 Nearly all biologists work with taxonomic names; taxonomic names are messy. Parsing taxonomic names into their components is a first step.
 
@@ -58,6 +57,8 @@ Many biologists work in the R language. We need really fast and dependency free 
 
 Learning from Global Names, `pegax` (https://github.com/ropenscilabs/pegax) is a new R package that implements a Parsing Expression Grammar (PEG) for taxonomic names.
 
+<br>
+
 #### **Parsing Expression Grammars**
 
 Parsing Expression Grammars, or PEGs, describe a formal language about how to recognize strings in a set of text. For example, capture any letter:
@@ -66,18 +67,13 @@ Parsing Expression Grammars, or PEGs, describe a formal language about how to re
 plus< alpha >
 ```
 
-capture any digit
-
-```
-plus< digit >
-```
-
 Combine to form a grammar, e.g., must match `name`, one comma, a space, then match `numbers`.
 
 ```
 must< name, one< ',' >, space, numbers, eof >
 ```
 
+<br>
 
 #### **pegax <i class="fab fa-r-project"></i> package**
 
@@ -159,7 +155,6 @@ system.time(pgx_authority_names(x)) # 0.023 sec
 
 * Unicode support <i class="far fa-frown"></i>
 * Full name parsing (names, ranks, annotations, authorities)
-* Parity with Global Names parser
 * R DSL to make custom PEGS for taxonomy
 
 ```r
@@ -173,8 +168,7 @@ pegax(plus(alpha), one(,), numbers(,))
 * Researchers/etc. use package directly to parse their own set of names 
 * R developers import to leverage name parsing for domain specific use case
 * If/when DSL for custom name parsing: cover all corner cases
-* Do you have a use case? Let me know!
 
-<hr>
+<br><hr>
 <p>contact: scott@ropensci.org</p>
 <p>icons from FontAwesome v5.0.13 <a href="https://fontawesome.com">fontawesome.com</a></p>

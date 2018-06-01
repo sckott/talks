@@ -1,0 +1,165 @@
+---
+title: "**pegax:** Fast Taxonomic Name Parsing in R"
+output: 
+  postr::flex_dashboard_poster:
+    css: css/fontawesome-free-5.0.13/web-fonts-with-css/css/fontawesome-all.css
+    render_print: true
+---
+
+<style>
+  body {
+    padding-top:0px;
+    font-size: 13px;
+  }
+  .navbar{
+    visibility: hidden
+  }
+
+  code.r{
+    font-size: 11px;
+  }
+  pre {
+    font-size: 11px
+  }
+</style>
+
+
+## Header row {data-height=7}
+
+###
+
+<table style="width:100%">
+<tr>
+  <td>
+    <center>
+      <h2>**pegax: Fast Taxonomic Name Parsing in R**</h2>
+    </center>
+  </td>
+  <td rowspan="2">
+    <img src="resources/logo.svg" style="width:170px"></img>
+  </td>
+</tr>
+<tr>
+  <td style="font-size: 14px"><center>**Scott Chamberlain** <br> **rOpenSci / UC Berkeley** <i class="fas fa-bicycle"></i></center></td>
+</tr>
+</table> 
+<br>
+
+## Body row {data-height=93}
+
+### 
+
+Nearly all biologists work with taxonomic names; taxonomic names are messy. Parsing taxonomic names into their components is a first step.
+
+Global Names project (http://globalnames.org/) is a huge advance. However, Global Names is available via a web service (internet speed dependent) and in programming languages (Java/Go) that don't play nice with R. 
+
+Many biologists work in the R language. We need really fast and dependency free R tooling to work with taxonomic names.
+
+Learning from Global Names, `pegax` (https://github.com/ropenscilabs/pegax) is a new R package that implements a Parsing Expression Grammar (PEG) for taxonomic names.
+
+#### **Parsing Expression Grammars**
+
+Parsing Expression Grammars, or PEGs, describe a formal language about how to recognize strings in a set of text. For example, capture any letter:
+
+```
+plus< alpha >
+```
+
+Combine to form a grammar, e.g., must match `name`, one comma, a space, then match `numbers`.
+
+```
+must< name, one< ',' >, space, numbers, eof >
+```
+
+
+#### **pegax <i class="fab fa-r-project"></i> package**
+
+Get it on GitHub: <https://github.com/ropenscilabs/pegax>
+
+PEG work done in C++ using PEGTL (https://github.com/taocpp/PEGTL) via the piton (https://github.com/Ironholds/piton) R package.
+
+
+### {data-width=600}
+
+#### **Installation <i class="fas fa-download"></i>**
+
+```r
+remotes::install_github("ropenscilabs/pegax")
+library(pegax)
+```
+
+#### **Examples**
+
+```r
+# Author name
+pgx_authority_names("Linnaeus, 1758")
+#> [1] "Linnaeus"
+
+# Author year
+pgx_authority_years("Linnaeus, 1758")
+#> [1] "1758"
+
+# Parse ranks
+pgx_ranks("Fagus sylvatica subsp. orientalis")
+#> [1] "subsp."
+
+# Many ranks at once
+pgx_ranks(c("Helianthus annuus var. annuus",
+   "Helianthus annuus ssp. annuus", 
+   "Caulerpa cupressoides forma nuda"))
+#> [1] "var."   "ssp."   "forma."
+
+# Scientific names w/o authorities
+nms <- c("Fagus sylvatica subsp. orientalis",
+  "Potamogeton iilinoensis var. ventanicola",
+  "Callideriphus flavicollis morph. reductus",
+  "Chlorocyperus glaber form. fascicula",
+  "Sphaerotheca fuliginea f. dahliae")
+dplyr::bind_rows(lapply(nms, pgx_sciname))
+#>          genus     epithet  rank   infraspecific
+#>          Fagus   sylvatica  subsp.    orientalis
+#>    Potamogeton iilinoensis  var.     ventanicola
+#>  Callideriphus flavicollis  morph.      reductus
+#>  Chlorocyperus      glaber  form.      fascicula
+#>   Sphaerotheca   fuliginea  f.           dahliae
+```
+
+### 
+
+#### **benchmark: it's pretty fast <i class="fas fa-rocket"></i>**
+
+```{r eval = FALSE, echo = TRUE}
+library(microbenchmark)
+library(charlatan)
+per <- charlatan::PersonProvider$new()
+date <- charlatan::DateTimeProvider$new()
+# 10,000 name/year strings, e.g., Lueilwitz, 1945
+x <- replicate(10^4, paste( 
+    sample(per$person$last_names, 1),
+    date$year(),
+    sep = ", "))
+# years
+system.time(pgx_authority_years(x)) # 0.025 sec
+# names
+system.time(pgx_authority_names(x)) # 0.023 sec
+```
+
+#### **future work <i class="fas fa-clipboard-list"></i>**
+
+* Unicode support <i class="far fa-frown"></i>
+* Full name parsing (names, ranks, annotations, authorities)
+* R DSL to make custom PEGS for taxonomy
+
+```r
+pegax(plus(alpha), one(,), numbers(,))
+```
+
+#### **Use cases**
+
+* Researchers/etc. use package directly to parse their own set of names 
+* R developers import to leverage name parsing for domain specific use case
+* If/when DSL for custom name parsing: cover all corner cases
+
+<hr>
+<p>contact: scott@ropensci.org</p>
+<p>icons from FontAwesome v5.0.13 <a href="https://fontawesome.com">fontawesome.com</a></p>

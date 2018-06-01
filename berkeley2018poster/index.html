@@ -4875,10 +4875,10 @@ window.FlexDashboardComponents.push({
   }
 
   code.r{
-    font-size: 11.5px;
+    font-size: 12px;
   }
   pre {
-    font-size: 12px
+    font-size: 11px
   }
 </style>
 <div id="header-row" class="section level2" data-height="7">
@@ -4906,27 +4906,25 @@ window.FlexDashboardComponents.push({
 </td>
 </tr>
 </table>
+<p><br></p>
 </div>
 </div>
 <div id="body-row" class="section level2" data-height="93">
 <h2>Body row</h2>
 <div id="section-1" class="section level3">
 <h3></h3>
-<div id="introduction" class="section level4">
-<h4><strong>Introduction</strong></h4>
 <p>Nearly all biologists work with taxonomic names; taxonomic names are messy. Parsing taxonomic names into their components is a first step.</p>
 <p>Global Names project (<a href="http://globalnames.org/" class="uri">http://globalnames.org/</a>) is a huge advance. However, Global Names is available via a web service (internet speed dependent) and in programming languages (Java/Go) that don’t play nice with R.</p>
 <p>Many biologists work in the R language. We need really fast and dependency free R tooling to work with taxonomic names.</p>
 <p>Learning from Global Names, <code>pegax</code> (<a href="https://github.com/ropenscilabs/pegax" class="uri">https://github.com/ropenscilabs/pegax</a>) is a new R package that implements a Parsing Expression Grammar (PEG) for taxonomic names.</p>
-</div>
+<p><br></p>
 <div id="parsing-expression-grammars" class="section level4">
 <h4><strong>Parsing Expression Grammars</strong></h4>
 <p>Parsing Expression Grammars, or PEGs, describe a formal language about how to recognize strings in a set of text. For example, capture any letter:</p>
 <pre><code>plus&lt; alpha &gt;</code></pre>
-<p>capture any digit</p>
-<pre><code>plus&lt; digit &gt;</code></pre>
 <p>Combine to form a grammar, e.g., must match <code>name</code>, one comma, a space, then match <code>numbers</code>.</p>
 <pre><code>must&lt; name, one&lt; ',' &gt;, space, numbers, eof &gt;</code></pre>
+<p><br></p>
 </div>
 <div id="pegax-package" class="section level4">
 <h4><strong>pegax <i class="fab fa-r-project"></i> package</strong></h4>
@@ -4941,42 +4939,42 @@ window.FlexDashboardComponents.push({
 </div>
 <div id="installation" class="section level4">
 <h4><strong>Installation <i class="fas fa-download"></i></strong></h4>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" data-line-number="1">remotes<span class="op">::</span><span class="kw">install_github</span>(<span class="st">&quot;ropenscilabs/pegax&quot;</span>)</a>
-<a class="sourceLine" id="cb4-2" data-line-number="2"><span class="kw">library</span>(pegax)</a></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" data-line-number="1">remotes<span class="op">::</span><span class="kw">install_github</span>(<span class="st">&quot;ropenscilabs/pegax&quot;</span>)</a>
+<a class="sourceLine" id="cb3-2" data-line-number="2"><span class="kw">library</span>(pegax)</a></code></pre></div>
 </div>
 <div id="examples" class="section level4">
 <h4><strong>Examples</strong></h4>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" data-line-number="1"><span class="co"># Author name</span></a>
-<a class="sourceLine" id="cb5-2" data-line-number="2"><span class="kw">pgx_authority_names</span>(<span class="st">&quot;Linnaeus, 1758&quot;</span>)</a>
-<a class="sourceLine" id="cb5-3" data-line-number="3"><span class="co">#&gt; [1] &quot;Linnaeus&quot;</span></a>
-<a class="sourceLine" id="cb5-4" data-line-number="4"></a>
-<a class="sourceLine" id="cb5-5" data-line-number="5"><span class="co"># Author year</span></a>
-<a class="sourceLine" id="cb5-6" data-line-number="6"><span class="kw">pgx_authority_years</span>(<span class="st">&quot;Linnaeus, 1758&quot;</span>)</a>
-<a class="sourceLine" id="cb5-7" data-line-number="7"><span class="co">#&gt; [1] &quot;1758&quot;</span></a>
-<a class="sourceLine" id="cb5-8" data-line-number="8"></a>
-<a class="sourceLine" id="cb5-9" data-line-number="9"><span class="co"># Parse ranks</span></a>
-<a class="sourceLine" id="cb5-10" data-line-number="10"><span class="kw">pgx_ranks</span>(<span class="st">&quot;Fagus sylvatica subsp. orientalis&quot;</span>)</a>
-<a class="sourceLine" id="cb5-11" data-line-number="11"><span class="co">#&gt; [1] &quot;subsp.&quot;</span></a>
-<a class="sourceLine" id="cb5-12" data-line-number="12"></a>
-<a class="sourceLine" id="cb5-13" data-line-number="13"><span class="co"># Many ranks at once</span></a>
-<a class="sourceLine" id="cb5-14" data-line-number="14"><span class="kw">pgx_ranks</span>(<span class="kw">c</span>(<span class="st">&quot;Helianthus annuus var. annuus&quot;</span>,</a>
-<a class="sourceLine" id="cb5-15" data-line-number="15">   <span class="st">&quot;Helianthus annuus ssp. annuus&quot;</span>, </a>
-<a class="sourceLine" id="cb5-16" data-line-number="16">   <span class="st">&quot;Caulerpa cupressoides forma nuda&quot;</span>))</a>
-<a class="sourceLine" id="cb5-17" data-line-number="17"><span class="co">#&gt; [1] &quot;var.&quot;   &quot;ssp.&quot;   &quot;forma.&quot;</span></a>
-<a class="sourceLine" id="cb5-18" data-line-number="18"></a>
-<a class="sourceLine" id="cb5-19" data-line-number="19"><span class="co"># Scientific names w/o authorities</span></a>
-<a class="sourceLine" id="cb5-20" data-line-number="20">nms &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Fagus sylvatica subsp. orientalis&quot;</span>,</a>
-<a class="sourceLine" id="cb5-21" data-line-number="21">  <span class="st">&quot;Potamogeton iilinoensis var. ventanicola&quot;</span>,</a>
-<a class="sourceLine" id="cb5-22" data-line-number="22">  <span class="st">&quot;Callideriphus flavicollis morph. reductus&quot;</span>,</a>
-<a class="sourceLine" id="cb5-23" data-line-number="23">  <span class="st">&quot;Chlorocyperus glaber form. fascicula&quot;</span>,</a>
-<a class="sourceLine" id="cb5-24" data-line-number="24">  <span class="st">&quot;Sphaerotheca fuliginea f. dahliae&quot;</span>)</a>
-<a class="sourceLine" id="cb5-25" data-line-number="25">dplyr<span class="op">::</span><span class="kw">bind_rows</span>(<span class="kw">lapply</span>(nms, pgx_sciname))</a>
-<a class="sourceLine" id="cb5-26" data-line-number="26"><span class="co">#&gt;          genus     epithet  rank   infraspecific</span></a>
-<a class="sourceLine" id="cb5-27" data-line-number="27"><span class="co">#&gt;          Fagus   sylvatica  subsp.    orientalis</span></a>
-<a class="sourceLine" id="cb5-28" data-line-number="28"><span class="co">#&gt;    Potamogeton iilinoensis  var.     ventanicola</span></a>
-<a class="sourceLine" id="cb5-29" data-line-number="29"><span class="co">#&gt;  Callideriphus flavicollis  morph.      reductus</span></a>
-<a class="sourceLine" id="cb5-30" data-line-number="30"><span class="co">#&gt;  Chlorocyperus      glaber  form.      fascicula</span></a>
-<a class="sourceLine" id="cb5-31" data-line-number="31"><span class="co">#&gt;   Sphaerotheca   fuliginea  f.           dahliae</span></a></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="co"># Author name</span></a>
+<a class="sourceLine" id="cb4-2" data-line-number="2"><span class="kw">pgx_authority_names</span>(<span class="st">&quot;Linnaeus, 1758&quot;</span>)</a>
+<a class="sourceLine" id="cb4-3" data-line-number="3"><span class="co">#&gt; [1] &quot;Linnaeus&quot;</span></a>
+<a class="sourceLine" id="cb4-4" data-line-number="4"></a>
+<a class="sourceLine" id="cb4-5" data-line-number="5"><span class="co"># Author year</span></a>
+<a class="sourceLine" id="cb4-6" data-line-number="6"><span class="kw">pgx_authority_years</span>(<span class="st">&quot;Linnaeus, 1758&quot;</span>)</a>
+<a class="sourceLine" id="cb4-7" data-line-number="7"><span class="co">#&gt; [1] &quot;1758&quot;</span></a>
+<a class="sourceLine" id="cb4-8" data-line-number="8"></a>
+<a class="sourceLine" id="cb4-9" data-line-number="9"><span class="co"># Parse ranks</span></a>
+<a class="sourceLine" id="cb4-10" data-line-number="10"><span class="kw">pgx_ranks</span>(<span class="st">&quot;Fagus sylvatica subsp. orientalis&quot;</span>)</a>
+<a class="sourceLine" id="cb4-11" data-line-number="11"><span class="co">#&gt; [1] &quot;subsp.&quot;</span></a>
+<a class="sourceLine" id="cb4-12" data-line-number="12"></a>
+<a class="sourceLine" id="cb4-13" data-line-number="13"><span class="co"># Many ranks at once</span></a>
+<a class="sourceLine" id="cb4-14" data-line-number="14"><span class="kw">pgx_ranks</span>(<span class="kw">c</span>(<span class="st">&quot;Helianthus annuus var. annuus&quot;</span>,</a>
+<a class="sourceLine" id="cb4-15" data-line-number="15">   <span class="st">&quot;Helianthus annuus ssp. annuus&quot;</span>, </a>
+<a class="sourceLine" id="cb4-16" data-line-number="16">   <span class="st">&quot;Caulerpa cupressoides forma nuda&quot;</span>))</a>
+<a class="sourceLine" id="cb4-17" data-line-number="17"><span class="co">#&gt; [1] &quot;var.&quot;   &quot;ssp.&quot;   &quot;forma.&quot;</span></a>
+<a class="sourceLine" id="cb4-18" data-line-number="18"></a>
+<a class="sourceLine" id="cb4-19" data-line-number="19"><span class="co"># Scientific names w/o authorities</span></a>
+<a class="sourceLine" id="cb4-20" data-line-number="20">nms &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Fagus sylvatica subsp. orientalis&quot;</span>,</a>
+<a class="sourceLine" id="cb4-21" data-line-number="21">  <span class="st">&quot;Potamogeton iilinoensis var. ventanicola&quot;</span>,</a>
+<a class="sourceLine" id="cb4-22" data-line-number="22">  <span class="st">&quot;Callideriphus flavicollis morph. reductus&quot;</span>,</a>
+<a class="sourceLine" id="cb4-23" data-line-number="23">  <span class="st">&quot;Chlorocyperus glaber form. fascicula&quot;</span>,</a>
+<a class="sourceLine" id="cb4-24" data-line-number="24">  <span class="st">&quot;Sphaerotheca fuliginea f. dahliae&quot;</span>)</a>
+<a class="sourceLine" id="cb4-25" data-line-number="25">dplyr<span class="op">::</span><span class="kw">bind_rows</span>(<span class="kw">lapply</span>(nms, pgx_sciname))</a>
+<a class="sourceLine" id="cb4-26" data-line-number="26"><span class="co">#&gt;          genus     epithet  rank   infraspecific</span></a>
+<a class="sourceLine" id="cb4-27" data-line-number="27"><span class="co">#&gt;          Fagus   sylvatica  subsp.    orientalis</span></a>
+<a class="sourceLine" id="cb4-28" data-line-number="28"><span class="co">#&gt;    Potamogeton iilinoensis  var.     ventanicola</span></a>
+<a class="sourceLine" id="cb4-29" data-line-number="29"><span class="co">#&gt;  Callideriphus flavicollis  morph.      reductus</span></a>
+<a class="sourceLine" id="cb4-30" data-line-number="30"><span class="co">#&gt;  Chlorocyperus      glaber  form.      fascicula</span></a>
+<a class="sourceLine" id="cb4-31" data-line-number="31"><span class="co">#&gt;   Sphaerotheca   fuliginea  f.           dahliae</span></a></code></pre></div>
 </div>
 </div>
 <div id="section-3" class="section level3">
@@ -4986,19 +4984,19 @@ window.FlexDashboardComponents.push({
 <div class="knitr-options" data-fig-width="576" data-fig-height="576">
 
 </div>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" data-line-number="1"><span class="kw">library</span>(microbenchmark)</a>
-<a class="sourceLine" id="cb6-2" data-line-number="2"><span class="kw">library</span>(charlatan)</a>
-<a class="sourceLine" id="cb6-3" data-line-number="3">per &lt;-<span class="st"> </span>charlatan<span class="op">::</span>PersonProvider<span class="op">$</span><span class="kw">new</span>()</a>
-<a class="sourceLine" id="cb6-4" data-line-number="4">date &lt;-<span class="st"> </span>charlatan<span class="op">::</span>DateTimeProvider<span class="op">$</span><span class="kw">new</span>()</a>
-<a class="sourceLine" id="cb6-5" data-line-number="5"><span class="co"># 10,000 name/year strings, e.g., Lueilwitz, 1945</span></a>
-<a class="sourceLine" id="cb6-6" data-line-number="6">x &lt;-<span class="st"> </span><span class="kw">replicate</span>(<span class="dv">10</span><span class="op">^</span><span class="dv">4</span>, <span class="kw">paste</span>( </a>
-<a class="sourceLine" id="cb6-7" data-line-number="7">    <span class="kw">sample</span>(per<span class="op">$</span>person<span class="op">$</span>last_names, <span class="dv">1</span>),</a>
-<a class="sourceLine" id="cb6-8" data-line-number="8">    date<span class="op">$</span><span class="kw">year</span>(),</a>
-<a class="sourceLine" id="cb6-9" data-line-number="9">    <span class="dt">sep =</span> <span class="st">&quot;, &quot;</span>))</a>
-<a class="sourceLine" id="cb6-10" data-line-number="10"><span class="co"># years</span></a>
-<a class="sourceLine" id="cb6-11" data-line-number="11"><span class="kw">system.time</span>(<span class="kw">pgx_authority_years</span>(x)) <span class="co"># 0.025 sec</span></a>
-<a class="sourceLine" id="cb6-12" data-line-number="12"><span class="co"># names</span></a>
-<a class="sourceLine" id="cb6-13" data-line-number="13"><span class="kw">system.time</span>(<span class="kw">pgx_authority_names</span>(x)) <span class="co"># 0.023 sec</span></a></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" data-line-number="1"><span class="kw">library</span>(microbenchmark)</a>
+<a class="sourceLine" id="cb5-2" data-line-number="2"><span class="kw">library</span>(charlatan)</a>
+<a class="sourceLine" id="cb5-3" data-line-number="3">per &lt;-<span class="st"> </span>charlatan<span class="op">::</span>PersonProvider<span class="op">$</span><span class="kw">new</span>()</a>
+<a class="sourceLine" id="cb5-4" data-line-number="4">date &lt;-<span class="st"> </span>charlatan<span class="op">::</span>DateTimeProvider<span class="op">$</span><span class="kw">new</span>()</a>
+<a class="sourceLine" id="cb5-5" data-line-number="5"><span class="co"># 10,000 name/year strings, e.g., Lueilwitz, 1945</span></a>
+<a class="sourceLine" id="cb5-6" data-line-number="6">x &lt;-<span class="st"> </span><span class="kw">replicate</span>(<span class="dv">10</span><span class="op">^</span><span class="dv">4</span>, <span class="kw">paste</span>( </a>
+<a class="sourceLine" id="cb5-7" data-line-number="7">    <span class="kw">sample</span>(per<span class="op">$</span>person<span class="op">$</span>last_names, <span class="dv">1</span>),</a>
+<a class="sourceLine" id="cb5-8" data-line-number="8">    date<span class="op">$</span><span class="kw">year</span>(),</a>
+<a class="sourceLine" id="cb5-9" data-line-number="9">    <span class="dt">sep =</span> <span class="st">&quot;, &quot;</span>))</a>
+<a class="sourceLine" id="cb5-10" data-line-number="10"><span class="co"># years</span></a>
+<a class="sourceLine" id="cb5-11" data-line-number="11"><span class="kw">system.time</span>(<span class="kw">pgx_authority_years</span>(x)) <span class="co"># 0.025 sec</span></a>
+<a class="sourceLine" id="cb5-12" data-line-number="12"><span class="co"># names</span></a>
+<a class="sourceLine" id="cb5-13" data-line-number="13"><span class="kw">system.time</span>(<span class="kw">pgx_authority_names</span>(x)) <span class="co"># 0.023 sec</span></a></code></pre></div>
 <p><br></p>
 </div>
 <div id="future-work" class="section level4">
@@ -5006,10 +5004,9 @@ window.FlexDashboardComponents.push({
 <ul>
 <li>Unicode support <i class="far fa-frown"></i></li>
 <li>Full name parsing (names, ranks, annotations, authorities)</li>
-<li>Parity with Global Names parser</li>
 <li>R DSL to make custom PEGS for taxonomy</li>
 </ul>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" data-line-number="1"><span class="kw">pegax</span>(<span class="kw">plus</span>(alpha), <span class="kw">one</span>(,), <span class="kw">numbers</span>(,))</a></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" data-line-number="1"><span class="kw">pegax</span>(<span class="kw">plus</span>(alpha), <span class="kw">one</span>(,), <span class="kw">numbers</span>(,))</a></code></pre></div>
 <p><br></p>
 </div>
 <div id="use-cases" class="section level4">
@@ -5018,8 +5015,8 @@ window.FlexDashboardComponents.push({
 <li>Researchers/etc. use package directly to parse their own set of names</li>
 <li>R developers import to leverage name parsing for domain specific use case</li>
 <li>If/when DSL for custom name parsing: cover all corner cases</li>
-<li>Do you have a use case? Let me know!</li>
 </ul>
+<br>
 <hr>
 <p>
 contact: <a href="mailto:scott@ropensci.org">scott@ropensci.org</a>
