@@ -2,15 +2,24 @@
 title: "**pegax:** Fast Taxonomic Name Parsing in R"
 output: 
   postr::flex_dashboard_poster:
+    css: css/fontawesome-free-5.0.13/web-fonts-with-css/css/fontawesome-all.css
     render_print: true
 ---
 
 <style>
   body {
-    padding-top:0px
+    padding-top:0px;
+    font-size: 14px;
   }
   .navbar{
     visibility: hidden
+  }
+
+  code.r{
+    font-size: 12px;
+  }
+  pre {
+    font-size: 12px
   }
 </style>
 
@@ -31,7 +40,7 @@ output:
   </td>
 </tr>
 <tr>
-  <td><center>**Scott Chamberlain** <br> **rOpenSci / UC Berkeley**</center></td>
+  <td style="font-size: 14px"><center>**Scott Chamberlain** <br> **rOpenSci / UC Berkeley** <i class="fas fa-bicycle"></i></center></td>
 </tr>
 </table> 
 
@@ -49,6 +58,7 @@ Many biologists work in the R language. We need really fast and dependency free 
 
 Learning from Global Names, `pegax` (https://github.com/ropenscilabs/pegax) is a new R package that implements a Parsing Expression Grammar (PEG) for taxonomic names.
 
+<br>
 
 #### **Parsing Expression Grammars**
 
@@ -79,11 +89,13 @@ Which is then applied to parsing user input strings
 
 ### 
 
-#### **pegax package**
+#### **pegax R package <i class="fab fa-r-project"></i>**
 
-GitHub: <https://github.com/ropenscilabs/pegax>
+Get it on GitHub: <https://github.com/ropenscilabs/pegax>
 
-#### **Installation**
+PEG work done in C++ using PEGTL (https://github.com/taocpp/PEGTL) via the piton (https://github.com/Ironholds/piton) R package.
+
+#### **Installation <i class="fas fa-download"></i>**
 
 ```r
 remotes::install_github("ropenscilabs/pegax")
@@ -105,22 +117,28 @@ pgx_authority_years("Linnaeus, 1758")
 pgx_ranks("Fagus sylvatica subsp. orientalis")
 #> [1] "subsp."
 
-# Many ranks at cone
+# Many ranks at once
 pgx_ranks(c("Helianthus annuus var. annuus",
-   "Helianthus annuus ssp. annuus", "Caulerpa cupressoides forma nuda"))
+   "Helianthus annuus ssp. annuus", 
+   "Caulerpa cupressoides forma nuda"))
 #> [1] "var."   "ssp."   "forma."
+
+# Scientific names w/o authorities
+pgx_sciname("xx")
+#> xxxx
 ```
 
 ### 
 
-#### **benchmark: it's pretty fast**
+#### **benchmark: it's pretty fast <i class="fas fa-rocket"></i>**
 
 ```{r eval = FALSE, echo = TRUE}
 library(microbenchmark)
 library(charlatan)
 per <- charlatan::PersonProvider$new()
 date <- charlatan::DateTimeProvider$new()
-x <- replicate(10^4, paste( # 10,000 name/year strings
+# 10,000 name/year strings, e.g., Lueilwitz, 1945
+x <- replicate(10^4, paste( 
     sample(per$person$last_names, 1),
     date$year(),
     sep = ", "))
@@ -130,7 +148,9 @@ system.time(pgx_authority_years(x)) # 0.025 sec
 system.time(pgx_authority_names(x)) # 0.023 sec
 ```
 
-#### **future work**
+<br>
+
+#### **future work <i class="fas fa-clipboard-list"></i>**
 
 * Full name parsing, parity with Global Names parser
 * R DSL to make custom PEGS for taxonomy
@@ -139,11 +159,13 @@ system.time(pgx_authority_names(x)) # 0.023 sec
 pegax(plus(alpha), one(,), numbers(,))
 ```
 
+<br>
+
 #### **Use cases**
 
 * foo
 * bar
 
-#### **Conclusion**
+<hr>
 
-asfafasfsdf
+<p>icons from FontAwesome v5.0.13 <a href="https://fontawesome.com">fontawesome.com</a></p>
