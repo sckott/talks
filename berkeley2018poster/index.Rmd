@@ -16,7 +16,7 @@ output:
   }
 
   code.r{
-    font-size: 12px;
+    font-size: 11.5px;
   }
   pre {
     font-size: 12px
@@ -36,7 +36,7 @@ output:
     </center>
   </td>
   <td rowspan="2">
-    <img src="resources/logo.svg" style="width:158px"></img>
+    <img src="resources/logo.svg" style="width:190px"></img>
   </td>
 </tr>
 <tr>
@@ -50,7 +50,7 @@ output:
 
 #### **Introduction**
 
-Nearly all biologists work with taxonomic names; taxonomic names are messy. Parsing taxonomic names into their components is often a first step.
+Nearly all biologists work with taxonomic names; taxonomic names are messy. Parsing taxonomic names into their components is a first step.
 
 Global Names project (http://globalnames.org/) is a huge advance. However, Global Names is available via a web service (internet speed dependent) and in programming languages (Java/Go) that don't play nice with R. 
 
@@ -58,42 +58,37 @@ Many biologists work in the R language. We need really fast and dependency free 
 
 Learning from Global Names, `pegax` (https://github.com/ropenscilabs/pegax) is a new R package that implements a Parsing Expression Grammar (PEG) for taxonomic names.
 
-<br>
-
 #### **Parsing Expression Grammars**
 
-Parsing Expression Grammars, or PEGs, describe a formal language about how to recognize strings in a set of text.
-
-For example, capture any letter
+Parsing Expression Grammars, or PEGs, describe a formal language about how to recognize strings in a set of text. For example, capture any letter:
 
 ```
-struct name : plus< alpha > {};
+plus< alpha >
 ```
 
 capture any digit
 
 ```
-struct numbers : plus< digit > {};
+plus< digit >
 ```
 
-Rules are combined to form a grammar, e.g., string must match `name`, then have one comma, then one space, then match `numbers`.
+Combine to form a grammar, e.g., must match `name`, one comma, a space, then match `numbers`.
 
 ```
-struct grammar
-  : must< name, one< ',' >, space, numbers, eof >
-{};
+must< name, one< ',' >, space, numbers, eof >
 ```
 
-Which is then applied to parsing user input strings
 
-
-### 
-
-#### **pegax R package <i class="fab fa-r-project"></i>**
+#### **pegax <i class="fab fa-r-project"></i> package**
 
 Get it on GitHub: <https://github.com/ropenscilabs/pegax>
 
 PEG work done in C++ using PEGTL (https://github.com/taocpp/PEGTL) via the piton (https://github.com/Ironholds/piton) R package.
+
+
+### {data-width=600}
+
+#### **pegax <i class="fab fa-r-project"></i> package**
 
 #### **Installation <i class="fas fa-download"></i>**
 
@@ -124,8 +119,18 @@ pgx_ranks(c("Helianthus annuus var. annuus",
 #> [1] "var."   "ssp."   "forma."
 
 # Scientific names w/o authorities
-pgx_sciname("xx")
-#> xxxx
+nms <- c("Fagus sylvatica subsp. orientalis",
+  "Potamogeton iilinoensis var. ventanicola",
+  "Callideriphus flavicollis morph. reductus",
+  "Chlorocyperus glaber form. fascicula",
+  "Sphaerotheca fuliginea f. dahliae")
+dplyr::bind_rows(lapply(nms, pgx_sciname))
+#>          genus     epithet  rank   infraspecific
+#>          Fagus   sylvatica  subsp.    orientalis
+#>    Potamogeton iilinoensis  var.     ventanicola
+#>  Callideriphus flavicollis  morph.      reductus
+#>  Chlorocyperus      glaber  form.      fascicula
+#>   Sphaerotheca   fuliginea  f.           dahliae
 ```
 
 ### 
@@ -152,7 +157,9 @@ system.time(pgx_authority_names(x)) # 0.023 sec
 
 #### **future work <i class="fas fa-clipboard-list"></i>**
 
-* Full name parsing, parity with Global Names parser
+* Unicode support <i class="far fa-frown"></i>
+* Full name parsing (names, ranks, annotations, authorities)
+* Parity with Global Names parser
 * R DSL to make custom PEGS for taxonomy
 
 ```r
@@ -163,9 +170,11 @@ pegax(plus(alpha), one(,), numbers(,))
 
 #### **Use cases**
 
-* foo
-* bar
+* Researchers/etc. use package directly to parse their own set of names 
+* R developers import to leverage name parsing for domain specific use case
+* If/when DSL for custom name parsing: cover all corner cases
+* Do you have a use case? Let me know!
 
 <hr>
-
+<p>contact: scott@ropensci.org</p>
 <p>icons from FontAwesome v5.0.13 <a href="https://fontawesome.com">fontawesome.com</a></p>
