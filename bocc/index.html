@@ -124,7 +124,7 @@
 	
 		<!-- describe problem space -->
 		<section id="questions">
-			<h2>Sampling of papers</h2>
+			<h2>Questions addressed using our software</h2>
 			<img src="img/questions.png" width="1050px">
 		</section>
 
@@ -171,6 +171,30 @@
 				</table>
 			</div>
 		</section>
+
+
+
+		<!-- use cases -->
+		<section id="use-case-1">
+			<h2>use case 1</h2>
+			<em>Hodgins, K. A., Turner, et al. (2015). Comparative genomics in the Asteraceae reveals little evidence for parallel evolutionary change in invasive taxa. Mol Ecol, 24(9), 2226–2240. <a href="https://doi.org/10.1111/mec.13026">10.1111/mec.13026</a></em>
+
+			<br><br><br>
+			<h3>in the methods section:</h3>
+			<br>
+			<blockquote style="font-size: 50px">... using the Encyclopedia of Life invasive species comprehensive list, which was accessed programmatically on August 12, 2014 using the <code style="color: red">taxize</code> package in R .</blockquote>
+		</section>
+
+		<section id="use-case-2">
+			<h2>use case 2</h2>
+			<em>Hodgins, K. A., Turner, et al. (2015). Comparative genomics in the Asteraceae reveals little evidence for parallel evolutionary change in invasive taxa. Mol Ecol, 24(9), 2226–2240. <a href="https://doi.org/10.1111/mec.13026">10.1111/mec.13026</a></em>
+
+			<br><br><br>
+			<h3>in the methods section:</h3>
+			<br>
+			<blockquote style="font-size: 50px">... we used rOpenSci’s <code style="color: red">worrms</code> package in R to standardize spellings of species names and synonyms ...</blockquote>
+		</section>
+
 		
 		<!-- discuss current tooling in R -->
 		<!-- taxonomy tools -->
@@ -181,6 +205,23 @@
 				<li><h3 align="left"><a href="https://github.com/ropensci/taxize">taxize</a> - Taxonomic "toolbelt" - work w/ taxonomy web APIs</h3></li>
 				<li><h3 align="left"><a href="https://github.com/ropensci/taxizedb">taxizedb</a> - taxize, but with local SQL databases</h3></li>
 				<li><h3 align="left"><a href="https://github.com/ropensci/rentrez">rentrez</a> - NCBI's Entrez, including taxonomy</h3></li>
+				<li><h3 align="left"><a href="https://github.com/ropensci/worrms">worrms</a> - WORMS web service</h3></li>
+				<li><h3 align="left"><a href="https://github.com/ropensci/ritis">ritis</a> - USGS's ITIS web service</h3></li>
+				<li><h3 align="left">... many others from packages/data sources with taxonomic components</h3></li>
+			</ul>
+			<br><br>
+			<h3>R taxonomy task view: <a href="https://github.com/ropensci/taxonomy">github.com/ropensci/taxonomy</a></h3>
+		</section>
+
+		<section id="taxizze">
+			<h2>Taxonomic data from >20 sources - <a href="https://github.com/ropensci/taxize">taxize</a></h2>
+			<br>
+			<h2>always try to move from:</h2>
+			<br>
+			<ul class="b">
+				<li><h3 align="left">taxonomic name -- to</h3></li>
+				<li><h3 align="left">taxonomic ID -- to</h3></li>
+				<li><h3 align="left">whatever other data <br> (e.g., synonyms, classifications, etc.)</h3></li>
 			</ul>
 		</section>
 
@@ -192,7 +233,8 @@
 
 				```r
 				library('taxize')
-				classification("Chironomus riparius", db = "gbif")
+				id <- get_gbifid("Chironomus riparius")
+				classification(id)
 				```
 				<br>
 				```r
@@ -209,41 +251,55 @@
 			</script>
 		</section>
 
-		<section id="taxonomic-ids">
-			<h1>Taxonomic IDs</h1>
-			<br>
-			<h2>always try to move from:</h2>
-			<br>
-			<ul class="b">
-				<li><h3 align="left">taxonomic name -- to</h3></li>
-				<li><h3 align="left">taxonomic ID -- to</h3></li>
-				<li><h3 align="left">whatever other data</h3></li>
-			</ul>
+		<section data-markdown id="taxa-example">
+			<script type="text/template">
+				## Wrangling data paired with taxonomy - <a href="https://github.com/ropensci/taxa">taxa</a>
+
+				```r
+				library('taxa')
+				ex_taxmap
+				```
+
+				<img src="img/extaxmap.png" width="1100">
+			</script>
+		</section>
+
+		<section data-markdown id="taxa-example-filter">
+			<script type="text/template">
+				## Wrangling data paired with taxonomy - <a href="https://github.com/ropensci/taxa">taxa</a>
+
+				```r
+				filter_taxa(ex_taxmap, startsWith(taxon_names, "t")) # filter
+				```
+
+				<img src="img/extaxmap_filtered.png" width="1100">
+			</script>
 		</section>
 
 		<section data-markdown id="rentrez-example">
 			<script type="text/template">
 				## ENTREZ in R - <a href="https://github.com/ropensci/rentrez">rentrez</a>
-				## FIXME: use a more taxonomic example
-
-				### Retrieve datasets from a particular organism
+				### Retrieve downstream taxonomy from a given taxon
 				<br>
 				```r
 				library(rentrez)
-				x <- entrez_search(db = "popset", term = "Latrodectus katipo[Organism]")
-				x_summs <- entrez_summary(db = "popset", id = x$ids)
-				titles <- extract_from_esummary(x_summs, "title")
-				COI_ids <- x$ids[c(2,6)]
-				COI <- entrez_fetch(db = "popset", id = COI_ids, rettype = "fasta")
-				substr(COI, 1, 500)
-				#> [1] ">AY383604.1 Latrodectus katipo isolate 1 tRNA-Leu (trnL) gene, 
-				#> partial sequence; and NADH dehydrogenase subunit 1 (ND1) gene, 
-				#> partial cds; mitochondrial
-				#> ATTACCTAAATTATATCAATAATTATTAATTCAGTTATCCCTATAATCTCTCTCCTAATCAGAGTCTCGT
-				#> TTTACACTATCTTAGAACGAAAAATTTTAAGTTATATCCAAATTCGTAAAGGGCCTAATAAAGTGGGTTT
-				#> CCTTGGTATTCTCCAACCCTTTAGAGACGCAATTAAACTTTTCAACAAAAATCTTATTAAACCTTTCTCT
-				#> TCTAATTTTTTAATTTTCTACATCTCCCCCGCCTTATCTTTAACTCTTGCTCTCCTTATTTCTTCAATCA
-				#> TTCCTTTCTTTTACTTTTCTCCTTATGATAACAAACATAATATCTTGATATTCTTAATCTTAT"
+				x <- entrez_search(db = "taxonomy", term = "Satyrium[Next Level]", retmax = 10)
+				z <- entrez_summary(db = "taxonomy", id = x$ids)
+				data.frame(t(
+				  extract_from_esummary(z, c("uid", "scientificname", "rank"))
+				))
+
+				#> uid            scientificname    rank
+				#> 2023262     Satyrium liltvedianum species
+				#> 1888668          Satyrium calanus species
+				#> 1847691 Satyrium sp. BOLD:ABX6433 species
+				#> 1825277     Satyrium sp. XQX-2016 species
+				#> 1824831          Satyrium grandis species
+				#> 1430660         Satyrium favonius species
+				#> 1423409         Satyrium sylvinus species
+				#> 1405335             Satyrium mera species
+				#> 1405334           Satyrium iyonis species
+				#>  985828    Satyrium situsanguinum species
 				```
 			</script>
 		</section>
@@ -271,12 +327,49 @@
 			<script type="text/template">
 				## GBIF data - <a href="https://github.com/ropensci/rgbif">rgbif</a>
 				<br>
-				### Taxonomic hierarchies from NCBI/ITIS/COL/etc
-
 				```r
-				library('rgbif')
-				FIXME: add example
+				library(rgbif)
+				spp <- c('Accipiter erythronemius', 'Junco hyemalis', 'Aix sponsa')
+				keys <- unname(vapply(spp, function(x) name_backbone(name=x)$speciesKey, 1))
+				dat <- occ_search(taxonKey=keys, limit=5, hasCoordinate=TRUE)
+				library(mapr)
+				map_ggplot(dat)
 				```
+
+				<img src="img/rgbifmap.png" width="800">
+			</script>
+		</section>
+
+		<section id="other-gbif-clients">
+			<h2>GBIF p.s.</h2>
+			<br>
+			<h3>we also maintain GBIF clients in <a href="https://pypi.org/project/pygbif/">Python</a> and <a href="https://rubygems.org/gems/gbifrb">Ruby</a></h3>
+		</section>
+
+		<section data-markdown id="spocc-example">
+			<script type="text/template">
+				## one stop shop for occurrence data - <a href="https://github.com/ropensci/spocc">spocc</a>
+				<br>
+				```r
+				library('spocc')
+				gbifopts <- list(country = 'US')
+				idigbioopts <- list(fields = "scientificname")
+				out <- occ(query = 'Setophaga caerulescens', 
+				    from = c('gbif','bison','inat','idigbio'), limit = 50,
+				    gbifopts = gbifopts, idigbioopts = idigbioopts)
+				dat <- occ2df(out)
+				head(dat); tail(dat)
+				#>  name                   longitude  latitude  prov  date       key
+				#> 1 Setophaga caerulescens -80.347459 25.743763 gbif  2018-01-20 1806338790
+				#> 2 Setophaga caerulescens -80.342233 25.77536  gbif  2018-01-19 1805421161
+				#> 3 Setophaga caerulescens -81.355815 28.569623 gbif  2018-03-14 1837766480
+				```
+				<br>
+				#### Standard interface to varied user inputs to the same things
+
+				- Pagination: `limit`, `start`, `page`
+				- Spatial search: `geometry`
+				- Records w/ coordinates: `has_coords`
 			</script>
 		</section>
 
@@ -284,18 +377,88 @@
 
 		<!-- tools in development and other unsolved problems -->
 		<section id="the-future" class="center">
-			<h1>future work/hard problems</h1>
+			<h1>future work / <br> hard problems</h1>
 		</section>
 
 		<section id="taxonomy-tools-future">
-			<h1>taxonomy tools</h1>
+			<h2>taxonomy tools: in the works</h2>
 			<br>
 			<ul>
-				<li><h3>taxonomic name parsing: <em>fast &amp; platform independent for other R tool builders</em> (see <a href="https://scotttalks.info/berkeley2018poster/index.html"><code>pegax</code> poster</a>)</h3></li>
+				<li><h3>taxonomic name parsing: <em>fast &amp; platform independent for other R tool builders</em>  &amp; tools for R users (see <a href="https://scotttalks.info/berkeley2018poster/"><code>pegax</code> poster</a>)</h3></li>
 				<li><h3>package <a href="https://github.com/ropensci/taxa">taxa</a>: needs more user testing - feedback plz!</h3></li>
-				<li><h3>package <a href="https://github.com/ropenscilabs/taxadc">taxadc</a>: serialize R taxonomic data to Darwin Core</h3></li>
-				<li><h3>package <a href="https://github.com/ropensci/taxizedb">taxizedb</a> - like <code>taxize</code>, but w/ local SQL DB's</h3></li>
+				<li><h3>package <a href="https://github.com/ropenscilabs/taxadc">taxadc</a>: serialize R taxonomic data to Darwin Core- in early development</h3> </li>
+				<li><h3>package <a href="https://github.com/ropensci/taxizedb">taxizedb</a> - hard to a) make similar interface to SQL DB's as web services &amp; 2) simplify varied database installs</h3></li>
+				<li><h3>package <a href="https://github.com/ropensci/taxview">taxview</a> - summarise and visualize data sets from with respect to taxonomy</h3></li>
 			</ul>
+		</section>
+
+		<section data-markdown id="taxview-example">
+			<script type="text/template">
+				## Summarise/visualize data sets by taxonomy - <a href="https://github.com/ropensci/taxview">taxview</a>
+
+				```r
+				library('taxview')
+				x <- system.file("examples/plant_spp.csv", package = "taxview")
+				```
+
+				prepare data: clean, etc.
+
+				```r
+				(dat <- tibble::as_tibble(
+					 data.table::fread(x, stringsAsFactors = FALSE, 
+					   data.table = FALSE)))
+					   are> dat
+				#>  # A tibble: 130 x 2
+				#>    name                        id
+				#>    <chr>                    <int>
+				#>  1 Dianthus engleri       1531994
+				#>  2 Anacolosa frutescens   1618138
+				#>  3 Hymenophyllum plicatum  638568
+
+				(dat_clean <- tv_clean_ids(x, ids = dat$id, db = "ncbi"))
+				#>    name               rank         id     query
+				#>    <chr>              <chr>        <chr>  <chr>
+				#>  1 cellular organisms no rank      131567 1531994
+				#>  2 Eukaryota          superkingdom 2759   1531994
+				#>  3 Viridiplantae      kingdom      33090  1531994
+				```
+				</script>
+		</section>
+
+		<section data-markdown id="taxview-example-1">
+			<script type="text/template">
+				## Summarise/visualize data sets by taxonomy - <a href="https://github.com/ropensci/taxview">taxview</a>
+
+				```r
+				(sumdat <- tv_summarise(dat_clean))
+				```
+				```r
+				#> <tv_summary>
+				#>  no. taxa: 129
+				#>  by rank: N (21)
+				#>  by rank name: N (594)
+				#>  within ranks: N (20)
+				```
+				```r
+				sumdat$by_within_rank
+				#> $superkingdom
+				#> name      count percent
+				#> 1 Eukaryota   127      98
+				#> 2 Bacteria      2       2
+				sumdat$by_within_rank$subphylum
+				#>   name           count percent
+				#> 1 Streptophytina   119      96
+				#> 2 Craniata           2       2
+				#> 3 Hexapoda           2       2
+				#> 4 Chelicerata        1       1
+				```
+				</script>
+		</section>
+
+		<section id="taxview-example-2" class="center">
+			<h2>Summarise/visualize data sets by taxonomy</h2>
+			<br>
+			<h2>coming ...</h2>
 		</section>
 
 		<section id="occurrence-tools-future">
@@ -319,10 +482,45 @@
 				<li><h3>DOIs for GBIF search service (and other services)?</h3></li>
 				<li><h3>related to above: Sharing dataset associated with paper</h3></li>
 				<li><h3>Visualzing huge occurrence datasets? (GBIF map API now in dev ver of <code>rgbif</code>)</h3></li>
-				<li><h3>XXX</h3></li>
-				<li><h3>XXX</h3></li>
 			</ul>
 		</section>
+
+		<section data-markdown id="gbif-map-service-eg">
+			<script type="text/template">
+				## GBIF map service (rasters) ~ static
+
+				```r
+				library(rgbif) # development version remotes::install_github("ropensci/rgbif")
+				library(raster)
+				x <- map_fetch(search = "taxonKey", id = 3118771, year = 2010)
+				plot(x)
+				```
+
+				<img src="img/gbif-map-service.png" width="700">
+
+				### Perhaps scientists can use these rasters for analysis?
+			</script>
+		</section>
+
+		<section data-markdown id="gbif-map-service-leaflet">
+			<script type="text/template">
+				## GBIF map service (rasters) ~ interactive
+				```r
+				library(leaflet)
+				pal <- colorNumeric(c("#0C2C84", "#41B6C4", "#FFFFCC"), values(x), na.color = "transparent")
+				leaflet() %>% 
+				    addTiles() %>%
+				    addRasterImage(x, colors = pal, opacity = 0.8) %>% 
+				    addLegend(pal = pal, values = values(x), 
+				        title = "Occurrences")
+				```
+
+				<img src="img/gbif-map-service-leaflet.png" width="700">
+
+				### Hopefully use GBIF's Map Vector Tile (MVT) soon
+			</script>
+		</section>
+
 
 
 
