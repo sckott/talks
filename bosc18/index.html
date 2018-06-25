@@ -1,0 +1,220 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>bosc18</title>
+
+		<meta name="description" content="bosc18">
+		<meta name="author" content="Scott Chamberlain">
+
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/solarized.css" id="theme">
+		<link rel="stylesheet" href="css/bootstrap/bootstrap.css">
+
+		<!-- use google font -->
+		<link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro' rel='stylesheet' type='text/css'>
+		<!-- <link rel="stylesheet" href="css/font-awesome/css/font-awesome.css"> -->
+		<link rel="stylesheet" href="css/fontawesome-free-5.0.13/web-fonts-with-css/css/fontawesome-all.css">
+
+		<!-- favicon -->
+		<link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico">
+
+		<!-- icons -->
+		<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.css">
+
+		<!-- Code syntax highlighting -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+
+		<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+		<style type="text/css">
+			#rotate_text {
+				-webkit-transform: rotate(-90deg);
+				-moz-transform: rotate(-90deg);
+				transform: rotate(-90deg);
+				position: absolute;
+				vertical-align: middle;
+				position: absolute;
+    		top: 500px;
+    		left: -50px;
+				filter:progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+			}
+
+			ul.a {list-style-type: circle; margin: 0; padding: 0;}
+			ul.b {list-style-type: square; margin-left: 4; padding-left: 0;}
+
+			img {border: none;}
+
+			.center-block {
+			  display: block;
+			  margin-left: auto;
+			  margin-right: auto;
+			}
+		</style>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+		<div class="reveal">
+			<div class="slides">
+		<section id="intro">
+			<h1><font color="#B8172F">taxa: taxonomic data methods for R &amp; Python</font></h1><br>
+			<p class="grey">Scott Chamberlain (<i class="fab fa-twitter"></i> <a href="https://twitter.com/sckottie">@sckottie</a>/<a href="https://twitter.com/ropensci">@ropensci</a>)
+				<p class="grey">UC Berkeley / rOpenSci
+			<br>
+			<span><img src="img/icon_lettering_color.svg" alt="rOpenSci" width="800" /></span>
+		</section>
+
+		<section id="link" class="center">
+			<i class="fas fa-external-link-alt fa-5x"></i>
+			<br><br>
+			<h2><a href="https://scotttalks.info/bosc18">scotttalks.info/bosc18</a> </h2>
+			<br>
+			<span><img src="img/helmsley.png" alt="hemlsley foundation" width="600" /></span>
+			<br><br>
+			<h2>LICENSE: <a href="https://creativecommons.org/licenses/by/4.0/">CC-BY 4.0</a></h2>
+		</section>
+	
+		<!-- stuff -->
+		<section id="taxonomic-data">
+			<h2>challenges of taxonomic data</h2>
+			<br>
+			<ul>
+				<h3><li>taxonomic data is hierarchical</li></h3>
+				<h3><li>often associated with other data</li></h3>
+				<h3><li>"taxa" can be names, classifications of names, or ids</li></h3>
+				<h3><li>diff. sources of taxonomic data differ</li></h3>
+			</ul>
+		</section>
+
+		<section id="taxa-r">
+			<h2>taxa: the R 📦</h2>
+			<!-- <br> -->
+			<a href="https://github.com/ropensci/taxa"> <i class="fas fa-code-branch"></i> github.com/ropensci/taxa</a>
+			<br><br>
+			<div style="text-align: left; float: left; margin-left: 20px; width: 50%">
+				<ul>
+					<li>classes to hold taxa, taxonomies, and associated data</li>
+                    <li>flexible parsers to convert raw data to those classes</li>
+                    <li>dplyr-inspired funcitons to manipulate classes</li>
+                    <li>flexible base for other packages to build on</li>
+				</ul>
+			</div>
+
+		  	<div style="text-align: right; float: right; margin-right: 30px">
+				<img src="img/class_diagram.png" width="600">
+			</div>
+		</section>
+
+		<section id="taxmap">
+			<h2>taxmap: user defined data mapped to taxonomy</h2>
+			<img src="img/extaxmap.png" width="1200">
+		</section>
+
+		<section id="manipulate-taxonomic-data">
+			<h2>manipulate taxonomic data</h2>
+			<br>
+
+			Subset taxonomy and data to one taxon:
+			<pre><code>filter_taxa(x, taxon_names == "Plantae", subtaxa = TRUE)</code></pre>
+
+			Subset taxonomy to one rank:
+			<pre><code>filter_taxa(x, taxon_ranks == "genus", supertaxa = TRUE)</code></pre>
+
+			Subset data and remove any taxa not in subset:
+			<pre><code>filter_obs(x, "info", n_legs == 4, drop_taxa = TRUE)</code></pre>
+			
+			Add a column to a dataset:
+			<pre><code>mutate_obs(x, "info", bipedal = n_legs == 2)</code></pre>
+		</section>
+
+		<section id="taxa-python">
+			<h2>pytaxa: the Python 📦</h2>
+			<a href="https://github.com/sckott/pytaxa"> <i class="fas fa-code-branch"></i> github.com/sckott/pytaxa</a>&nbsp;&nbsp; <a href="http://pytaxa.readthedocs.io/"><i class="fas fa-book"></i> pytaxa.readthedocs.io</a>
+			<br><br>
+			<h3><em>in development</em>: we're replicating the <code>taxa</code> R client in Python - using pythonic idioms</h3>
+		</section>
+
+		<section data-markdown id="pytaxa-eg">
+			<script type="text/javascript">
+				### pytaxa example
+
+				```python
+				from pytaxa import constructors as cs
+from pytaxa import Taxon
+name = cs.taxon_name("Poa")
+rank = cs.taxon_rank("genus", "ncbi")
+db = cs.taxon_database("ncbi", 
+    "http://www.ncbi.nlm.nih.gov/taxonomy",
+    "NCBI Taxonomy Database", 
+    "*")
+id = cs.taxon_id(12345, db)
+Taxon(name, rank, id, "L.")
+
+<Taxon>
+  name: Poa
+  rank: genus
+  id: 12345
+  authority: L.
+				```
+			</script>
+		</section>
+
+			</div>
+		</div>
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+
+			// Full list of configuration options available at:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: false,
+				slideNumber: true,
+				keyboard: true,
+				touch: true,
+
+				width: 1400,
+				height: 900,
+
+				// transition: 'slide', // none/fade/slide/convex/concave/zoom
+				transition: Reveal.getQueryHash().transition || 'none', // default/cube/page/concave/zoom/linear/fade/none
+
+				// Optional reveal.js plugins
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true },
+					{ src: 'plugin/notes/notes.js', async: true }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>
