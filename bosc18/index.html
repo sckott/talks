@@ -78,8 +78,8 @@
 			<div class="slides">
 		<section id="intro">
 			<h1><font color="#B8172F">taxa: taxonomic data methods for R &amp; Python</font></h1><br>
-			<p class="grey">Scott Chamberlain (<i class="fab fa-twitter"></i> <a href="https://twitter.com/sckottie">@sckottie</a>/<a href="https://twitter.com/ropensci">@ropensci</a>)
-				<p class="grey">UC Berkeley / rOpenSci
+			<p class="grey">Scott Chamberlain (<i class="fab fa-twitter" style="color: #5688C8;"></i> <a href="https://twitter.com/sckottie">@sckottie</a>)
+				<p class="grey">UC Berkeley / rOpenSci	
 			<br>
 			<span><img src="img/icon_lettering_color.svg" alt="rOpenSci" width="800" /></span>
 		</section>
@@ -100,14 +100,20 @@
 			<br>
 			<ul>
 				<h3><li>taxonomic data is hierarchical</li></h3>
-				<h3><li>often associated with other data</li></h3>
 				<h3><li>"taxa" can be names, classifications of names, or ids</li></h3>
-				<h3><li>diff. sources of taxonomic data differ</li></h3>
+				<h3><li>diff. sources of taxonomic data (e.g. NCBI vs. COL)</li></h3>
+				<ul>
+					<h3><li>may have different names and ids for the same taxon</li></h3>
+				</ul>
+				<h3><li>often associated with other data</li></h3>
+				<ul>
+					<h3><li>ideally taxa filtering is linked to data</li></h3>
+				</ul>
 			</ul>
 		</section>
 
 		<section id="taxa-r">
-			<h2>taxa: the R 📦</h2>
+			<h2>taxa: the R package</h2>
 			<!-- <br> -->
 			<a href="https://github.com/ropensci/taxa"> <i class="fas fa-code-branch"></i> github.com/ropensci/taxa</a>
 			<br><br>
@@ -115,7 +121,8 @@
 				<ul>
 					<li>classes to hold taxa, taxonomies, and associated data</li>
                     <li>flexible parsers to convert raw data to those classes</li>
-                    <li>dplyr-inspired funcitons to manipulate classes</li>
+                    <li><a href="https://cran.rstudio.com/web/packages/dplyr/">dplyr</a>-inspired functions to easily manipulate classes</li>
+                    <li>any filtering/subsetting keeps all data linked together</li>
                     <li>flexible base for other packages to build on</li>
 				</ul>
 			</div>
@@ -128,6 +135,16 @@
 		<section id="taxmap">
 			<h2>taxmap: user defined data mapped to taxonomy</h2>
 			<img src="img/extaxmap.png" width="1200">
+		</section>
+
+		<section id="taxmap-data-condensed">
+			<h2>taxmap: user defined data mapped to taxonomy</h2>
+			<img src="img/extaxmap-data.png" width="1200">
+		</section>
+
+		<section id="taxmap-arbitrary-linked-data">
+			<h2>taxmap: user defined data mapped to taxonomy</h2>
+			<img src="img/extaxmap-linkeddata.png" width="1200">
 		</section>
 
 		<section id="manipulate-taxonomic-data">
@@ -147,36 +164,37 @@
 			<pre><code>mutate_obs(x, "info", bipedal = n_legs == 2)</code></pre>
 		</section>
 
-		<section id="taxa-python">
-			<h2>pytaxa: the Python 📦</h2>
-			<a href="https://github.com/sckott/pytaxa"> <i class="fas fa-code-branch"></i> github.com/sckott/pytaxa</a>&nbsp;&nbsp; <a href="http://pytaxa.readthedocs.io/"><i class="fas fa-book"></i> pytaxa.readthedocs.io</a>
+		<section id="taxa-python2">
+				<h2>pytaxa: the Python package</h2>
+			<a href="https://github.com/sckott/pytaxa"> <i class="fas fa-code-branch"></i> github.com/sckott/pytaxa</a>&nbsp;&nbsp; <a href="https://focused-neumann-123664.netlify.com/"><i class="fas fa-book"></i> docs</a><br>
+			<code>pip install pytaxa</code>
+			<br>
+			<h3><em>in development</em>: porting <code>taxa</code> R client to Python</h3>
 			<br><br>
-			<h3><em>in development</em>: we're replicating the <code>taxa</code> R client in Python - using pythonic idioms</h3>
+			<div style="text-align: left; float: left; margin-left: 20px; width: 40%">
+				<img src="img/pytaxa_eg1.png" width="600">
+			</div>
+
+		  	<div style="text-align: right; float: right; margin-right: 20px">
+				<img src="img/pytaxa_eg2.png" width="700">
+			</div>
 		</section>
 
-		<section data-markdown id="pytaxa-eg">
-			<script type="text/javascript">
-				### pytaxa example
+		<section id="taxa-pytaxa-plans">
+			<h1>taxa/pytaxa plans</h1>
+			<br>
+			<ul>
+				<h3><li>pytaxa parity with taxa</li></h3>
+				<h3><li>shuttle data between pytaxa &amp; taxa?</li></h3>
+				<h3><li>arbitrary data backends? (e.g., sqlite db of taxonomy or user data)</li></h3>
+				<h3><li>mappings to Darwin Core terms</li></h3>
+			</ul>
+		</section>
 
-				```python
-				from pytaxa import constructors as cs
-from pytaxa import Taxon
-name = cs.taxon_name("Poa")
-rank = cs.taxon_rank("genus", "ncbi")
-db = cs.taxon_database("ncbi", 
-    "http://www.ncbi.nlm.nih.gov/taxonomy",
-    "NCBI Taxonomy Database", 
-    "*")
-id = cs.taxon_id(12345, db)
-Taxon(name, rank, id, "L.")
-
-<Taxon>
-  name: Poa
-  rank: genus
-  id: 12345
-  authority: L.
-				```
-			</script>
+		<section id="src" class="center">
+			<h3><a href="https://github.com/ropensci/taxa">https://github.com/ropensci/taxa</a></h3>
+			<br><br>
+			<h3><a href="https://github.com/sckott/pytaxa">https://github.com/sckott/pytaxa</a></h3>
 		</section>
 
 			</div>
