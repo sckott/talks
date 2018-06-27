@@ -78,7 +78,7 @@
 			<div class="slides">
 		<section id="intro">
 			<h1><font color="#B8172F">taxonomic data methods for R &amp; Python</font></h1><br>
-			<p class="grey">Scott Chamberlain (<i class="fab fa-twitter" style="color: #5688C8;"></i> <a href="https://twitter.com/sckottie">@sckottie</a>)
+			<p class="grey">Scott Chamberlain (<i class="fab fa-twitter" style="color: #5688C8;"></i> <a href="https://twitter.com/sckottie">@sckottie</a>) and Zachary Foster
 				<p class="grey">UC Berkeley / rOpenSci	
 			<br>
 			<span><img src="img/icon_lettering_color.svg" alt="rOpenSci" width="800" /></span>
@@ -92,6 +92,13 @@
 			<span><img src="img/helmsley.png" alt="hemlsley foundation" width="600" /></span>
 			<br><br>
 			<h2>LICENSE: <a href="https://creativecommons.org/licenses/by/4.0/">CC-BY 4.0</a></h2>
+		</section>
+
+		<section id="collaborator" class="center">
+			<img src="img/zachary-foster.jpg" width="400">
+			<br>
+			<p>main collaborator on this work: <a href="https://github.com/zachary-foster">Zach Foster</a></p>
+			<p>also an rOpenSci 2018 Fellow: <a href="https://ropensci.org/blog/2018/02/14/announcing-2018-ropensci-fellows/">Introducing the 2018 rOpenSci Research Fellows!</a></p>
 		</section>
 	
 		<!-- stuff -->
@@ -124,6 +131,10 @@
                     <li><a href="https://cran.rstudio.com/web/packages/dplyr/">dplyr</a>-inspired functions to easily manipulate classes</li>
                     <li>any filtering/subsetting keeps all data linked together</li>
                     <li>flexible base for other packages to build on</li>
+                    <ul>
+                    	<li>R: <a href="https://github.com/ropensci/taxize">taxize</a>, <a href="https://github.com/ropensci/taxizedb">taxizedb</a>, <a href="https://github.com/grunwaldlab/metacoder">metacoder</a>, <a href="https://github.com/sckott/pytaxize">pytaxize</a>, etc.</li>
+                    	<li>Python: <a href="https://github.com/sckott/pytaxize">pytaxize</a>, etc.</li>
+                    </ul>
 				</ul>
 			</div>
 
@@ -186,6 +197,9 @@
 			<ul>
 				<h3><li>pytaxa parity with taxa</li></h3>
 				<h3><li>shuttle data between pytaxa &amp; taxa?</li></h3>
+				<ul>
+					<h3><li>protocol buffers?</li></h3>
+				</ul>
 				<h3><li>arbitrary data backends? (e.g., sqlite db of taxonomy or user data)</li></h3>
 				<h3><li>mappings to Darwin Core terms</li></h3>
 			</ul>
