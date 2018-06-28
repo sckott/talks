@@ -159,7 +159,7 @@ body {
 
 .reveal pre code {
   display: block;
-  padding: 5px;
+  padding: 12px;
   overflow: auto;
   max-height: 900px;
   word-wrap: normal; }
