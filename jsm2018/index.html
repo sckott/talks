@@ -1,0 +1,268 @@
+	<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>jsm18</title>
+
+		<meta name="description" content="jsm18">
+		<meta name="author" content="Scott Chamberlain">
+
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/solarized.css" id="theme">
+		<link rel="stylesheet" href="css/bootstrap/bootstrap.css">
+
+		<!-- use google font -->
+		<link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro' rel='stylesheet' type='text/css'>
+		<!-- <link rel="stylesheet" href="css/font-awesome/css/font-awesome.css"> -->
+		<link rel="stylesheet" href="css/fontawesome-free-5.0.13/web-fonts-with-css/css/fontawesome-all.css">
+
+		<!-- favicon -->
+		<link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico">
+
+		<!-- icons -->
+		<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.css">
+
+		<!-- Code syntax highlighting -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+
+		<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+		<style type="text/css">
+			#rotate_text {
+				-webkit-transform: rotate(-90deg);
+				-moz-transform: rotate(-90deg);
+				transform: rotate(-90deg);
+				position: absolute;
+				vertical-align: middle;
+				position: absolute;
+    		top: 500px;
+    		left: -50px;
+				filter:progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+			}
+
+			ul.a {list-style-type: circle; margin: 0; padding: 0;}
+			ul.b {list-style-type: square; margin-left: 4; padding-left: 0;}
+
+			img {border: none;}
+
+			.center-block {
+			  display: block;
+			  margin-left: auto;
+			  margin-right: auto;
+			}
+		</style>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+		<div class="reveal">
+			<div class="slides">
+		<section id="intro">
+			<h1><font color="#B8172F">Harnessing the Power of Open Data on the Web</font></h1><br>
+			<p class="grey">Scott Chamberlain (<i class="fab fa-twitter"></i> <a href="https://twitter.com/sckottie">@sckottie</a>/<a href="https://twitter.com/ropensci">@ropensci</a>)
+				<p class="grey">UC Berkeley / rOpenSci
+			<br>
+			<span><img src="img/icon_lettering_color.svg" alt="rOpenSci" width="800" /></span>
+		</section>
+
+		<section id="helmsley-talklink-license">
+			<i class="fas fa-external-link-alt fa-5x"></i>
+			<br><br>
+			<h2><a href="https://scotttalks.info/jsm18">scotttalks.info/jsm18</a> </h2>
+			<br>
+			<span><img src="img/helmsley.png" alt="hemlsley foundation" width="600" /></span>
+			<br><br>
+			<h2>LICENSE: <a href="https://creativecommons.org/licenses/by/4.0/">CC-BY 4.0</a></h2>
+		</section>
+
+
+		<!-- actual stuff -->
+		<!-- about ropensci -->	
+		<section id="ropensci">
+			<br>
+			<span><img src="img/icon_lettering_color.svg" alt="rOpenSci" width="800" /></span>
+			<br>
+			<center><h3><a href="https://ropensci.org/">ropensci.org &nbsp;<i class="fas fa-external-link-square-alt"></i></a></h3></center>
+		</section>
+
+		<section id="ropensci-does">
+			<h1>rOpenSci Does</h1>
+			<br><br>
+			<table>
+			<tr>
+			<td>
+				<div style="color:Tomato">
+		    		<i class="fas fa-users fa-5x" aria-hidden="true"></i><h3>Community</h3>
+		    	</div>
+		    </td>
+		    <td>
+		    	<div style="color:Tomato">
+				    <i class="fas fa-code fa-5x" aria-hidden="true"></i><h3>Software</h3>
+				</div>
+			</td>
+			<td>
+				<div style="color:Tomato">
+					<i class="far fa-check-square fa-5x" aria-hidden="true"></i><h3>Review</h3>
+				</div>
+			</td>
+			</tr>
+			</table>
+		</section>
+
+		<section id="ropensci-origins" class="center">
+			<br>
+			<span><img src="img/icon_lettering_color.svg" alt="rOpenSci" width="800" /></span>
+			<br>
+			<h1>ORIGINS</h1>
+		</section>
+
+		<section id="workflow" class="center">
+			<blockquote>talk about workflow one unsolved problem was getting data from the web</blockquote>
+		</section>
+
+		<section id="unsolved-problem" class="center">
+			<blockquote>one unsolved problem was getting data from the web</blockquote>
+		</section>
+
+		<section id="lets-solve-it" class="center">
+			<blockquote>how we started to solve the problem in R - early days ropensci</blockquote>
+		</section>
+
+		<section id="where-were-at" class="center">
+			<blockquote>where we're (ropensci) is at (e.g., X R pkgs, covering Y and Z, )</blockquote>
+		</section>
+
+		<section id="where-we-need-to-be" class="center">
+			<blockquote>where we need to be moving forward (e.g., )</blockquote>
+		</section>
+
+
+
+		<!-- http request mocking/caching -->
+		<section id="http-requests">
+			<h1>http requests</h1>
+		</section>
+
+		<section id="http-request-problems">
+			<h1>http request problems</h1>
+		</section>
+
+		<section id="http-request-solutions">
+			<h1>http request solutions</h1>
+		</section>
+
+		<section id="http-request-mocking">
+			<h1>http request mocking</h1>
+			<h2>general concept</h2>
+		</section>
+
+		<section data-markdown id="webmockr">
+			<script type="text/javascript">
+				## webmockr exmples
+
+				```r
+				adfa
+				```
+			</script>
+		</section>
+
+		<section id="http-request-caching">
+			<h1>http request caching</h1>
+			<h2>general concept</h2>
+		</section>
+
+		<section data-markdown id="vcr">
+			<script type="text/javascript">
+				## vcr exmples
+
+				```r
+				adfa
+				```
+			</script>
+		</section>
+
+
+
+		<!-- talk to us -->
+		<section id="talk-to-us" class="center">
+			<h1>talk to us <i class="fas fa-bullhorn"></i></h1>
+			<br>
+			<h2>discussion forum: <a href="https://discuss.ropensci.org/">discuss.ropensci.org</a></h2>
+			<br>
+			<h2>submit a package/be a reviewer: <a href="https://github.com/ropensci/onboarding">github.com/ropensci/onboarding</a></h2>
+		</section>
+
+		<!-- end -->
+		<section id="end">
+			<!-- <i class="fa fa-external-link fa-5x"></i> -->
+			<i class="fas fa-external-link-alt fa-5x"></i>
+			<br>
+			<h2><a href="https://scotttalks.info/jsm18">scotttalks.info/jsm18</a></h2>
+			<br><br>
+			<h2>Made w/: <a href="https://github.com/hakimel/reveal.js">reveal.js v3.2.0</a></h2>
+			<br>
+			<h2>Some Styling: <a href="http://getbootstrap.com/">Bootstrap v3.3.5</a></h2>
+			<br>
+			<h2>Icons by: <a href="http://fortawesome.github.io/Font-Awesome/">FontAwesome v5.0.13</a></h2>
+		</section>
+
+			</div>
+
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+
+			// Full list of configuration options available at:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: false,
+				slideNumber: true,
+				keyboard: true,
+				touch: true,
+
+				width: 1400,
+				height: 900,
+
+				// transition: 'slide', // none/fade/slide/convex/concave/zoom
+				transition: Reveal.getQueryHash().transition || 'none', // default/cube/page/concave/zoom/linear/fade/none
+
+				// Optional reveal.js plugins
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true },
+					{ src: 'plugin/notes/notes.js', async: true }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>
