@@ -104,21 +104,87 @@ class: center, middle
 
 # High level workflow
 
-
+```
+read phylogeny
+  gather/clean names
+      gather higher taxonomy
+        phylogenetic query
+          gather biodiversity data
+            visualization
+... history
+```
 
 ---
 
----
+# High level workflow
+
+```
+read phylogeny -&gt; pd_read()
+  gather/clean names -&gt; pd_tax()
+      gather higher taxonomy -&gt; pd_tax_hier()
+        phylogenetic query -&gt; pd_query()
+          gather biodiversity data -&gt; pd_biodiv()
+            visualization -&gt; pd_viz()
+... history -&gt; pd_history()
+```
 
 ---
 
+# High level workflow
+
+```
+read phylogeny -&gt; pd_read()
+  gather/clean names -&gt; pd_tax()
+      gather higher taxonomy -&gt; pd_tax_hier()
+        phylogenetic query -&gt; pd_query()
+          gather biodiversity data -&gt; pd_biodiv()
+            visualization -&gt; pd_viz()
+... history -&gt; pd_history()
+```
+
+&lt;br&gt;
+
+rapid iteration between phylogenetic queries and vizualization
+
+&lt;img src="img/iterate.png" alt="iterate" width="200" /&gt;
+
 ---
+
+# Taxonomy
+
+### * web or local data access (local faster, but requires more setup 😬)
+### * how do we label nodes programatically?
+### * do we correct tip labels? needed for higher taxonomy 
+### * phylogenetic queries probably still possible w/o taxonomic names, but ...
+
+---
+
+# Biodiversity
+
+### * multiple use cases, some fast, some slow
+### * what happens when phylogenetic query contains extinct taxa?
+### * xxxx
+
+---
+
+# Maps
+
+---
+
+# What do you want to see?
+
+### * is `phylodiv` a bad or good idea?
+### * what are your main pain points in linking phylogenies to biodiversity data?
+### * 
+### * 
 
 ---
 
 # Future work
 
-asdfadfasdf
+## * focus on ease of use first, performance later
+## * sort out phylogenetic queries
+## * xxxx
 
 ---
 
