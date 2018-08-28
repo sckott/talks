@@ -180,17 +180,15 @@ class: center, middle
 
   * just talked to Emily yesterday 😮 ¿annotate via OpenTree of Life?
 
-### * does it even make sense to collect higher taxonomic names for tips and query based on these higher names?
-### * do we correct tip labels with accepted names? or not?
-### * can't collect higher taxonomic names on OTUs
-### * leverage [taxa][] internally?
+&lt;!-- ### * does it even make sense to collect higher taxonomic names for tips and query based on these higher names? --&gt;
+### * higher taxonomic names on taxa w/o names?
+### * leverage [taxa][] internally? (see [ropensci/taxa#184](https://github.com/ropensci/taxa/issues/184) for discussion)
 
 ---
 
 # Queries
 
 ### * how do we make queries on trees drop dead simple __AND__ flexible
-### * e.g.'s
 
 * all tips within node A
 * node A vs. node B
@@ -200,6 +198,30 @@ class: center, middle
 * _Helianthus annuus_ vs. _Helianthus angustifolius_
 * all names starting with _Helianthus_ 
 * compare sub trees that match shape X
+
+---
+
+# Queries
+
+### formula syntax? 
+
+```r
+A ~ .
+A ~ B
+A ~ B + C
+t1.A ~ t2.C
+D ~ t*
+```
+
+### function calls?
+
+```r
+descendants(A)
+children(A) ~ descendants(Y)
+tip(A) ~ tip(B)
+tips(Helianthus*)
+tip(A, tree = 1) ~ tip(W, tree = 78)
+```
 
 ---
 
@@ -214,9 +236,9 @@ class: center, middle
 - complete occurrence data
 - visually summarized data (rasters)
 
-### * how to strike right balance btw bringing as much data to bear on problem as possible but bringing answers to user fast
+### * strike balance btw bringing as much data to bear on problem as possible &amp; speed
 ### * making dealing with web requests easier: rate limits, caching, etc.
-### * consistent queries across data sources: [spocc][] already done hard work
+### * consistent queries across data sources: [spocc][] already done hard work - may integrate
 
 ---
 
@@ -247,7 +269,7 @@ class: center, middle
 
 --
 
-&lt;span style="font-size: 80px"&gt;make it all work&lt;/span&gt;
+&lt;img src="img/fixit.gif" width="1000"&gt;
 
 ---
 
