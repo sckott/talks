@@ -39,9 +39,10 @@ class: middle
 
 ## * non-profit
 ## * make open-source software for R
+## * software review
 ## * community developers/users
 ## * target science use cases
-## * staff often communication channel btw. scientists/data provders
+## * staff communicating btw. scientists/data provders
 
 ---
 
@@ -50,7 +51,7 @@ background-image: url("img/phylogeny.png")
 class: bottom
 
 &lt;!-- via [ggtree tutorial](https://www.bioconductor.org/packages/release/bioc/vignettes/ggtree/inst/doc/treeVisualization.html) --&gt;
-&lt;p style="background-color: white; width: 250px; font-size: 25px;"&gt;via &lt;a href="https://www.bioconductor.org/packages/release/bioc/vignettes/ggtree/inst/doc/treeVisualization.html"&gt;ggtree tutorial&lt;/a&gt;&lt;/p&gt;
+&lt;p style="background-color: white; width: 250px; font-size: 30px;"&gt;via &lt;a href="https://www.bioconductor.org/packages/release/bioc/vignettes/ggtree/inst/doc/treeVisualization.html"&gt;ggtree tutorial&lt;/a&gt;&lt;/p&gt;
 
 ---
 
@@ -58,7 +59,7 @@ background-image: url("img/biodiv.png")
 
 class: bottom
 
-&lt;p style="background-color: white; width: 250px; font-size: 25px;"&gt;via &lt;a href="http://api.gbif.org/v2/map/debug/"&gt;GBIF map API demos&lt;/a&gt;&lt;/p&gt;
+&lt;p style="background-color: white; width: 250px; font-size: 30px;"&gt;via &lt;a href="http://api.gbif.org/v2/map/debug/"&gt;GBIF map API demos&lt;/a&gt;&lt;/p&gt;
 
 ---
 
@@ -66,7 +67,7 @@ background-image: url("img/lit.png")
 
 class: bottom
 
-&lt;p style="background-color: pink; width: 600px; font-size: 25px;"&gt;lots of papers combining phylogenies and biodiversity&lt;/p&gt;
+&lt;p style="background-color: #EB45F2; width: 600px; font-size: 30px;"&gt;lots of papers combining phylogenies and biodiversity&lt;/p&gt;
 
 ---
 
@@ -74,32 +75,13 @@ class: center
 
 # How do we quickly link the two?
 
+&lt;br&gt;&lt;br&gt;
+
 ## Ideally we want:
 
-### users to be able to ask A LOT of questions very quickly
+&lt;br&gt;&lt;br&gt;
 
----
-
-background-image: url("img/sad.png")
-
-class: center, top
-
-# this will be easy, right?
-
----
-
-# hard parts
-
-&lt;!-- especially when you combine the various ways one can ask questions w/ the various options for data sources and vis tools --&gt;
-
-&lt;br&gt;
-
-## Taxonomic names 
-## Queries on trees
-## Biodiversity data
-## Visualization
-
-&lt;!-- but before we get into that, let's try it --&gt;
+## users to be able to ask A LOT of questions VERY QUICKLY
 
 ---
 
@@ -170,6 +152,29 @@ rapid iteration between phylogenetic queries and vizualization
 class: center, middle
 
 &lt;span style="font-size: 100px"&gt;LIVE DEMO&lt;/span&gt;
+
+---
+
+background-image: url("img/sad.png")
+
+class: center, top
+
+# this will be easy, right?
+
+---
+
+# hard parts
+
+&lt;!-- especially when you combine the various ways one can ask questions w/ the various options for data sources and vis tools --&gt;
+
+&lt;br&gt;
+
+## Taxonomic names 
+## Queries on trees
+## Biodiversity data
+## Visualization
+
+&lt;!-- but before we get into that, let's try it --&gt;
 
 ---
 
@@ -276,9 +281,8 @@ tip(A, tree = 1) ~ tip(W, tree = 78)
 # Future work
 
 ## * focus on ease of use first, performance later
-## * make taxonomic name based queries easy
 ## * make more taxonomic databases work locally
-## * phylogenetic structure based queries (like PhyloFinder, [Chen et al. 2008](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2362120/), [Davidson et al.](https://pdfs.semanticscholar.org/3771/e38cf4178df5ab97852a72631bf56aef02f5.pdf))
+## * make queries easy
 ## * can [phyloreferencing][] help at all here?
 ## * maybe break up into a few pkgs
 
