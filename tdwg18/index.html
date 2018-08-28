@@ -12,6 +12,7 @@
     <textarea id="source">
 
 
+class: center
 
 # Phylogeny Based Biodiversity Data Queries
 
@@ -27,14 +28,8 @@ class: middle
 
 .center[
 &lt;img src="img/helmsley.png" alt="hemlsley foundation" width="1000" /&gt;
-]
-
----
-
-class: middle
-
-.center[
 ## [scotttalks.info/tdwg18](https://scotttalks.info/tdwg17)
+&lt;br&gt;
 ## LICENSE: [CC-BY 4.0](https://creativecommons.org/licenses/by/4.0/)
 ]
 
@@ -44,9 +39,9 @@ class: middle
 
 ## * non-profit
 ## * make open-source software for R
-## * large community developers/users
+## * community developers/users
 ## * target science use cases
-## * we often play role of communicating btw. scientists/data provders
+## * staff often communication channel btw. scientists/data provders
 
 ---
 
@@ -54,7 +49,8 @@ background-image: url("img/phylogeny.png")
 
 class: bottom
 
-via [ggtree tutorial](https://www.bioconductor.org/packages/release/bioc/vignettes/ggtree/inst/doc/treeVisualization.html)
+&lt;!-- via [ggtree tutorial](https://www.bioconductor.org/packages/release/bioc/vignettes/ggtree/inst/doc/treeVisualization.html) --&gt;
+&lt;p style="background-color: white; width: 250px; font-size: 25px;"&gt;via &lt;a href="https://www.bioconductor.org/packages/release/bioc/vignettes/ggtree/inst/doc/treeVisualization.html"&gt;ggtree tutorial&lt;/a&gt;&lt;/p&gt;
 
 ---
 
@@ -62,7 +58,15 @@ background-image: url("img/biodiv.png")
 
 class: bottom
 
-via [GBIF map API demos](http://api.gbif.org/v2/map/debug/)
+&lt;p style="background-color: white; width: 250px; font-size: 25px;"&gt;via &lt;a href="http://api.gbif.org/v2/map/debug/"&gt;GBIF map API demos&lt;/a&gt;&lt;/p&gt;
+
+---
+
+background-image: url("img/lit.png")
+
+class: bottom
+
+&lt;p style="background-color: pink; width: 600px; font-size: 25px;"&gt;lots of papers combining phylogenies and biodiversity&lt;/p&gt;
 
 ---
 
@@ -78,27 +82,43 @@ class: center
 
 background-image: url("img/sad.png")
 
-class: center, middle
+class: center, top
 
 # this will be easy, right?
 
 ---
 
-# The hard parts
+# hard parts
+
+&lt;!-- especially when you combine the various ways one can ask questions w/ the various options for data sources and vis tools --&gt;
+
+&lt;br&gt;
 
 ## Taxonomic names 
+## Queries on trees
 ## Biodiversity data
 ## Visualization
+
+&lt;!-- but before we get into that, let's try it --&gt;
 
 ---
 
 # phylodiv - an R package
 
+## source code: [ropensci/phylodiv](https://github.com/ropensci/phylodiv)
+
 ---
 
-class: center, middle
+# phylodiv - an R package
 
-# LIVE DEMO
+&lt;br&gt;
+
+## builds on top of ...
+
+## - [taxizedb][] for taxonomy data
+## - [rgbif][] for biodiversity data
+## - [rgbif][]/[raster][]/[ggplot2][]/[ggtree][]/[patchwork][]/etc. for mapping
+
 
 ---
 
@@ -106,11 +126,10 @@ class: center, middle
 
 ```
 read phylogeny
-  gather/clean names
-      gather higher taxonomy
-        phylogenetic query
-          gather biodiversity data
-            visualization
+  gather higher taxonomy
+    phylogenetic query
+      gather biodiversity data
+        visualization
 ... history
 ```
 
@@ -120,12 +139,11 @@ read phylogeny
 
 ```
 read phylogeny -&gt; pd_read()
-  gather/clean names -&gt; pd_tax()
-      gather higher taxonomy -&gt; pd_tax_hier()
-        phylogenetic query -&gt; pd_query()
-          gather biodiversity data -&gt; pd_biodiv()
-            visualization -&gt; pd_viz()
-... history -&gt; pd_history()
+  gather higher taxonomy -&gt; pd_taxa()
+    phylogenetic query -&gt; pd_query()
+      gather biodiversity data -&gt; pd_biodiv()
+        visualization -&gt; pd_viz()
+... history -&gt; pd_meta()
 ```
 
 ---
@@ -134,12 +152,11 @@ read phylogeny -&gt; pd_read()
 
 ```
 read phylogeny -&gt; pd_read()
-  gather/clean names -&gt; pd_tax()
-      gather higher taxonomy -&gt; pd_tax_hier()
-        phylogenetic query -&gt; pd_query()
-          gather biodiversity data -&gt; pd_biodiv()
-            visualization -&gt; pd_viz()
-... history -&gt; pd_history()
+  gather higher taxonomy -&gt; pd_taxa()
+    phylogenetic query -&gt; pd_query()
+      gather biodiversity data -&gt; pd_biodiv()
+        visualization -&gt; pd_viz()
+... history -&gt; pd_meta()
 ```
 
 &lt;br&gt;
@@ -150,41 +167,98 @@ rapid iteration between phylogenetic queries and vizualization
 
 ---
 
+class: center, middle
+
+&lt;span style="font-size: 100px"&gt;LIVE DEMO&lt;/span&gt;
+
+---
+
 # Taxonomy
 
 ### * web or local data access (local faster, but requires more setup 😬)
-### * how do we label nodes programatically?
-### * do we correct tip labels? needed for higher taxonomy 
-### * phylogenetic queries probably still possible w/o taxonomic names, but ...
+### * can we label nodes programatically?
+
+  * just talked to Emily yesterday 😮 ¿annotate via OpenTree of Life?
+
+### * does it even make sense to collect higher taxonomic names for tips and query based on these higher names?
+### * do we correct tip labels with accepted names? or not?
+### * can't collect higher taxonomic names on OTUs
+### * leverage [taxa][] internally?
+
+---
+
+# Queries
+
+### * how do we make queries on trees drop dead simple __AND__ flexible
+### * e.g.'s
+
+* all tips within node A
+* node A vs. node B
+* node A vs. node B and node C
+* node A of tree 1 vs. node C of tree 2
+* node D of each of 100 trees (bla! how do you viz. that?)
+* _Helianthus annuus_ vs. _Helianthus angustifolius_
+* all names starting with _Helianthus_ 
+* compare sub trees that match shape X
 
 ---
 
 # Biodiversity
 
-### * multiple use cases, some fast, some slow
-### * what happens when phylogenetic query contains extinct taxa?
-### * xxxx
+&lt;!-- ### * multiple use cases, some fast, some slow --&gt;
+&lt;!-- ### * what happens when query contains extinct taxa? --&gt;
+### * many levels of data 
+
+- total counts
+- total counts faceted by variable (e.g., country)
+- complete occurrence data
+- visually summarized data (rasters)
+
+### * how to strike right balance btw bringing as much data to bear on problem as possible but bringing answers to user fast
+### * making dealing with web requests easier: rate limits, caching, etc.
+### * consistent queries across data sources: [spocc][] already done hard work
 
 ---
 
 # Maps
 
+&lt;!-- ### * some options very fast, some very slow --&gt;
+### * how best to do visualizations for single trees vs. many trees
+### * so many customizations possible - can only give a very simplified subset + hopefully allowing customizations on top of (easy-ish with `ggplot2`/`ggtree`)
+
+&lt;img src="img/facet.png" width="250"&gt; 
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+&lt;img src="img/count.png" width="175"&gt; 
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+&lt;img src="img/raster.png" width="175"&gt; 
+
 ---
 
 # What do you want to see?
 
-### * is `phylodiv` a bad or good idea?
+### * is &lt;span style="color: blue"&gt;phylodiv&lt;/span&gt; a bad or good idea?
 ### * what are your main pain points in linking phylogenies to biodiversity data?
-### * 
-### * 
+### * do you really need a GUI interface? or is a programmatic interface okay? is it worth it if you get greater reproducibility
+### * data sources: which ones do you trust? not everyone is likely to trust the same source 😏
+
+---
+
+# Future work
+
+--
+
+&lt;span style="font-size: 80px"&gt;make it all work&lt;/span&gt;
 
 ---
 
 # Future work
 
 ## * focus on ease of use first, performance later
-## * sort out phylogenetic queries
-## * xxxx
+## * make taxonomic name based queries easy
+## * make more taxonomic databases work locally
+## * phylogenetic structure based queries (like PhyloFinder, [Chen et al. 2008](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2362120/), [Davidson et al.](https://pdfs.semanticscholar.org/3771/e38cf4178df5ab97852a72631bf56aef02f5.pdf))
+## * can [phyloreferencing][] help at all here?
+## * maybe break up into a few pkgs
 
 ---
 
@@ -194,8 +268,19 @@ class: middle
 ## [scotttalks.info/tdwg18](https://scotttalks.info/tdwg18)
 ## Made w/: [xaringan](https://github.com/yihui/xaringan)
 ]
+
+[rgbif]: https://github.com/ropensci/rgbif
+[taxizedb]: https://github.com/ropensci/taxizedb
+[taxa]: https://github.com/ropensci/taxa
+[ggplot2]: https://github.com/tidyverse/ggplot2
+[taxizedb]: https://github.com/ropensci/taxizedb
+[patchwork]: https://github.com/thomasp85/patchwork
+[ggtree]: https://www.bioconductor.org/packages/release/bioc/html/ggtree.html
+[raster]: https://cran.r-project.org/package=raster
+[phyloreferencing]: https://www.phyloref.org/
+[spocc]: https://github.com/ropensci/spocc
     </textarea>
-<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script src="libs/remark-latest.min.js"></script>
 <script>var slideshow = remark.create({
 "highlightStyle": "github",
 "countIncrementalSlides": false
