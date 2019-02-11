@@ -4,8 +4,8 @@
     <title>rOpenSci Data Packages</title>
     <meta charset="utf-8">
     <meta name="author" content="Scott Chamberlain" />
-    <link href="intro_files/remark-css-0.0.1/default.css" rel="stylesheet" />
-    <link href="intro_files/font-awesome-5.3.1/css/fontawesome-all.min.css" rel="stylesheet" />
+    <link href="index_files/remark-css-0.0.1/default.css" rel="stylesheet" />
+    <link href="index_files/font-awesome-5.3.1/css/fontawesome-all.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="scott-theme.css" type="text/css" />
   </head>
   <body>
@@ -220,7 +220,7 @@ class: center, middle, inverse, title-slide
   &lt;li style="font-size:40px";&gt;Start with a species list&lt;/li&gt;
   &lt;li style="font-size:40px";&gt;Clean names with &lt;a href="https://github.com/ropensci/taxize"&gt;taxize&lt;/a&gt;&lt;/li&gt;
   &lt;li style="font-size:40px";&gt;Get occurrence data with &lt;a href="https://github.com/ropensci/rgbif"&gt;rgbif&lt;/a&gt;&lt;/li&gt;
-  &lt;li style="font-size:40px";&gt;Clean occurrence data w/ &lt;a href="https://github.com/ropensci/rgbif"&gt;rgbif&lt;/a&gt;, &lt;a href="https://github.com/ropensci/scrubr"&gt;scrubr&lt;/a&gt; &amp;amp; &lt;a href="https://github.com/ropensci/CoordinateCleaner"&gt;CoordinateCleaner&lt;/a&gt;&lt;/li&gt;
+  &lt;li style="font-size:40px";&gt;Clean occurrence data w/ &lt;a href="https://github.com/ropensci/rgbif"&gt;rgbif&lt;/a&gt;, &lt;a href="https://github.com/ropensci/scrubr"&gt;scrubr&lt;/a&gt; or &lt;a href="https://github.com/ropensci/CoordinateCleaner"&gt;CoordinateCleaner&lt;/a&gt;&lt;/li&gt;
   &lt;li style="font-size:40px";&gt;&lt;a href="https://github.com/ropensci/assertr"&gt;assertr&lt;/a&gt; to check data&lt;/li&gt;
   &lt;li style="font-size:40px";&gt;Map with &lt;a href="https://github.com/ropensci/mapr"&gt;mapr&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
@@ -235,8 +235,34 @@ class: center, middle, inverse, title-slide
 spp &lt;- read.csv("spp_list.txt", header = TRUE, stringsAsFactors = FALSE)$bad
 spp2 &lt;- taxize::gnr_resolve(spp, data_source_ids=11, canonical=TRUE)$matched_name2
 dat &lt;- rgbif::occ_data(scientificName = spp2, limit = 100)
-# dat
+# remove occurrences with COUNTRY_MISMATCH issues
+# lapply(dat, function(w) rgbif::occ_issues(dat, -cum))
+# FIXME: put back in place once rgbif thing fixed
+# dat &lt;- rgbif::occ_issues(dat, -cum)
+# dat &lt;- scrubr::coord_impossible(dat)
 ```
+
+---
+
+## .large[Data integration: code]
+
+```r
+ data %&gt;%
+    assertr::chain_start() %&gt;%
+    assertr::verify(nrow(data) == 3) %&gt;%
+    assertr::verify(assertr::is_uniq(nda_short_name)) %&gt;%
+    assertr::verify(assertr::not_na(grant)) %&gt;%
+    assertr::verify(dplyr::n_distinct(grant) == 1) %&gt;%
+    assertr::verify(nda_short_name %in% expected_nda_short_names) %&gt;%
+    assertr::chain_end() %&gt;%
+    tibble::as_tibble()
+```
+
+```r
+mapr::map_leaflet(dat)
+```
+
+![leaflet_map](img/leaflet_map.png)
     </textarea>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
 <script>var slideshow = remark.create();

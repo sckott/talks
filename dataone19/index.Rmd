@@ -227,14 +227,14 @@ dat <- rgbif::occ_data(scientificName = spp2, limit = 100)
 # lapply(dat, function(w) rgbif::occ_issues(dat, -cum))
 # FIXME: put back in place once rgbif thing fixed
 # dat <- rgbif::occ_issues(dat, -cum)
-dat <- scrubr::coord_impossible(dat)
+# dat <- scrubr::coord_impossible(dat)
 ```
 
 ---
 
 ## .large[Data integration: code]
 
-```{r}
+```r
  data %>%
     assertr::chain_start() %>%
     assertr::verify(nrow(data) == 3) %>%
