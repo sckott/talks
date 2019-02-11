@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>rOpenSci Data Packages</title>
+    <meta charset="utf-8">
+    <meta name="author" content="Scott Chamberlain" />
+    <link href="other-slides_files/remark-css-0.0.1/default.css" rel="stylesheet" />
+    <link rel="stylesheet" href="scott-theme.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+# rOpenSci Data Packages
+### Scott Chamberlain
+### 05 February, 2019
+
+---
+
+
+
+## .large[codemetar: rOpenSci Pkgs]
+
+[leverage codemetar to build rOpenSci package registry](https://github.com/ropenscilabs/makeregistry/)
+
+![pkgs_page](img/ropensci_pkgs_page.png)
+
+asd
+
+---
+
+## .large[assertr usage: eg 2]
+
+[Department for Digital, Culture, Media &amp; Sport (United Kingdom)](https://github.com/DCMSstats) - [creation of the DCMS Sectors Economic Estimates statistical release](https://github.com/DCMSstats/eesectors)
+
+![dcmsstats_repo](img/dcmsstats_repo.png)
+
+```r
+assertr::insist_(
+  x,
+  assertr::within_n_mads(3),
+  lazyeval::interp(~value, value = as.name(value)),
+  error_fun = raise_issue)
+```
+    </textarea>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create();
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function() {
+  var d = document, s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})();</script>
+
+<script>
+(function() {
+  var i, text, code, codes = document.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+})();
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

@@ -1,0 +1,11 @@
+.remark-code, .remark-inline-code { font-family: 'Source Code Pro', 'Lucida Console', Monaco, monospace; }
+.large { font-size: 130% }
+.small { font-size: 70% }
+.title-slide {
+  background-image: url(icon_lettering_black.svg);
+  background-size: auto;
+}
+a, a > code {
+  color: #5688C8; /*default: rgb(249, 38, 114); || sets color of links */
+  text-decoration: none; /* turns off background coloring of links */
+}

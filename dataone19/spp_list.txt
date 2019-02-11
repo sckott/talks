@@ -1,0 +1,7 @@
+good,bad
+Cyperus kappleri,Cyperus kapplera
+Lagoseris sancta,Lagoseris sancti
+Pandanus polyglossus,Pandanus polygglossus
+Gentianella scarlatinostriata,Gentianella sccarlatinostriata
+Sphenolobopsis pearsonii,Sphenolobopsis pearsoniii
+Sphagnum tundrae,Sphagnum tondrae

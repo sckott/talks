@@ -1,0 +1,33 @@
+---
+title: "rOpenSci Data Packages"
+author: Scott Chamberlain
+date: "`r format(Sys.time(), '%d %B, %Y')`"
+output: 
+    xaringan::moon_reader:
+        css: ["default", "scott-theme.css"]
+---
+
+
+## .large[codemetar: rOpenSci Pkgs]
+
+[leverage codemetar to build rOpenSci package registry](https://github.com/ropenscilabs/makeregistry/)
+
+![pkgs_page](img/ropensci_pkgs_page.png)
+
+asd
+
+---
+
+## .large[assertr usage: eg 2]
+
+[Department for Digital, Culture, Media & Sport (United Kingdom)](https://github.com/DCMSstats) - [creation of the DCMS Sectors Economic Estimates statistical release](https://github.com/DCMSstats/eesectors)
+
+![dcmsstats_repo](img/dcmsstats_repo.png)
+
+```r
+assertr::insist_(
+  x,
+  assertr::within_n_mads(3),
+  lazyeval::interp(~value, value = as.name(value)),
+  error_fun = raise_issue)
+```
