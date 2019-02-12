@@ -387,11 +387,10 @@ dat %>%
 ## .large[Data integration: code]
 
 ```{r}
+dat <- dat[,c("name", "decimalLongitude", "decimalLatitude")]
 mapr::map_leaflet(dat, lon = "decimalLongitude", 
   lat = "decimalLatitude")
 ```
-
-<!-- ![leaflet_map](img/leaflet_map2.png) -->
 
 ---
 
