@@ -14,6 +14,7 @@ class: center, middle, inverse, title-slide
 
 # rOpenSci Data Packages
 ### Scott Chamberlain
+### <i class="fab  fa-twitter "></i>sckottie
 
 ---
 
@@ -88,6 +89,22 @@ class: center, middle, inverse, title-slide
 
 ---
 
+## .large[rgbif &lt;img src="img/rgbif_logo.png" width="80" style="float:right"&gt;]
+
+&lt;h2&gt;Access &gt; 1 billion occurrence records from &lt;a href="https://www.gbif.org/"&gt;GBIF&lt;/a&gt;&lt;/h2&gt;
+
+
+&lt;h2&gt;<i class="fab  fa-github "></i> &lt;a href="https://github.com/ropensci/rgbif"&gt;ropensci/rgbif&lt;/a&gt;&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li style="font-size:30px";&gt;Search for species&lt;/li&gt;
+  &lt;li style="font-size:30px";&gt;Download occurrence data&lt;/li&gt;
+  &lt;li style="font-size:30px";&gt;Clean occurrence data&lt;/li&gt;
+  &lt;li style="font-size:30px";&gt;Make maps&lt;/li&gt;
+&lt;/ul&gt;
+
+---
+
 ## .large[rgbif usage]
 
 [Bemmels, et al. (2018) -- Filter-dispersal assembly of lowland Neotropical rainforests across the Andes](https://doi.org/10.1111/ecog.03473)
@@ -121,8 +138,6 @@ class: center, middle, inverse, title-slide
     └── index.Rmd          : Template for website homepage
 ```
 
-&lt;img src="img/rgbif_logo.png" width="80" style="float:right"&gt;
-
 <i class="fab  fa-github "></i> &lt;a href="https://github.com/ropensci/rgbif"&gt;rgbif&lt;/a&gt;
 
 ---
@@ -147,6 +162,24 @@ class: center, middle, inverse, title-slide
 
 ---
 
+## .large[taxize]
+
+&lt;h2&gt;Access taxonomic data from &gt; 20 sources&lt;/h2&gt;
+
+
+&lt;h2&gt;<i class="fab  fa-github "></i> &lt;a href="https://github.com/ropensci/taxize"&gt;ropensci/taxize&lt;/a&gt;&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li style="font-size:30px";&gt;Resolve misspelled/etc. names&lt;/li&gt;
+  &lt;li style="font-size:30px";&gt;Search for names&lt;/li&gt;
+  &lt;li style="font-size:30px";&gt;Taxonomic classifications&lt;/li&gt;
+  &lt;li style="font-size:30px";&gt;Fetch all taxa up- and down-stream&lt;/li&gt;
+  &lt;li style="font-size:30px";&gt;Fetch taxonomic synonyms&lt;/li&gt;
+  &lt;li style="font-size:30px";&gt;Common names to taxonomic and vice versa&lt;/li&gt;
+&lt;/ul&gt;
+
+---
+
 ## .large[taxize usage]
 
 [Liang, J., et al. (2016) -- Positive biodiversity-productivity relationship predominant in global forests](https://doi.org/10.1126/science.aaf8957)
@@ -156,13 +189,6 @@ class: center, middle, inverse, title-slide
 &gt; _there were ... 8,737 species ... We verified all ... names against 60 taxonomic data-bases, including NCBI, GRIN Taxonomy for Plants, Tropicos–Missouri Botanical Garden, and the International Plant Names Index, using the ‘taxize’ package in R_
 
 ~90 more e.g.'s at &lt;https://github.com/ropensci/roapi/blob/master/data/citations.csv&gt;
-
----
-
-## .large[taxize project]
-
-&lt;h3&gt;highlight a project that uses taxize ...&lt;/h3&gt;
-
 
 ---
 
@@ -231,38 +257,74 @@ class: center, middle, inverse, title-slide
 
 
 ```r
-#spp &lt;- names_list("species")
-spp &lt;- read.csv("spp_list.txt", header = TRUE, stringsAsFactors = FALSE)$bad
-spp2 &lt;- taxize::gnr_resolve(spp, data_source_ids=11, canonical=TRUE)$matched_name2
-dat &lt;- rgbif::occ_data(scientificName = spp2, limit = 100)
-# remove occurrences with COUNTRY_MISMATCH issues
-# lapply(dat, function(w) rgbif::occ_issues(dat, -cum))
-# FIXME: put back in place once rgbif thing fixed
-# dat &lt;- rgbif::occ_issues(dat, -cum)
-# dat &lt;- scrubr::coord_impossible(dat)
+# read in species list
+spp &lt;- read.csv("spp_list.txt", header = TRUE, 
+  stringsAsFactors = FALSE)$bad
+# resolve names: fix misspellings
+spp2 &lt;- taxize::gnr_resolve(spp, data_source_ids = 11, 
+  canonical = TRUE)$matched_name2
+# fetch GBIF occurrence data
+dat &lt;- rgbif::occ_data(scientificName = spp2, limit = 300)
+# remove data with issues: COUNTRY_MISMATCH &amp; COORDINATE_ROUNDED
+dat &lt;- rgbif::occ_issues(dat, -cum, -cdround)
+# make a single data.frame
+dat &lt;- dplyr::bind_rows(lapply(dat, "[[", "data"))
+# remove records with incomplete lat/lon data
+dat &lt;- scrubr::coord_incomplete(dat)
+```
+
+Data: [spp_list.txt](https://github.com/sckott/talks/blob/gh-pages/dataone19/spp_list.txt)
+
+---
+
+## .large[Data integration: code]
+
+&lt;h3&gt;Test assertions about the data&lt;/h3&gt;
+
+```r
+library(magrittr)
+dat %&gt;%
+  assertr::chain_start() %&gt;%
+  # does it have more than 100 rows?
+  assertr::verify(NROW(dat) &gt; 100) %&gt;%
+  # is the key for the occurrence record unique?
+  assertr::verify(assertr::is_uniq(key)) %&gt;%
+  # are there any NA's in lat/lon?
+  assertr::verify(assertr::not_na(decimalLatitude)) %&gt;%
+  assertr::verify(assertr::not_na(decimalLongitude)) %&gt;%
+  assertr::chain_end() %&gt;%
+  tibble::as_tibble()
 ```
 
 ---
 
 ## .large[Data integration: code]
 
-```r
- data %&gt;%
-    assertr::chain_start() %&gt;%
-    assertr::verify(nrow(data) == 3) %&gt;%
-    assertr::verify(assertr::is_uniq(nda_short_name)) %&gt;%
-    assertr::verify(assertr::not_na(grant)) %&gt;%
-    assertr::verify(dplyr::n_distinct(grant) == 1) %&gt;%
-    assertr::verify(nda_short_name %in% expected_nda_short_names) %&gt;%
-    assertr::chain_end() %&gt;%
-    tibble::as_tibble()
-```
 
 ```r
-mapr::map_leaflet(dat)
+mapr::map_leaflet(dat, lon = "decimalLongitude", 
+  lat = "decimalLatitude")
 ```
 
-![leaflet_map](img/leaflet_map.png)
+![leaflet_map](img/leaflet_map2.png)
+
+---
+
+## .large[Thanks!]
+
+&lt;ul&gt;
+  &lt;li style="font-size:40px; list-style: none;";&gt;Scott Chamberlain&lt;/li&gt;
+  &lt;ul&gt;
+    &lt;li style="font-size:40px; list-style: none; color: #5688C8";&gt;<i class="fab  fa-twitter "></i> sckottie&lt;/li&gt;
+    &lt;li style="font-size:40px; list-style: none; color: #5688C8";&gt;slides: &lt;a href="https://scotttalks.info/dataone19/"&gt;scotttalks.info/dataone19&lt;/a&gt;&lt;/li&gt;
+  &lt;/ul&gt;
+  &lt;li style="font-size:40px; list-style: none;";&gt;Karthik Ram&lt;/li&gt;
+  &lt;ul&gt;
+    &lt;li style="font-size:40px; list-style: none; color: #5688C8";&gt;<i class="fab  fa-twitter "></i> _inundata&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/ul&gt;
+&lt;br&gt;&lt;br&gt;
+&lt;h2&gt;rOpenSci: &lt;a href="https://ropensci.org/"&gt;ropensci.org&lt;/a&gt;&lt;/h2&gt;
     </textarea>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
 <script>var slideshow = remark.create();

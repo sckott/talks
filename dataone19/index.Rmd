@@ -1,7 +1,7 @@
 ---
 title: "rOpenSci Data Packages"
 author: Scott Chamberlain
-# date: "`r format(Sys.time(), '%d %B, %Y')`"
+date: "`r paste0(icon::fa_twitter(), 'sckottie')`"
 output: 
     xaringan::moon_reader:
         css: ["default", "scott-theme.css"]
@@ -77,6 +77,22 @@ output:
 
 ---
 
+## .large[rgbif <img src="img/rgbif_logo.png" width="80" style="float:right">]
+
+<h2>Access > 1 billion occurrence records from <a href="https://www.gbif.org/">GBIF</a></h2>
+
+
+<h2>`r icon::fa_github()` <a href="https://github.com/ropensci/rgbif">ropensci/rgbif</a></h2>
+
+<ul>
+  <li style="font-size:30px";>Search for species</li>
+  <li style="font-size:30px";>Download occurrence data</li>
+  <li style="font-size:30px";>Clean occurrence data</li>
+  <li style="font-size:30px";>Make maps</li>
+</ul>
+
+---
+
 ## .large[rgbif usage]
 
 [Bemmels, et al. (2018) -- Filter-dispersal assembly of lowland Neotropical rainforests across the Andes](https://doi.org/10.1111/ecog.03473)
@@ -110,8 +126,6 @@ output:
     └── index.Rmd          : Template for website homepage
 ```
 
-<img src="img/rgbif_logo.png" width="80" style="float:right">
-
 `r icon::fa_github()` <a href="https://github.com/ropensci/rgbif">rgbif</a>
 
 ---
@@ -136,6 +150,24 @@ output:
 
 ---
 
+## .large[taxize]
+
+<h2>Access taxonomic data from > 20 sources</h2>
+
+
+<h2>`r icon::fa_github()` <a href="https://github.com/ropensci/taxize">ropensci/taxize</a></h2>
+
+<ul>
+  <li style="font-size:30px";>Resolve misspelled/etc. names</li>
+  <li style="font-size:30px";>Search for names</li>
+  <li style="font-size:30px";>Taxonomic classifications</li>
+  <li style="font-size:30px";>Fetch all taxa up- and down-stream</li>
+  <li style="font-size:30px";>Fetch taxonomic synonyms</li>
+  <li style="font-size:30px";>Common names to taxonomic and vice versa</li>
+</ul>
+
+---
+
 ## .large[taxize usage]
 
 [Liang, J., et al. (2016) -- Positive biodiversity-productivity relationship predominant in global forests](https://doi.org/10.1126/science.aaf8957)
@@ -145,13 +177,6 @@ output:
 > _there were ... 8,737 species ... We verified all ... names against 60 taxonomic data-bases, including NCBI, GRIN Taxonomy for Plants, Tropicos–Missouri Botanical Garden, and the International Plant Names Index, using the ‘taxize’ package in R_
 
 ~90 more e.g.'s at <https://github.com/ropensci/roapi/blob/master/data/citations.csv>
-
----
-
-## .large[taxize project]
-
-<h3>highlight a project that uses taxize ...</h3>
-
 
 ---
 
@@ -218,37 +243,71 @@ output:
 
 ## .large[Data integration: code]
 
-```{r cache=TRUE}
-#spp <- names_list("species")
-spp <- read.csv("spp_list.txt", header = TRUE, stringsAsFactors = FALSE)$bad
-spp2 <- taxize::gnr_resolve(spp, data_source_ids=11, canonical=TRUE)$matched_name2
-dat <- rgbif::occ_data(scientificName = spp2, limit = 100)
-# remove occurrences with COUNTRY_MISMATCH issues
-# lapply(dat, function(w) rgbif::occ_issues(dat, -cum))
-# FIXME: put back in place once rgbif thing fixed
-# dat <- rgbif::occ_issues(dat, -cum)
-# dat <- scrubr::coord_impossible(dat)
+```{r cache=TRUE, message=FALSE, warning=FALSE}
+# read in species list
+spp <- read.csv("spp_list.txt", header = TRUE, 
+  stringsAsFactors = FALSE)$bad
+# resolve names: fix misspellings
+spp2 <- taxize::gnr_resolve(spp, data_source_ids = 11, 
+  canonical = TRUE)$matched_name2
+# fetch GBIF occurrence data
+dat <- rgbif::occ_data(scientificName = spp2, limit = 300)
+# remove data with issues: COUNTRY_MISMATCH & COORDINATE_ROUNDED
+dat <- rgbif::occ_issues(dat, -cum, -cdround)
+# make a single data.frame
+dat <- dplyr::bind_rows(lapply(dat, "[[", "data"))
+# remove records with incomplete lat/lon data
+dat <- scrubr::coord_incomplete(dat)
+```
+
+Data: [spp_list.txt](https://github.com/sckott/talks/blob/gh-pages/dataone19/spp_list.txt)
+
+---
+
+## .large[Data integration: code]
+
+<h3>Test assertions about the data</h3>
+
+```r
+library(magrittr)
+dat %>%
+  assertr::chain_start() %>%
+  # does it have more than 100 rows?
+  assertr::verify(NROW(dat) > 100) %>%
+  # is the key for the occurrence record unique?
+  assertr::verify(assertr::is_uniq(key)) %>%
+  # are there any NA's in lat/lon?
+  assertr::verify(assertr::not_na(decimalLatitude)) %>%
+  assertr::verify(assertr::not_na(decimalLongitude)) %>%
+  assertr::chain_end() %>%
+  tibble::as_tibble()
 ```
 
 ---
 
 ## .large[Data integration: code]
 
-```r
- data %>%
-    assertr::chain_start() %>%
-    assertr::verify(nrow(data) == 3) %>%
-    assertr::verify(assertr::is_uniq(nda_short_name)) %>%
-    assertr::verify(assertr::not_na(grant)) %>%
-    assertr::verify(dplyr::n_distinct(grant) == 1) %>%
-    assertr::verify(nda_short_name %in% expected_nda_short_names) %>%
-    assertr::chain_end() %>%
-    tibble::as_tibble()
+```{r eval=FALSE}
+mapr::map_leaflet(dat, lon = "decimalLongitude", 
+  lat = "decimalLatitude")
 ```
 
-```r
-mapr::map_leaflet(dat)
-```
+![leaflet_map](img/leaflet_map2.png)
 
-![leaflet_map](img/leaflet_map.png)
+---
 
+## .large[Thanks!]
+
+<ul>
+  <li style="font-size:40px; list-style: none;";>Scott Chamberlain</li>
+  <ul>
+    <li style="font-size:40px; list-style: none; color: #5688C8";>`r icon::fa_twitter()` sckottie</li>
+    <li style="font-size:40px; list-style: none; color: #5688C8";>slides: <a href="https://scotttalks.info/dataone19/">scotttalks.info/dataone19</a></li>
+  </ul>
+  <li style="font-size:40px; list-style: none;";>Karthik Ram</li>
+  <ul>
+    <li style="font-size:40px; list-style: none; color: #5688C8";>`r icon::fa_twitter()` _inundata</li>
+  </ul>
+</ul>
+<br><br>
+<h2>rOpenSci: <a href="https://ropensci.org/">ropensci.org</a></h2>

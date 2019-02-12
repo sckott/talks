@@ -4,6 +4,12 @@
 .title-slide {
   background-image: url(icon_lettering_black.svg);
   background-size: auto;
+  background-position: bottom
+}
+.title-slide h1 {
+  text-shadow: none;
+  color: #F7F8FA;
+  margin-top: -100px;
 }
 a, a > code {
   color: #5688C8; /*default: rgb(249, 38, 114); || sets color of links */
