@@ -26,6 +26,8 @@ class: center, middle, inverse, title-slide
   &lt;li style="font-size:40px";&gt;One best way to get data XYZ&lt;/li&gt;
   &lt;li style="font-size:40px";&gt;Reduced user error&lt;/li&gt;
   &lt;li style="font-size:40px";&gt;Allow researchers to focus on the science&lt;/li&gt;
+  &lt;br&gt;&lt;br&gt;&lt;br&gt;
+  &lt;li style="font-size:40px";&gt;One more part of the science workflow that's reproducible&lt;/li&gt;
 &lt;/ul&gt;
 
 ---
@@ -58,6 +60,28 @@ class: center, middle, inverse, title-slide
 
 ---
 
+## .large[Data package patterns]
+
+&lt;h3&gt;Or at least patterns we strive towards ...&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li style="font-size:30px";&gt;Cache downloaded data for FTP/similar files&lt;/li&gt;
+  &lt;li style="font-size:30px";&gt;Return data.frame's: facilitates downstream processing&lt;/li&gt;
+  &lt;li style="font-size:30px";&gt;Make it easy to cite data providers&lt;/li&gt;
+  &lt;li style="font-size:30px";&gt;Incorporate metadata&lt;/li&gt;
+  &lt;li style="font-size:30px";&gt;Properly tested&lt;/li&gt;
+  &lt;ul&gt;
+    &lt;li style="font-size:30px";&gt;&lt;a href="https://github.com/ropensci/webmockr"&gt;webmockr&lt;/a&gt;/&lt;a href="https://github.com/ropensci/vcr"&gt;vcr&lt;/a&gt; - See also: &lt;a href="https://ropensci.github.io/http-testing-book/"&gt;HTTP testing book <i class="fas  fa-book "></i>&lt;/a&gt;&lt;/li&gt;
+  &lt;/ul&gt;
+  &lt;li style="font-size:30px";&gt;Helps if maintainer has domain knowledge&lt;/li&gt;
+  &lt;ul&gt;
+    &lt;li style="font-size:30px";&gt;rOpensci &lt;a href="https://github.com/ropensci/software-review"&gt;software review&lt;/a&gt; facilitating this&lt;/li&gt;
+    &lt;li style="font-size:30px";&gt;&amp;amp; why we want new maintainer for &lt;a href="https://github.com/ropensci/rsnps"&gt;rsnps&lt;/a&gt;&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/ul&gt;
+
+---
+
 ## .large[Occurrence Data Packages]
 
 &lt;ul&gt;
@@ -71,23 +95,50 @@ class: center, middle, inverse, title-slide
   &lt;li style="font-size:30px";&gt;&lt;a href="https://github.com/ropensci/rvertnet"&gt;rvertnet&lt;/a&gt; - VertNet data&lt;/li&gt;
   &lt;li style="font-size:30px";&gt;&lt;a href="https://github.com/ropensci/rfishbae"&gt;rfishbase&lt;/a&gt; - Fishbase.org data&lt;/li&gt;
   &lt;li style="font-size:30px";&gt;&lt;a href="https://github.com/ropensci/finch"&gt;finch&lt;/a&gt; - Handle Darwin Core&lt;/li&gt;
+  &lt;li style="font-size:30px";&gt;&lt;a href="https://github.com/ropensci/seaaroundus"&gt;seaaroundus&lt;/a&gt; - Sea Around Us data&lt;/li&gt;
+  &lt;li style="font-size:30px";&gt;&lt;a href="https://github.com/ropensci/rglobi"&gt;rglobi&lt;/a&gt; - Global Biotic Interactions&lt;/li&gt;
 &lt;/ul&gt;
 
 ---
 
-## .large[Data package patterns]
-
-&lt;h3&gt;Or at least patterns we strive towards ...&lt;/h3&gt;
+## .large[Occurrence Data Packages]
 
 &lt;ul&gt;
-  &lt;li style="font-size:30px";&gt;HTTP requests&lt;/li&gt;
-  &lt;li style="font-size:30px";&gt;Cache downloaded data for FTP/similar files&lt;/li&gt;
-  &lt;li style="font-size:30px";&gt;Return data.frame's: facilitates downstream processing&lt;/li&gt;
-  &lt;li style="font-size:30px";&gt;Make it easy to cite data providers&lt;/li&gt;
-  &lt;li style="font-size:30px";&gt;Incorporate metadata&lt;/li&gt;
+  &lt;li style="font-size:30px";&gt;&lt;a href="https://github.com/ropensci/spocc"&gt;spocc&lt;/a&gt; - Biodiversity data toolbelt&lt;/li&gt;
+  &lt;li style="font-size:30px";&gt;&lt;a href="https://github.com/ropensci/rgbif"&gt;rgbif&lt;/a&gt; - GBIF data&lt;/li&gt;
+  &lt;li style="font-size:30px";&gt;&lt;a href="https://github.com/ropensci/ecoengine"&gt;ecoengine&lt;/a&gt; - Berekeley Ecoengine client&lt;/li&gt;
+  &lt;li style="font-size:30px";&gt;&lt;a href="https://github.com/ropensci/rinat"&gt;rinat&lt;/a&gt; - iNaturalist client&lt;/li&gt;
+  &lt;li style="font-size:30px";&gt;&lt;a href="https://github.com/ropensci/rbison"&gt;rbison&lt;/a&gt; - USGS BISON client&lt;/li&gt;
+  &lt;li style="font-size:30px";&gt;&lt;a href="https://github.com/ropensci/rebird"&gt;rebird&lt;/a&gt; - &lt;mark&gt;eBird data via their API&lt;/mark&gt;&lt;/li&gt;
+  &lt;li style="font-size:30px";&gt;&lt;a href="https://github.com/CornellLabofOrnithology/auk"&gt;auk&lt;/a&gt; - &lt;mark&gt;eBird bulk data&lt;/mark&gt;&lt;/li&gt;
+  &lt;li style="font-size:30px";&gt;&lt;a href="https://github.com/ropensci/rvertnet"&gt;rvertnet&lt;/a&gt; - VertNet data&lt;/li&gt;
+  &lt;li style="font-size:30px";&gt;&lt;a href="https://github.com/ropensci/rfishbae"&gt;rfishbase&lt;/a&gt; - Fishbase.org data&lt;/li&gt;
+  &lt;li style="font-size:30px";&gt;&lt;a href="https://github.com/ropensci/finch"&gt;finch&lt;/a&gt; - Handle Darwin Core&lt;/li&gt;
+  &lt;li style="font-size:30px";&gt;&lt;a href="https://github.com/ropensci/seaaroundus"&gt;seaaroundus&lt;/a&gt; - Sea Around Us data&lt;/li&gt;
+  &lt;li style="font-size:30px";&gt;&lt;a href="https://github.com/ropensci/rglobi"&gt;rglobi&lt;/a&gt; - Global Biotic Interactions&lt;/li&gt;
 &lt;/ul&gt;
 
 ---
+
+## .large[Occurrence Data Packages]
+
+&lt;ul&gt;
+  &lt;li style="font-size:30px";&gt;&lt;a href="https://github.com/ropensci/spocc"&gt;spocc&lt;/a&gt; - Biodiversity data toolbelt&lt;/li&gt;
+  &lt;li style="font-size:30px";&gt;&lt;a href="https://github.com/ropensci/rgbif"&gt;rgbif&lt;/a&gt; - GBIF data&lt;/li&gt;
+  &lt;li style="font-size:30px";&gt;&lt;a href="https://github.com/ropensci/ecoengine"&gt;ecoengine&lt;/a&gt; - Berekeley Ecoengine client&lt;/li&gt;
+  &lt;li style="font-size:30px";&gt;&lt;a href="https://github.com/ropensci/rinat"&gt;rinat&lt;/a&gt; - iNaturalist client&lt;/li&gt;
+  &lt;li style="font-size:30px";&gt;&lt;a href="https://github.com/ropensci/rbison"&gt;rbison&lt;/a&gt; - USGS BISON client&lt;/li&gt;
+  &lt;li style="font-size:30px";&gt;&lt;a href="https://github.com/ropensci/rebird"&gt;rebird&lt;/a&gt; - eBird data via their API&lt;/li&gt;
+  &lt;li style="font-size:30px";&gt;&lt;a href="https://github.com/CornellLabofOrnithology/auk"&gt;auk&lt;/a&gt; - eBird bulk data&lt;/li&gt;
+  &lt;li style="font-size:30px";&gt;&lt;a href="https://github.com/ropensci/rvertnet"&gt;rvertnet&lt;/a&gt; - VertNet data&lt;/li&gt;
+  &lt;li style="font-size:30px";&gt;&lt;a href="https://github.com/ropensci/rfishbae"&gt;rfishbase&lt;/a&gt; - &lt;mark&gt;Fishbase.org data&lt;/mark&gt;&lt;/li&gt;
+  &lt;li style="font-size:30px";&gt;&lt;a href="https://github.com/ropensci/finch"&gt;finch&lt;/a&gt; - Handle Darwin Core&lt;/li&gt;
+  &lt;li style="font-size:30px";&gt;&lt;a href="https://github.com/ropensci/seaaroundus"&gt;seaaroundus&lt;/a&gt; - &lt;mark&gt;Sea Around Us data&lt;/mark&gt;&lt;/li&gt;
+  &lt;li style="font-size:30px";&gt;&lt;a href="https://github.com/ropensci/rglobi"&gt;rglobi&lt;/a&gt; - Global Biotic Interactions&lt;/li&gt;
+&lt;/ul&gt;
+
+---
+
 
 ## .large[rgbif &lt;img src="img/rgbif_logo.png" width="80" style="float:right"&gt;]
 
@@ -113,7 +164,7 @@ class: center, middle, inverse, title-slide
 
 &gt; _... records were obtained for each species ... using ... `rgbif` ... Quality controls were applied to ensure that occurrence records were correctly taxonomically identified and accurately georeferenced. In particular, records with the following issues were excluded ... invalid coordinates or geodetic datum; failed or suspicious coordinate reprojection; ... species name with no match ..._
 
-~70 more e.g.'s at &lt;https://github.com/ropensci/roapi/blob/master/data/citations.csv&gt;
+~70 more citations at &lt;https://github.com/ropensci/roapi/blob/master/data/citations.csv&gt;
 
 ---
 
@@ -145,11 +196,31 @@ class: center, middle, inverse, title-slide
 ## .large[Taxonomy Packages]
 
 &lt;ul&gt;
-  &lt;li style="font-size:30px";&gt;&lt;a href="https://github.com/ropensci/taxa"&gt;taxa&lt;/a&gt; - Taxonomic R classes&lt;/li&gt;
   &lt;li style="font-size:30px";&gt;&lt;a href="https://github.com/ropensci/taxize"&gt;taxize&lt;/a&gt; - Taxonomic toolbelt (remote data)&lt;/li&gt;
   &lt;ul&gt;
-    &lt;li style="font-size:30px";&gt;&lt;a href="https://ropensci.github.io/taxize-book/"&gt;taxize book&lt;/a&gt;&lt;/li&gt;
+    &lt;li style="font-size:30px";&gt;&lt;a href="https://ropensci.github.io/taxize-book/"&gt;taxize book <i class="fas  fa-book "></i>&lt;/a&gt;&lt;/li&gt;
   &lt;/ul&gt;
+  &lt;li style="font-size:30px";&gt;&lt;a href="https://github.com/ropensci/taxa"&gt;taxa&lt;/a&gt; - Taxonomic R classes&lt;/li&gt;
+  &lt;li style="font-size:30px";&gt;&lt;a href="https://github.com/ropensci/taxizedb"&gt;taxizedb&lt;/a&gt; - Leverage dumps of taxonomic database locally&lt;/li&gt;
+  &lt;li style="font-size:30px";&gt;&lt;a href="https://github.com/ropensci/ritis"&gt;ritis&lt;/a&gt; - USGS's ITIS&lt;/li&gt;
+  &lt;li style="font-size:30px";&gt;&lt;a href="https://github.com/ropensci/rotl"&gt;rotl&lt;/a&gt; - Open Tree of Life&lt;/li&gt;
+  &lt;li style="font-size:30px";&gt;&lt;a href="https://github.com/ropensci/rentrez"&gt;rentrez&lt;/a&gt; - NCBI ENTREZ taxonomy database&lt;/li&gt;
+  &lt;li style="font-size:30px";&gt;&lt;a href="https://github.com/ropensci/worrms"&gt;worrms&lt;/a&gt; - WORMS marine taxonomy&lt;/li&gt;
+  &lt;li style="font-size:30px";&gt;&lt;a href="https://github.com/ropensci/wikitaxa"&gt;wikitaxa&lt;/a&gt; - Taxonomy data on Wikipedia&lt;/li&gt;
+  &lt;li style="font-size:30px";&gt;&lt;a href="https://github.com/ropenscilabs/zbank"&gt;zbank&lt;/a&gt; - ZooBank&lt;/li&gt;
+  &lt;li style="font-size:30px";&gt;&lt;a href="https://github.com/ropensci/rgbif"&gt;rgbif&lt;/a&gt; - GBIF taxonomy data&lt;/li&gt;
+&lt;/ul&gt;
+
+---
+
+## .large[Taxonomy Packages]
+
+&lt;ul&gt;
+  &lt;li style="font-size:30px";&gt;&lt;a href="https://github.com/ropensci/taxize"&gt;taxize&lt;/a&gt; - &lt;mark&gt;Taxonomic toolbelt (remote data)&lt;/mark&gt;&lt;/li&gt;
+  &lt;ul&gt;
+    &lt;li style="font-size:30px";&gt;&lt;a href="https://ropensci.github.io/taxize-book/"&gt;taxize book <i class="fas  fa-book "></i>&lt;/a&gt;&lt;/li&gt;
+  &lt;/ul&gt;
+  &lt;li style="font-size:30px";&gt;&lt;a href="https://github.com/ropensci/taxa"&gt;taxa&lt;/a&gt; - &lt;mark&gt;Taxonomic R classes&lt;/mark&gt;&lt;/li&gt;
   &lt;li style="font-size:30px";&gt;&lt;a href="https://github.com/ropensci/taxizedb"&gt;taxizedb&lt;/a&gt; - Leverage dumps of taxonomic database locally&lt;/li&gt;
   &lt;li style="font-size:30px";&gt;&lt;a href="https://github.com/ropensci/ritis"&gt;ritis&lt;/a&gt; - USGS's ITIS&lt;/li&gt;
   &lt;li style="font-size:30px";&gt;&lt;a href="https://github.com/ropensci/rotl"&gt;rotl&lt;/a&gt; - Open Tree of Life&lt;/li&gt;
@@ -188,7 +259,22 @@ class: center, middle, inverse, title-slide
 
 &gt; _there were ... 8,737 species ... We verified all ... names against 60 taxonomic data-bases, including NCBI, GRIN Taxonomy for Plants, Tropicos–Missouri Botanical Garden, and the International Plant Names Index, using the ‘taxize’ package in R_
 
-~90 more e.g.'s at &lt;https://github.com/ropensci/roapi/blob/master/data/citations.csv&gt;
+~90 more citations at &lt;https://github.com/ropensci/roapi/blob/master/data/citations.csv&gt;
+
+---
+
+## .large[taxa &lt;img src="img/zach.jpg" width="130" style="float:right"&gt;]
+
+&lt;h2&gt;Taxonomic classes &amp;amp; manipulate taxonomy+data&lt;/h2&gt;
+
+
+&lt;h2&gt;<i class="fab  fa-github "></i> &lt;a href="https://github.com/ropensci/taxa"&gt;ropensci/taxa&lt;/a&gt;&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li style="font-size:30px";&gt;Classes for taxonomic data only&lt;/li&gt;
+  &lt;li style="font-size:30px";&gt;Classes for taxonomic data + user data&lt;/li&gt;
+  &lt;li style="font-size:30px";&gt;dplyr-like "taxonomically aware" data manipulation&lt;/li&gt;
+&lt;/ul&gt;
 
 ---
 
@@ -204,7 +290,19 @@ class: center, middle, inverse, title-slide
 
 ---
 
-## .large[assertr usage: eg]
+## .large[Utility Packages]
+
+&lt;ul&gt;
+  &lt;li style="font-size:30px";&gt;&lt;a href="https://github.com/ropensci/jqr"&gt;jqr&lt;/a&gt; - R client for &lt;a href="https://github.com/stedolan/jq/"&gt;jq&lt;/a&gt;, the JSON processor&lt;/li&gt;
+  &lt;li style="font-size:30px";&gt;&lt;a href="https://github.com/ropensci/jsonld"&gt;jsonld&lt;/a&gt; - JSON linked data&lt;/li&gt;
+  &lt;li style="font-size:30px";&gt;&lt;a href="https://github.com/ropensci/rerddap"&gt;rerddap&lt;/a&gt; - &lt;mark&gt;ERDDAP server client&lt;/mark&gt;&lt;/li&gt;
+  &lt;li style="font-size:30px";&gt;&lt;a href="https://github.com/ropensci/rdflib"&gt;rdflib&lt;/a&gt; - RDF pkg, wrapped around Redland&lt;/li&gt;
+  &lt;li style="font-size:30px";&gt;&lt;a href="https://github.com/ropensci/assertr"&gt;assertr&lt;/a&gt; - &lt;mark&gt;Assertions for analysis pipelines&lt;/mark&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+---
+
+## .large[assertr usage: eg &lt;img src="img/tony.jpg" width="130" style="float:right"&gt;]
 
 [Brain Somatic Mosaicism Network](https://github.com/bsmn) - [Validate BSMN Grant Data ](https://github.com/bsmn/grantdatavalidator)
 
@@ -327,7 +425,9 @@ mapr::map_leaflet(dat, lon = "decimalLongitude",
 &lt;h2&gt;rOpenSci: &lt;a href="https://ropensci.org/"&gt;ropensci.org&lt;/a&gt;&lt;/h2&gt;
     </textarea>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
-<script>var slideshow = remark.create();
+<script>var slideshow = remark.create({
+"highlightLines": true
+});
 if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
   window.dispatchEvent(new Event('resize'));
 });
