@@ -55,7 +55,7 @@ output:
 <h3>Or at least patterns we strive towards ...</h3>
 
 <ul>
-  <li style="font-size:30px";>Cache downloaded data for FTP/similar files</li>
+  <li style="font-size:30px";>Cache downloaded data for FTP</li>
   <li style="font-size:30px";>Return data.frame's: facilitates downstream processing</li>
   <li style="font-size:30px";>Make it easy to cite data providers</li>
   <li style="font-size:30px";>Incorporate metadata</li>
@@ -66,7 +66,6 @@ output:
   <li style="font-size:30px";>Helps if maintainer has domain knowledge</li>
   <ul>
     <li style="font-size:30px";>rOpensci <a href="https://github.com/ropensci/software-review">software review</a> facilitating this</li>
-    <li style="font-size:30px";>&amp; why we want new maintainer for <a href="https://github.com/ropensci/rsnps">rsnps</a></li>
   </ul>
 </ul>
 
@@ -231,9 +230,9 @@ output:
 <h2>`r icon::fa_github()` <a href="https://github.com/ropensci/taxize">ropensci/taxize</a></h2>
 
 <ul>
-  <li style="font-size:30px";>Resolve misspelled/etc. names</li>
+  <li style="font-size:30px";>Resolve misspelled names</li>
   <li style="font-size:30px";>Search for names</li>
-  <li style="font-size:30px";>Taxonomic classifications</li>
+  <li style="font-size:30px";>Fetch taxonomic classifications</li>
   <li style="font-size:30px";>Fetch all taxa up- and down-stream</li>
   <li style="font-size:30px";>Fetch taxonomic synonyms</li>
   <li style="font-size:30px";>Common names to taxonomic and vice versa</li>
@@ -301,11 +300,11 @@ output:
 ```r
  data %>%
     assertr::chain_start() %>%
-    assertr::verify(nrow(data) == 3) %>%
-    assertr::verify(assertr::is_uniq(nda_short_name)) %>%
-    assertr::verify(assertr::not_na(grant)) %>%
-    assertr::verify(dplyr::n_distinct(grant) == 1) %>%
-    assertr::verify(nda_short_name %in% expected_nda_short_names) %>%
+*   assertr::verify(nrow(data) == 3) %>%
+*   assertr::verify(assertr::is_uniq(nda_short_name)) %>%
+*   assertr::verify(assertr::not_na(grant)) %>%
+*   assertr::verify(dplyr::n_distinct(grant) == 1) %>%
+*   assertr::verify(nda_short_name %in% expected_nda_short_names) %>%
     assertr::chain_end() %>%
     tibble::as_tibble()
 ```
@@ -373,12 +372,12 @@ library(magrittr)
 dat %>%
   assertr::chain_start() %>%
   # does it have more than 100 rows?
-  assertr::verify(NROW(dat) > 100) %>%
+* assertr::verify(NROW(dat) > 100) %>%
   # is the key for the occurrence record unique?
-  assertr::verify(assertr::is_uniq(key)) %>%
+* assertr::verify(assertr::is_uniq(key)) %>%
   # are there any NA's in lat/lon?
-  assertr::verify(assertr::not_na(decimalLatitude)) %>%
-  assertr::verify(assertr::not_na(decimalLongitude)) %>%
+* assertr::verify(assertr::not_na(decimalLatitude)) %>%
+* assertr::verify(assertr::not_na(decimalLongitude)) %>%
   assertr::chain_end() %>%
   tibble::as_tibble()
 ```
@@ -387,12 +386,12 @@ dat %>%
 
 ## .large[Data integration: code]
 
-```{r eval=FALSE}
+```{r}
 mapr::map_leaflet(dat, lon = "decimalLongitude", 
   lat = "decimalLatitude")
 ```
 
-![leaflet_map](img/leaflet_map2.png)
+<!-- ![leaflet_map](img/leaflet_map2.png) -->
 
 ---
 
