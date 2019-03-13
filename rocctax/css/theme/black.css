@@ -16,7 +16,7 @@ body {
 
 .reveal {
   font-family: "Source Sans Pro", Helvetica, sans-serif;
-  font-size: 36px;
+  font-size: 38px;
   font-weight: normal;
   letter-spacing: -0.02em;
   color: #fff; }
@@ -51,7 +51,7 @@ body {
   font-weight: 600;
   line-height: 1.2;
   letter-spacing: normal;
-  text-transform: uppercase;
+  text-transform: none;
   text-shadow: none;
   word-wrap: break-word; }
 
@@ -160,7 +160,7 @@ body {
   display: block;
   padding: 5px;
   overflow: auto;
-  max-height: 400px;
+  max-height: 900px;
   word-wrap: normal; }
 
 .reveal table {

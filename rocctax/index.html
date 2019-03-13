@@ -54,149 +54,43 @@
 			  margin-left: auto;
 			  margin-right: auto;
 			}
+
+			.reveal table th, td {
+			  padding: 0px;
+			}
 		</style>
 	</head>
 	<body>
 		<div class="reveal">
 			<div class="slides">
-				<section id="intro">
-			<h1><font color="#B8172F">Biodiversity &amp; Taxonomy Software Tools in R</font></h1><br>
-			<p class="grey">Scott Chamberlain (<i class="fab fa-twitter"></i> <a href="https://twitter.com/sckottie">@sckottie</a>/<a href="https://twitter.com/ropensci">@ropensci</a>)
+				<section id="intro" class="center">
+			<h1><font color="#B8172F">Biodiversity &amp; Taxonomy Software Tools @ rOpenSci</font></h1><br>
+			<p class="grey">Scott Chamberlain (<i class="fab fa-twitter"></i> <a href="https://twitter.com/sckottie">@sckottie</a>)
 				<p class="grey">UC Berkeley / rOpenSci
 			<br>
 			<!-- <span><img src="img/icon_lettering_color.svg" alt="rOpenSci" width="800" /></span> -->
 		</section>
-
-		<section id="thanks-helmsley" class="center">
-			<span><img src="img/helmsley.png" alt="hemlsley foundation" width="1000" /></span>
-		</section>
-
-		<section id="link" class="center">
-			<i class="fas fa-external-link-alt fa-5x"></i>
-			<br><br>
-			<h2><a href="https://scotttalks.info/bocc">scotttalks.info/bocc</a> </h2>
-			<br><br>
-			<h2><a href="https://scotttalks.info/bocc/slides_960-720.pdf">pdf slides 960x720</a></h2>
-			<h2><a href="https://scotttalks.info/bocc/slides_1280-720.pdf">pdf slides 1280x720</a></h2>
-			<br>
-			<h2><a href="https://github.com/hakimel/reveal.js/wiki/Keyboard-Shortcuts">Keyboard shortcuts</a>: press <code>?</code></h2>
-		</section>
-
-		<section id="license" class="center">
-			<br>
-			<h1>LICENSE: <a href="https://creativecommons.org/licenses/by/4.0/">CC-BY 4.0</a></h1>
-		</section>
-
-		<!-- actual stuff -->
-		<!-- about ropensci -->
-		<section id="ropensci">
-			<br>
-			<span><img src="img/icon_lettering_color.svg" alt="rOpenSci" width="800" /></span>
-			<br>
-			<center><h3><a href="https://ropensci.org/">ropensci.org &nbsp;<i class="fas fa-external-link-square-alt"></i></a></h3></center>
-		</section>
-
-		<section id="ropensci-does">
-			<h1>rOpenSci Does</h1>
-			<br><br>
-			<table>
-			<tr>
-			<td>
-		    	<i class="fas fa-users fa-5x" aria-hidden="true"></i><h3>Community</h3>
-		    </td>
-		    <td>
-			    <i class="fas fa-code fa-5x" aria-hidden="true"></i><h3>Software</h3>
-			</td>
-			<td>
-				<i class="far fa-check-square fa-5x" aria-hidden="true"></i><h3>Review</h3>
-			</td>
-			</tr>
-			</table>
-		</section>
-
-		<section id="why-r" class="center">
-			<h1>Why?</h1>
-			<div style="font-size:3em; color:Tomato">
-				<i class="fab fa-5x fa-r-project"></i>
-			</div>
-		</section>
-
 	
-		<!-- describe problem space -->
+		<!-- high level overview -->
 		<section id="questions">
-			<h2>Questions addressed using our software</h2>
+			<h2>Questions addressed w/ our software</h2>
 			<img src="img/questions.png" width="1050px">
 		</section>
 
+		<section id="broad-areas" class="center">
+			<h1>Broad areas of packages</h1>
+			<ul class="b">
+				<li><h2 align="left">Taxonomy</h2></li>
+                <li><h2 align="left">Occurrence data</h2></li>
+                <li><h2 align="left">Environmental data</h2></li>
+			</ul>
+		</section>
+
 		<section id="citations">
-			<h2>Citations of rOpenSci Biodiv Software</h2>
-			<br>
-			<div style="text-align: left; float: left; margin-left: 200px">
-				<h3>Taxonomy</h3>
-				<br>
-				  <table>
-				  <thead>
-				    <tr>
-				      <th>package</th>
-				      <th>citations</th>
-				    </tr>
-				  </thead>
-				  <tr><td>taxize</td><td>71</td></tr>
-				  <tr><td>rentrez</td><td>13</td></tr>
-				  <tr><td>ritis</td><td> 1</td></tr>
-				  <tr><td>taxa</td><td> 1</td></tr>
-				  <tr><td>worrms</td><td> 1</td></tr>
-				</table>
-			</div>
-
-		  	<div style="text-align: right; float: right; margin-right: 200px">
-		  		<h3>Occurrences</h3>
-				<br>
-		    	 <table>
-				  <thead>
-				    <tr>
-				      <th>package</th>
-				      <th>citations</th>
-				    </tr>
-				  </thead>
-				  <tr><td>rgbif</td><td>51</td></tr>
-				  <tr><td>rfishbase</td><td>24</td></tr>
-				  <tr><td>spocc</td><td> 8</td></tr>
-				  <tr><td>rfisheries</td><td> 2</td></tr>
-				  <tr><td>rredlist</td><td> 2</td></tr>
-				  <tr><td>rvertnet</td><td> 2</td></tr>
-				  <tr><td>AntWeb</td><td> 1</td></tr>
-				  <tr><td>pangaear</td><td> 1</td></tr>
-				  <tr><td>rotl</td><td> 8</td></tr>
-				</table>
-			</div>
+			<h2>Citations</h2>
+			<img src="img/citation.png" width="1000px">
 		</section>
 
-
-
-		<!-- use cases -->
-		<section id="use-case-1">
-			<h2>use case 1</h2>
-			<em>Hodgins, K. A., Turner, et al. (2015). Comparative genomics in the Asteraceae reveals little evidence for parallel evolutionary change in invasive taxa. Mol Ecol, 24(9), 2226–2240. <a href="https://doi.org/10.1111/mec.13026">10.1111/mec.13026</a></em>
-
-			<br><br><br>
-			<h3>in the methods section:</h3>
-			<br>
-			<blockquote style="font-size: 50px">... using the Encyclopedia of Life invasive species comprehensive list, which was accessed programmatically on August 12, 2014 using the <code style="color: red">taxize</code> package in R .</blockquote>
-		</section>
-
-		<section id="use-case-2">
-			<h2>use case 2</h2>
-			<em>Hodgins, K. A., Turner, et al. (2015). Comparative genomics in the Asteraceae reveals little evidence for parallel evolutionary change in invasive taxa. Mol Ecol, 24(9), 2226–2240. <a href="https://doi.org/10.1111/mec.13026">10.1111/mec.13026</a></em>
-
-			<br><br><br>
-			<h3>in the methods section:</h3>
-			<br>
-			<blockquote style="font-size: 50px">... we used rOpenSci’s <code style="color: red">worrms</code> package in R to standardize spellings of species names and synonyms ...</blockquote>
-		</section>
-
-		
-		<!-- discuss current tooling in R -->
 		<!-- taxonomy tools -->
 		<section id="taxonomy-tools">
 			<h1>Taxonomy</h1>
@@ -213,166 +107,37 @@
 			<h3>R taxonomy task view: <a href="https://github.com/ropensci/taxonomy">github.com/ropensci/taxonomy</a></h3>
 		</section>
 
-		<section id="taxizze">
-			<h2>Taxonomic data from >20 sources - <a href="https://github.com/ropensci/taxize">taxize</a></h2>
-			<br>
-			<h2>always try to move from:</h2>
-			<br>
-			<ul class="b">
-				<li><h3 align="left">taxonomic name -- to</h3></li>
-				<li><h3 align="left">taxonomic ID -- to</h3></li>
-				<li><h3 align="left">whatever other data <br> (e.g., synonyms, classifications, etc.)</h3></li>
-			</ul>
-		</section>
-
-		<section data-markdown id="taxize-example">
-			<script type="text/template">
-				## Taxonomic data from >20 sources - <a href="https://github.com/ropensci/taxize">taxize</a>
-				<br>
-				### Taxonomic hierarchies from NCBI/ITIS/COL/etc
-
-				```r
-				library('taxize')
-				id <- get_gbifid("Chironomus riparius")
-				classification(id)
-				```
-				<br>
-				```r
-				#> $`Chironomus riparius`
-				#>                  name    rank      id
-				#> 1            Animalia kingdom       1
-				#> 2          Arthropoda  phylum      54
-				#> 3             Insecta   class     216
-				#> 4             Diptera   order     811
-				#> 5        Chironomidae  family    3343
-				#> 6          Chironomus   genus 1448033
-				#> 7 Chironomus riparius species 1448237
-				```
-			</script>
-		</section>
-
-		<section data-markdown id="taxa-example">
-			<script type="text/template">
-				## Wrangling data paired with taxonomy - <a href="https://github.com/ropensci/taxa">taxa</a>
-
-				```r
-				library('taxa')
-				ex_taxmap
-				```
-
-				<img src="img/extaxmap.png" width="1100">
-			</script>
-		</section>
-
-		<section data-markdown id="taxa-example-filter">
-			<script type="text/template">
-				## Wrangling data paired with taxonomy - <a href="https://github.com/ropensci/taxa">taxa</a>
-
-				```r
-				filter_taxa(ex_taxmap, startsWith(taxon_names, "t")) # filter
-				```
-
-				<img src="img/extaxmap_filtered.png" width="1100">
-			</script>
-		</section>
-
-		<section data-markdown id="rentrez-example">
-			<script type="text/template">
-				## ENTREZ in R - <a href="https://github.com/ropensci/rentrez">rentrez</a>
-				### Retrieve downstream taxonomy from a given taxon
-				<br>
-				```r
-				library(rentrez)
-				x <- entrez_search(db = "taxonomy", term = "Satyrium[Next Level]", retmax = 10)
-				z <- entrez_summary(db = "taxonomy", id = x$ids)
-				data.frame(t(
-				  extract_from_esummary(z, c("uid", "scientificname", "rank"))
-				))
-
-				#> uid            scientificname    rank
-				#> 2023262     Satyrium liltvedianum species
-				#> 1888668          Satyrium calanus species
-				#> 1847691 Satyrium sp. BOLD:ABX6433 species
-				#> 1825277     Satyrium sp. XQX-2016 species
-				#> 1824831          Satyrium grandis species
-				#> 1430660         Satyrium favonius species
-				#> 1423409         Satyrium sylvinus species
-				#> 1405335             Satyrium mera species
-				#> 1405334           Satyrium iyonis species
-				#>  985828    Satyrium situsanguinum species
-				```
-			</script>
-		</section>
-
-
 		<!-- species occurrence tools -->
 		<section id="occurrence-tools">
-			<h2>Occurrence data</h2>
+			<h1>Occurrence data</h1>
 			<ul class="b">
 				<li><h3 align="left"><a href="https://github.com/ropensci/rgbif">rgbif</a> - GBIF</h3></li>
 				<li><h3 align="left"><a href="https://github.com/ropensci/rbison">rbison</a> - USGS's BISON</h3></li>
 				<li><h3 align="left"><a href="https://github.com/ropensci/rvertnet">rvertnet</a> - VertNet</h3></li>
-				<li><h3 align="left"><a href="https://github.com/ropensci/rebird">rebird</a> - eBird (see also <a href="https://github.com/CornellLabofOrnithology/auk">auk</a>)</h3></li>
+				<li><h3 align="left"><a href="https://github.com/ropensci/rebird">rebird</a> &amp; <a href="https://github.com/CornellLabofOrnithology/auk">auk</a> - eBird</h3></li>
 				<li><h3 align="left"><a href="https://github.com/ropensci/spocc">spocc</a> - one stop shop (of all above)</h3></li>
 				<li><h3 align="left"><a href="https://github.com/ropensci/finch">finch</a> - parse GBIF bulk data</h3></li>
-				<ul>
-					<li><h3 align="left"><a href="https://cran.rstudio.com/web/packages/EML">EML</a> - read and create EML</h3></li>
-				</ul>
-				<li><h3 align="left"><a href="https://github.com/iDigBio/ridigbio">ridigbio</a>&nbsp;<a href="https://github.com/AtlasOfLivingAustralia/ALA4R">ALA4R</a>&nbsp;<a href="https://github.com/iobis/robis">robis</a> *</h3></li>
+				<li><h3 align="left"><a href="https://github.com/ropensci/CoordinateCleaner">CoordinateCleaner</a> & <a href="https://github.com/ropensci/scrubr">scrubr</a> - clean occurrence data</h3></li>
+				<li><h3>others to mayb mention: ecoengine, landscapetools, NLMR, natserv, neotoma, rdataretriever, rfishbase</h3></li>
 			</ul>
 		</section>
 
-		<section data-markdown id="rgbif-example">
-			<script type="text/template">
-				## GBIF data - <a href="https://github.com/ropensci/rgbif">rgbif</a>
-				<br>
-				```r
-				library(rgbif)
-				spp <- c('Accipiter erythronemius', 'Junco hyemalis', 'Aix sponsa')
-				keys <- unname(vapply(spp, function(x) name_backbone(name=x)$speciesKey, 1))
-				dat <- occ_search(taxonKey=keys, limit=5, hasCoordinate=TRUE)
-				library(mapr)
-				map_ggplot(dat)
-				```
-
-				<img src="img/rgbifmap.png" width="800">
-			</script>
+		<!-- species occurrence tools -->
+		<section id="environmental-data-tools">
+			<h1>Environmental data</h1>
+			<ul class="b">
+				<li><h3 align="left"><a href="https://github.com/ropensci/rnoaa">rnoaa</a> - NOAA data</h3></li>
+				<li><h3 align="left"><a href="https://github.com/ropensci/rerddap">rerddap</a> - NOAA ERDDAP servers</h3></li>
+				<li><h3 align="left"><a href="https://github.com/ropensci/riem">riem</a> - Iowa Environment Mesonet data</h3></li>
+				<li><h3 align="left"><a href="https://github.com/ropensci/weathercan">weathercan</a> - Environment & Climate Change Canada</h3></li>
+				<li><h3 align="left"><a href="https://github.com/ropensci/bomrang">bomrang</a> - Australian gov't Bureau of Meteorology</h3></li>
+				<li><h3 align="left"><a href="https://github.com/ropensci/clifro">clifro</a> - CliFlo data</h3></li>
+				<li><h3 align="left"><a href="https://github.com/ropensci/GSODR">GSODR</a> - Global Surface Summary of the Day</h3></li>
+				<li><h3 align="left"><a href="https://github.com/ropensci/nasapower">nasapower</a> - NASA POWER data</h3></li>
+				<li><h3 align="left"><a href="https://github.com/ropensci/getCRUCLdata">getCRUCLdata</a> - CRU CL v. 2.0 Climatology Elements</h3></li>
+				<li><h3 align="left"><a href="https://github.com/ropensci/hydroscoper">hydroscoper</a> - Greek National Data</h3></li>
+			</ul>
 		</section>
-
-		<section id="other-gbif-clients">
-			<h2>GBIF p.s.</h2>
-			<br>
-			<h3>we also maintain GBIF clients in <a href="https://pypi.org/project/pygbif/">Python</a> and <a href="https://rubygems.org/gems/gbifrb">Ruby</a></h3>
-		</section>
-
-		<section data-markdown id="spocc-example">
-			<script type="text/template">
-				## one stop shop for occurrence data - <a href="https://github.com/ropensci/spocc">spocc</a>
-				<br>
-				```r
-				library('spocc')
-				gbifopts <- list(country = 'US')
-				idigbioopts <- list(fields = "scientificname")
-				out <- occ(query = 'Setophaga caerulescens', 
-				    from = c('gbif','bison','inat','idigbio'), limit = 50,
-				    gbifopts = gbifopts, idigbioopts = idigbioopts)
-				dat <- occ2df(out)
-				head(dat); tail(dat)
-				#>  name                   longitude  latitude  prov  date       key
-				#> 1 Setophaga caerulescens -80.347459 25.743763 gbif  2018-01-20 1806338790
-				#> 2 Setophaga caerulescens -80.342233 25.77536  gbif  2018-01-19 1805421161
-				#> 3 Setophaga caerulescens -81.355815 28.569623 gbif  2018-03-14 1837766480
-				```
-				<br>
-				#### Standard interface to varied user inputs to the same things
-
-				- Pagination: `limit`, `start`, `page`
-				- Spatial search: `geometry`
-				- Records w/ coordinates: `has_coords`
-			</script>
-		</section>
-
-
 
 		<!-- tools in development and other unsolved problems -->
 		<section id="the-future" class="center">
@@ -394,44 +159,22 @@
 		<section data-markdown id="taxview-example">
 			<script type="text/template">
 				## Summarise/visualize data sets by taxonomy - <a href="https://github.com/ropensci/taxview">taxview</a>
-
 				```r
 				library('taxview')
 				x <- system.file("examples/plant_spp.csv", package = "taxview")
 				```
 
-				prepare data: clean, etc.
-
 				```r
 				(dat <- tibble::as_tibble(
 					 data.table::fread(x, stringsAsFactors = FALSE, 
 					   data.table = FALSE)))
-					   are> dat
 				#>  # A tibble: 130 x 2
 				#>    name                        id
 				#>    <chr>                    <int>
 				#>  1 Dianthus engleri       1531994
 				#>  2 Anacolosa frutescens   1618138
 				#>  3 Hymenophyllum plicatum  638568
-
-				(dat_clean <- tv_clean_ids(x, ids = dat$id, db = "ncbi"))
-				#>    name               rank         id     query
-				#>    <chr>              <chr>        <chr>  <chr>
-				#>  1 cellular organisms no rank      131567 1531994
-				#>  2 Eukaryota          superkingdom 2759   1531994
-				#>  3 Viridiplantae      kingdom      33090  1531994
-				```
-				</script>
-		</section>
-
-		<section data-markdown id="taxview-example-1">
-			<script type="text/template">
-				## Summarise/visualize data sets by taxonomy - <a href="https://github.com/ropensci/taxview">taxview</a>
-
-				```r
 				(sumdat <- tv_summarise(dat_clean))
-				```
-				```r
 				#> <tv_summary>
 				#>  no. taxa: 129
 				#>  by rank: N (21)
@@ -454,41 +197,99 @@
 			</script>
 		</section>
 
-		<section data-markdown id="taxview-skimming">
+		<section data-markdown id="new-taxize-cli">
 			<script type="text/template">
-				## Something like the rOpenSci  - <a href="https://github.com/ropensci/skimr">skimr</a>
-
-
-				```r
-				library(skimr)
-				skim(iris)
-				```
+				## taxize: improved UI
 
 				```r
-				Skim summary statistics
-				 n obs: 150
-				 n variables: 5
+				res <- get_gbifid(spp, messages = FALSE)
+				══  10 queries  ══════════════
+				✔  Found:  Diospyros cacharensis
+				More than one GBIF ID found for taxon 'Piptocarpha riedelii'!
 
-				Variable type: factor
-				 variable missing complete   n n_unique                       top_counts ordered
-				  Species       0      150 150        3 set: 50, ver: 50, vir: 50, NA: 0   FALSE
+				            Enter rownumber of taxon (other inputs will return 'NA'):
 
-				Variable type: numeric
-				     variable missing complete   n mean   sd  p0 p25  p50 p75 p100     hist
-				 Petal.Length       0      150 150 3.76 1.77 1   1.6 4.35 5.1  6.9 ▇▁▁▂▅▅▃▁
-				  Petal.Width       0      150 150 1.2  0.76 0.1 0.3 1.3  1.8  2.5 ▇▁▁▅▃▃▂▂
-				 Sepal.Length       0      150 150 5.84 0.83 4.3 5.1 5.8  6.4  7.9 ▂▇▅▇▆▅▂▂
-				  Sepal.Width       0      150 150 3.06 0.44 2   2.8 3    3.3  4.4 ▁▂▅▇▃▂▁▁
+				   gbifid                scientificname    rank   status matchtype
+				1 5406610    Piptocarpha riedelii Baker species ACCEPTED     EXACT
+				2 7526881 Piptocarpha riedelii Sch.Bip. species DOUBTFUL     EXACT
+				1: 1
+				Input accepted, took gbifid '5406610'.
+				✔  Found:  Piptocarpha riedelii
+				✔  Found:  Polystichum amboroensis
+				✔  Found:  Schizymenium dolichothecum
+				✔  Found:  Plicouratea granulosa
+				✔  Found:  Eremurus anisopterus
+				✖  Not Found:  Stapelia bifolia
+				✔  Found:  Masdevallia gairiana
+				✔  Found:  Nephrodium totta
+				✔  Found:  Goniopteris rubrinervis
+				══  Results  ═════════════════
+
+				● Total: 10
+				● Found: 9
+				● Not Found: 1
 				```
-				<br>
-				### ... but with taxonomic data
 			</script>
 		</section>
 
-		<section id="taxview-example-2" class="center">
-			<h2>Summarise/visualize data sets by taxonomy</h2>
-			<br>
-			<h2>coming ...</h2>
+		<section data-markdown id="new-taxize-state">
+			<script type="text/template">
+				## taxize: maintaining state
+
+				```r
+				get_tsn(c(x, y z))
+				# fails out after the 1st one
+				#> Error ... 
+				
+				# then call another fxn to restart the process
+				get_proceed() # by default uses last run get_* fxn
+				#>  ...
+				```
+
+				what's currently working:
+
+
+				```r
+				taxon_last()
+				#> <taxon state>
+				#>  class: gbifid
+				#>  elapsed (sec): 10.06
+				#>  count: 10
+				#>   Diospyros cacharensis: 4070227
+				#>   Piptocarpha riedelii: 5406610
+				#>   Polystichum amboroensis: 8360370
+				#>   Schizymenium dolichothecum: 2677108
+				#>   Plicouratea granulosa: 3696390
+				#>   Eremurus anisopterus: 2778793
+				#>   Stapelia bifolia: NA
+				#>   Masdevallia gairiana: 3654347
+				#>   Nephrodium totta: 7410470
+				#>   Goniopteris rubrinervis: 4082465
+				```
+			</script>
+		</section>
+
+		<section data-markdown id="new-taxize-taxa-integration">
+			<script type="text/template">
+				## taxize: integrating taxa
+
+				```r
+				splist <- c("annona cherimola", 'annona muricata', "quercus robur",
+			       "shorea robusta", "pandanus patina", "oryza sativa", "durio zibethinus")
+				res <- get_tsn(splist, messages=FALSE)
+				#> <taxa>
+				#>   no. taxa:  7
+				#>   Annona cherimola / species / 506198
+				#>   Annona muricata / species / 18098
+				#>   Quercus robur / species / 19405
+				#>   Shorea robusta / species / 506787
+				#>   Pandanus patina / species / 507376
+				#>   Oryza sativa / species / 41976
+				#>   Durio zibethinus / species / 506099
+				```
+
+				### talk about methods on the output - from new eval branch ...
+			</script>
 		</section>
 
 		<section id="occurrence-tools-future">
@@ -514,69 +315,14 @@
 			</ul>
 		</section>
 
-		<section data-markdown id="gbif-map-service-eg">
-			<script type="text/template">
-				## GBIF map service (rasters) ~ static
-
-				```r
-				library(rgbif) # development version remotes::install_github("ropensci/rgbif")
-				library(raster)
-				x <- map_fetch(search = "taxonKey", id = 3118771, year = 2010)
-				plot(x)
-				```
-
-				<img src="img/gbif-map-service.png" width="700">
-
-				### Perhaps scientists can use these rasters for analysis?
-			</script>
-		</section>
-
-		<section data-markdown id="gbif-map-service-leaflet">
-			<script type="text/template">
-				## GBIF map service (rasters) ~ interactive
-				```r
-				library(leaflet)
-				pal <- colorNumeric(c("#0C2C84", "#41B6C4", "#FFFFCC"), values(x), na.color = "transparent")
-				leaflet() %>% 
-				    addTiles() %>%
-				    addRasterImage(x, colors = pal, opacity = 0.8) %>% 
-				    addLegend(pal = pal, values = values(x), 
-				        title = "Occurrences")
-				```
-
-				<img src="img/gbif-map-service-leaflet.png" width="700">
-
-				### Hopefully use GBIF's Map Vector Tile (MVT) soon
-			</script>
-		</section>
-
-
-
-
-
 		<!-- talk to us -->
 		<section id="talk-to-us" class="center">
 			<h1>talk to us <i class="fas fa-bullhorn"></i></h1>
 			<br>
-			<h2>what would you like to see?</h2>
-			<br>
 			<h2>discussion forum: <a href="https://discuss.ropensci.org/">discuss.ropensci.org</a></h2>
-			<br>
-			<h2>submit a package/review a package: <a href="https://github.com/ropensci/onboarding">github.com/ropensci/onboarding</a></h2>
-		</section>
-
-		<!-- end -->
-		<section id="end">
-			<!-- <i class="fa fa-external-link fa-5x"></i> -->
-			<i class="fas fa-external-link-alt fa-5x"></i>
-			<br>
-			<h2><a href="https://scotttalks.info/bocc">scotttalks.info/bocc</a></h2>
-			<br><br>
-			<h2>Made w/: <a href="https://github.com/hakimel/reveal.js">reveal.js v3.2.0</a></h2>
-			<br>
-			<h2>Some Styling: <a href="http://getbootstrap.com/">Bootstrap v3.3.5</a></h2>
-			<br>
-			<h2>Icons by: <a href="http://fortawesome.github.io/Font-Awesome/">FontAwesome v5.0.13</a></h2>
+			<br><br><br>
+			<h2><a href="https://scotttalks.info/rocctax">scotttalks.info/rocctax</a></h2>
+			<h2>Made w/: <a href="https://github.com/hakimel/reveal.js">reveal.js v3.2.0</a>, <a href="http://getbootstrap.com/">Bootstrap v3.3.5</a>, <a href="http://fortawesome.github.io/Font-Awesome/">FontAwesome v5.0.13</a></h2>
 		</section>
 			</div>
 		</div>
@@ -589,6 +335,10 @@
 			// - https://github.com/hakimel/reveal.js#configuration
 			// - https://github.com/hakimel/reveal.js#dependencies
 			Reveal.initialize({
+				history: true,
+				center: false,
+				width: 1400,
+				height: 900,
 				dependencies: [
 					{ src: 'plugin/markdown/marked.js' },
 					{ src: 'plugin/markdown/markdown.js' },
