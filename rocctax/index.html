@@ -92,7 +92,21 @@
 		</section>
 
 		<!-- taxonomy tools -->
-		<section id="taxonomy-tools">
+		<section id="taxonomy-tools-intro">
+			<h1>Taxonomy</h1>
+			<br>
+			<ul class="b">
+				<li><h3 align="left">Taxonomic data: e.g., <i>Poa annua ssp. annua</i></h3></li>
+				<br>
+				<li><h3 align="left">There's lots of taxonomic data sources ...</h3></li>
+				<li><h3 align="left">Data sources have diff. data ...</h3></li>
+				<li><h3 align="left">&amp; diff. IDs for the same names ...</h3></li>
+				<li><h3 align="left">Taxonomy data often not the goal ...</h3></li>
+				<li><h3 align="left">But rather a necessary piece of research ...</h3></li>
+			</ul>
+		</section>
+
+		<section id="taxonomy-tools-rundown">
 			<h1>Taxonomy</h1>
 			<ul class="b">
 				<li><h3 align="left"><a href="https://github.com/ropensci/taxa">taxa</a> - Taxonomic classes and taxonomically aware data manipulation</h3></li>
@@ -108,22 +122,52 @@
 		</section>
 
 		<!-- species occurrence tools -->
-		<section id="occurrence-tools">
+		<section id="occurrence-tools-intro">
+			<h1>Occurrence data</h1>
+			<br>
+			<ul class="b">
+				<li><h3 align="left">Occurrence data: e.g.:</h3></li>
+				<pre>
+key                    scientificName   decimalLatitude decimalLongitude
+1986611609   Encelia californica Nutt.        32.66866        -117.0856
+				</pre>
+				<li><h3 align="left">Many data sources ...</h3></li>
+				<li><h3 align="left">Data from collected/observed specimens ...</h3></li>
+				<li><h3 align="left">Most feed (all or part of their data) into <a href="https://www.gbif.org/">GBIF</a> ...</h3></li>
+			</ul>
+		</section>
+
+		<section id="occurrence-tools-rundown">
 			<h1>Occurrence data</h1>
 			<ul class="b">
 				<li><h3 align="left"><a href="https://github.com/ropensci/rgbif">rgbif</a> - GBIF</h3></li>
 				<li><h3 align="left"><a href="https://github.com/ropensci/rbison">rbison</a> - USGS's BISON</h3></li>
 				<li><h3 align="left"><a href="https://github.com/ropensci/rvertnet">rvertnet</a> - VertNet</h3></li>
 				<li><h3 align="left"><a href="https://github.com/ropensci/rebird">rebird</a> &amp; <a href="https://github.com/CornellLabofOrnithology/auk">auk</a> - eBird</h3></li>
-				<li><h3 align="left"><a href="https://github.com/ropensci/spocc">spocc</a> - one stop shop (of all above)</h3></li>
+				<li><h3 align="left"><a href="https://github.com/ropensci/spocc">spocc</a> - one stop shop (of all above &amp; many more)</h3></li>
 				<li><h3 align="left"><a href="https://github.com/ropensci/finch">finch</a> - parse GBIF bulk data</h3></li>
 				<li><h3 align="left"><a href="https://github.com/ropensci/CoordinateCleaner">CoordinateCleaner</a> & <a href="https://github.com/ropensci/scrubr">scrubr</a> - clean occurrence data</h3></li>
-				<li><h3>others to mayb mention: ecoengine, landscapetools, NLMR, natserv, neotoma, rdataretriever, rfishbase</h3></li>
+				<!-- <li><h3>tools for : landscapetools, NLMR, natserv, neotoma, rdataretriever, rfishbase</h3></li> -->
 			</ul>
 		</section>
 
-		<!-- species occurrence tools -->
-		<section id="environmental-data-tools">
+		<!-- environmental data tools -->
+		<section id="environmental-tools-intro">
+			<h1>Environmental data</h1>
+			<br>
+			<ul class="b">
+				<li><h3 align="left">Environmental data: e.g.:</h3></li>
+				<pre>
+station  	    variable    value
+12334        precipitation_mm       34
+				</pre>
+				<li><h3 align="left">Tons of data sources ...</h3></li>
+				<li><h3 align="left">Hierarchy of data: raw to various levels of cleaned/etc. ...</h3></li>
+				<li><h3 align="left">Types: precipation, temperature, wind speed, humidity, snow fall, etc.</h3></li>
+			</ul>
+		</section>
+
+		<section id="environmental-tools">
 			<h1>Environmental data</h1>
 			<ul class="b">
 				<li><h3 align="left"><a href="https://github.com/ropensci/rnoaa">rnoaa</a> - NOAA data</h3></li>
@@ -148,11 +192,13 @@
 			<h2>taxonomy tools: in the works</h2>
 			<br>
 			<ul>
-				<li><h3>taxonomic name parsing: <em>fast &amp; platform independent for other R tool builders</em>  &amp; tools for R users (see <a href="https://scotttalks.info/berkeley2018poster/"><code>pegax</code> poster</a>)</h3></li>
-				<li><h3>package <a href="https://github.com/ropensci/taxa">taxa</a>: needs more user testing - feedback plz!</h3></li>
-				<li><h3>package <a href="https://github.com/ropenscilabs/taxadc">taxadc</a>: serialize R taxonomic data to Darwin Core- in early development</h3> </li>
-				<li><h3>package <a href="https://github.com/ropensci/taxizedb">taxizedb</a> - hard to a) make similar interface to SQL DB's as web services &amp; 2) simplify varied database installs</h3></li>
-				<li><h3>package <a href="https://github.com/ropensci/taxview">taxview</a> - summarise and visualize data sets from with respect to taxonomy</h3></li>
+				<li><h3>taxonomic name parsing: we need fast &amp; platform independent name parsing <a href="https://gitlab.com/gogna/gnparser/">gnparser</a>/<a href="https://github.com/ropenscilabs/pegax">pegax</a></h3></li>
+				<!-- <li><h3>package <a href="https://github.com/ropenscilabs/taxadc">taxadc</a>: serialize R taxonomic data to Darwin Core- in early development</h3> </li> -->
+				<li><h3><a href="https://github.com/ropensci/taxizedb">taxizedb</a> - hard to a) make similar interface to SQL DB's as web services &amp; 2) simplify varied database installs</h3></li>
+				<ul>
+					<li>see also: <a href="https://github.com/cboettig/taxadb">taxadb</a> &amp; Kari Norman's part</li>
+				</ul>
+				<li><h3><a href="https://github.com/ropensci/taxview">taxview</a> - summarise and visualize data sets from with respect to taxonomy</h3></li>
 			</ul>
 		</section>
 
@@ -273,6 +319,8 @@
 			<script type="text/template">
 				## taxize: integrating taxa
 
+				see [issue #508](https://github.com/ropensci/taxize/issues/508) and branch [taxa-ids](https://github.com/ropensci/taxize/tree/taxa-ids)
+
 				```r
 				splist <- c("annona cherimola", 'annona muricata', "quercus robur",
 			       "shorea robusta", "pandanus patina", "oryza sativa", "durio zibethinus")
@@ -287,15 +335,15 @@
 				#>   Oryza sativa / species / 41976
 				#>   Durio zibethinus / species / 506099
 				```
-
-				### talk about methods on the output - from new eval branch ...
+				<br>
+				### Will facilitate all the cool stuff Zach is talking about next ...
 			</script>
 		</section>
 
 		<section id="occurrence-tools-future">
 			<h2>occurrence tools: in the works</h2>
 			<ul>
-				<li><h3>taking the pain out of GBIF downloads: <a href="https://github.com/ropensci/rgbif/issues/266">ropensci/rgbif#266</a>: queuing tool for GBIF downloads - <em>hard problem</em></h3></li>
+				<li><h3>taking the pain out of GBIF downloads: <a href="https://github.com/ropensci/rgbif/issues/266">ropensci/rgbif#266</a>: queuing tool for GBIF downloads - <em>would love any feedback</em></h3></li>
 				<li><h3>occurrence cleaning in R: <em>hard problem!</em> A few efforts:</h3></li>
 				<ul>
 					<li><h3>package <a href="https://github.com/ropensci/scrubr">scrubr</a></h3></li>
@@ -305,7 +353,7 @@
 			</ul>
 		</section>
 
-		<section id="occurrence-tools-questions">
+		<!-- <section id="occurrence-tools-questions">
 			<h2>occurrence tools: questions</h2>
 			<br>
 			<ul>
@@ -313,7 +361,7 @@
 				<li><h3>related to above: Sharing dataset associated with paper</h3></li>
 				<li><h3>Visualzing huge occurrence datasets? (GBIF map API now in dev ver of <code>rgbif</code> ~ <a href="https://github.com/ropensci/rgbif/blob/master/R/map_fetch.R" target="_blank">rgbif::map_fetch</a>)</h3></li>
 			</ul>
-		</section>
+		</section> -->
 
 		<!-- talk to us -->
 		<section id="talk-to-us" class="center">
