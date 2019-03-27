@@ -63,20 +63,15 @@
 	<body>
 		<div class="reveal">
 			<div class="slides">
-				<section id="intro" class="center">
+		
+		<section id="intro" class="center">
 			<h1><font color="#B8172F">Biodiversity &amp; Taxonomy Software Tools @ rOpenSci</font></h1><br>
 			<p class="grey">Scott Chamberlain (<i class="fab fa-twitter"></i> <a href="https://twitter.com/sckottie">@sckottie</a>)
 				<p class="grey">UC Berkeley / rOpenSci
 			<br>
-			<!-- <span><img src="img/icon_lettering_color.svg" alt="rOpenSci" width="800" /></span> -->
 		</section>
 	
 		<!-- high level overview -->
-		<section id="questions">
-			<h2>Questions addressed w/ our software</h2>
-			<img src="img/questions.png" width="1050px">
-		</section>
-
 		<section id="broad-areas" class="center">
 			<h1>Broad areas of packages</h1>
 			<ul class="b">
@@ -89,6 +84,107 @@
 		<section id="citations">
 			<h2>Citations</h2>
 			<img src="img/citation.png" width="1000px">
+		</section>
+
+		<section id="questions">
+			<h2>Questions addressed w/ our software</h2>
+			<img src="img/questions.png" width="1050px">
+		</section>
+
+		<section>
+			<section id="taxize">
+				<h2>Use cases: taxize</h2>
+				<ul class="b">
+					<!-- <li>check sci. names against COL, get IUCN Red List status, in botanical inventory</li> -->
+					<!-- <li>collect taxonomic information</li> -->
+					<li>classify species invasive or not</li>
+					<li>software uses taxize to check user names against ITIS</li>
+					<li>check names against TPL, EOL, COL, IUCN, uBIO</li>
+					<!-- <li>verify taxonomic classification (birds)</li>
+					<li>verify taxonomic classification (plants)</li> -->
+					<li>get name data for NCBI sequence data</li>
+					<li>validate genus names for a food web</li>
+					<li>compiled dataset of tropical forest tree species names checked w/ TNRS</li>
+					<!-- <li>software depends on taxize to get taxon classifications</li> -->
+					<li>add taxonomic classification data to meta-analysis dataset</li>
+					<!-- <li>validate/clean names for plant-fungal association study</li> -->
+				</ul>
+			</section>
+			<section id="rgbif">
+				<h2>Use cases: rgbif</h2>
+				<ul class="b">
+					<!-- <li>occurrence counts globally through year range, comparing birds to other taxa</li> -->
+					<!-- <li>occurrence records for mapping two species</li> -->
+					<li>occurrence records to construct niche models</li>
+					<li>collect occurrence records for catfishes in a Brazilian river</li>
+					<li>occurrence records of Acacia species in Australia through time</li>
+					<li>assessing niche expansion of invasive plants with occurrence records</li>
+					<!-- <li>test of plant functional type classification with occurrences records</li> -->
+					<!-- <li>use occurrence records with climate data to predict potential restoration plant species</li> -->
+					<li>small note in manuscript about a species being in a study area</li>
+					<!-- <li>occurrence records of trees in the Amazon to test predictors of seed size</li> -->
+				</ul>
+			</section>
+			<section id="rfishbase">
+				<h2>Use cases: rfishbase</h2>
+				<ul class="b">
+					<li>collect fish life history traits</li>
+					<!-- <li>obtain species within a group, and two traits</li> -->
+					<li>extract fecundity data for four fish species</li>
+					<!-- <li>get family name for each species</li> -->
+					<li>group species into trophic guilds using trophic position</li>
+					<li>fetch salinity associated traits for many fish species</li>
+					<!-- <li>calculate fish fractional size from max size for many fish species</li> -->
+					<li>acquire depth ranges for many species to determine a phylogenetic signal</li>
+					<!-- <li>calc. percentage of extant species living on reefs</li> -->
+				</ul>
+			</section>
+			<section id="rentrez">
+				<h2>Use cases: rentrez</h2>
+				<ul class="b">
+					<li>search PubMed for mentions of phrases</li>
+					<li>search PubMed for mentions of phrases</li>
+					<li>demonstrate rentrez use to search NCBI for articles in institutional repositories</li>
+					<li>fetch NCBI taxonomic information for sequence data</li>
+					<li>use NCBI's Gene Expression Omnibus service</li>
+					<li>extract citations (presumably from PubMed) using rentrez</li>
+				</ul>
+			</section>
+			<section id="spocc">
+				<h2>Use cases: spocc</h2>
+				<ul class="b">
+					<li>use GBIF data to explore genome size variation against many variables</li>
+					<!-- <li>grant proposal: data will be collected with spocc</li> -->
+					<!-- <li>use GBIF data to construct species distributions</li> -->
+					<li>use GBIF data to construct species range and niche centroids</li>
+					<!-- <li>use GBIF, iDigBio, and BISON data to construct range maps</li> -->
+					<li>use GBIF, VertNet, BISON, Ecoengine, iNaturalist data to construct species niche models</li>
+					<li>use Vertnet and iNaturalist data to identify most vulernable populations for snakebites</li>
+					<!-- <li>use GBIF data to map potential distributions of mosquito vectors based on ecological niche models</li> -->
+					<li>use GBIF data via zoon in malariaAtlas R pkg</li>
+					<!-- <li>use GBIF data to estimate climatic distributions of species</li> -->
+					<!-- <li>use GBIF data to construct species distributions models</li> -->
+					<li>use GBIF and iDigBio data to construct future species ranges</li>
+				</ul>
+			</section>
+			<section id="rnoaa">
+				<h2>Use cases: rnoaa</h2>
+				<ul class="b">
+					<li>fetch sea surface temperature (SST): check if latitude/SST explains variation in body size</li>
+					<li>use many variables from ISD to predict airplane flight time</li>
+					<li>use climate data to identify opportunities for stream restoration</li>
+					<li>estimate interannual climatic variability in urban areas</li>
+					<li>government report on precipitation</li>
+				</ul>
+			</section>
+		</section>
+
+		<section id="use-cases-rocitations" class="center">
+			<h2><span style="font-size: 150px; color: Dodgerblue;"><i class="fab fa-twitter"></i></span><br>Follow <a href="https://twitter.com/rocitations">@rocitations</a> for use cases</h2>
+			<br>
+			<h2>Citations spreadsheet <a href="https://github.com/ropenscilabs/ropensci_citations/blob/master/citations.tsv">ropenscilabs/ropensci_citations => citations.tsv</a> for citations</h2>
+			<br>
+			<h2>Use cases spreadsheet <a href="https://github.com/ropenscilabs/ropensci_citations/blob/master/use_cases.tsv">ropenscilabs/ropensci_citations => use_cases.tsv</a> for use cases</h2>
 		</section>
 
 		<!-- taxonomy tools -->
@@ -110,11 +206,11 @@
 			<h1>Taxonomy</h1>
 			<ul class="b">
 				<li><h3 align="left"><a href="https://github.com/ropensci/taxa">taxa</a> - Taxonomic classes and taxonomically aware data manipulation</h3></li>
-				<li><h3 align="left"><a href="https://github.com/ropensci/taxize">taxize</a> - Taxonomic "toolbelt" - work w/ taxonomy web APIs</h3></li>
+				<li><h3 align="left"><a href="https://github.com/ropensci/taxize">taxize</a> - taxonomy data from many data sources</h3></li>
 				<li><h3 align="left"><a href="https://github.com/ropensci/taxizedb">taxizedb</a> - taxize, but with local SQL databases</h3></li>
-				<li><h3 align="left"><a href="https://github.com/ropensci/rentrez">rentrez</a> - NCBI's Entrez, including taxonomy</h3></li>
-				<li><h3 align="left"><a href="https://github.com/ropensci/worrms">worrms</a> - WORMS web service</h3></li>
-				<li><h3 align="left"><a href="https://github.com/ropensci/ritis">ritis</a> - USGS's ITIS web service</h3></li>
+				<li><h3 align="left"><a href="https://github.com/ropensci/rentrez">rentrez</a> - NCBI data, including taxonomy data</h3></li>
+				<li><h3 align="left"><a href="https://github.com/ropensci/worrms">worrms</a> - WORMS marine data, including taxonomy</h3></li>
+				<li><h3 align="left"><a href="https://github.com/ropensci/ritis">ritis</a> - USGS's ITIS taxonomy</h3></li>
 				<li><h3 align="left">... many others </h3></li>
 			</ul>
 			<br>
@@ -140,14 +236,13 @@ key                    scientificName   decimalLatitude decimalLongitude
 		<section id="occurrence-tools-rundown">
 			<h1>Occurrence data</h1>
 			<ul class="b">
-				<li><h3 align="left"><a href="https://github.com/ropensci/rgbif">rgbif</a> - GBIF</h3></li>
-				<li><h3 align="left"><a href="https://github.com/ropensci/rbison">rbison</a> - USGS's BISON</h3></li>
-				<li><h3 align="left"><a href="https://github.com/ropensci/rvertnet">rvertnet</a> - VertNet</h3></li>
-				<li><h3 align="left"><a href="https://github.com/ropensci/rebird">rebird</a> &amp; <a href="https://github.com/CornellLabofOrnithology/auk">auk</a> - eBird</h3></li>
-				<li><h3 align="left"><a href="https://github.com/ropensci/spocc">spocc</a> - one stop shop (of all above &amp; many more)</h3></li>
-				<li><h3 align="left"><a href="https://github.com/ropensci/finch">finch</a> - parse GBIF bulk data</h3></li>
+				<li><h3 align="left"><a href="https://github.com/ropensci/rgbif">rgbif</a> - occurrence data from GBIF's > 1 billion records</h3></li>
+				<li><h3 align="left"><a href="https://github.com/ropensci/rbison">rbison</a> - occurrence data from USGS's BISON</h3></li>
+				<li><h3 align="left"><a href="https://github.com/ropensci/rvertnet">rvertnet</a> - occurrence data from VertNet (vertebrates)</h3></li>
+				<li><h3 align="left"><a href="https://github.com/ropensci/rebird">rebird</a> &amp; <a href="https://github.com/CornellLabofOrnithology/auk">auk</a> - occurrence data from eBird</h3></li>
+				<li><h3 align="left"><a href="https://github.com/ropensci/spocc">spocc</a> - occurrence data from many sources, single interface</h3></li>
+				<li><h3 align="left"><a href="https://github.com/ropensci/finch">finch</a> - parse GBIF bulk data (Darwin Core)</h3></li>
 				<li><h3 align="left"><a href="https://github.com/ropensci/CoordinateCleaner">CoordinateCleaner</a> & <a href="https://github.com/ropensci/scrubr">scrubr</a> - clean occurrence data</h3></li>
-				<!-- <li><h3>tools for : landscapetools, NLMR, natserv, neotoma, rdataretriever, rfishbase</h3></li> -->
 			</ul>
 		</section>
 
@@ -170,16 +265,16 @@ station  	    variable    value
 		<section id="environmental-tools">
 			<h1>Environmental data</h1>
 			<ul class="b">
-				<li><h3 align="left"><a href="https://github.com/ropensci/rnoaa">rnoaa</a> - NOAA data</h3></li>
+				<li><h3 align="left"><a href="https://github.com/ropensci/rnoaa">rnoaa</a> - download climate data (prec, temp, wind, storms, snow, etc.) from NOAA</h3></li>
 				<li><h3 align="left"><a href="https://github.com/ropensci/rerddap">rerddap</a> - NOAA ERDDAP servers</h3></li>
 				<li><h3 align="left"><a href="https://github.com/ropensci/riem">riem</a> - Iowa Environment Mesonet data</h3></li>
 				<li><h3 align="left"><a href="https://github.com/ropensci/weathercan">weathercan</a> - Environment & Climate Change Canada</h3></li>
 				<li><h3 align="left"><a href="https://github.com/ropensci/bomrang">bomrang</a> - Australian gov't Bureau of Meteorology</h3></li>
-				<li><h3 align="left"><a href="https://github.com/ropensci/clifro">clifro</a> - CliFlo data</h3></li>
 				<li><h3 align="left"><a href="https://github.com/ropensci/GSODR">GSODR</a> - Global Surface Summary of the Day</h3></li>
 				<li><h3 align="left"><a href="https://github.com/ropensci/nasapower">nasapower</a> - NASA POWER data</h3></li>
-				<li><h3 align="left"><a href="https://github.com/ropensci/getCRUCLdata">getCRUCLdata</a> - CRU CL v. 2.0 Climatology Elements</h3></li>
 				<li><h3 align="left"><a href="https://github.com/ropensci/hydroscoper">hydroscoper</a> - Greek National Data</h3></li>
+				<!-- <li><h3 align="left"><a href="https://github.com/ropensci/clifro">clifro</a> - CliFlo data</h3></li> -->
+				<!-- <li><h3 align="left"><a href="https://github.com/ropensci/getCRUCLdata">getCRUCLdata</a> - CRU CL v. 2.0 Climatology Elements</h3></li> -->
 			</ul>
 		</section>
 
@@ -198,7 +293,7 @@ station  	    variable    value
 				<ul>
 					<li>see also: <a href="https://github.com/cboettig/taxadb">taxadb</a> &amp; Kari Norman's part</li>
 				</ul>
-				<li><h3><a href="https://github.com/ropensci/taxview">taxview</a> - summarise and visualize data sets from with respect to taxonomy</h3></li>
+				<li><h3><a href="https://github.com/ropensci/taxview">taxview</a> - summarise and visualize data sets WRT taxonomy</h3></li>
 			</ul>
 		</section>
 
@@ -344,6 +439,7 @@ station  	    variable    value
 			<h2>occurrence tools: in the works</h2>
 			<ul>
 				<li><h3>taking the pain out of GBIF downloads: <a href="https://github.com/ropensci/rgbif/issues/266">ropensci/rgbif#266</a>: queuing tool for GBIF downloads - <em>would love any feedback</em></h3></li>
+				<li><h3><a href="https://github.com/ropensci/spocc/issues/210">auk integration</a> into spocc</h3></li>
 				<li><h3>occurrence cleaning in R: <em>hard problem!</em> A few efforts:</h3></li>
 				<ul>
 					<li><h3>package <a href="https://github.com/ropensci/scrubr">scrubr</a></h3></li>
@@ -363,14 +459,27 @@ station  	    variable    value
 			</ul>
 		</section> -->
 
+		<section id="more-info">
+			<h2>where to find out more</h2>
+			<ul>
+				<li><h3>taxonomy data: <a href="https://github.com/ropensci/taxonomy">taxonomy task view</a></h3></li>
+				<li><h3>occurrence data:</h3></li>
+				<ul>
+					<li><h3><a href="https://ropensci.github.io/occurrence-manual/">in progress bookdown on occurrence data</a></h3></li>
+					<li><h3><a href="https://peerj.com/preprints/3304/">rgbif/pygbif/gbifrb pre-print</a></h3></li>
+				</ul>
+				<li><h3>environmental data: <a href="https://ropensci.org/packages/">rOpenSci packages page</a></h3></li>
+			</ul>
+		</section>
+
 		<!-- talk to us -->
 		<section id="talk-to-us" class="center">
 			<h1>talk to us <i class="fas fa-bullhorn"></i></h1>
 			<br>
 			<h2>discussion forum: <a href="https://discuss.ropensci.org/">discuss.ropensci.org</a></h2>
-			<br><br><br>
-			<h2><a href="https://scotttalks.info/rocctax">scotttalks.info/rocctax</a></h2>
-			<h2>Made w/: <a href="https://github.com/hakimel/reveal.js">reveal.js v3.2.0</a>, <a href="http://getbootstrap.com/">Bootstrap v3.3.5</a>, <a href="http://fortawesome.github.io/Font-Awesome/">FontAwesome v5.0.13</a></h2>
+			<br><br>
+			<h2>slides: <a href="https://scotttalks.info/rocctax">scotttalks.info/rocctax</a></h2>
+			<!-- <h2>Made w/: <a href="https://github.com/hakimel/reveal.js">reveal.js v3.2.0</a>, <a href="http://getbootstrap.com/">Bootstrap v3.3.5</a>, <a href="http://fortawesome.github.io/Font-Awesome/">FontAwesome v5.0.13</a></h2> -->
 		</section>
 			</div>
 		</div>
@@ -387,6 +496,7 @@ station  	    variable    value
 				center: false,
 				width: 1400,
 				height: 900,
+				transition: "none",
 				dependencies: [
 					{ src: 'plugin/markdown/marked.js' },
 					{ src: 'plugin/markdown/markdown.js' },
