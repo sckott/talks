@@ -1,0 +1,256 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>reveal.js</title>
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/black.css">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- solarized theme -->
+		<!-- <link rel="stylesheet" href="css/theme/solarized.css" id="theme"> -->
+
+		<!-- google fonts -->
+		<link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro' rel='stylesheet' type='text/css'>
+
+		<!-- fontawesome -->
+		<!-- <link rel="stylesheet" href="css/fontawesome-free-5.0.13/web-fonts-with-css/css/fontawesome-all.css"> -->
+		<script defer src="https://use.fontawesome.com/releases/v5.7.2/js/all.js" integrity="sha384-0pzryjIRos8mFBWMzSSZApWtPl/5++eIfzYmTgBBmXYdhvxPc+XcFEk+zJwDgWbP" crossorigin="anonymous"></script>
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+
+		<style type="text/css">
+			#rotate_text {
+				-webkit-transform: rotate(-90deg);
+				-moz-transform: rotate(-90deg);
+				transform: rotate(-90deg);
+				position: absolute;
+				vertical-align: middle;
+				position: absolute;
+    		top: 500px;
+    		left: -50px;
+				filter:progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+			}
+
+			.reveal section ul.a {list-style-type: circle; margin: 0; padding: 0;}
+			.reveal section ul.b {list-style-type: square; margin-left: 4; padding-left: 0;}
+
+			/*.reveal section img {border: none;}*/
+
+			.center-block {
+			  display: block;
+			  margin-left: auto;
+			  margin-right: auto;
+			}
+
+			.reveal table th, td {
+			  padding: 0px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+		
+		<section id="intro" class="center">
+			<h1><font color="#B8172F">S3 Objects</font></h1><br>
+			<p class="grey">Scott Chamberlain (<i class="fab fa-twitter"></i> <a href="https://twitter.com/sckottie">@sckottie</a>)
+				<p class="grey">rOpenSci
+			<br>
+		</section>
+	
+		<section id="s3-overview" class="center">
+			<h1>S3 classes - overview</h1>
+			<ul class="b">
+                <li><h2 align="left">who do I blame?</h2></li>
+				<li><h2 align="left">what is it?</h2></li>
+                <li><h2 align="left">but when do i use it though?</h2></li>
+                <li><h2 align="left">i want more</h2></li>
+			</ul>
+		</section>
+
+		<section id="s3-who">
+			<h2>S3 - origins</h2>
+			<h2>origins stuff ...</h2>
+		</section>
+
+		<section id="s3-who-2">
+			<h2>S3 - origins</h2>
+			<h2>more origins stuff ...</h2>
+		</section>
+
+		<section data-markdown id="s3-example">
+			<script type="text/template">
+				## S3 - example
+				```r
+				foo <- function(x) UseMethod("foo")
+				foo.character <- function(x) paste("hello ", x)
+				foo.numeric <- function(x) x^2
+				foo.default <- function(x) stop("no 'foo' method for ", class(x)[1L])
+				```
+
+				`.default`
+
+				```r
+				foo(data.frame())
+				#> Error: no 'foo' method for 'data.frame'
+				```
+
+				`.character`
+
+				```r
+				foo('bar')
+				#> [1] "hello bar"
+				```
+
+				`.numeric`
+
+				```r
+				foo(4)
+				#> [1] 16
+				```
+			</script>
+		</section>
+
+		<section id="s3-structure-2">
+			<h1>S3 - more structure</h1>
+			<br>
+			<ul class="b">
+				<li><h3 align="left">do you have to be consistent with parameters? AFAIK you do, but maybe not?</h3></li>
+				<li><h3 align="left"></h3></li>
+				<li><h3 align="left">stuff</h3></li>
+				<li><h3 align="left">stuff</h3></li>
+				<li><h3 align="left">stuff</h3></li>
+			</ul>
+		</section>
+
+		<section data-markdown id="s3-structure-3">
+			<script>
+			# S3 - Dispatching not on the 1st parameter <i class="fa fa-surprise"></i>
+
+			Previously we chose which method to use based on the 1st parameter.
+			You can instead not use the 1st parameter.
+
+			You may want to do this when the 1st parameter must stay as 1st parameter,
+			but it's not the one that the method decision depends on.
+			
+			```r
+			foo <- function(x, y) UseMethod('foo', y)
+			foo.numeric <- function(x, y) y - x
+			```
+
+			```r
+			foo(5, 10)
+			#> [1] 5
+			```
+
+			Ideally, the parameter that the method toggle depends on is not optional.
+			</script>
+		</section>
+
+		<section data-markdown id="s3-inspecting">
+			<script>
+			# S3 - Inspecting them
+
+			What methods are on the class `foo`
+			
+			```r
+			methods(foo) #  or methods("foo")
+			```
+
+			What class is an object
+			
+			```r
+			class(5)
+			class(mtcars)
+			```
+
+			Get method of an S3 class by name
+			
+			```r
+			getS3method("foo", "numeric")
+			getS3method("foo", "character")
+			getS3method("foo", "default")
+			```
+
+			Does an object have a class?
+			
+			```r
+			x <- "hello world"
+			class(x)
+			#> "character"
+			is.object(x)
+			#> [1] FALSE
+			class(x) <- "saying"
+			class(x)
+			#> [1] "character"
+			is.object(x)
+			#> [1] TRUE
+			```
+			</script>
+		</section>
+
+		<!-- ‘methods’, ‘class’, ‘getS3method’, ‘is.object’. -->
+
+		<section id="s3-when-to-use">
+			<h1>S3 - when to use it?</h1>
+			<br>
+			<ul class="b">
+				<li><h3 align="left">inputs can have many different classes</h3></li>
+				<li><h3 align="left">you want to do different things with different classes</h3></li>
+				<li><h3 align="left">you want something that's light weight</h3></li>
+			</ul>
+		</section>
+
+		<section id="s3-when-to-use-beware">
+			<h1>S3 - when to use it - beware</h1>
+			<br>
+			<ul class="b">
+				<li><h3 align="left">make sure your S3 class fails well - use <code>.default</code></h3></li>
+				<li><h3 align="left">make sure parameters are consistent across S3 methods</h3></li>
+				<li><h3 align="left">others ...</h3></li>
+			</ul>
+		</section>
+
+		<section id="bib" class="center">
+			<h2>slides: <a href="https://scotttalks.info/rs3">scotttalks.info/rs3</a></h2>
+			<h2>Made w/: <a href="https://github.com/hakimel/reveal.js">reveal.js v3.7.0</a>, <a href="http://fortawesome.github.io/Font-Awesome/">FontAwesome v5.7.2</a></h2>
+		</section>
+			</div>
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+			// More info about config & dependencies:
+			// - https://github.com/hakimel/reveal.js#configuration
+			// - https://github.com/hakimel/reveal.js#dependencies
+			Reveal.initialize({
+				history: true,
+				center: false,
+				width: 1400,
+				height: 900,
+				transition: "none",
+				dependencies: [
+					{ src: 'plugin/markdown/marked.js' },
+					{ src: 'plugin/markdown/markdown.js' },
+					{ src: 'plugin/notes/notes.js', async: true },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+				]
+			});
+		</script>
+	</body>
+</html>
