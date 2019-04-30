@@ -70,22 +70,33 @@
 				<p class="grey">rOpenSci
 			<br>
 		</section>
+
+		<!-- <section id="pdxrlang-organizers">
+			<h1>Meet the new pdxrlang organizers!</h1>
+			<br>
+			<ul class="b">
+				<li><h2 align="left">Sophie Yang</h2></li>
+                <li><h2 align="left">Marley Buchman</h2></li>
+                <li><h2 align="left">Ted Laderas</h2></li>
+                <li><h2 align="left">John Smith</h2></li>
+			</ul>
+		</section> -->
 	
-		<section id="s3-overview">
+		<!-- <section id="s3-overview">
 			<h1>S3 objects - overview</h1>
 			<ul class="b">
 				<li><h2 align="left">what is it?</h2></li>
                 <li><h2 align="left">but when do i use it though?</h2></li>
                 <li><h2 align="left">i want more</h2></li>
 			</ul>
-		</section>
+		</section> -->
 
 		<section id="s3-what">
 			<h1>S3 objects</h1>
 			<br>
-			<h2>R's <strong>first</strong> and <strong>simplest</strong> OO system</h2>
+			<h2>R's <strong>first</strong> and <strong>simplest</strong> OO (Object Oriented) system</h2>
 			<br><br>
-			<h2>hadley says in adv. R book</h2>
+			<h2>In <a href="http://adv-r.had.co.nz/OO-essentials.html#s3">Adv. R book</a></h2>
 			<blockquote>S3 is informal and ad hoc, but it has a certain elegance in its minimalism: you can’t take away any part of it and still have a useful OO system</blockquote>
 		</section>
 
@@ -117,11 +128,39 @@
 			</script>
 		</section>
 
+		<section data-markdown id="s3-lots-of-methods">
+			<script>
+				# S3 - generics and methods
+
+				## Some generics have A LOT of methods
+				
+
+				```r
+				methods(summary)
+				```
+
+				```r
+				 [1] summary.aov                    summary.aovlist*               summary.aspell*
+				 [4] summary.check_packages_in_dir* summary.connection             summary.data.frame
+				 [7] summary.Date                   summary.default                summary.ecdf*
+				[10] summary.factor                 summary.glm                    summary.infl*
+				[13] summary.lm                     summary.loess*                 summary.manova
+				[16] summary.matrix                 summary.mlm*                   summary.nls*
+				[19] summary.packageStatus*         summary.PDF_Dictionary*        summary.PDF_Stream*
+				[22] summary.POSIXct                summary.POSIXlt                summary.ppr*
+				[25] summary.prcomp*                summary.princomp*              summary.proc_time
+				[28] summary.srcfile                summary.srcref                 summary.stepfun
+				[31] summary.stl*                   summary.table                  summary.tukeysmooth*
+				[34] summary.warnings
+				```
+			</script>
+		</section>
+
 		<section data-markdown id="s3-detection">
 			<script>
 				# Detecting/recognizing S3 objects
 
-				Most objects in R are S3 objects - but it's not always straightforward to recognize them
+				## Most objects in R are S3 objects <br> But it's not always straightforward to recognize them
 				
 				```r
 				library(pryr)
@@ -139,100 +178,6 @@
 				#> [1] "S3"
 
 				```
-			</script>
-		</section>
-
-		<section data-markdown id="s3-assigning-classes">
-			<script type="text/template">
-				# S3 - assigning classes
-
-				You can assign any S3 class to any object
-
-				```r
-				x <- 5
-				class(x) <- "my_number"
-				```
-
-				You can alternatively use the `structure()` function
-
-				```r
-				structure(5, class = "my_number")
-				```
-
-				You can assign multiple classes to the same object
-
-				```r
-				structure(5, class = c("foo", "bar"))
-				```
-			</script>
-		</section>
-
-		<section data-markdown id="s3-example">
-			<script>
-				# S3 - creating new methods and generics
-				```r
-				foo <- function(x) UseMethod("foo")
-				foo.character <- function(x) paste("hello ", x)
-				foo.numeric <- function(x) x^2
-				foo.default <- function(x) stop("no 'foo' method for ", class(x)[1L])
-				```
-
-				`.default`
-
-				```r
-				foo(data.frame())
-				#> Error: no 'foo' method for 'data.frame'
-				```
-
-				`.character`
-
-				```r
-				foo('bar')
-				#> [1] "hello bar"
-				```
-
-				`.numeric`
-
-				```r
-				foo(4)
-				#> [1] 16
-				```
-			</script>
-		</section>
-
-		<section id="s3-structure-2">
-			<h1>S3 - more structure</h1>
-			<br>
-			<ul class="b">
-				<li><h3 align="left">do you have to be consistent with parameters? AFAIK you do, but maybe not?</h3></li>
-				<li><h3 align="left"></h3></li>
-				<li><h3 align="left">stuff</h3></li>
-				<li><h3 align="left">stuff</h3></li>
-				<li><h3 align="left">stuff</h3></li>
-			</ul>
-		</section>
-
-		<section data-markdown id="s3-structure-3">
-			<script>
-			# S3 - Dispatching not on the 1st parameter <i class="fa fa-surprise"></i>
-
-			Previously we chose which method to use based on the 1st parameter.
-			You can instead not use the 1st parameter.
-
-			You may want to do this when the 1st parameter must stay as 1st parameter,
-			but it's not the one that the method decision depends on.
-			
-			```r
-			foo <- function(x, y) UseMethod('foo', y)
-			foo.numeric <- function(x, y) y - x
-			```
-
-			```r
-			foo(5, 10)
-			#> [1] 5
-			```
-
-			Ideally, the parameter that the method toggle depends on is not optional.
 			</script>
 		</section>
 
@@ -278,11 +223,127 @@
 			</script>
 		</section>
 
+		<section data-markdown id="s3-assigning-classes">
+			<script type="text/template">
+				# S3 - assigning classes
+
+				## You can assign any S3 class to any object
+
+				```r
+				x <- 5
+				class(x) <- "my_number"
+				```
+
+				## You can alternatively use the `structure()` function
+
+				```r
+				structure(5, class = "my_number")
+				```
+
+				## You can assign multiple classes to the same object
+
+				```r
+				structure(5, class = c("foo", "bar"))
+				# or
+				x <- 5
+				class(x) <- c("foo", "bar"))
+				```
+			</script>
+		</section>
+
+		<section data-markdown id="s3-dropping-classes">
+			<script type="text/template">
+				# S3 - dropping classes
+
+				## You can also drop an S3 class from an object
+
+				```r
+				x <- structure(5, class = "stuff")
+				class(x)
+				#> [1] "suff"
+				class(x) <- NULL
+				class(x)
+				#> [1] "numeric"
+				```
+			</script>
+		</section>
+
+		<section data-markdown id="s3-example">
+			<script>
+				# S3 - creating new methods and generics
+				```r
+				foo <- function(x) UseMethod("foo")
+				foo.character <- function(x) paste("hello ", x)
+				foo.numeric <- function(x) x^2
+				foo.default <- function(x) stop("no 'foo' method for ", class(x)[1L])
+				```
+
+				`.default`
+
+				```r
+				foo(data.frame())
+				#> Error: no 'foo' method for 'data.frame'
+				```
+
+				`.character`
+
+				```r
+				foo('bar')
+				#> [1] "hello bar"
+				```
+
+				`.numeric`
+
+				```r
+				foo(4)
+				#> [1] 16
+				```
+			</script>
+		</section>
+
+		<!-- <section id="s3-structure-2">
+			<h1>S3 - more structure</h1>
+			<br>
+			<ul class="b">
+				<li><h3 align="left">do you have to be consistent with parameters? AFAIK you do, but maybe not?</h3></li>
+				<li><h3 align="left"></h3></li>
+				<li><h3 align="left">stuff</h3></li>
+				<li><h3 align="left">stuff</h3></li>
+				<li><h3 align="left">stuff</h3></li>
+			</ul>
+		</section> -->
+
+		<section data-markdown id="s3-structure-3">
+			<script>
+			# S3 - Dispatching not on the 1st parameter <i class="fa fa-surprise"></i>
+
+			On last slidde we chose which method to use based on 1st parameter.
+			Doesn't have to be the 1st parameter.
+
+			You may want to do this when the 1st parameter must stay as 1st parameter,
+			but it's not the one that the method decision depends on.
+			
+			```r
+			foo <- function(x, y) UseMethod("foo", y)
+			foo.numeric <- function(x, y) y - x
+			```
+
+			```r
+			foo(5, 10)
+			#> [1] 5
+			```
+
+			Ideally, the parameter that the method toggle depends on is not optional.
+			</script>
+		</section>
+
 		<section data-markdown id="s3-documenting">
 			<script>
 				# S3 - package documentation
 
-				Just show the generic in `foo` manual file
+				Export generic and method, and ...
+
+				... just show the generic in `foo` manual file
 				
 				```r
 				#' My function description
@@ -295,7 +356,7 @@
 				foo.character <- function(x) paste("hello ", x)
 				```
 
-				Show generic and methods in `foo` manual file
+				... show generic and methods in `foo` manual file
 
 				```r
 				#' My function description
@@ -379,6 +440,25 @@
 			</script>
 		</section>
 
+		<section data-markdown id="s3-building-on-generics">
+			<script>
+				# S3 - building on top of generics
+				
+				* many packages build on top of functions in base R, e.g.: `plot`, `summary`, `print`
+				* to build on these in a package, you have to follow the parameter patterns used by the generic - if you don't, R CMD CHECK bops you on the head <i class="fa fa-dizzy"></i>:
+
+				<br>
+
+				```r
+					W  checking S3 generic/method consistency (2s)
+					   print:
+					     function(x, ...)
+					   print.some_class:
+					     function(x)
+				```
+			</script>
+		</section>
+
 		<section id="s3-when-to-use">
 			<h1>S3 - when to use S3 generics/methods</h1>
 			<br>
@@ -386,6 +466,7 @@
 				<li><h3 align="left">inputs can have many different classes</h3></li>
 				<li><h3 align="left">you want to do different things with different classes</h3></li>
 				<li><h3 align="left">you want something that's light weight</h3></li>
+				<li><h3 align="left">you want to build on top of a base R generic (e.g, <code>plot</code>)</h3></li>
 			</ul>
 		</section>
 
@@ -393,12 +474,13 @@
 			<h1>S3 - beware!</h1>
 			<br>
 			<ul class="b">
-				<li><h3 align="left">make sure your S3 class fails well - use <code>.default</code></h3></li>
-				<li><h3 align="left">make sure parameters are consistent across S3 methods</h3></li>
-				<li><h3 align="left">make sure methods of generics are exported in pkgs</h3></li>
+				<li><h3 align="left">consider S3 failure behavior - see <code>.default</code></h3></li>
+				<li><h3 align="left">parameters should be consistent across S3 methods</h3></li>
+				<li><h3 align="left">pay attention to whether methods on generics are exported in your pkg</h3></li>
 				<li><h3 align="left">as a user: don't call S3 methods directly, call the generic</h3></li>
-				<li><h3 align="left">S3 classes can be easily dropped/lost (next slide)</h3></li>
 				<li><h3 align="left">no validation of checking of contents</h3></li>
+				<li><h3 align="left">extended generic methods of base functions from diff. pkgs can conflict!</h3></li>
+				<li><h3 align="left">S3 classes can be easily dropped/lost (next slide)</h3></li>
 			</ul>
 		</section>
 
@@ -406,13 +488,13 @@
 			<script>
 				# S3 - classes are easily lost
 
-				Create an object
+				### Create an object
 				
 				```r
 				x <- structure(list("hello", "world"), class = "foobar")
 				```
 
-				Apply some function to each element
+				### Apply some function to each element
 
 				```r
 				lapply(x, function(z) z)
@@ -422,11 +504,19 @@
 				#> [[2]]
 				#> [1] "world"
 				```
-
+				<br>
 				### Oh no <i class="far fa-sad-tear"></i>
-				<br><br>
-				### Just be aware whether building or consuming S3 classes
+				<br>
+				### Just be aware - whether making or consuming S3 classes
 			</script>
+		</section>
+
+		<section id="further-reading">
+			<h1>further reading</h1>
+			<ul class="b">
+				<li><h3><a href="https://www.njtierney.com/post/2016/08/26/simple-s3-submission/">nick tierney's paper/blog post</a></h3></li>
+				<li><h3><a href="http://adv-r.had.co.nz/OO-essentials.html#s3">Adv. R chapter on objects</a></h3></li>
+			</ul>
 		</section>
 
 		<section id="bib" class="center">
