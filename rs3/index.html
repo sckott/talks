@@ -71,29 +71,105 @@
 			<br>
 		</section>
 	
-		<section id="s3-overview" class="center">
-			<h1>S3 classes - overview</h1>
+		<section id="s3-overview">
+			<h1>S3 objects - overview</h1>
 			<ul class="b">
-                <li><h2 align="left">who do I blame?</h2></li>
 				<li><h2 align="left">what is it?</h2></li>
                 <li><h2 align="left">but when do i use it though?</h2></li>
                 <li><h2 align="left">i want more</h2></li>
 			</ul>
 		</section>
 
-		<section id="s3-who">
-			<h2>S3 - origins</h2>
-			<h2>origins stuff ...</h2>
+		<section id="s3-what">
+			<h1>S3 objects</h1>
+			<br>
+			<h2>R's <strong>first</strong> and <strong>simplest</strong> OO system</h2>
+			<br><br>
+			<h2>hadley says in adv. R book</h2>
+			<blockquote>S3 is informal and ad hoc, but it has a certain elegance in its minimalism: you can’t take away any part of it and still have a useful OO system</blockquote>
 		</section>
 
-		<section id="s3-who-2">
-			<h2>S3 - origins</h2>
-			<h2>more origins stuff ...</h2>
+		<section data-markdown id="s3-what-2">
+			<script>
+				# S3 - generics and methods
+
+				In S3, methods belong to functions called generic functions
+				
+				## generics 
+
+				```r
+				t
+				#> function (x)
+				#> UseMethod("t")
+				#> <bytecode: 0x7fc9474588a0>
+				#> <environment: namespace:base>
+
+				pryr::ftype(t)
+				#> [1] "s3"      "generic"
+				```
+
+				## methods
+
+				```r
+				pryr::ftype(t.data.frame)
+				#> [1] "s3"      "method"
+				```
+			</script>
+		</section>
+
+		<section data-markdown id="s3-detection">
+			<script>
+				# Detecting/recognizing S3 objects
+
+				Most objects in R are S3 objects - but it's not always straightforward to recognize them
+				
+				```r
+				library(pryr)
+
+				# data.frame
+				otype(mtcars)
+				#> [1] "S3"
+
+				# vector
+				otype(c("a", "b", "c"))
+				#> [1] "base"
+
+				# factor
+				otype(as.factor(c("a", "b", "c")))
+				#> [1] "S3"
+
+				```
+			</script>
+		</section>
+
+		<section data-markdown id="s3-assigning-classes">
+			<script type="text/template">
+				# S3 - assigning classes
+
+				You can assign any S3 class to any object
+
+				```r
+				x <- 5
+				class(x) <- "my_number"
+				```
+
+				You can alternatively use the `structure()` function
+
+				```r
+				structure(5, class = "my_number")
+				```
+
+				You can assign multiple classes to the same object
+
+				```r
+				structure(5, class = c("foo", "bar"))
+				```
+			</script>
 		</section>
 
 		<section data-markdown id="s3-example">
-			<script type="text/template">
-				## S3 - example
+			<script>
+				# S3 - creating new methods and generics
 				```r
 				foo <- function(x) UseMethod("foo")
 				foo.character <- function(x) paste("hello ", x)
@@ -162,7 +238,7 @@
 
 		<section data-markdown id="s3-inspecting">
 			<script>
-			# S3 - Inspecting them
+			## S3 - Inspecting them
 
 			What methods are on the class `foo`
 			
@@ -202,10 +278,109 @@
 			</script>
 		</section>
 
-		<!-- ‘methods’, ‘class’, ‘getS3method’, ‘is.object’. -->
+		<section data-markdown id="s3-documenting">
+			<script>
+				# S3 - package documentation
+
+				Just show the generic in `foo` manual file
+				
+				```r
+				#' My function description
+				#' @export
+				#' @parameter x description of x
+				#' @examples ...
+				foo <- function(x) UseMethod("foo")
+
+				#' @export
+				foo.character <- function(x) paste("hello ", x)
+				```
+
+				Show generic and methods in `foo` manual file
+
+				```r
+				#' My function description
+				#' @export
+				#' @parameter x description of x
+				#' @examples ...
+				foo <- function(x) UseMethod("foo")
+
+				#' @export
+				#' @rdname foo
+				foo.character <- function(x) paste("hello ", x)
+				```
+			</script>
+		</section>
+
+		<section data-markdown id="s3-attributes">
+			<script>
+				# S3 - attributes
+
+				List attributes on any object, including an S3 object
+				
+				```r
+				attributes("foo bar")
+				#> NULL
+				x <- structure("foo bar", class = "stuff")
+				attributes(x)
+				#> $class
+				#> [1] "stuff"
+				```
+
+				Add arbitrary attributes
+
+				```r
+				attr(x, "fruit") <- "apple"
+				attributes(x)
+				#> $class
+				#> [1] "stuff"
+				#> $fruit
+				#> [1] "apple"
+				```
+
+				Access single attributes just as you set them
+				
+				```r
+				attr(x, "fruit")
+				#> [1] "apple"
+				```				
+			</script>
+		</section>
+
+		<section data-markdown id="s3-print-methods">
+			<script>
+				# S3 - print methods
+
+				Often useful when returned data is very large/unwieldy
+
+				<br>
+
+				Make an S3 object
+				
+				```r
+				x <- structure(list(foo = 5, bar = 9), class = "stuff")
+				```
+
+				Add a print methods for S3 objects
+
+				```r
+				print.stuff <- function(x, ...) {
+					cat(paste("foo: ", x$foo), sep = "\n")
+					cat(paste("bar: ", x$bar), sep = "\n")
+				}
+				```
+
+				Now any objects with class `stuff` will use the print method
+				
+				```r
+				x
+				#> foo:  5
+				#> bar:  9
+				```				
+			</script>
+		</section>
 
 		<section id="s3-when-to-use">
-			<h1>S3 - when to use it?</h1>
+			<h1>S3 - when to use S3 generics/methods</h1>
 			<br>
 			<ul class="b">
 				<li><h3 align="left">inputs can have many different classes</h3></li>
@@ -214,14 +389,44 @@
 			</ul>
 		</section>
 
-		<section id="s3-when-to-use-beware">
-			<h1>S3 - when to use it - beware</h1>
+		<section id="s3-beware">
+			<h1>S3 - beware!</h1>
 			<br>
 			<ul class="b">
 				<li><h3 align="left">make sure your S3 class fails well - use <code>.default</code></h3></li>
 				<li><h3 align="left">make sure parameters are consistent across S3 methods</h3></li>
-				<li><h3 align="left">others ...</h3></li>
+				<li><h3 align="left">make sure methods of generics are exported in pkgs</h3></li>
+				<li><h3 align="left">as a user: don't call S3 methods directly, call the generic</h3></li>
+				<li><h3 align="left">S3 classes can be easily dropped/lost (next slide)</h3></li>
+				<li><h3 align="left">no validation of checking of contents</h3></li>
 			</ul>
+		</section>
+
+		<section data-markdown id="s3-dropped">
+			<script>
+				# S3 - classes are easily lost
+
+				Create an object
+				
+				```r
+				x <- structure(list("hello", "world"), class = "foobar")
+				```
+
+				Apply some function to each element
+
+				```r
+				lapply(x, function(z) z)
+				#> [[1]]
+				#> [1] "hello"
+				#> 
+				#> [[2]]
+				#> [1] "world"
+				```
+
+				### Oh no <i class="far fa-sad-tear"></i>
+				<br><br>
+				### Just be aware whether building or consuming S3 classes
+			</script>
 		</section>
 
 		<section id="bib" class="center">
