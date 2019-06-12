@@ -4,7 +4,7 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-		<title>reveal.js</title>
+		<title>useR - http</title>
 
 		<link rel="stylesheet" href="css/reveal.css">
 		<link rel="stylesheet" href="css/theme/black.css">
@@ -63,46 +63,47 @@
 	<body>
 		<div class="reveal">
 			<div class="slides">
+
+		<!-- Abstract: Many R users request data from the web in their scripts and packages. This talk introduces a modern suite of packages for managing HTTP requests. The crul package is a modern HTTP request library, including asynchronous requests, automatic handling of pagination, and more. Importantly, crul provides an R6 based object system that makes it easier to program with relative to other tools. The webmockr package mocks HTTP requests, returning user specified mocked responses matching the format of the real thing. The vcr package leverages webmockr to cache HTTP requests and responses. Both webmockr and vcr support many HTTP libraries. Last, httpcode provides information on all HTTP codes, and fauxpas provides proper HTTP error classes for use in most HTTP R libraries. These tools together provide a modern way for R programmers to manage HTTP requests. -->				
 		
-		<section id="pdxrlang-organizers">
-			<h1>Meet the new pdxrlang organizers!</h1>
-			<br>
-			<ul class="b">
-				<li><h2 align="left">Sophie Yang</h2></li>
-                <li><h2 align="left">Marley Buchman</h2></li>
-                <li><h2 align="left">Ted Laderas</h2></li>
-                <li><h2 align="left">John Smith</h2></li>
-			</ul>
-		</section>
-
-
 		<section id="intro" class="center">
-			<h1><font color="#B8172F">S3 Objects</font></h1><br>
+			<h1><font color="#B8172F">HTTP Requests for Users &amp; Package Developers</font></h1><br>
 			<p class="grey">Scott Chamberlain (<i class="fab fa-twitter"></i> <a href="https://twitter.com/sckottie">@sckottie</a>)
-				<p class="grey">rOpenSci
+				<!-- <p class="grey">rOpenSci -->
 			<br>
+			<span><img src="img/icon_lettering_white.svg" alt="rOpenSci" width="600" /></span>
 		</section>
 
-
-		<!-- <section id="s3-overview">
-			<h1>S3 objects - overview</h1>
-			<ul class="b">
-				<li><h2 align="left">what is it?</h2></li>
-                <li><h2 align="left">but when do i use it though?</h2></li>
-                <li><h2 align="left">i want more</h2></li>
+		<section id="outline">
+			<h1>outline</h1>
+			<ul>
+				<li>crul</li>
+				<li>webmockr</li>
+				<li>vcr</li>
+				<li>fauxpas</li>
+				<li>httpcode</li>
 			</ul>
-		</section> -->
-
-		<section id="s3-what">
-			<h1>S3 objects</h1>
-			<br>
-			<h2>R's <strong>first</strong> and <strong>simplest</strong> OO (Object Oriented) system</h2>
 			<br><br>
-			<h2>In <a href="http://adv-r.had.co.nz/OO-essentials.html#s3">Adv. R book</a></h2>
-			<blockquote>S3 is informal and ad hoc, but it has a certain elegance in its minimalism: you can’t take away any part of it and still have a useful OO system</blockquote>
+			<h1>users vs. developers</h1>
+			<ul>
+				<li>users: webmockr in scripts</li>
+				<li>developers: crul/webmockr/vcr, show egs</li>
+			</ul>
 		</section>
 
-		<section data-markdown id="s3-what-2">
+		<section id="crul">
+			<h1>crul - a new http client</h1>
+			<br>
+			<ul class="b">
+				<li><h3 align="left">asynchronous requests</h3></li>
+				<li><h3 align="left">pagination</h3></li>
+				<li><h3 align="left">supports mocking</h3></li>
+				<li><h3 align="left">writing to disk + streaming</h3></li>
+				<li><h3 align="left">request + response hooks</h3></li>
+			</ul>
+		</section>
+
+		<!-- <section data-markdown id="s3-what-2">
 			<script>
 				# S3 - generics and methods
 
@@ -302,18 +303,6 @@
 				```
 			</script>
 		</section>
-
-		<!-- <section id="s3-structure-2">
-			<h1>S3 - more structure</h1>
-			<br>
-			<ul class="b">
-				<li><h3 align="left">do you have to be consistent with parameters? AFAIK you do, but maybe not?</h3></li>
-				<li><h3 align="left"></h3></li>
-				<li><h3 align="left">stuff</h3></li>
-				<li><h3 align="left">stuff</h3></li>
-				<li><h3 align="left">stuff</h3></li>
-			</ul>
-		</section> -->
 
 		<section data-markdown id="s3-structure-3">
 			<script>
@@ -519,10 +508,10 @@
 				<li><h3><a href="https://www.njtierney.com/post/2016/08/26/simple-s3-submission/">nick tierney's paper/blog post</a></h3></li>
 				<li><h3><a href="http://adv-r.had.co.nz/OO-essentials.html#s3">Adv. R chapter on objects</a></h3></li>
 			</ul>
-		</section>
+		</section> -->
 
 		<section id="bib" class="center">
-			<h2>slides: <a href="https://scotttalks.info/rs3">scotttalks.info/rs3</a></h2>
+			<h2>slides: <a href="https://scotttalks.info/user-http">scotttalks.info/user-http</a></h2>
 			<h2>Made w/: <a href="https://github.com/hakimel/reveal.js">reveal.js v3.7.0</a>, <a href="http://fortawesome.github.io/Font-Awesome/">FontAwesome v5.7.2</a></h2>
 		</section>
 			</div>
