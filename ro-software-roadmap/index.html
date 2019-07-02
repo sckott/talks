@@ -1,0 +1,221 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>rOpenSci Software Development Roadmap - July 2 2019</title>
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/black.css">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- solarized theme -->
+		<!-- <link rel="stylesheet" href="css/theme/solarized.css" id="theme"> -->
+
+		<!-- google fonts -->
+		<link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro' rel='stylesheet' type='text/css'>
+
+		<!-- fontawesome -->
+		<!-- <link rel="stylesheet" href="css/fontawesome-free-5.0.13/web-fonts-with-css/css/fontawesome-all.css"> -->
+		<script defer src="https://use.fontawesome.com/releases/v5.7.2/js/all.js" integrity="sha384-0pzryjIRos8mFBWMzSSZApWtPl/5++eIfzYmTgBBmXYdhvxPc+XcFEk+zJwDgWbP" crossorigin="anonymous"></script>
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+
+		<style type="text/css">
+			#rotate_text {
+				-webkit-transform: rotate(-90deg);
+				-moz-transform: rotate(-90deg);
+				transform: rotate(-90deg);
+				position: absolute;
+				vertical-align: middle;
+				position: absolute;
+    		top: 500px;
+    		left: -50px;
+				filter:progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+			}
+
+			.reveal section ul.a {list-style-type: circle; margin: 0; padding: 0;}
+			.reveal section ul.b {list-style-type: square; margin-left: 4; padding-left: 0;}
+
+			/*.reveal section img {border: none;}*/
+
+			.center-block {
+			  display: block;
+			  margin-left: auto;
+			  margin-right: auto;
+			}
+
+			.reveal table th, td {
+			  padding: 0px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+		<section id="intro" class="center">
+			<h1><font color="#B8172F">rOpenSci Software Development<br>Status and Future</font></h1><br>
+		</section>
+
+		<!-- pkg areas -->
+		<section id="thematic-areas">
+			<h1>thematic areas</h1>
+			<ul>
+				<li>literature/text-mining</li>
+				<li>taxonomy</li>
+				<li>http tools</li>
+				<li>security</li>
+				<li>computing infrastructure</li>
+				<li>geospatial</li>
+				<li>visualization</li>
+				<li>image processing</li>
+				<li>data access</li>
+				<li>etc ...</li>
+			</ul>
+		</section>
+
+		<!-- usage -->
+		<section id="commits">
+			<h2>Code contributions: all</h2>
+			<img src="img/code_contributions_all.png" width="900">
+		</section>
+
+		<section id="commits-staff-vs-community">
+			<h2>Code contributions: staff vs. community</h2>
+			<img src="img/code_contributions_staff_vs_community.png" width="850">
+			<h3>(blue: community only; black: staff only)</h3>
+		</section>
+
+		<section id="usage-downloads">
+			<h2>Usage by: Downloads</h2>
+			<img src="img/pkgs_downloads.png" width="900">
+		</section>
+
+		<section id="usage-citations">
+			<h2>Usage by: Citations</h2>
+			<img src="img/pkgs_citations.png" width="800">
+		</section>
+
+		<section id="usage-reverse-deps">
+			<h2>Usage by: Reverse dependencies</h2>
+			<img src="img/pkgs_reverse_deps.png" width="900">
+		</section>
+
+		<!-- non R pkg stuff -->
+		<section id="non-r">
+			<h2>non-R pkg related projects</h2>
+			<br>
+			<ul class="b">
+				<h3><li>Jeroen's CRAN like repo</li></h3>
+				<ul>
+					<li>docs server at <a href="https://docs.ropensci.org">docs.ropensci.org</a></li>
+					<li>Jenkins builder</li>
+				</ul>
+				<br>
+				<h3><li>Fishbase API</li></h3>
+				<h3><li>CRAN Checks API</li></h3>
+			</ul>
+		</section>
+
+		<!-- future -->
+		<section id="future-staff">
+			<h2>Moving forward: Staff</h2>
+			<br><br>
+			<ul>
+				<h3><li>Staff work increasily focused on infrastructure</li></h3>
+				<ul>
+					<h3><li>Jeroen has already been doing</li></h3>
+					<h3><li>Scott moving towards this: giving "API clients" to other maintainers</li></h3>
+				</ul>
+			</ul>
+		</section>
+
+		<section id="strengths">
+			<h2>Strengths</h2>
+			<br>
+			<ul>
+				<h3><li>literature/text-mining</li></h3>
+				<h3><li>taxonomy</li></h3>
+				<h3><li>imaging</li></h3>
+				<h3><li>data access</li></h3>
+			</ul>
+		</section>
+
+		<section id="could-do-more">
+			<h2>Could do more</h2>
+			<br>
+			<ul>
+				<h3><li>workflow tools (e.g., drake)</li></h3>
+				<h3><li>image processing tools (e.g., magick)</li></h3>
+				<h3><li>metadata/data publishing tools (e.g., eml, etc.)</li></h3>
+				<h3><li>tools that tie together disparate data (e.g., climate + species occ.'s)</li></h3>
+			</ul>
+		</section>
+
+		<section id="future-focal-areas">
+			<h2>Moving forward: should we focus on any areas?</h2>
+			<br>
+			<ul>
+				<h3><li>My take: no need to try to focus on subject areas</li></h3>
+				<ul>
+					<h3><li>since staff moving towards infrastucture tools</li></h3>
+				</ul>
+				<h3><li>But are there funding or other reasons to focus on any subject areas?</li></h3>
+				<ul>
+					<h3><li>lack of good tools in area X</li></h3>
+					<h3><li>good chance of getting funding in area Y</li></h3>
+				</ul>
+			</ul>
+		</section>
+
+		<section id="community">
+			<h2>software maintainer community</h2>
+			<ul>
+				<h3><li>We're having success getting new maintainers (especially women; &amp; 4 of last 6 taken over by women)</li></h3>
+				<h3><li>We could work harder to get those +1 maintainers</li></h3>
+				<ul>
+					<li>many (36%) w/ 1 maintainer; median 2 maint.</li>
+					<!-- <li>hard to assess though how likely that 2nd maint. is to take over</li> -->
+				</ul>
+				<img src="img/maintainers_per_pkg.png" width="650">
+			</ul>
+		</section>
+
+		
+
+			</div>
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+			// More info about config & dependencies:
+			// - https://github.com/hakimel/reveal.js#configuration
+			// - https://github.com/hakimel/reveal.js#dependencies
+			Reveal.initialize({
+				history: true,
+				center: false,
+				width: 1400,
+				height: 900,
+				transition: "none",
+				dependencies: [
+					{ src: 'plugin/markdown/marked.js' },
+					{ src: 'plugin/markdown/markdown.js' },
+					{ src: 'plugin/notes/notes.js', async: true },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+				]
+			});
+		</script>
+	</body>
+</html>
