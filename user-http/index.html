@@ -65,30 +65,18 @@
 			<div class="slides">
 
 		<!-- Abstract: Many R users request data from the web in their scripts and packages. This talk introduces a modern suite of packages for managing HTTP requests. The crul package is a modern HTTP request library, including asynchronous requests, automatic handling of pagination, and more. Importantly, crul provides an R6 based object system that makes it easier to program with relative to other tools. The webmockr package mocks HTTP requests, returning user specified mocked responses matching the format of the real thing. The vcr package leverages webmockr to cache HTTP requests and responses. Both webmockr and vcr support many HTTP libraries. Last, httpcode provides information on all HTTP codes, and fauxpas provides proper HTTP error classes for use in most HTTP R libraries. These tools together provide a modern way for R programmers to manage HTTP requests. -->				
+
+		<!-- AIM TO BE DONE IN 14 MIN -->
 		
 		<section id="intro" class="center">
-			<h1><font color="#B8172F">HTTP Requests for Users &amp; Package Developers</font></h1><br>
-			<p class="grey">Scott Chamberlain (<i class="fab fa-twitter"></i> <a href="https://twitter.com/sckottie">@sckottie</a>)
-				<!-- <p class="grey">rOpenSci -->
+			<h1><font color="#B8172F">HTTP Requests for Users &amp; Package Developers</font></h1>
+			<p class="grey">Scott Chamberlain (<i class="fab fa-twitter"></i> <a href="https://twitter.com/sckottie">@sckottie</a>)<br>
 			<br>
-			<span><img src="img/icon_lettering_white.svg" alt="rOpenSci" width="600" /></span>
+			<span><img src="img/icon_lettering_white.svg" alt="rOpenSci" width="600" /></span><br>
 		</section>
 
-		<section id="outline">
-			<h1>outline</h1>
-			<ul>
-				<li>crul</li>
-				<li>webmockr</li>
-				<li>vcr</li>
-				<li>fauxpas</li>
-				<li>httpcode</li>
-			</ul>
-			<br><br>
-			<h1>users vs. developers</h1>
-			<ul>
-				<li>users: webmockr in scripts</li>
-				<li>developers: crul/webmockr/vcr, show egs</li>
-			</ul>
+		<section id="hemsley" class="center">
+			<span><img src="img/helmsley.png" alt="rOpenSci" width="700" /></span>
 		</section>
 
 		<section id="crul">
@@ -96,7 +84,7 @@
 			<br>
 			<h3>arose to scratch my own http itch</h3>
 			<br>
-			<h3>lots of pkgs that do http requests</h3>
+			<h3>I make a lot of pkgs that do http requests</h3>
 			<br>
 			<h3><i class="fab fa-github"></i> <a href="https://github.com/ropensci/crul/">ropensci/crul</a></h3>
 		</section>
@@ -114,7 +102,6 @@
 			<h1>crul - features</h1>
 			<br>
 			<ul class="b">
-				<!-- <li><h3 align="left">confusingly close to <i>curl</i></h3></li> -->
 				<li><h3 align="left">asynchronous requests</h3></li>
 				<li><h3 align="left">pagination</h3></li>
 				<li><h3 align="left">supports mocking</h3></li>
@@ -201,16 +188,115 @@
 			</script>
 		</section>
 
-		<section data-markdown id="crul-demo-xxx">
+		<section data-markdown id="crul-demo-async">
 			<script>
-				# what else to demo?
+				## crul asynchronous
+				```r
+				cc <- Async$new(
+				  urls = c(
+				    'https://httpbin.org/get', 'https://httpbin.org/get?a=5',
+				    'https://httpbin.org/get?foo=bar')
+				)
+				res <- cc$get()
+				vapply(res, function(z) z$parse("UTF-8"), "")
+#> [1] "{\n  \"args\": {}, \n  \"headers\": {\n    \"Accept\": \"application/json, text/xml, application/xml, */*\", \n    \"Accept-Encoding\": \"gzip, deflate\", \n    \"Host\": \"httpbin.org\", \n    \"User-Agent\": \"R (3.6.0 x86_64-apple-darwin15.6.0 x86_64 darwin15.6.0)\"\n  }, \n  \"origin\": \"65.197.146.18, 65.197.146.18\", \n  \"url\": \"https://httpbin.org/get\"\n}\n"
+#> [2] "{\n  \"args\": {\n    \"a\": \"5\"\n  }, \n  \"headers\": {\n    \"Accept\": \"application/json, text/xml, application/xml, */*\", \n    \"Accept-Encoding\": \"gzip, deflate\", \n    \"Host\": \"httpbin.org\", \n    \"User-Agent\": \"R (3.6.0 x86_64-apple-darwin15.6.0 x86_64 darwin15.6.0)\"\n  }, \n  \"origin\": \"65.197.146.18, 65.197.146.18\", \n  \"url\": \"https://httpbin.org/get?a=5\"\n}\n"
+#> [3] "{\n  \"args\": {\n    \"foo\": \"bar\"\n  }, \n  \"headers\": {\n    \"Accept\": \"application/json, text/xml, application/xml, */*\", \n    \"Accept-Encoding\": \"gzip, deflate\", \n    \"Host\": \"httpbin.org\", \n    \"User-Agent\": \"R (3.6.0 x86_64-apple-darwin15.6.0 x86_64 darwin15.6.0)\"\n  }, \n  \"origin\": \"65.197.146.18, 65.197.146.18\", \n  \"url\": \"https://httpbin.org/get?foo=bar\"\n}\n"
+				```
+
+				Async varied
+
+				```r
+				req1 <- HttpRequest$new("https://httpbin.org/get", headers = list(a="b"))$get()
+				req2 <- HttpRequest$new("https://httpbin.org/post")$post()
+				out <- AsyncVaried$new(req1, req2)
+				out$parse()
+				#> [1] "{\n  \"args\": {}, \n  \"headers\": {\n    \"Accept\": \"application/json, text/xml, application/xml, */*\", \n    \"Accept-Encoding\": \"gzip, deflate\", \n    \"Foo\": \"bar\", \n    \"Host\": \"httpbin.org\", \n    \"User-Agent\": \"R (3.6.0 x86_64-apple-darwin15.6.0 x86_64 darwin15.6.0)\"\n  }, \n  \"origin\": \"65.197.146.18, 65.197.146.18\", \n  \"url\": \"https://httpbin.org/get\"\n}\n"
+#> [2] "{\n  \"args\": {}, \n  \"data\": \"\", \n  \"files\": {}, \n  \"form\": {}, \n  \"headers\": {\n    \"Accept\": \"application/json, text/xml, application/xml, */*\", \n    \"Accept-Encoding\": \"gzip, deflate\", \n    \"Content-Length\": \"0\", \n    \"Content-Type\": \"application/x-www-form-urlencoded\", \n    \"Host\": \"httpbin.org\", \n    \"User-Agent\": \"libcurl/7.54.0 r-curl/3.3 crul/0.8.0\"\n  }, \n  \"json\": null, \n  \"origin\": \"65.197.146.18, 65.197.146.18\", \n  \"url\": \"https://httpbin.org/post\"\n}\n"
+				```
 			</script>
+		</section>
+
+		<section data-markdown id="crul-demo-pagination">
+			<script>
+				## crul pagination
+				```r
+				cli <- HttpClient$new(url = "https://api.crossref.org")
+				cc <- Paginator$new(client = cli, limit_param = "rows",
+				   offset_param = "offset", limit = 50, limit_chunk = 10)
+				cc$get('works')
+				cc
+				#> <crul paginator>
+				#>   base url: https://api.crossref.org
+				#>   by: query_params
+				#>   limit_chunk: 10
+				#>   limit_param: rows
+				#>   offset_param: offset
+				#>   limit: 50
+				#>   progress: FALSE
+				#>   status: 5 requests done
+				```
+
+				```r
+				cc$status_code()
+				#> [1] 200 200 200 200 200
+
+				cc$responses()
+				cc$parse()
+				etc ...
+				```
+
+				Only supports pagination done via query parameters<br>
+				Link headers and cursors later
+			</script>
+		</section>
+
+		<section data-markdown id="request-response-hooks">
+			<script>
+				## crul request/response hooks
+
+				* request hook: run **before** the request occurs
+				* response hook: run **once** the request is done
+				
+				<br>
+				
+				### request hook example
+				
+				```r
+				fun_req <- function(request) {
+				  cat(paste0("Requesting: ", request$url$url), sep = "\n")
+				}
+				x <- HttpClient$new(url = "https://httpbin.org",
+				  hooks = list(request = fun_req))
+				x$hooks
+				```
+
+				```r
+				#> $request
+				#> function(request) {
+				#>   cat(paste0("Requesting: ", request$url$url), sep = "\n")
+				#> }
+				```
+
+				```r
+				invisible(x$get('get'))
+				#> Requesting: https://httpbin.org/get
+				```
+			</script>
+		</section>
+
+		<section id="crul-mocking-vcr">
+			<h1>Mocking/caching</h1>
+			<br>
+			<h2>I'll talk more about these now ...</h2>
+			<br>
+			<h2>"forked" from other languages - we can take advantage of all they've learned</h2>
 		</section>
 
 		<section id="webmockr">
 			<h1>webmockr - mock http requests</h1>
 			<br>
-			<h3>arose to scratch my own http itch</h3>
+			<h3>arose: because needed to make vcr</h3>
 			<br>
 			<h3><i class="fab fa-github"></i> <a href="https://github.com/ropensci/webmockr/">ropensci/webmockr</a></h3>
 		</section>
@@ -225,6 +311,18 @@
 			<h3>if it matches you get what you set to <font color="orange">return</font></h3>
 			<br>
 			<h3>if it doesn't match: <font color="grey">error</font></h3>
+		</section>
+
+		<section id="webmockr-hooks-into">
+			<h1>webmockr - huh?</h1>
+			<br>
+			<h3>webmockr hooks into crul, <font color="blue">hijacking</font> the normal request</h3>
+			<br>
+			<h3>constructing a response that matches a real response</h3>
+			<br>
+			<h3>based on what you told webmockr to respond with</h3>
+			<br><br>
+			<h3>&amp; vcr builds on webmockr ...</h3>
 		</section>
 
 		<section data-markdown id="webmockr-eg">
@@ -275,6 +373,7 @@
 				## webmockr - no matching stub
 
 				```r
+				library(httr)
 				GET("https://httpbin.org/get")
 				#> Error: Real HTTP connections are disabled.
 				#> Unregistered request:
@@ -293,16 +392,82 @@
 			</script>
 		</section>
 
-		<section data-markdown id="webmockr-no-match">
+		<section data-markdown id="webmockr-in-the-wild">
 			<script>
-				## what next ...
+				## usage in the wild
+
+				```r
+				upload_file_job_json <- jsonlite::read_json("upload-file-job-2.json")
+				mockery::stub(upload_forecast, 'httr::upload_file', NULL)
+				stub_request('post', uri='http://example.com/api/model/1/forecasts/') %>%
+					to_return(
+					  body=upload_file_job_json,
+					  status=200,
+					  headers=list('Content-Type'='application/json; charset=utf-8')
+					)
+				```
+
+				src: <https://github.com/reichlab/zoltr>
+
+				<br>
+
+				```r
+				test_that('create_database works with mock', {
+				  stub_request("post", "https://api.treasuredata.com/v3/database/create/test") %>%
+				    to_return(body = "{}", status = 200)
+				  expect_true(create_database(conn, "test"))
+				})
+				```
+
+				src: <https://github.com/cran/RTD>
+
+				<br>
+
+				Note - mocking requests with crul/httr inside of other fxns
+			</script>
+		</section>
+
+		<section data-markdown id="webmockr-expect-failure">
+			<script>
+				## expect failures?!
+				
+				Expectation to timeout
+
+				```r
+				library(crul)
+				library(webmockr)
+				crul::mock()
+
+				stub_request("get", "https://httpbin.org/get") %>% to_timeout()
+				x <- HttpClient$new(url = "https://httpbin.org")
+				x$get('get')
+				#> Error: Request Timeout (HTTP 408).
+				#> - The client did not produce a request within the time that the server
+				#>   was prepared to wait. The client MAY repeat the request without
+				#>   modifications at any later time.
+				```
+				
+				Expectation to raise exception
+
+
+				```r
+				library(fauxpas)
+				stub_request("get", "https://httpbin.org/get") %>%
+					to_raise(fauxpas::HTTPBadGateway)
+				HttpClient$new(url = "https://httpbin.org")$get("get")
+				#> Error: Bad Gateway (HTTP 502).
+				#> - The server, while acting as a gateway or proxy, received an invalid
+				#>   response from the upstream server it accessed in attempting to
+				#>   fulfill the request.
+
+				```
 			</script>
 		</section>
 
 		<section id="vcr">
 			<h1>vcr - record and replay HTTP requests/responses</h1>
 			<br>
-			<h3>arose to scratch my own http itch</h3>
+			<h3>arose: observing other language communities &amp;<br>need to improve testing in many API clients</h3>
 			<br>
 			<h3><i class="fab fa-github"></i> <a href="https://github.com/ropensci/vcr/">ropensci/vcr</a></h3>
 		</section>
@@ -368,10 +533,16 @@ end
 			</script>
 		</section>
 
-		<section id="vcr-totally-didnt-get-it">
-			<h1>vcr - how does it even?</h1>
+		<section id="vcr-totally-didnt-get-it-cry">
+			<h1>vcr - how does it work?</h1>
 			<br>
-			<h3>thought vcr worked by "over-hearing" <i class="fas fa-headphones-alt"></i> requests in R</h3>
+			<i class="fas fa-sad-tear fa-6x"></i>
+		</section>
+
+		<section id="vcr-totally-didnt-get-it">
+			<h1>vcr - how does it work?</h1>
+			<br>
+			<h3>I thought vcr worked by "listening for" <i class="fas fa-headphones-alt"></i> requests in R</h3>
 			<br>
 			<h3>realized it most definitely did not</h3>
 			<br>
@@ -391,6 +562,77 @@ end
 			<br>
 			<h3>not the remote service</h3>
 			<h4>(p.s. great for rate-limited services)</h4>
+		</section>
+
+		<section data-markdown id="vcr-example">
+			<script>
+				## vcr - a brief example
+
+				```r
+				library(vcr)
+				library(crul)
+
+				cli <- crul::HttpClient$new(url = "https://api.crossref.org")
+				use_cassette(name = "helloworld", {
+					res1 <- cli$get("works", query = list(rows = 3))
+				})
+				```
+
+				Do the request again
+				
+				```r
+				use_cassette(name = "helloworld", {
+					res2 <- cli$get("works", query = list(rows = 3))
+				})
+				```
+
+				Identical responses
+
+				```r
+				identical(res1$parse(), res2$parse())
+				#> [1] TRUE
+				```
+			</script>
+		</section>
+
+		<section data-markdown id="vcr-cassette">
+			<script>
+				## what is a cassette?
+				```yaml
+				http_interactions:
+				- request:
+				    method: get
+				    uri: http://www.marinespecies.org/rest/AphiaExternalIDByAphiaID/1080?type=tsn
+				    body:
+				      encoding: ''
+				      string: ''
+				    headers:
+				      User-Agent: libcurl/7.54.0 r-curl/3.3 crul/0.8.0
+				      Accept-Encoding: gzip, deflate
+				      Accept: application/json, text/xml, application/xml, */*
+				  response:
+				    status:
+				      status_code: '200'
+				      message: OK
+				      explanation: Request fulfilled, document follows
+				    headers:
+				      status: HTTP/1.1 200 OK
+				      date: Fri, 28 Jun 2019 16:55:51 GMT
+				      server: Apache/2.4.25 (Win32) PHP/5.6.29
+				      x-powered-by: PHP/5.6.29
+				      access-control-allow-origin: '*'
+				      access-control-allow-headers: X-Requested-With, Content-Type, Accept, Origin,
+				        Authorization
+				      access-control-allow-methods: GET, POST, OPTIONS
+				      content-length: '9'
+				      content-type: application/json
+				    body:
+				      encoding: UTF-8
+				      string: '["85257"]'
+				  recorded_at: 2019-06-28 16:55:51 GMT
+				  recorded_with: vcr/0.2.6, webmockr/0.3.4				
+				```
+			</script>
 		</section>
 
 		<section data-markdown id="vcr-speed">
@@ -431,8 +673,24 @@ Duration: 35.6 s
 			<ul class="b">
 				<li><h3 align="left">works w/ crul</h3></li>
 				<li><h3 align="left">works w/ httr</h3></li>
-				<li><h3 align="left">may or may not work w/ curl</h3></li>
+				<li><h3 align="left">curl? (maybe)</h3></li>
 			</ul>
+		</section>
+
+		<section id="vcr-in-the-works">
+			<h1>vcr - in the works</h1>
+			<br>
+			<ul class="b">
+			   <li><h3 align="left">JSON cassettes</h3></li>
+	           <li><h3 align="left">testthat reporter for cassette usage</h3></li>
+	           <li><h3 align="left">dates, ugh</h3></li>
+	           <li><h3 align="left">data security, always more to do</h3></li>
+	           <li><h3 align="left">responses writen to disk</h3></li>
+	           <li><h3 align="left">docs: <a href="https://ropenscilabs.github.io/http-testing-book/">http testing book</a></h3></li>
+	           <li><h3 align="left">many more ...</h3></li>
+	      	</ul>
+			<br>
+			<h2>help appreciated!</h2>
 		</section>
 
 		<section id="further-reading">
