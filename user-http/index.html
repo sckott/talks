@@ -140,6 +140,9 @@
 				con$get(path = "get")
 				```
 
+				Returns an R6 object
+
+
 				```r
 				<crul response>
 				  url: https://httpbin.org/get
@@ -163,8 +166,6 @@
 				    connection: keep-alive
 				  status: 200
 				```
-
-				Returns an R6 object
 			</script>
 		</section>
 
@@ -202,7 +203,7 @@
 			<script>
 				## crul asynchronous
 
-				Same http options for every URL
+				Use the **same** http options for every request
 
 				```r
 				cc <- Async$new(
@@ -222,7 +223,7 @@
 				Async varied: custom http options for every request
 
 				```r
-				req1 <- HttpRequest$new("https://httpbin.org/get", headers = list(a="b"))$get()
+				req1 <- HttpRequest$new("https://httpbin.org/get", headers=list(a="b"))$get()
 				req2 <- HttpRequest$new("https://httpbin.org/post")$post()
 				out <- AsyncVaried$new(req1, req2)
 				out$parse()
@@ -415,7 +416,7 @@
 
 		<section data-markdown id="webmockr-in-the-wild">
 			<script>
-				## usage in the wild
+				## webmockr - usage in the wild
 
 				```r
 				upload_file_job_json <- jsonlite::read_json("upload-file-job-2.json")
@@ -450,7 +451,7 @@
 
 		<section data-markdown id="webmockr-expect-failure">
 			<script>
-				## expect failures?!
+				## webmockr - expect failures?!
 				
 				Expectation to timeout
 
@@ -503,9 +504,40 @@
 			<img src="img/vcr_r.png" height="220">
 		</section>
 
+		<section id="vcr-totally-didnt-get-it-cry" class="center">
+			<h1>vcr - how does it work?</h1>
+			<br>
+			<i class="fas fa-sad-tear fa-6x"></i>
+		</section>
+
+		<section id="vcr-totally-didnt-get-it">
+			<h1>vcr - how does it work?</h1>
+			<br>
+			<h3>I thought vcr worked by listening <i class="fas fa-headphones-alt"></i> for requests in R</h3>
+			<br>
+			<h3>realized it most definitely did not</h3>
+			<br>
+			<h3>it modifies an HTTP request &amp; looks for a match</h3>
+			<br>
+			<h3>so had to make <code>webmockr</code> first</h3>
+		</section>
+
+		<section id="vcr-what-does-it-do">
+			<h1>vcr - what does it do?</h1>
+			<br>
+			<h3>HTTP requests in a test suite as usual</h3>
+			<br>
+			<h3>w/o making real HTTP requests</h3>
+			<br>
+			<h3>so you test your package</h3>
+			<br>
+			<h3>not the remote service</h3>
+			<h4>(p.s. great for rate-limited services)</h4>
+		</section>
+
 		<section data-markdown id="vcr-was-hard-hard">
 			<script>
-				## vcr - hardest software project I've worked on
+				## vcr - Ruby syntax
 
 				### Ruby
 				
@@ -550,40 +582,9 @@ end
 			</script>
 		</section>
 
-		<section id="vcr-totally-didnt-get-it-cry" class="center">
-			<h1>vcr - how does it work?</h1>
-			<br>
-			<i class="fas fa-sad-tear fa-6x"></i>
-		</section>
-
-		<section id="vcr-totally-didnt-get-it">
-			<h1>vcr - how does it work?</h1>
-			<br>
-			<h3>I thought vcr worked by listening <i class="fas fa-headphones-alt"></i> for requests in R</h3>
-			<br>
-			<h3>realized it most definitely did not</h3>
-			<br>
-			<h3>it modifies an HTTP request &amp; looks for a match</h3>
-			<br>
-			<h3>so had to make <code>webmockr</code> first</h3>
-		</section>
-
-		<section id="vcr-what-does-it-do">
-			<h1>vcr - what does it do?</h1>
-			<br>
-			<h3>HTTP requests in a test suite as usual</h3>
-			<br>
-			<h3>w/o making real HTTP requests</h3>
-			<br>
-			<h3>so you test your package</h3>
-			<br>
-			<h3>not the remote service</h3>
-			<h4>(p.s. great for rate-limited services)</h4>
-		</section>
-
 		<section data-markdown id="vcr-cassette">
 			<script>
-				## what is a cassette?
+				## vcr - cassettes
 				```yaml
 				http_interactions:
 				- request:
@@ -654,7 +655,7 @@ end
 
 		<section data-markdown id="vcr-speed">
 			<script>
-				# speeds up your tests
+				# vcr - speeds up your tests
 
 				## w/o vcr
 
