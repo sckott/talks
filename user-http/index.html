@@ -20,7 +20,9 @@
 
 		<!-- fontawesome -->
 		<!-- <link rel="stylesheet" href="css/fontawesome-free-5.0.13/web-fonts-with-css/css/fontawesome-all.css"> -->
-		<script defer src="https://use.fontawesome.com/releases/v5.7.2/js/all.js" integrity="sha384-0pzryjIRos8mFBWMzSSZApWtPl/5++eIfzYmTgBBmXYdhvxPc+XcFEk+zJwDgWbP" crossorigin="anonymous"></script>
+		<!-- <script defer src="https://use.fontawesome.com/releases/v5.7.2/js/all.js" integrity="sha384-0pzryjIRos8mFBWMzSSZApWtPl/5++eIfzYmTgBBmXYdhvxPc+XcFEk+zJwDgWbP" crossorigin="anonymous"></script> -->
+		<!-- <link rel="stylesheet" href="../bocc/css/fontawesome-free-5.0.13/web-fonts-with-css/css/fontawesome-all.css"> -->
+		<link rel="stylesheet" href="css/fontawesome-free-5.9.0-web/css/all.css">
 
 		<!-- Printing and PDF exports -->
 		<script>
@@ -79,24 +81,32 @@
 			<span><img src="img/helmsley.png" alt="rOpenSci" width="700" /></span>
 		</section>
 
-		<section id="crul">
-			<h1>crul - a new http client</h1>
-			<br>
-			<h3>arose to scratch my own http itch</h3>
-			<br>
-			<h3>I make a lot of pkgs that do http requests</h3>
-			<br>
-			<h3><i class="fab fa-github"></i> <a href="https://github.com/ropensci/crul/">ropensci/crul</a></h3>
+		<!-- come talk to me - i'll give you a sticker -->
+		<section id="sticker" class="center">
+			<span><img src="img/green_short_hexsticker.png" alt="rOpenSci" width="700" /></span>
 		</section>
 
-		<section id="crul-name">
+		<section id="because">
+			<h1>3 packages: <br> crul, webmockr, vcr</h1>
+			<br><br>
+			<h3>rOpenSci has a lot of pkgs that do http requests</h3>
+			<h3>giving rise to the tools presented here</h3>
+		</section>
+
+		<section id="crul">
+			<h1>crul - a new http client</h1>
+			<br><br>
+			<h2><i class="fab fa-github"></i> <a href="https://github.com/ropensci/crul/">ropensci/crul</a></h2>
+		</section>
+
+		<!-- <section id="crul-name">
 			<h3>the pkg name is a mess, sorry!</h3>
 			<br>
 			<h3>could have a cool sticker some day though</h3>
 			<h3>hadley's idea: a glaive from <a href="https://krull.fandom.com/wiki/Glaive">Krull</a></h3>
 			<br>
 			<img src="img/krull_glaive.webp" width="500">
-		</section>
+		</section> -->
 
 		<section id="crul-features">
 			<h1>crul - features</h1>
@@ -104,7 +114,7 @@
 			<ul class="b">
 				<li><h3 align="left">asynchronous requests</h3></li>
 				<li><h3 align="left">pagination</h3></li>
-				<li><h3 align="left">supports mocking</h3></li>
+				<li><h3 align="left">supports mocking and caching</h3></li>
 				<li><h3 align="left">writing to disk + streaming</h3></li>
 				<li><h3 align="left">request + response hooks</h3></li>
 				<br>
@@ -191,11 +201,16 @@
 		<section data-markdown id="crul-demo-async">
 			<script>
 				## crul asynchronous
+
+				Same http options for every URL
+
 				```r
 				cc <- Async$new(
 				  urls = c(
-				    'https://httpbin.org/get', 'https://httpbin.org/get?a=5',
-				    'https://httpbin.org/get?foo=bar')
+				    'https://httpbin.org/get',
+				    'https://httpbin.org/get?a=5',
+				    'https://httpbin.org/get?foo=bar'
+				  )
 				)
 				res <- cc$get()
 				vapply(res, function(z) z$parse("UTF-8"), "")
@@ -204,7 +219,7 @@
 #> [3] "{\n  \"args\": {\n    \"foo\": \"bar\"\n  }, \n  \"headers\": {\n    \"Accept\": \"application/json, text/xml, application/xml, */*\", \n    \"Accept-Encoding\": \"gzip, deflate\", \n    \"Host\": \"httpbin.org\", \n    \"User-Agent\": \"R (3.6.0 x86_64-apple-darwin15.6.0 x86_64 darwin15.6.0)\"\n  }, \n  \"origin\": \"65.197.146.18, 65.197.146.18\", \n  \"url\": \"https://httpbin.org/get?foo=bar\"\n}\n"
 				```
 
-				Async varied
+				Async varied: custom http options for every request
 
 				```r
 				req1 <- HttpRequest$new("https://httpbin.org/get", headers = list(a="b"))$get()
@@ -247,7 +262,7 @@
 				```
 
 				Only supports pagination done via query parameters<br>
-				Link headers and cursors later
+				Link headers and cursors to come
 			</script>
 		</section>
 
@@ -255,50 +270,56 @@
 			<script>
 				## crul request/response hooks
 
-				* request hook: run **before** the request occurs
-				* response hook: run **once** the request is done
+				* request hook: run *before* the request occurs
+				* response hook: run *once* the request is done
 				
 				<br>
 				
-				### request hook example
+				### request and response hooks example
 				
 				```r
 				fun_req <- function(request) {
-				  cat(paste0("Requesting: ", request$url$url), sep = "\n")
+				  cat(paste0("Requesting: ", request$url$url, " at ", as.character(Sys.time())),
+				    sep = "\n")
+				}
+				fun_res <- function(response) {
+				  cat(paste0("status_code: ", response$status_code), sep = "\n")
 				}
 				x <- HttpClient$new(url = "https://httpbin.org",
-				  hooks = list(request = fun_req))
-				x$hooks
-				```
-
-				```r
-				#> $request
-				#> function(request) {
-				#>   cat(paste0("Requesting: ", request$url$url), sep = "\n")
-				#> }
+				  hooks = list(request = fun_req, response = fun_res))
 				```
 
 				```r
 				invisible(x$get('get'))
-				#> Requesting: https://httpbin.org/get
+				#> Requesting: https://httpbin.org/get at 2019-07-06 02:10:38
+				#> status_code: 200
 				```
 			</script>
 		</section>
 
+		<!-- switch to mocking/vcr -->
 		<section id="crul-mocking-vcr">
 			<h1>Mocking/caching</h1>
 			<br>
-			<h2>I'll talk more about these now ...</h2>
+			<h2>webmockr &amp; vcr: <br>forked <i class="fas fa-code-branch"></i> from another language (Ruby)</h2>
 			<br>
-			<h2>"forked" from other languages - we can take advantage of all they've learned</h2>
+			<h2>we can take advantage of all they've learned</h2>
+			<br>
+			<h2>&amp; both general purpose <br>work with current and future http pkgs</h2>
+		</section>
+
+		<section id="watch-other-langs">
+			<h1>Other langs</h1>
+			<br>
+			<h2>keep an eye <i class="fas fa-eye"></i> out for other languages <br><br>what good ideas can we adopt in R land</h2>
 		</section>
 
 		<section id="webmockr">
 			<h1>webmockr - mock http requests</h1>
 			<br>
-			<h3>arose: because needed to make vcr</h3>
+			<h2>arose: because needed to make vcr</h2>
 			<br>
-			<h3><i class="fab fa-github"></i> <a href="https://github.com/ropensci/webmockr/">ropensci/webmockr</a></h3>
+			<h2><i class="fab fa-github"></i> <a href="https://github.com/ropensci/webmockr/">ropensci/webmockr</a></h2>
 		</section>
 
 		<section id="webmockr-what-does-it-do">
@@ -310,7 +331,7 @@
 			<br>
 			<h3>if it matches you get what you set to <font color="orange">return</font></h3>
 			<br>
-			<h3>if it doesn't match: <font color="grey">error</font></h3>
+			<h3>if it doesn't match: <font color="pink">error</font></h3>
 		</section>
 
 		<section id="webmockr-hooks-into">
@@ -469,7 +490,7 @@
 			<br>
 			<h3>arose: observing other language communities &amp;<br>need to improve testing in many API clients</h3>
 			<br>
-			<h3><i class="fab fa-github"></i> <a href="https://github.com/ropensci/vcr/">ropensci/vcr</a></h3>
+			<h2><i class="fab fa-github"></i> <a href="https://github.com/ropensci/vcr/">ropensci/vcr</a></h2>
 		</section>
 
 		<section id="vcr-was-hard">
@@ -496,7 +517,7 @@
 end
 				```
 
-				<br>WTF?<br><br>
+				<br>
 
 				### R
 
@@ -520,20 +541,16 @@ end
 				<br>
 
 				### in R we can do
-
+				<br>
 				```r
-				assignInNamespace(
-				  x = "some_object", 
-				  vale = function(e) e,
-				  ns = "some_other_pkg"
-				)
+				assignInNamespace("some_object", value = function(e) e, ns = "some_other_pkg")
 				```
 				<br>
-				But this will not be allowed on CRAN
+				### But not allowed on CRAN
 			</script>
 		</section>
 
-		<section id="vcr-totally-didnt-get-it-cry">
+		<section id="vcr-totally-didnt-get-it-cry" class="center">
 			<h1>vcr - how does it work?</h1>
 			<br>
 			<i class="fas fa-sad-tear fa-6x"></i>
@@ -542,7 +559,7 @@ end
 		<section id="vcr-totally-didnt-get-it">
 			<h1>vcr - how does it work?</h1>
 			<br>
-			<h3>I thought vcr worked by "listening for" <i class="fas fa-headphones-alt"></i> requests in R</h3>
+			<h3>I thought vcr worked by listening <i class="fas fa-headphones-alt"></i> for requests in R</h3>
 			<br>
 			<h3>realized it most definitely did not</h3>
 			<br>
@@ -562,37 +579,6 @@ end
 			<br>
 			<h3>not the remote service</h3>
 			<h4>(p.s. great for rate-limited services)</h4>
-		</section>
-
-		<section data-markdown id="vcr-example">
-			<script>
-				## vcr - a brief example
-
-				```r
-				library(vcr)
-				library(crul)
-
-				cli <- crul::HttpClient$new(url = "https://api.crossref.org")
-				use_cassette(name = "helloworld", {
-					res1 <- cli$get("works", query = list(rows = 3))
-				})
-				```
-
-				Do the request again
-				
-				```r
-				use_cassette(name = "helloworld", {
-					res2 <- cli$get("works", query = list(rows = 3))
-				})
-				```
-
-				Identical responses
-
-				```r
-				identical(res1$parse(), res2$parse())
-				#> [1] TRUE
-				```
-			</script>
 		</section>
 
 		<section data-markdown id="vcr-cassette">
@@ -635,6 +621,37 @@ end
 			</script>
 		</section>
 
+		<section data-markdown id="vcr-example">
+			<script>
+				## vcr - a brief example
+
+				```r
+				library(vcr)
+				library(crul)
+
+				cli <- crul::HttpClient$new(url = "https://api.crossref.org")
+				use_cassette(name = "helloworld", {
+					res1 <- cli$get("works", query = list(rows = 3))
+				})
+				```
+
+				Do the request again
+				
+				```r
+				use_cassette(name = "helloworld", {
+					res2 <- cli$get("works", query = list(rows = 3))
+				})
+				```
+
+				Identical responses
+
+				```r
+				identical(res1$parse(), res2$parse())
+				#> [1] TRUE
+				```
+			</script>
+		</section>
+
 		<section data-markdown id="vcr-speed">
 			<script>
 				# speeds up your tests
@@ -667,7 +684,7 @@ Duration: 35.6 s
 			</script>
 		</section>
 
-		<section id="vcr-all-clients">
+		<!-- <section id="vcr-all-clients">
 			<h1>vcr - client agnostic</h1>
 			<br>
 			<ul class="b">
@@ -675,32 +692,40 @@ Duration: 35.6 s
 				<li><h3 align="left">works w/ httr</h3></li>
 				<li><h3 align="left">curl? (maybe)</h3></li>
 			</ul>
-		</section>
+		</section> -->
 
 		<section id="vcr-in-the-works">
 			<h1>vcr - in the works</h1>
 			<br>
 			<ul class="b">
 			   <li><h3 align="left">JSON cassettes</h3></li>
-	           <li><h3 align="left">testthat reporter for cassette usage</h3></li>
-	           <li><h3 align="left">dates, ugh</h3></li>
-	           <li><h3 align="left">data security, always more to do</h3></li>
-	           <li><h3 align="left">responses writen to disk</h3></li>
-	           <li><h3 align="left">docs: <a href="https://ropenscilabs.github.io/http-testing-book/">http testing book</a></h3></li>
+	           <li><h3 align="left"><code>testthat</code> reporter for cassette usage</h3></li>
+	           <li><h3 align="left">dates <i class="fas fa-dizzy"></i>&nbsp;<i class="fas fa-calendar-alt">&nbsp;</i><i class="fas fa-dizzy"></i></h3></li>
+	           <li><h3 align="left">data security <i class="fas fa-lock" style="color:green"></i>, always more to do</h3></li>
+	           <li><h3 align="left">responses written to disk</h3></li>
+	           <li><h3 align="left">docs: <a href="http://bit.ly/http-testing">http testing book - bit.ly/http-testing</a></h3></li>
 	           <li><h3 align="left">many more ...</h3></li>
 	      	</ul>
 			<br>
 			<h2>help appreciated!</h2>
 		</section>
 
+		<!-- <section id="conclusion">
+			<h3><i class="fab fa-github"></i> <a href="https://github.com/ropensci/crul/">ropensci/crul</a></h3>
+			<br>
+			<h3><i class="fab fa-github"></i> <a href="https://github.com/ropensci/webmockr/">ropensci/webmockr</a></h3>
+			<br>
+			<h3><i class="fab fa-github"></i> <a href="https://github.com/ropensci/vcr/">ropensci/vcr</a></h3>
+		 --></section>
+
 		<section id="further-reading">
 			<h1>further reading</h1>
 			<br>
 			<i class="fas fa-book-open fa-3x"></i>
 			<br><br>
-			<h2>HTTP Testing Book:<br><a href="https://ropenscilabs.github.io/http-testing-book/">ropenscilabs.github.io/http-testing-book</a></h2>
+			<h2>HTTP Testing Book:<br><a href="http://bit.ly/http-testing">bit.ly/http-testing</a></h2>
 			<br>
-			<h3>crul/webmockr/vcr in detail - w/ caveats/edge cases/etc.</h3>
+			<h3>crul/webmockr/vcr in detail <br>w/ caveats/edge cases/etc.</h3>
 		</section>
 
 		<section id="bib" class="center">
