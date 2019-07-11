@@ -396,6 +396,10 @@
 
 				```r
 				library(httr)
+				library(webmockr)
+				```
+
+				```r
 				GET("https://httpbin.org/get")
 				#> Error: Real HTTP connections are disabled.
 				#> Unregistered request:
@@ -420,12 +424,11 @@
 
 				```r
 				upload_file_job_json <- jsonlite::read_json("upload-file-job-2.json")
-				mockery::stub(upload_forecast, 'httr::upload_file', NULL)
-				stub_request('post', uri='http://example.com/api/model/1/forecasts/') %>%
+				stub_request('post', 'http://example.com/api/model/1/forecasts/') %>%
 					to_return(
-					  body=upload_file_job_json,
-					  status=200,
-					  headers=list('Content-Type'='application/json; charset=utf-8')
+					  body = upload_file_job_json,
+					  status = 200,
+					  headers = list('Content-Type'='application/json; charset=utf-8')
 					)
 				```
 
@@ -434,11 +437,9 @@
 				<br>
 
 				```r
-				test_that('create_database works with mock', {
-				  stub_request("post", "https://api.treasuredata.com/v3/database/create/test") %>%
-				    to_return(body = "{}", status = 200)
-				  expect_true(create_database(conn, "test"))
-				})
+				stub_request("post", "https://api.treasuredata.com/v3/database/create/test") %>%
+					to_return(body = "{}", status = 200)
+				expect_true(create_database(conn, "test"))
 				```
 
 				src: <https://github.com/cran/RTD>
@@ -564,22 +565,16 @@ end
 			</script>
 		</section>
 
-		<section data-markdown id="vcr-monkey-patching">
-			<script>
-				## vcr - no monkey patching in R!
-
-				### Allowed in Ruby, but not in R
-
-				<br>
-
-				### in R we can do
-				<br>
-				```r
-				assignInNamespace("some_object", value = function(e) e, ns = "some_other_pkg")
-				```
-				<br>
-				### But not allowed on CRAN
-			</script>
+		<section id="vcr-monkey-patching">
+			<h2>vcr - no monkey patching in R!</h2>
+			<br>
+			<h3>Allowed in Ruby, but not in R</h3>
+			<br>
+			<h3>in R we can use</h3>
+			<br>
+			<code style="font-size: 45px; color: #efef8f">assignInNamespace()</code>
+			<br><br><br>
+			<h3>But not allowed on CRAN</h3>
 		</section>
 
 		<section data-markdown id="vcr-cassette">
@@ -655,9 +650,9 @@ end
 
 		<section data-markdown id="vcr-speed">
 			<script>
-				# vcr - speeds up your tests
+				## vcr - speeds up your tests
 
-				## w/o vcr
+				### w/o vcr
 
 				```r
 				➜ Rscript -e 'devtools::test()'
@@ -670,7 +665,7 @@ Testing worrms
 Duration: 141.0 s
 				```
 
-				## w/ vcr
+				### w/ vcr
 
 				```r
 				➜ Rscript -e 'devtools::test()'
@@ -696,7 +691,7 @@ Duration: 35.6 s
 		</section> -->
 
 		<section id="vcr-in-the-works">
-			<h1>vcr - in the works</h1>
+			<h2>vcr - in the works</h2>
 			<br>
 			<ul class="b">
 			   <li><h3 align="left">JSON cassettes</h3></li>
