@@ -1,0 +1,310 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>staypuft</title>
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/black.css">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- solarized theme -->
+		<!-- <link rel="stylesheet" href="css/theme/solarized.css" id="theme"> -->
+
+		<!-- google fonts -->
+		<link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro' rel='stylesheet' type='text/css'>
+
+		<!-- fontawesome -->
+		<!-- <link rel="stylesheet" href="css/fontawesome-free-5.0.13/web-fonts-with-css/css/fontawesome-all.css"> -->
+		<script defer src="https://use.fontawesome.com/releases/v5.7.2/js/all.js" integrity="sha384-0pzryjIRos8mFBWMzSSZApWtPl/5++eIfzYmTgBBmXYdhvxPc+XcFEk+zJwDgWbP" crossorigin="anonymous"></script>
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+
+		<style type="text/css">
+			#rotate_text {
+				-webkit-transform: rotate(-90deg);
+				-moz-transform: rotate(-90deg);
+				transform: rotate(-90deg);
+				position: absolute;
+				vertical-align: middle;
+				position: absolute;
+    		top: 500px;
+    		left: -50px;
+				filter:progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+			}
+
+			.reveal section ul.a {list-style-type: circle; margin: 0; padding: 0;}
+			.reveal section ul.b {list-style-type: square; margin-left: 4; padding-left: 0;}
+
+			/*.reveal section img {border: none;}*/
+
+			.center-block {
+			  display: block;
+			  margin-left: auto;
+			  margin-right: auto;
+			}
+
+			.reveal table th, td {
+			  padding: 0px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+
+		<section id="title-slide" class="center">
+			<h1>staypuft: object validation and serialization</h1>
+			<h2>&amp; should this even be a package?</h2>
+			<br><br>
+			<p class="grey">Scott Chamberlain (<i class="fab fa-twitter"></i> <a href="https://twitter.com/sckottie">@sckottie</a>)<br>
+			<br>
+			<span><img src="img/icon_lettering_white.svg" alt="rOpenSci" width="400" /></span><br>
+		</section>
+
+		<section id="pain-point">
+			<h1>pain point: serialization</h1>
+			<br>
+			<h2>converting data in one format to another format</h2>
+			<br>
+			<h2>especially painful when complex</h2>
+		</section>
+
+		<section id="python">
+			<h1>other languages have good ideas</h1>
+			<br>
+			<h2>marshmallow - a Python library</h2>
+			<h2><a href="https://github.com/marshmallow-code/marshmallow/">marshmallow</a></h2>
+			<br>
+			<blockquote>A lightweight library for converting complex objects to and from simple Python datatypes.</blockquote>
+			<!-- <h3>A lightweight library for converting complex objects to and from simple Python datatypes.</h3> -->
+		</section>
+
+		<section data-markdown id="marshmallow-eg" style="font-size: 48px">
+			<script type="text/template">
+			## An example with marshmallow
+			```python
+			from datetime import date
+			from marshmallow import Schema, fields, pprint
+
+			class ArtistSchema(Schema):
+			    name = fields.Str()
+
+			class AlbumSchema(Schema):
+			    title = fields.Str()
+			    release_date = fields.Date()
+			    artist = fields.Nested(ArtistSchema())
+
+			bowie = dict(name='David Bowie')
+			album = dict(artist=bowie, title='Hunky Dory', release_date=date(1971, 12, 17))
+
+			schema = AlbumSchema()
+			result = schema.dump(album)
+			# { 'artist': {'name': 'David Bowie'},
+			#   'release_date': '1971-12-17',
+			#   'title': 'Hunky Dory'}
+
+			album = dict(artist=bowie, title='Hunky Dory', release_date="2020-04-14")
+			schema.dump(album)
+			# ValidationError: {'release_date': ['"2020-04-14" cannot be formatted as a date.']}
+			```
+			</script>
+		</section>
+
+		<section id="back-to-r" class="center">
+			<h1>back to R</h1>
+		</section>
+
+		<section id="similar-art">
+			<h2>similar art in R</h2>
+			<ul>
+				<li><h2 align="left">assertr (assertions for analysis pipeline)</h2></li>
+				<li><h2 align="left">validate (very similar to assertr AFAICT)</h2></li>
+				<li><h2 align="left">errorlocate (find errors in datasets)</h2></li>
+				<br>
+				<li><h2 align="left">any others?</h2></li>
+			</ul>
+		</section>
+
+		<section id="staypuft-image" class="center">
+			<h1><font color="#bf3e4a">staypuft</font></h1><br>
+			<img src="img/staypuft.jpg" width="500">
+			<br>
+		</section>
+
+		<section id="staypuft-code" class="center">
+			<h1><i class="fab fa-github"></i>&nbsp;<a href="https://github.com/ropensci/staypuft">ropensci/staypuft</a></h1>
+		</section>
+
+		<section data-markdown id="staypuft-eg" style="font-size: 52px">
+			<script type="text/template">
+			## An example with staypuft
+			```R
+			library(staypuft)
+
+			MySchema <- Schema$new("MySchema",
+			  name = puft_fields$character(),
+			  title = puft_fields$character(),
+			  num = puft_fields$integer(),
+			  uuid = puft_fields$uuid(),
+			  foo = puft_fields$boolean()
+			)
+			x <- list(name = "Jane Doe", title = "Howdy doody", num = 5.5, 
+			    uuid = "9a5f6bba-4101-48e9-a7e3-b5ac456a04b5",
+			    foo = TRUE)
+
+			# all good
+			MySchema$dump_json(x)
+			#> {"name":["Jane Doe"],"title":["Howdy doody"],"num":[5.5],
+			#>  "uuid":["foo-bar"],"foo":[true]}
+
+			# invalid uuid
+			x$uuid <- "foo-bar"
+			MySchema$load(data = x)
+			#> Error: ValidationError: Not a valid UUID.
+			```
+			</script>
+		</section>
+
+		<section id="why">
+			<h2>why?/use cases</h2>
+			<ul>
+				<li><h2>data validation: lots of potential users</h2></li>
+				<li><h2>remote data sources can change: schemas help validate and catch changes</h2></li>
+				<li><h2>use in scripts (most researchers): help raise issues with scripts as time goes on and data inputs change</h2></li>
+				<li><h2>using R with plumbr or similar: convert data to serve to API or consume from API request bodies</h2></li>
+			</ul>
+		</section>
+
+		<section id="features">
+			<h2>features</h2>
+			<ul>
+				<li><h2>user created schemas specifying data structure, data types, what to return, etc.</h2></li>
+				<li><h2>seralize among object types (R6/data.frame/JSON/custom)</h2></li>
+				<li><h2>make dealing with nested data easier</h2></li>
+				<li><h2>specify required fields</h2></li>
+				<li><h2>specify default fields</h2></li>
+				<li><h2>specify order of output fields</h2></li>
+			</ul>
+		</section>
+
+		<section id="to-do">
+			<h2>To do</h2>
+			<ul>
+				<li><h2 align="left">Nested data - this could be huge, reducing pain in flattening out nested data</h2></li>
+				<li><h2 align="left">Lots more 'field' types: url, email, (domain specific types)</h2></li>
+				<li><h2 align="left">Probably add an easier to use interface, less R6'y</h2></li>
+				<!-- <li><h2 align="left"></h2></li> -->
+			</ul>
+		</section>
+
+		<!-- should this be a package section -->
+		<section id="should-this-even" class="center">
+			<h1>wait ...<br>should this even be a package though?</h1>
+		</section>
+
+		<section id="zooming-out">
+			<h1>When I should not make software</h1>
+			<br>
+			<ul>
+				<li><h2>the pkg doesn't solve actual use cases</h2></li>
+				<li><h2>there's significant overlap with existing solutions</h2></li>
+				<ul>
+					<li><h2>and maintainers are responsive</h2></li>
+				</ul>
+				<li><h2>I can't envision maintaining the package for the long run</h2></li>
+				<li><h2>I lack sufficient knowledge in the topic area</h2></li>
+				<li><h2>there's higher priority/lowering hanging fruit</h2></li>
+			</ul>
+		</section>
+
+		<section id="silly">
+			<h1>not arguing against sillyness</h1>
+			<img src="img/cowsay.png" width="1200">
+		</section>
+
+		<section id="elephant-in-the-room">
+			<h1>elephant in the room ...</h1>
+			<img src="img/elephant.jpeg" width="500">
+			<!-- <small></small> -->
+			<h1>aren't you just re-making <strong>S4</strong>?</h1>
+			<footer style="font-size: 20px"><a href="https://www.flickr.com/photos/132377151@N04/19362503242">"Perceptiveness- Elephant in the Room" by bunkaryudo is licensed under CC PDM 1.0</a></footer>
+		</section>
+
+		<section data-markdown id="s4-eg" style="font-size: 60px">
+			<script type="text/template">
+			## S4 e.g.
+			```R
+			setClass("BMI", representation(weight="numeric", size="numeric"))
+			new("BMI", weight="Hello", size=1.84)
+			#> Error in validObject(.Object) :
+#>   invalid class “BMI” object: invalid object for slot "weight"
+#>   in class "BMI": got class "character",
+#>   should be or extend class "numeric"
+			setValidity # check validity
+			```
+			</script>
+		</section>
+
+		<section id="use-cases">
+			<h1>Use cases</h1>
+			<br>
+			<h2>For <code>staypuft</code>, likely many users</h2>
+			<br>
+			<h2>Everyone deals with objects in R</h2>
+		</section>
+
+		<section id="maintaining-packages">
+			<h1>higher priority/lower hanging fruit</h1>
+			<br>
+			<ul>
+				<li><h2>I've got many other packages</h2></li>
+				<li><h2>Many of which have many users</h2></li>
+				<li><h2>What if new package has a huge impact though?</h2></li>
+				<ul>
+					<li><h2>How would I know?</h2></li>
+				</ul>
+			</ul>
+		</section>
+
+		<section id="thoughts" class="center">
+			<h1>the end</h1>
+		</section>
+
+			</div>
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+			// More info about config & dependencies:
+			// - https://github.com/hakimel/reveal.js#configuration
+			// - https://github.com/hakimel/reveal.js#dependencies
+			Reveal.initialize({
+				history: true,
+				center: false,
+				width: 1400,
+				height: 900,
+				transition: "none",
+				dependencies: [
+					{ src: 'plugin/markdown/marked.js' },
+					{ src: 'plugin/markdown/markdown.js' },
+					{ src: 'plugin/notes/notes.js', async: true },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+				]
+			});
+		</script>
+	</body>
+</html>
