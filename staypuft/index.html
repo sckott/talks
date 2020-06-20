@@ -138,42 +138,77 @@
 		</section>
 
 		<section id="staypuft-image" class="center">
-			<h1><font color="#bf3e4a">staypuft</font></h1><br>
+			<!-- <h1><font color="#bf3e4a">staypuft</font></h1><br> -->
+			<h1><i class="fab fa-github"></i>&nbsp;<a href="https://github.com/ropensci/staypuft">ropensci/staypuft</a></h1>
 			<img src="img/staypuft.jpg" width="500">
 			<br>
 		</section>
 
-		<section id="staypuft-code" class="center">
-			<h1><i class="fab fa-github"></i>&nbsp;<a href="https://github.com/ropensci/staypuft">ropensci/staypuft</a></h1>
-		</section>
+		<!-- <section id="staypuft-code" class="center">
+		</section> -->
 
-		<section data-markdown id="staypuft-eg" style="font-size: 52px">
+		<section data-markdown id="staypuft-eg" style="font-size: 48px">
 			<script type="text/template">
 			## An example with staypuft
 			```R
 			library(staypuft)
-
 			MySchema <- Schema$new("MySchema",
-			  name = puft_fields$character(),
-			  title = puft_fields$character(),
-			  num = puft_fields$integer(),
-			  uuid = puft_fields$uuid(),
-			  foo = puft_fields$boolean()
+			  num = fields$integer(),
+			  uuid = fields$uuid(),
+			  foo = fields$boolean()
 			)
-			x <- list(name = "Jane Doe", title = "Howdy doody", num = 5.5, 
-			    uuid = "9a5f6bba-4101-48e9-a7e3-b5ac456a04b5",
-			    foo = TRUE)
+			x <- list(num=5, uuid="9a5f6bba-4101-48e9-a7e3-b5ac456a04b5", foo=TRUE)
 
 			# all good
 			MySchema$dump_json(x)
-			#> {"name":["Jane Doe"],"title":["Howdy doody"],"num":[5.5],
-			#>  "uuid":["foo-bar"],"foo":[true]}
+			#> {"name":["Jane Doe"],"title":["Howdy doody"],"num":[5.5], ...
 
 			# invalid uuid
-			x$uuid <- "foo-bar"
-			MySchema$load(data = x)
+			z <- x
+			z$uuid <- "foo-bar"
+			MySchema$load(z)
 			#> Error: ValidationError: Not a valid UUID.
+
+			# invalid boolean
+			w <- x
+			w$foo <- "stuff"
+			MySchema$load(x)
+			#> Error: ValidationError: Not a valid boolean.
 			```
+			</script>
+		</section>
+
+		<section data-markdown id="use-case" style="font-size: 42px">
+			<script type="text/template">
+				## Use case: convert each thing to an S3 class
+				```R
+				z <- Schema$new("ArtistSchema",
+				  name = fields$character(),
+				  role = fields$character(data_key="foo_bar"),
+				  post_load = {
+				    function(x) structure(x, class = "Artist")
+				  },
+				  unknown = "exclude"
+				)
+				print.Artist <- function(x) {
+				  cat("Artist\n")
+				  cat(sprintf("  name/role: %s/%s\n", x$name, x$role))
+				}
+
+				artists <- list(
+				  list(name="David Bowie", foo_bar="lead", instrument="voice"),
+				  list(name="Michael Jackson", foo_bar="lead", instrument="voice")
+				)
+				json <- jsonlite::toJSON(artists)
+				z$load_json(json, simplifyVector = FALSE, many = TRUE)
+				#> [[1]]
+				#> Artist
+				#>   name/role: David Bowie/lead
+				#> 
+				#> [[2]]
+				#> Artist
+				#>   name/role: Michael Jackson/lead
+				```
 			</script>
 		</section>
 
@@ -187,7 +222,7 @@
 			</ul>
 		</section>
 
-		<section id="features">
+		<!-- <section id="features">
 			<h2>features</h2>
 			<ul>
 				<li><h2>user created schemas</h2></li>
@@ -197,17 +232,19 @@
 				<li><h2>specify default fields</h2></li>
 				<li><h2>specify order of output fields</h2></li>
 			</ul>
-		</section>
+		</section> -->
 
 		<section id="to-do">
 			<h2>To do</h2>
 			<ul>
-				<li><h2 align="left">Nested data - this could be huge, reducing pain in flattening out nested data</h2></li>
-				<li><h2 align="left">Lots more 'field' types: url, email, (domain specific types)</h2></li>
+				<li><h2 align="left">Nested data works - but needs more testing</h2></li>
+				<li><h2 align="left">Add more 'field' types: url, email, (domain specific types)</h2></li>
+				<li><h2 align="left">Add support for user-defined fields</h2></li>
 				<li><h2 align="left">Probably add an easier to use interface, less R6'y</h2></li>
 				<!-- <li><h2 align="left"></h2></li> -->
 			</ul>
 		</section>
+
 
 		<!-- should this be a package section -->
 		<section id="should-this-even" class="center">
@@ -215,7 +252,7 @@
 		</section>
 
 		<section id="zooming-out">
-			<h1>When I should not make software</h1>
+			<h1>When should I not make a pkg?</h1>
 			<!-- <br> -->
 			<ul>
 				<li><h2>the pkg doesn't solve actual use cases</h2></li>
@@ -223,14 +260,22 @@
 				<ul>
 					<li><h2>and maintainers are responsive</h2></li>
 				</ul>
-				<li><h2>I can't envision maintaining the package for the long run</h2></li>
-				<li><h2>I lack sufficient knowledge in the topic area</h2></li>
+				<!-- <li><h2>I can't envision maintaining the pkg for the long run</h2></li> -->
+				<!-- <li><h2>I lack sufficient knowledge in the topic area</h2></li> -->
 				<li><h2>there's higher priority/lowering hanging fruit</h2></li>
 			</ul>
 		</section>
 
+		<section id="use-cases">
+			<h1>Use cases</h1>
+			<br>
+			<h2>For <code>staypuft</code>, likely many users</h2>
+			<br>
+			<h2>Everyone deals with objects in R</h2>
+		</section>
+
 		<section id="silly">
-			<h1>not arguing against sillyness</h1>
+			<h1>&amp; I'm not against sillyness</h1>
 			<img src="img/cowsay.png" width="1200">
 		</section>
 
@@ -252,18 +297,20 @@
 #>   invalid class “BMI” object: invalid object for slot "weight"
 #>   in class "BMI": got class "character",
 #>   should be or extend class "numeric"
-			setValidity # check validity
 			```
+			<br>
+			### But I think staypuft use cases are sufficiently different
 			</script>
 		</section>
 
-		<section id="use-cases">
-			<h1>Use cases</h1>
+		<!-- <section id="lack-knowledge">
+			<h1>do I have sufficient knowledge?</h1>
 			<br>
-			<h2>For <code>staypuft</code>, likely many users</h2>
-			<br>
-			<h2>Everyone deals with objects in R</h2>
-		</section>
+			<ul>
+				<li><h2>maybe not</h2></li>
+				<li><h2>but very willing to learn</h2></li>
+			</ul>
+		</section> -->
 
 		<section id="maintaining-packages">
 			<h1>higher priority/lower hanging fruit</h1>
@@ -278,9 +325,18 @@
 			</ul>
 		</section>
 
-		<section id="thoughts" class="center">
-			<h1>the end</h1>
+		<section id="wrapping-up">
+			<h1>So...</h1>
+			<br>
+			<h1>staypuft future is unclear</h1>
+			<h1>if you're interested:</h1>
+			<h1><i class="fab fa-github"></i>&nbsp;<a href="https://github.com/ropensci/staypuft">ropensci/staypuft</a></h1>
+			<h2><i class="fas fa-file-pdf"></i>&nbsp;<a href="https://scotttalks.info/staypuft/">scotttalks.info/staypuft</a></h2>
 		</section>
+
+		<!-- <section id="thoughts" class="center">
+			<h1>the end</h1>
+		</section> -->
 
 			</div>
 		</div>
